@@ -14,7 +14,9 @@ from bisect import bisect_left, bisect_right
 
 
 #python corenlp/corenlp.py -H localhost -p 3455 -S stanford-corenlp-full-2013-06-20/
+#python corenlp/fextractor.py
 
+listspath='../lists/'#'../../../FA13/NLP/codes/lists/'
 class FeatureExtractor(object):
     
     
@@ -45,13 +47,14 @@ class FeatureExtractor(object):
         self.corpusFromDB()
         
     def executeExtractor(self):
-        classifier=self.train_model()
-        classifier.show_most_informative_features(100)
-        return classifier
+        train_set=self.train_model()
+        dt_classifier = nltk.DecisionTreeClassifier.train(train_set)
+        #nb_classifier = nltk.NaiveBayesClassifier.train(train_set)
+       
+        dt_classifier.show_most_informative_features(100)
+        return dt_classifier
  
-    def preprocess(self,doc):
-        return nltk.Text([self.stemmer.stem(w.lower()) for w in nltk.word_tokenize(doc) if len(w) >= 1])
-
+    
     
     # whether the words -2, -1, 0, 1, 2 is in the list
 
@@ -72,11 +75,12 @@ class FeatureExtractor(object):
             
         if(index < len(words)-2 and words[index+2] in lst):
                 result[4]=True
+        print "word: %s %d"%(words[index], result[2])
         return result
 
     def preprocessDescriptiveness(self):
    
-        dfile  = open("../../../FA13/NLP/codes/ImageryRatings.csv", "rb")
+        dfile  = open(listspath+"ImageryRatings.csv", "rb")
         reader = csv.reader(dfile)
         next(reader, None)
     
@@ -103,7 +107,7 @@ class FeatureExtractor(object):
             f = open(url);
             raw = f.read()
             f.close()
-            text = self.preprocess(raw)
+            text = nltk.Text([self.preprocessEachWord(w) for w in nltk.word_tokenize(doc) if len(w) >= 1])
             self.texts.append(text)
 
     #Load the list of texts into a TextCollection object.
@@ -115,7 +119,8 @@ class FeatureExtractor(object):
         c.execute("SELECT * from Documents")
         rowall=c.fetchall()
         for row in rowall:
-            text=self.preprocess(nltk.clean_html(row[1]))
+            doc=nltk.clean_html(row[1])
+            text=nltk.Text([self.preprocessEachWord(w) for w in nltk.word_tokenize(doc) if len(w) >= 1])
             self.texts[int(row[0])]=text
         self.collection=nltk.TextCollection(self.texts.values())
         
@@ -155,21 +160,23 @@ class FeatureExtractor(object):
         #pprint (self.coreParsed)
  
         
-        
+    def preprocessEachWord(self, word):
+        return self.stemmer.stem(word.lower())    
        
    
-    # %d is the word itself's location in -2, -1, 0, 1, 2 (or for bigram 0, 1)        
-    def generateFeatures(self, index, words, lst):
+    # %d is the word itself's location in -2, -1, 0, 1, 2 (or for bigram 0, 1)  
+    #feature for a word      
+    def generateFeatures(self, index, words):
         global dsp_dict
-        fnames=["word", "word_bigram:%d", "word_trigram %d:", "pos_unigram:", "pos_bigram %d", "pos_trigram %d","is subjective:%d", "sentence length:", 'descriptiveness:%d', 'isInTitle:%d', 'TFIDF:']
+        fnames=["word", "word_bigram:%d", "word_trigram %d:", "pos_unigram:", "pos_bigram %d", "pos_trigram %d","sentence contains quotes:", "sentence length:", 'descriptiveness:%d', 'isInTitle:%d', 'TFIDF:']
         features={}
         text=['^']
         poses=['BEG']
         for wls in words:
-            text.append(self.stemmer.stem(wls[0].lower()))
-            text.append("^")
+            text.append(self.preprocessEachWord(wls[0]))
             poses.append(wls[1]['PartOfSpeech'])
-            poses.append('END')
+        text.append("^")
+        poses.append('END')
         #stemmed_words=[self.stemmer.stem(self.lemmer.lemmatize(w[])) for w in words] # stem or not?
         
         
@@ -202,10 +209,9 @@ class FeatureExtractor(object):
             features[fnames[2]%(-1)]="null"
             features[fnames[5]%(-1)]="null"
         
-        rls=self.whetherInList(lst, index, text)
+        features[fnames[6]]=('\"' in text or '\'' in text)
         
-        for i in range(len(rls)):
-            features[fnames[6]%(i-2)]=rls[i]
+       
             
         features[fnames[7]]=len(words)
         
@@ -217,7 +223,16 @@ class FeatureExtractor(object):
             else:
                 features[fnames[8]%i]='null'
                 features[fnames[9]%i]=False
-        features[fnames[10]]=self.TFIDF(text[index],self.texts[self.docID])   
+        features[fnames[10]]=self.TFIDF(text[index],self.texts[self.docID])  
+        
+        # all the lists
+        lstfiles=["subjective","report_verb","implicative","hedge","factive","bias-lexicon","assertive","negative-word", "positive-word"]
+        for known_lst in lstfiles:
+           
+            lst=[self.preprocessEachWord(line.strip()) for line in open(listspath+known_lst+".txt", 'r')]
+            rls=self.whetherInList(lst, index, text)
+            for i in range(len(rls)):
+                features[("is "+known_lst+" %d:")%(i-2)]=rls[i] 
         return features
     
             
@@ -246,7 +261,7 @@ class FeatureExtractor(object):
             
     def train_model(self):
         
-        lst=[line.strip() for line in open("../../../FA13/NLP/codes/subjectivelist.txt", 'r')]
+       
         train_set=[]
         
         for doc_id in self.texts.keys():
@@ -269,43 +284,43 @@ class FeatureExtractor(object):
             
             c.execute('SELECT char_annotation from Annotations WHERE doc_id = %s'%(doc_id,))
             rows=c.fetchall()
-            for row in rows:
-                indexStr=row[0]
-                if indexStr is None:
-                    continue
-                self.start_indices=[]
-                self.end_indices=[]
-                isents=indexStr.split('.')
-                del isents[-1]
-                for sentInd in isents:
-                    il=sentInd.split(" ")
-                    self.start_indices.append(int(il[0])) #title??
-                    self.end_indices.append(int(il[1]))
-                
+            
                 #pprint (self.coreParsed[0])
                 
-                for i in range(len(self.coreParsed)):
+            for i in range(len(self.coreParsed)):
                     #sent=self.coreParsed[i]['text']
-                    tuples=self.coreParsed[i]['dependencies']
+                tuples=self.coreParsed[i]['dependencies']
                     #pprint(tuples)
-                    words=self.coreParsed[i]['words'] #words are words properties
-                    for windex in range(len(words)):
+                words=self.coreParsed[i]['words'] #words are words properties
+                for windex in range(len(words)):
                     # print generateFeatures(windex,words,lst)
-                        f1=self.generateFeatures(windex,words,lst)
-                        for [rel, gov, sub] in tuples:
-                            thew=words[windex][0]
+                    f1=self.generateFeatures(windex,words)
+                    for [rel, gov, sub] in tuples:
+                        thew=words[windex][0]
                             
-                            if thew == gov:
-                                f1["dependency: %s %s"%(rel, 'gov')]=True
-                            elif thew == sub:
-                                f1["dependency: %s %s"%(rel,'sub')]=True
+                        if thew == gov:
+                            f1["dependency: %s %s"%(rel, 'gov')]=True
+                        elif thew == sub:
+                            f1["dependency: %s %s"%(rel,'sub')]=True
                             #else:
                                 #f1["dependency: %s %s"%(rel,'sub')]=False
                                 #f1["dependency: %s %s"%(rel, 'gov')]=False
-                        train_set.append((f1, self.isHighlighted(int(words[windex][1]['CharacterOffsetBegin'])+self.offsets[i],int(words[windex][1]['CharacterOffsetEnd'])+self.offsets[i])))
+                        for row in rows:
+                            indexStr=row[0]
+                            if indexStr is None:
+                                continue
+                            self.start_indices=[]
+                            self.end_indices=[]
+                            isents=indexStr.split('.')
+                            del isents[-1]
+                            for sentInd in isents:
+                                il=sentInd.split(" ")
+                                self.start_indices.append(int(il[0])) #title??
+                                self.end_indices.append(int(il[1]))
+                            train_set.append((f1, self.isHighlighted(int(words[windex][1]['CharacterOffsetBegin'])+self.offsets[i],int(words[windex][1]['CharacterOffsetEnd'])+self.offsets[i])))
             break
-        classifier = nltk.NaiveBayesClassifier.train(train_set)
-        return classifier
+        
+        return train_set
         
                             
         
