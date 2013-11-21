@@ -2,7 +2,7 @@
 #@Author: Crystal Qin
 from __future__ import division
 import nltk, MySQLdb,jsonrpclib
-import sys, re,random, numpy,os,time
+import sys, re,random, numpy,os,time,string
 from pprint import pprint
 import csv
 from nltk.stem.wordnet import WordNetLemmatizer
@@ -11,12 +11,13 @@ from json import loads
 from itertools import chain
 from corenlp import batch_parse
 from bisect import bisect_left, bisect_right
+from nltk.corpus import stopwords
 
-
+#experiment with stop words and puncts
 #python corenlp/corenlp.py -H localhost -p 3455 -S stanford-corenlp-full-2013-06-20/
 #python corenlp/fextractor.py
 
-listspath='../lists/'#'../../../FA13/NLP/codes/lists/'
+listspath='lists/'#'../../../FA13/NLP/codes/lists/'
 class FeatureExtractor(object):
     
     
@@ -48,10 +49,13 @@ class FeatureExtractor(object):
         
     def executeExtractor(self):
         train_set=self.train_model()
-        dt_classifier = nltk.DecisionTreeClassifier.train(train_set)
-        #nb_classifier = nltk.NaiveBayesClassifier.train(train_set)
+        print "Got train_set, start training models"
+        #dt_classifier = nltk.DecisionTreeClassifier.train(train_set)
+        nb_classifier = nltk.NaiveBayesClassifier.train(train_set)
        
-        dt_classifier.show_most_informative_features(100)
+        nb_classifier.show_most_informative_features(100)
+        dt_classifier = nltk.DecisionTreeClassifier.train(train_set)
+        dt_classifier.pp()
         return dt_classifier
  
     
@@ -263,7 +267,7 @@ class FeatureExtractor(object):
         
        
         train_set=[]
-        
+        puncts='#$&\()*+,-./:;<=>@[\\]^_`{|}~'
         for doc_id in self.texts.keys():
            
             self.docID=doc_id
@@ -293,7 +297,10 @@ class FeatureExtractor(object):
                     #pprint(tuples)
                 words=self.coreParsed[i]['words'] #words are words properties
                 for windex in range(len(words)):
-                    # print generateFeatures(windex,words,lst)
+                    
+                    #ignore punctuations
+                    if words[windex][0] in puncts:
+                        continue
                     f1=self.generateFeatures(windex,words)
                     for [rel, gov, sub] in tuples:
                         thew=words[windex][0]
