@@ -1,7 +1,7 @@
 #Different Feature Extractors
 #@Author: Crystal Qin
 from __future__ import division
-import nltk, MySQLdb,jsonrpclib
+import nltk, MySQLdb
 import sys, re,random, numpy,os,time,string
 from pprint import pprint
 import csv
@@ -30,6 +30,7 @@ class FeatureExtractor(object):
         self.dmid_high_cutoff=6.10
         self.dsp_dict={}
         self.server = jsonrpclib.Server("http://localhost:3455")
+        self.doc_sets={}
         
         #doc specific
         self.docID=0
@@ -44,19 +45,28 @@ class FeatureExtractor(object):
     def prepareExtractor(self):
         print 'execute extractor'
         self.preprocessDescriptiveness()
+        #extract sets
+        lstfiles=["subjective","report_verb","implicative","hedge","factive","bias-lexicon","assertive","negative-word", "positive-word"]
+        for known_lst in lstfiles:
+            self.doc_sets[known_lst]=set([self.preprocessEachWord(line.strip()) for line in open(listspath+known_lst+".txt", 'r')])
+          
         #Train Model
         self.corpusFromDB()
         
     def executeExtractor(self):
-        train_set=self.train_model()
+        featuresets=self.train_model()
         print "Got train_set, start training models"
         #dt_classifier = nltk.DecisionTreeClassifier.train(train_set)
+        size = int(len(featuresets) * 0.1)
+        train_set, test_set = featuresets[size:], featuresets[:size]
         nb_classifier = nltk.NaiveBayesClassifier.train(train_set)
        
-        nb_classifier.show_most_informative_features(100)
-        dt_classifier = nltk.DecisionTreeClassifier.train(train_set)
-        dt_classifier.pp()
-        return dt_classifier
+        nb_classifier.show_most_informative_features(50)
+        acc=nltk.classify.accuracy(nb_classifier, test_set)
+        print "accuracy is: %f"%acc
+        #dt_classifier = nltk.DecisionTreeClassifier.train(train_set)
+        #dt_classifier.pp()
+        #return dt_classifier
  
     
     
@@ -79,7 +89,7 @@ class FeatureExtractor(object):
             
         if(index < len(words)-2 and words[index+2] in lst):
                 result[4]=True
-        print "word: %s %d"%(words[index], result[2])
+        #print "word: %s %d"%(words[index], result[2])
         return result
 
     def preprocessDescriptiveness(self):
@@ -120,7 +130,7 @@ class FeatureExtractor(object):
     def corpusFromDB(self):
         db=MySQLdb.connect(host='eltanin.cis.cornell.edu', user='annotator',passwd='Ann0tateTh!s', db='FrameAnnotation')
         c=db.cursor()
-        c.execute("SELECT * from Documents")
+        c.execute("SELECT  DISTINCT(doc_id) FROM Annotations WHERE a_id > 125")
         rowall=c.fetchall()
         for row in rowall:
             doc=nltk.clean_html(row[1])
@@ -230,13 +240,13 @@ class FeatureExtractor(object):
         features[fnames[10]]=self.TFIDF(text[index],self.texts[self.docID])  
         
         # all the lists
-        lstfiles=["subjective","report_verb","implicative","hedge","factive","bias-lexicon","assertive","negative-word", "positive-word"]
-        for known_lst in lstfiles:
-           
-            lst=[self.preprocessEachWord(line.strip()) for line in open(listspath+known_lst+".txt", 'r')]
-            rls=self.whetherInList(lst, index, text)
-            for i in range(len(rls)):
-                features[("is "+known_lst+" %d:")%(i-2)]=rls[i] 
+        #lstfiles=["subjective","report_verb","implicative","hedge","factive","bias-lexicon","assertive","negative-word", "positive-word"]
+        for known_set in self.doc_sets.keys():
+            features[("is "+known_set+" %d:")%(0)]=(text[index] in self.doc_sets[known_set]) 
+            #lst=[self.preprocessEachWord(line.strip()) for line in open(listspath+known_lst+".txt", 'r')]
+            #rls=self.whetherInList(lst, index, text)
+            #for i in range(len(rls)):
+                #features[("is "+known_lst+" %d:")%(i-2)]=rls[i] 
         return features
     
             
