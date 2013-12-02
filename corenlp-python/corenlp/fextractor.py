@@ -1,8 +1,8 @@
 #Different Feature Extractors
 #@Author: Crystal Qin
 from __future__ import division
-import nltk, MySQLdb
-import sys, re,random, numpy,os,time,string
+import nltk, MySQLdb,jsonrpclib
+import sys, re,random,os,time,string
 from pprint import pprint
 import csv
 from nltk.stem.wordnet import WordNetLemmatizer
@@ -16,6 +16,7 @@ from nltk.corpus import stopwords
 #experiment with stop words and puncts
 #python corenlp/corenlp.py -H localhost -p 3455 -S stanford-corenlp-full-2013-06-20/
 #python corenlp/fextractor.py
+# cd /cygdrive/c/users/qin/cs_projects/tortoise/Research/corenlp-python
 
 listspath='lists/'#'../../../FA13/NLP/codes/lists/'
 class FeatureExtractor(object):
@@ -29,7 +30,7 @@ class FeatureExtractor(object):
         self.dlow_mid_cutoff= 3.48
         self.dmid_high_cutoff=6.10
         self.dsp_dict={}
-        self.server = jsonrpclib.Server("http://localhost:3455")
+        #self.server = jsonrpclib.Server("http://localhost:3455")
         self.doc_sets={}
         
         #doc specific
@@ -130,9 +131,11 @@ class FeatureExtractor(object):
     def corpusFromDB(self):
         db=MySQLdb.connect(host='eltanin.cis.cornell.edu', user='annotator',passwd='Ann0tateTh!s', db='FrameAnnotation')
         c=db.cursor()
-        c.execute("SELECT  DISTINCT(doc_id) FROM Annotations WHERE a_id > 125")
+        c.execute("SELECT  DISTINCT(doc_id),doc_html FROM Documents natural join Annotations WHERE a_id > 125")
+        
         rowall=c.fetchall()
         for row in rowall:
+            pprint(row)
             doc=nltk.clean_html(row[1])
             text=nltk.Text([self.preprocessEachWord(w) for w in nltk.word_tokenize(doc) if len(w) >= 1])
             self.texts[int(row[0])]=text
@@ -148,12 +151,17 @@ class FeatureExtractor(object):
    #extract for each article
     def extractDependency(self,text):  
         print "dependency extraction"
+        corenlp_dir = "stanford-corenlp-full-2013-06-20/"
+        corenlp = StanfordCoreNLP(corenlp_dir)  # wait a few minutes...
         sents=nltk.sent_tokenize(text)
         
         currTotal=0
         for sent in sents:
             print sent
-            result=self.server.parse(sent)
+            
+    
+    
+            result=corenlp.raw_parse(sent)
             #pprint(result)
             newlsts=(loads(result))['sentences']
             if self.coreParsed == []:

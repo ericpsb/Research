@@ -1,0 +1,18 @@
+1. need mysql installed
+
+2. git installed
+
+3. pip install MySQL-python
+
+4  Install Setuptools: http://pypi.python.org/pypi/setuptools
+Install Pip: run sudo easy_install pip
+Install Numpy (optional): run sudo pip install -U numpy
+Install PyYAML and NLTK: run sudo pip install -U pyyaml nltk
+Test installation: run python then type import nltk
+
+2. need to install
+sudo pip install pexpect unidecode jsonrpclib   
+    git clone https://bitbucket.org/torotoki/corenlp-python.git
+	  cd corenlp-python
+    wget http://nlp.stanford.edu/software/stanford-corenlp-full-2013-06-20.zip
+    unzip stanford-corenlp-full-2013-06-20.zip
