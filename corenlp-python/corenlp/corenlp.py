@@ -385,8 +385,10 @@ class StanfordCoreNLP:
         """
 
         # spawn the server
+	self.corenlp=None
         self.serving = serving
         self.start_corenlp = init_corenlp_command(corenlp_path, memory, properties)
+	#self.corenlp = pexpect.spawn(self.start_corenlp, timeout=60, maxread=8192, searchwindowsize=80)
         self._spawn_corenlp()
 
     def close(self, force=True):
@@ -397,7 +399,7 @@ class StanfordCoreNLP:
 
     def __del__(self):
         # If our child process is still around, kill it
-        if self.isalive():
+	if self.corenlp and self.isalive():
             self.close()
 
     def _parse(self, text):

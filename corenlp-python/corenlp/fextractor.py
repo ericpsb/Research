@@ -18,7 +18,7 @@ from nltk.corpus import stopwords
 #python corenlp/fextractor.py
 # cd /cygdrive/c/users/qin/cs_projects/tortoise/Research/corenlp-python
 
-listspath='lists/'#'../../../FA13/NLP/codes/lists/'
+listspath='lists/'
 class FeatureExtractor(object):
     
     
@@ -30,7 +30,7 @@ class FeatureExtractor(object):
         self.dlow_mid_cutoff= 3.48
         self.dmid_high_cutoff=6.10
         self.dsp_dict={}
-        #self.server = jsonrpclib.Server("http://localhost:3455")
+        self.server = jsonrpclib.Server("http://127.0.0.1:8080")
         self.doc_sets={}
         
         #doc specific
@@ -62,7 +62,7 @@ class FeatureExtractor(object):
         train_set, test_set = featuresets[size:], featuresets[:size]
         nb_classifier = nltk.NaiveBayesClassifier.train(train_set)
        
-        nb_classifier.show_most_informative_features(50)
+        nb_classifier.show_most_informative_features(100)
         acc=nltk.classify.accuracy(nb_classifier, test_set)
         print "accuracy is: %f"%acc
         #dt_classifier = nltk.DecisionTreeClassifier.train(train_set)
@@ -135,7 +135,7 @@ class FeatureExtractor(object):
         
         rowall=c.fetchall()
         for row in rowall:
-            pprint(row)
+          
             doc=nltk.clean_html(row[1])
             text=nltk.Text([self.preprocessEachWord(w) for w in nltk.word_tokenize(doc) if len(w) >= 1])
             self.texts[int(row[0])]=text
@@ -151,17 +151,16 @@ class FeatureExtractor(object):
    #extract for each article
     def extractDependency(self,text):  
         print "dependency extraction"
-        corenlp_dir = "stanford-corenlp-full-2013-06-20/"
-        corenlp = StanfordCoreNLP(corenlp_dir)  # wait a few minutes...
+        
         sents=nltk.sent_tokenize(text)
         
         currTotal=0
         for sent in sents:
-            print sent
+           
             
     
     
-            result=corenlp.raw_parse(sent)
+            result=self.server.parse(sent)
             #pprint(result)
             newlsts=(loads(result))['sentences']
             if self.coreParsed == []:
@@ -250,6 +249,7 @@ class FeatureExtractor(object):
         # all the lists
         #lstfiles=["subjective","report_verb","implicative","hedge","factive","bias-lexicon","assertive","negative-word", "positive-word"]
         for known_set in self.doc_sets.keys():
+	    print "%s in %s is %d"%(text[index], known_set, text[index] in self.doc_sets[known_set])
             features[("is "+known_set+" %d:")%(0)]=(text[index] in self.doc_sets[known_set]) 
             #lst=[self.preprocessEachWord(line.strip()) for line in open(listspath+known_lst+".txt", 'r')]
             #rls=self.whetherInList(lst, index, text)
@@ -265,12 +265,12 @@ class FeatureExtractor(object):
         if start_pos > 0 :
             end_val=self.end_indices[start_pos]
             if cstart <= end_val:
-                print '%d %d %d %d\n'%(self.start_indices[start_pos], end_val, cstart, cend)
+                #print '%d %d %d %d\n'%(self.start_indices[start_pos], end_val, cstart, cend)
                 return True
         if end_pos < len(self.end_indices):
             start_val=self.start_indices[end_pos]
             if start_val <= cend:
-                print '%d %d %d %d\n'%(start_val, self.end_indices[end_pos], cstart, cend)
+                #print '%d %d %d %d\n'%(start_val, self.end_indices[end_pos], cstart, cend)
                 return True
         
         #for start, end in self.indices:
@@ -287,7 +287,7 @@ class FeatureExtractor(object):
         train_set=[]
         puncts='#$&\()*+,-./:;<=>@[\\]^_`{|}~'
         for doc_id in self.texts.keys():
-           
+            print "Start Processing document: %d"%doc_id
             self.docID=doc_id
             self.offsets=[]
             self.coreParsed=[]
@@ -343,8 +343,8 @@ class FeatureExtractor(object):
                                 self.start_indices.append(int(il[0])) #title??
                                 self.end_indices.append(int(il[1]))
                             train_set.append((f1, self.isHighlighted(int(words[windex][1]['CharacterOffsetBegin'])+self.offsets[i],int(words[windex][1]['CharacterOffsetEnd'])+self.offsets[i])))
-            break
-        
+            
+        	break
         return train_set
         
                             
