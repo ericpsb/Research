@@ -6,6 +6,10 @@ import sys, re,random,os,time,string
 from pprint import pprint
 import csv
 from nltk.stem.wordnet import WordNetLemmatizer
+import math
+#from nltk.util import Deprecated
+import nltk.classify.util # for accuracy & log_likelihood
+from nltk.util import LazyMap
 from corenlp import StanfordCoreNLP
 from json import loads
 from itertools import chain
@@ -15,16 +19,21 @@ from nltk.corpus import stopwords
 
 #experiment with stop words and puncts
 #python corenlp/corenlp.py -H localhost -p 3455 -S stanford-corenlp-full-2013-06-20/
+#python corenlp/corenlp.py -S stanford-corenlp-full-2013-06-20/
 #python corenlp/fextractor.py
 # cd /cygdrive/c/users/qin/cs_projects/tortoise/Research/corenlp-python
-
+# training with 20, 30 and 50 randomly selected dataset
+# using annotation randomly to test. 
+# other classifiers decision trees 
+# logistical regression
+# googling around
 listspath='lists/'
 class FeatureExtractor(object):
     
     
     def __init__(self):
-        self.texts={};
-        self.collection=None;
+        self.texts={}
+        self.collection=None
         self.stemmer = nltk.PorterStemmer()#choice of stemmer
         self.lemmer = WordNetLemmatizer()
         self.dlow_mid_cutoff= 3.48
@@ -38,7 +47,7 @@ class FeatureExtractor(object):
         self.title_words=[]
         self.coreParsed=[]#the sentences(containing all its information) of this text
         self.offsets=[]
-        #annotation specific
+        #for all anotations of this doc
         self.start_indices=[]
         self.end_indices=[]
     
@@ -58,13 +67,39 @@ class FeatureExtractor(object):
         featuresets=self.train_model()
         print "Got train_set, start training models"
         #dt_classifier = nltk.DecisionTreeClassifier.train(train_set)
+        random.seed(123456)
+        random.shuffle(featuresets)
         size = int(len(featuresets) * 0.1)
         train_set, test_set = featuresets[size:], featuresets[:size]
+
+        # Train up a classifier.
+
         nb_classifier = nltk.NaiveBayesClassifier.train(train_set)
-       
         nb_classifier.show_most_informative_features(100)
         acc=nltk.classify.accuracy(nb_classifier, test_set)
         print "accuracy is: %f"%acc
+
+
+
+    # For classifiers that can find probabilities, show the log
+    # likelihood and some sample probability distributions.
+        try:
+            test_featuresets = [f for (f,l) in test_set]
+            pdists = nb_classifier.batch_prob_classify(test_featuresets)
+            ll = [pdist.logprob(gold)
+                  for ((f, gold), pdist) in zip(test_set, pdists)]
+            print('Avg. log likelihood: %6.4f' % (sum(ll)/len(test_set)))
+            print()
+            print('Unseen Names      P(Male)  P(Female)\n'+'-'*40)
+            for ((name, gender), pdist) in list(zip(test_set, pdists))[:5]:
+                if gender == 'True':
+                    fmt = '  %-15s *%6.4f   %6.4f'
+                else:
+                    fmt = '  %-15s  %6.4f  *%6.4f'
+                print(fmt % (name, pdist.prob('True'), pdist.prob('False')))
+        except NotImplementedError:
+             pass
+
         #dt_classifier = nltk.DecisionTreeClassifier.train(train_set)
         #dt_classifier.pp()
         #return dt_classifier
@@ -131,7 +166,7 @@ class FeatureExtractor(object):
     def corpusFromDB(self):
         db=MySQLdb.connect(host='eltanin.cis.cornell.edu', user='annotator',passwd='Ann0tateTh!s', db='FrameAnnotation')
         c=db.cursor()
-        c.execute("SELECT  DISTINCT(doc_id),doc_html FROM Documents natural join Annotations WHERE a_id > 125")
+        c.execute("SELECT  DISTINCT(doc_id),doc_html FROM Documents natural join Annotations WHERE doc_id != 1")#a_id > 125")
         
         rowall=c.fetchall()
         for row in rowall:
@@ -149,17 +184,15 @@ class FeatureExtractor(object):
     def TFIDF(self, word,document):
         return self.collection.tf_idf(word,document)
    #extract for each article
-    def extractDependency(self,text):  
+
+    def extractDependency(self,text):
         print "dependency extraction"
         
         sents=nltk.sent_tokenize(text)
         
         currTotal=0
+
         for sent in sents:
-           
-            
-    
-    
             result=self.server.parse(sent)
             #pprint(result)
             newlsts=(loads(result))['sentences']
@@ -167,9 +200,14 @@ class FeatureExtractor(object):
                 self.coreParsed=newlsts
             else:
                 self.coreParsed.extend(newlsts)
-            for smap in newlsts:
-                self.offsets.append(currTotal)
-                currTotal+=int(smap['words'][-1][1]['CharacterOffsetEnd'])
+            #pprint(newlsts)
+            sent_len=int(newlsts[-1]['words'][-1][1]['CharacterOffsetEnd'])
+
+            self.offsets.extend([currTotal for k in range(len(newlsts))])
+
+            pprint(newlsts)
+            currTotal+=sent_len
+            assert(sent_len==len(sent)),('parsed_leng %d != expected %d '%(sent_len, len(sent)))
         
         
     def extractDependencyLarge(self):
@@ -249,7 +287,7 @@ class FeatureExtractor(object):
         # all the lists
         #lstfiles=["subjective","report_verb","implicative","hedge","factive","bias-lexicon","assertive","negative-word", "positive-word"]
         for known_set in self.doc_sets.keys():
-	    print "%s in %s is %d"%(text[index], known_set, text[index] in self.doc_sets[known_set])
+	        #print "%s in %s is %d"%(text[index], known_set, text[index] in self.doc_sets[known_set])
             features[("is "+known_set+" %d:")%(0)]=(text[index] in self.doc_sets[known_set]) 
             #lst=[self.preprocessEachWord(line.strip()) for line in open(listspath+known_lst+".txt", 'r')]
             #rls=self.whetherInList(lst, index, text)
@@ -259,25 +297,28 @@ class FeatureExtractor(object):
     
             
  #cstart: the offset of the first char in the word, cend: the offset of the last char in the word       
-    def isHighlighted(self,cstart,cend):
-        start_pos=bisect_right(self.start_indices, cstart)-1 #right most that is <= cstart
-        end_pos=bisect_left(self.end_indices, cend) # left most that is >= cend
-        if start_pos > 0 :
-            end_val=self.end_indices[start_pos]
+    def isHighlighted(self,cstart,cend, i):
+        start_pos=bisect_right(self.start_indices[i], cstart)-1 #right most that is <= cstart
+        end_pos=bisect_left(self.end_indices[i], cend) # left most that is >= cend
+        #print 'check if heighlighted: %d %d\n'%(cstart, cend)
+        #print 'len of start indices %d' start_pos%()
+        if start_pos > 0:
+            end_val=self.end_indices[i][start_pos]
             if cstart <= end_val:
-                #print '%d %d %d %d\n'%(self.start_indices[start_pos], end_val, cstart, cend)
-                return True
-        if end_pos < len(self.end_indices):
-            start_val=self.start_indices[end_pos]
+                print '%d %d %d %d\n'%(self.start_indices[i][start_pos], end_val, cstart, cend)
+                return 'True'
+        if end_pos < len(self.end_indices[i]):
+            start_val=self.start_indices[i][end_pos]
+            #assert(end_pos < len(self.start_indices[i])),('end_pos %d endi size %d, starti size %d, ')
             if start_val <= cend:
-                #print '%d %d %d %d\n'%(start_val, self.end_indices[end_pos], cstart, cend)
-                return True
+                print '%d %d %d %d\n'%(start_val, self.end_indices[i][end_pos], cstart, cend)
+                return 'True'
         
         #for start, end in self.indices:
          #   if start <=cstart <=end or start <= cend <= end:
           #      print '%d %d %d %d\n'%(start, end, cstart, cend)
            #     return True
-        return False
+        return 'False'
         
                 
             
@@ -306,9 +347,26 @@ class FeatureExtractor(object):
             
             c.execute('SELECT char_annotation from Annotations WHERE doc_id = %s'%(doc_id,))
             rows=c.fetchall()
-            
+
+            num_ann=len(rows)
+            self.start_indices=[]
+            self.end_indices=[]
+
+            for i in range(num_ann):
+                indexStr=rows[i][0]
+                if indexStr is None:
+                    continue
+                self.start_indices.append([])
+                self.end_indices.append([])
+                isents=indexStr.split('.')
+                del isents[-1]
+                for sentInd in isents:
+                    il=sentInd.split(" ")
+                    self.start_indices[i].append(int(il[0])) #title??
+                    self.end_indices[i].append(int(il[1]))
                 #pprint (self.coreParsed[0])
-                
+            pprint(self.start_indices)
+            pprint(self.end_indices)
             for i in range(len(self.coreParsed)):
                     #sent=self.coreParsed[i]['text']
                 tuples=self.coreParsed[i]['dependencies']
@@ -330,21 +388,10 @@ class FeatureExtractor(object):
                             #else:
                                 #f1["dependency: %s %s"%(rel,'sub')]=False
                                 #f1["dependency: %s %s"%(rel, 'gov')]=False
-                        for row in rows:
-                            indexStr=row[0]
-                            if indexStr is None:
-                                continue
-                            self.start_indices=[]
-                            self.end_indices=[]
-                            isents=indexStr.split('.')
-                            del isents[-1]
-                            for sentInd in isents:
-                                il=sentInd.split(" ")
-                                self.start_indices.append(int(il[0])) #title??
-                                self.end_indices.append(int(il[1]))
-                            train_set.append((f1, self.isHighlighted(int(words[windex][1]['CharacterOffsetBegin'])+self.offsets[i],int(words[windex][1]['CharacterOffsetEnd'])+self.offsets[i])))
+                        for a in range(len(self.start_indices)):
+                            train_set.append((f1, self.isHighlighted(int(words[windex][1]['CharacterOffsetBegin'])+self.offsets[i],int(words[windex][1]['CharacterOffsetEnd'])+self.offsets[i],a)))
             
-        	break
+
         return train_set
         
                             
