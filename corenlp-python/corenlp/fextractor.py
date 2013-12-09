@@ -4,18 +4,20 @@ from __future__ import division
 import nltk, MySQLdb,jsonrpclib
 import sys, re,random,os,time,string
 from pprint import pprint
-import csv
+import csv, collections
 from nltk.stem.wordnet import WordNetLemmatizer
 import math
 #from nltk.util import Deprecated
 import nltk.classify.util # for accuracy & log_likelihood
 from nltk.util import LazyMap
+import nltk.metrics
 from corenlp import StanfordCoreNLP
 from json import loads
 from itertools import chain
 from corenlp import batch_parse
 from bisect import bisect_left, bisect_right
 from nltk.corpus import stopwords
+import pickle
 
 #experiment with stop words and puncts
 #python corenlp/corenlp.py -H localhost -p 3455 -S stanford-corenlp-full-2013-06-20/
@@ -28,6 +30,7 @@ from nltk.corpus import stopwords
 # logistical regression
 # googling around
 listspath='lists/'
+rm_invdata=True
 class FeatureExtractor(object):
     
     
@@ -76,16 +79,42 @@ class FeatureExtractor(object):
 
         nb_classifier = nltk.NaiveBayesClassifier.train(train_set)
         nb_classifier.show_most_informative_features(100)
-        acc=nltk.classify.accuracy(nb_classifier, test_set)
-        print "accuracy is: %f"%acc
+        self.evaluate_model(nb_classifier,test_set)
+        saveModel(nb_classifier,'nb_filtered')
 
+
+        dt_classifier = nltk.DecisionTreeClassifier.train(train_set)
+        self.evaluate_model(dt_classifier,test_set)
+        saveModel(dt_classifier,'dt_filetered')
+
+
+        #dt_classifier.pp()
+        #return dt_classifier
+
+    def evaluate_model(self, classifier, test_set):
+        acc=nltk.classify.accuracy(classifier, test_set)
+        print "accuracy is: %f"%acc
+        refsets = collections.defaultdict(set)
+        testsets = collections.defaultdict(set)
+
+        for i, (feats, label) in enumerate(test_set):
+            refsets[label].add(i)
+            observed = classifier.classify(feats)
+            testsets[observed].add(i)
+
+        print 'pos precision:', nltk.metrics.precision(refsets['True'], testsets['True'])
+        print 'pos recall:', nltk.metrics.recall(refsets['True'], testsets['True'])
+        print 'pos F-measure:', nltk.metrics.f_measure(refsets['True'], testsets['True'])
+        print 'neg precision:', nltk.metrics.precision(refsets['False'], testsets['False'])
+        print 'neg recall:', nltk.metrics.recall(refsets['False'], testsets['False'])
+        print 'neg F-measure:', nltk.metrics.f_measure(refsets['False'], testsets['False'])
 
 
     # For classifiers that can find probabilities, show the log
     # likelihood and some sample probability distributions.
         try:
             test_featuresets = [f for (f,l) in test_set]
-            pdists = nb_classifier.batch_prob_classify(test_featuresets)
+            pdists = classifier.batch_prob_classify(test_featuresets)
             ll = [pdist.logprob(gold)
                   for ((f, gold), pdist) in zip(test_set, pdists)]
             print('Avg. log likelihood: %6.4f' % (sum(ll)/len(test_set)))
@@ -100,9 +129,7 @@ class FeatureExtractor(object):
         except NotImplementedError:
              pass
 
-        #dt_classifier = nltk.DecisionTreeClassifier.train(train_set)
-        #dt_classifier.pp()
-        #return dt_classifier
+
  
     
     
@@ -144,6 +171,8 @@ class FeatureExtractor(object):
             elif(count > self.dmid_high_cutoff):
                 category="high"
             self.dsp_dict[word]=category
+
+
                 
     def corpusFromDir(self):
         path = "../../../FA13/NLP/codes/data/"
@@ -205,9 +234,9 @@ class FeatureExtractor(object):
 
             self.offsets.extend([currTotal for k in range(len(newlsts))])
 
-            pprint(newlsts)
+            #pprint(newlsts)
             currTotal+=sent_len
-            assert(sent_len==len(sent)),('parsed_leng %d != expected %d '%(sent_len, len(sent)))
+            #assert(sent_len==len(sent)),('parsed_leng %d != expected %d '%(sent_len, len(sent)))
         
         
     def extractDependencyLarge(self):
@@ -305,13 +334,13 @@ class FeatureExtractor(object):
         if start_pos > 0:
             end_val=self.end_indices[i][start_pos]
             if cstart <= end_val:
-                print '%d %d %d %d\n'%(self.start_indices[i][start_pos], end_val, cstart, cend)
+                #print '%d %d %d %d\n'%(self.start_indices[i][start_pos], end_val, cstart, cend)
                 return 'True'
         if end_pos < len(self.end_indices[i]):
             start_val=self.start_indices[i][end_pos]
             #assert(end_pos < len(self.start_indices[i])),('end_pos %d endi size %d, starti size %d, ')
             if start_val <= cend:
-                print '%d %d %d %d\n'%(start_val, self.end_indices[i][end_pos], cstart, cend)
+                #print '%d %d %d %d\n'%(start_val, self.end_indices[i][end_pos], cstart, cend)
                 return 'True'
         
         #for start, end in self.indices:
@@ -324,7 +353,7 @@ class FeatureExtractor(object):
             
     def train_model(self):
         
-       
+        invalid_ann={52:[225,224], 104:[224, 225], 148:[225,224],146:[224, 225],118:[167,153], 174:[167,153],68: [167],166:[167,153],39:[167,153]}
         train_set=[]
         puncts='#$&\()*+,-./:;<=>@[\\]^_`{|}~'
         for doc_id in self.texts.keys():
@@ -345,7 +374,7 @@ class FeatureExtractor(object):
             
             self.extractDependency(text)
             
-            c.execute('SELECT char_annotation from Annotations WHERE doc_id = %s'%(doc_id,))
+            c.execute('SELECT char_annotation, a_id from Annotations WHERE doc_id = %s'%(doc_id,))
             rows=c.fetchall()
 
             num_ann=len(rows)
@@ -354,7 +383,9 @@ class FeatureExtractor(object):
 
             for i in range(num_ann):
                 indexStr=rows[i][0]
-                if indexStr is None:
+
+                if indexStr is None or (rm_invdata and doc_id in invalid_ann and rows[i][1] in invalid_ann[doc_id]):
+                    print 'invalide annotation %d %d ignored'%(doc_id, rows[i][1])
                     continue
                 self.start_indices.append([])
                 self.end_indices.append([])
@@ -362,11 +393,11 @@ class FeatureExtractor(object):
                 del isents[-1]
                 for sentInd in isents:
                     il=sentInd.split(" ")
-                    self.start_indices[i].append(int(il[0])) #title??
-                    self.end_indices[i].append(int(il[1]))
+                    self.start_indices[-1].append(int(il[0])) #title??
+                    self.end_indices[-1].append(int(il[1]))
                 #pprint (self.coreParsed[0])
-            pprint(self.start_indices)
-            pprint(self.end_indices)
+            #pprint(self.start_indices)
+            #pprint(self.end_indices)
             for i in range(len(self.coreParsed)):
                     #sent=self.coreParsed[i]['text']
                 tuples=self.coreParsed[i]['dependencies']
@@ -395,7 +426,18 @@ class FeatureExtractor(object):
         return train_set
         
                             
-        
+def saveModel(classifier, type='nb'):
+
+    f = open(type+'_classifier.pickle', 'wb')
+    pickle.dump(classifier, f)
+    f.close()
+
+def loadModel(type='nb'):
+    f = open(type+'_classifier.pickle')
+    model=pickle.load(f)
+    f.close()
+    return model
+
 def main(argv=None):
     print "Start Feature Extractor"
     # Preprocess read file
