@@ -1,21 +1,39 @@
-0. you might need:  sudo apt-get install python-dev
+Set-up Instructions:
+
+Prerequites:
+0. you might need the following:  
+sudo apt-get install python-dev
 sudo apt-get install libmysqlclient-dev
 
-1. need mysql installed
+1. install mysql.
 
-2. git installed
+2. install git: https://help.github.com/articles/set-up-git
 
-3. pip install MySQL-python
-
-4  Install Setuptools: http://pypi.python.org/pypi/setuptools
+3  Install nltk:
+Install Setuptools: http://pypi.python.org/pypi/setuptools
 Install Pip: run sudo easy_install pip
 Install Numpy (optional): run sudo pip install -U numpy
 Install PyYAML and NLTK: run sudo pip install -U pyyaml nltk
 Test installation: run python then type import nltk
 
-2. need to install
+4.pip install MySQL-python
+
+5. install jsonrpclib and corenlp-python:
 sudo pip install pexpect unidecode jsonrpclib   
-    git clone https://bitbucket.org/torotoki/corenlp-python.git
+git clone https://bitbucket.org/torotoki/corenlp-python.git
 	  cd corenlp-python
-    wget http://nlp.stanford.edu/software/stanford-corenlp-full-2013-06-20.zip
-    unzip stanford-corenlp-full-2013-06-20.zip
+wget http://nlp.stanford.edu/software/stanford-corenlp-full-2013-06-20.zip
+unzip stanford-corenlp-full-2013-06-20.zip
+
+6. install scikit-learn: scikit-learn.org/stable/install.html
+
+Run Instruction:
+1. load existing models:
+
+2. train new models:
+cd into corenlp-python folder:
+in one terminal tab run: corenlp/corenlp.py -S stanford-corenlp-full-2013-06-20/
+in another terminal tab run: python corenlp/fextractor.py
+
+
+

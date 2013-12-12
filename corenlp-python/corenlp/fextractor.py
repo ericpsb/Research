@@ -5,19 +5,40 @@ import nltk, MySQLdb,jsonrpclib
 import sys, re,random,os,time,string
 from pprint import pprint
 import csv, collections
-from nltk.stem.wordnet import WordNetLemmatizer
-import math
-#from nltk.util import Deprecated
-import nltk.classify.util # for accuracy & log_likelihood
-from nltk.util import LazyMap
-import nltk.metrics
-from corenlp import StanfordCoreNLP
 from json import loads
-from itertools import chain
 from corenlp import batch_parse
 from bisect import bisect_left, bisect_right
-from nltk.corpus import stopwords
 import pickle
+
+#nltk imports
+from nltk.stem.wordnet import WordNetLemmatizer
+import nltk.classify.util # for accuracy & log_likelihood
+import nltk.metrics
+#from corenlp import StanfordCoreNLP
+
+
+#sklearn imports
+from time import time
+import pylab as pl
+
+
+
+from sklearn.feature_selection import SelectKBest, chi2
+from sklearn.linear_model import RidgeClassifier
+from sklearn.svm import LinearSVC
+from sklearn.linear_model import SGDClassifier
+from sklearn.linear_model import Perceptron
+from sklearn.linear_model import PassiveAggressiveClassifier
+from sklearn.naive_bayes import BernoulliNB, MultinomialNB
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.neighbors import NearestCentroid
+from sklearn.utils.extmath import density
+from sklearn import metrics
+from sklearn.feature_extraction import DictVectorizer
+from sklearn.naive_bayes import GaussianNB
+import numpy as np
+from sklearn import cross_validation
+from sklearn import svm
 
 #experiment with stop words and puncts
 #python corenlp/corenlp.py -H localhost -p 3455 -S stanford-corenlp-full-2013-06-20/
@@ -28,7 +49,11 @@ import pickle
 # using annotation randomly to test. 
 # other classifiers decision trees 
 # logistical regression
-# googling around
+
+# googling around, http://scikit-learn.org/stable/
+#JUST the lists -- baseline test
+#overall precisions/recalls and subsets
+#train over 45 set of documents and test on 5 documents the other way around
 listspath='lists/'
 rm_invdata=True
 class FeatureExtractor(object):
@@ -53,6 +78,14 @@ class FeatureExtractor(object):
         #for all anotations of this doc
         self.start_indices=[]
         self.end_indices=[]
+
+        #data sets:
+        self.X_train=None
+        self.X_test=None
+        self.y_train=None
+        self.y_test=None
+        self.feature_names=None
+
     
         
     def prepareExtractor(self):
@@ -67,93 +100,149 @@ class FeatureExtractor(object):
         self.corpusFromDB()
         
     def executeExtractor(self):
-        featuresets=self.train_model()
+        featuresets,targets=self.train_model()
         print "Got train_set, start training models"
-        #dt_classifier = nltk.DecisionTreeClassifier.train(train_set)
-        random.seed(123456)
-        random.shuffle(featuresets)
-        size = int(len(featuresets) * 0.1)
-        train_set, test_set = featuresets[size:], featuresets[:size]
+        vec = DictVectorizer()
+        feature_data=vec.fit_transform(featuresets)
+        print 'done transforming feature data'
+        #randomized
 
-        # Train up a classifier.
-
-        nb_classifier = nltk.NaiveBayesClassifier.train(train_set)
-        nb_classifier.show_most_informative_features(100)
-        self.evaluate_model(nb_classifier,test_set)
-        saveModel(nb_classifier,'nb_filtered')
+        self.X_train, self.X_test, self.y_train, self.y_test = cross_validation.train_test_split(feature_data, targets, test_size=0.1, random_state=len(targets))
+        print 'done splitting sets'
+        self.feature_names=np.asarray(vec.get_feature_names())
+        self.runAllClassifiers()
 
 
-        dt_classifier = nltk.DecisionTreeClassifier.train(train_set)
-        self.evaluate_model(dt_classifier,test_set)
-        saveModel(dt_classifier,'dt_filetered')
 
+    # Benchmark classifiers
+    def benchmark(self, clf):
+        categories=[0,1]
+        print('_' * 80)
+        print("Training: ")
+        print(clf)
+        t0 = time()
+        clf.fit(self.X_train, self.y_train)
+        train_time = time() - t0
+        print("train time: %0.3fs" % train_time)
 
-        #dt_classifier.pp()
-        #return dt_classifier
+        t0 = time()
+        pred = clf.predict(self.X_test)
+        test_time = time() - t0
+        print("test time:  %0.3fs" % test_time)
 
-    def evaluate_model(self, classifier, test_set):
-        acc=nltk.classify.accuracy(classifier, test_set)
-        print "accuracy is: %f"%acc
-        refsets = collections.defaultdict(set)
-        testsets = collections.defaultdict(set)
+        f1_score = metrics.f1_score(self.y_test, pred)
+        acc_score=metrics.accuracy_score(self.y_test,pred)
+        print("f1-score:   %0.3f" % f1_score)
+        print("acc-score: %0.3f" % acc_score)
 
-        for i, (feats, label) in enumerate(test_set):
-            refsets[label].add(i)
-            observed = classifier.classify(feats)
-            testsets[observed].add(i)
+        if hasattr(clf, 'coef_'):
+            print("dimensionality: %d" % clf.coef_.shape[1])
+            print("density: %f" % density(clf.coef_))
 
-        print 'pos precision:', nltk.metrics.precision(refsets['True'], testsets['True'])
-        print 'pos recall:', nltk.metrics.recall(refsets['True'], testsets['True'])
-        print 'pos F-measure:', nltk.metrics.f_measure(refsets['True'], testsets['True'])
-        print 'neg precision:', nltk.metrics.precision(refsets['False'], testsets['False'])
-        print 'neg recall:', nltk.metrics.recall(refsets['False'], testsets['False'])
-        print 'neg F-measure:', nltk.metrics.f_measure(refsets['False'], testsets['False'])
-
-
-    # For classifiers that can find probabilities, show the log
-    # likelihood and some sample probability distributions.
-        try:
-            test_featuresets = [f for (f,l) in test_set]
-            pdists = classifier.batch_prob_classify(test_featuresets)
-            ll = [pdist.logprob(gold)
-                  for ((f, gold), pdist) in zip(test_set, pdists)]
-            print('Avg. log likelihood: %6.4f' % (sum(ll)/len(test_set)))
+            if self.feature_names is not None:
+                print("top 10 keywords per class:")
+                for i, category in enumerate([0,1]):
+                    top10 = np.argsort(clf.coef_[i])[-10:]
+                    print("%s: %s" % (category, " ".join(self.feature_names[top10])))
             print()
-            print('Unseen Names      P(Male)  P(Female)\n'+'-'*40)
-            for ((name, gender), pdist) in list(zip(test_set, pdists))[:5]:
-                if gender == 'True':
-                    fmt = '  %-15s *%6.4f   %6.4f'
-                else:
-                    fmt = '  %-15s  %6.4f  *%6.4f'
-                print(fmt % (name, pdist.prob('True'), pdist.prob('False')))
-        except NotImplementedError:
-             pass
 
 
- 
-    
-    
-    # whether the words -2, -1, 0, 1, 2 is in the list
+        print("classification report:")
+        print(metrics.classification_report(self.y_test, pred,
+                                                target_names=categories))
 
-    def whetherInList(self, lst, index, words):
-    #sents=nltk.sent_tokenize(filestream.read().lower())
-        result=[False for i in range(5)]#0 false 1 true
-    
-        
-        if (index > 1 and words[index-2] in lst):
-                result[0]=True
-        if(index > 0 and words[index-1] in lst):
-                result[1]=True
-        if (words[index] in lst):
-                result[2]=True
-           
-        if(index < len(words)-1 and words[index+1] in lst):
-                result[3]=True
-            
-        if(index < len(words)-2 and words[index+2] in lst):
-                result[4]=True
-        #print "word: %s %d"%(words[index], result[2])
-        return result
+
+        print("confusion matrix:")
+        print(metrics.confusion_matrix(self.y_test, pred))
+
+        print()
+        clf_descr = str(clf).split('(')[0]
+        return clf_descr, score, train_time, test_time
+
+    def runAllClassifiers(self):
+        results = []
+        for clf, name in (
+                (RidgeClassifier(tol=1e-2, solver="lsqr"), "Ridge Classifier"),
+                (Perceptron(n_iter=50), "Perceptron"),
+                (PassiveAggressiveClassifier(n_iter=50), "Passive-Aggressive"),
+                (KNeighborsClassifier(n_neighbors=10), "kNN")):
+            print('=' * 80)
+            print(name)
+            results.append(self.benchmark(clf))
+
+        for penalty in ["l2", "l1"]:
+            print('=' * 80)
+            print("%s penalty" % penalty.upper())
+            # Train Liblinear model
+            results.append(self.benchmark(LinearSVC(loss='l2', penalty=penalty,
+                                                    dual=False, tol=1e-3)))
+
+            # Train SGD model
+            results.append(self.benchmark(SGDClassifier(alpha=.0001, n_iter=50,
+                                                   penalty=penalty)))
+
+        # Train SGD with Elastic Net penalty
+        print('=' * 80)
+        print("Elastic-Net penalty")
+        results.append(self.benchmark(SGDClassifier(alpha=.0001, n_iter=50,
+                                               penalty="elasticnet")))
+
+        # Train NearestCentroid without threshold
+        print('=' * 80)
+        print("NearestCentroid (aka Rocchio classifier)")
+        results.append(self.benchmark(NearestCentroid()))
+
+        # Train sparse Naive Bayes classifiers
+        print('=' * 80)
+        print("Naive Bayes")
+        results.append(self.benchmark(MultinomialNB(alpha=.01)))
+        results.append(self.benchmark(BernoulliNB(alpha=.01)))
+
+
+        class L1LinearSVC(LinearSVC):
+
+            def fit(self, X, y):
+                # The smaller C, the stronger the regularization.
+                # The more regularization, the more sparsity.
+                self.transformer_ = LinearSVC(penalty="l1",
+                                              dual=False, tol=1e-3)
+                X = self.transformer_.fit_transform(X, y)
+                return LinearSVC.fit(self, X, y)
+
+            def predict(self, X):
+                X = self.transformer_.transform(X)
+                return LinearSVC.predict(self, X)
+
+        print('=' * 80)
+        print("LinearSVC with L1-based feature selection")
+        results.append(self.benchmark(L1LinearSVC()))
+
+
+        # make some plots
+
+        indices = np.arange(len(results))
+
+        results = [[x[i] for x in results] for i in range(4)]
+
+        clf_names, score, training_time, test_time = results
+        training_time = np.array(training_time) / np.max(training_time)
+        test_time = np.array(test_time) / np.max(test_time)
+
+        pl.figure(figsize=(12,8))
+        pl.title("Score")
+        pl.barh(indices, score, .2, label="score", color='r')
+        pl.barh(indices + .3, training_time, .2, label="training time", color='g')
+        pl.barh(indices + .6, test_time, .2, label="test time", color='b')
+        pl.yticks(())
+        pl.legend(loc='best')
+        pl.subplots_adjust(left=.25)
+        pl.subplots_adjust(top=.95)
+        pl.subplots_adjust(bottom=.05)
+
+        for i, c in zip(indices, clf_names):
+            pl.text(-.3, i, c)
+
+        pl.show()
 
     def preprocessDescriptiveness(self):
    
@@ -165,37 +254,21 @@ class FeatureExtractor(object):
         # Save header row.
             word=self.stemmer.stem((row[0].lower()))
             count=row[1]
-            category="mid" 
+            category=0.5  #"mid"
             if(count < self.dlow_mid_cutoff):
-                category='low'
+                category=0 #'low'
             elif(count > self.dmid_high_cutoff):
-                category="high"
+                category=1 #"high"
             self.dsp_dict[word]=category
 
 
                 
-    def corpusFromDir(self):
-        path = "../../../FA13/NLP/codes/data/"
 
-    # Iterate through the  directory and build the collection of texts for NLTK.
-        listing = os.listdir(path)
-        for infile in listing:
-            if infile.startswith('.'): #Mac directories ALWAYS have a .DS_Store file.
-                continue               #This ignores it and other hidden files.
-            url = path + infile
-            f = open(url);
-            raw = f.read()
-            f.close()
-            text = nltk.Text([self.preprocessEachWord(w) for w in nltk.word_tokenize(doc) if len(w) >= 1])
-            self.texts.append(text)
-
-    #Load the list of texts into a TextCollection object.
-        return nltk.TextCollection(self.texts)
     
     def corpusFromDB(self):
         db=MySQLdb.connect(host='eltanin.cis.cornell.edu', user='annotator',passwd='Ann0tateTh!s', db='FrameAnnotation')
         c=db.cursor()
-        c.execute("SELECT  DISTINCT(doc_id),doc_html FROM Documents natural join Annotations WHERE doc_id != 1")#a_id > 125")
+        c.execute("SELECT  DISTINCT(doc_id),doc_html FROM Documents natural join Annotations WHERE doc_id = 28 ")#a_id > 125")
         
         rowall=c.fetchall()
         for row in rowall:
@@ -256,7 +329,7 @@ class FeatureExtractor(object):
     #feature for a word      
     def generateFeatures(self, index, words):
         global dsp_dict
-        fnames=["word", "word_bigram:%d", "word_trigram %d:", "pos_unigram:", "pos_bigram %d", "pos_trigram %d","sentence contains quotes:", "sentence length:", 'descriptiveness:%d', 'isInTitle:%d', 'TFIDF:']
+        fnames=["word", "word: -1",  'word +1', "word: -2", 'word +2',"pos", "pos -1", 'pos +1',  "pos -2", 'pos +2', "sentence length:", 'descriptiveness:%d', 'isInTitle:%d', 'TFIDF:']
         features={}
         text=['^']
         poses=['BEG']
@@ -271,57 +344,49 @@ class FeatureExtractor(object):
         index+=1 #start from 0
         
         features[fnames[0]]=text[index]
-        features[fnames[3]]=poses[index]
-        
-        
-        features[fnames[1]%(0)]=(' '.join(text[index-1:index+1]))
-        
-        features[fnames[1]%(1)]=(' '.join(text[index:index+2]))
-        features[fnames[4]%(0)]=(' '.join(poses[index-1:index+1]))
-        features[fnames[4]%(1)]=(' '.join(poses[index:index+2]))
-            
-        features[fnames[2]%(0)]=(' '.join(text[index-1: index+2]))
-        features[fnames[5]%(0)]=(' '.join(poses[index-1: index+2]))
+        features[fnames[1]]=text[index-1]
+        features[fnames[2]]=text[index+1]
+
+        features[fnames[5]]=poses[index]
+        features[fnames[6]]=poses[index-1]
+        features[fnames[7]]=poses[index+1]
+
         
         if(index>1):
-            features[fnames[2]%(1)]=(' '.join(text[index-2: index+1]))
-            features[fnames[5]%(1)]=(' '.join(poses[index-2: index+1]))
+            features[fnames[3]]=text[index-2]
+            features[fnames[8]]=text[index-2]
         else:
-            features[fnames[2]%(1)]='null'
-            features[fnames[5]%(1)]='null'
+            features[fnames[3]]='null'
+            features[fnames[8]]='null'
         
         if(index<len(poses)-2):
-            features[fnames[2]%(-1)]=(' '.join(text[index: index+3]))
-            features[fnames[5]%(-1)]=(' '.join(poses[index: index+3]))
+            features[fnames[4]]=text[index+2]
+            features[fnames[9]]=text[index+2]
         else:
-            features[fnames[2]%(-1)]="null"
-            features[fnames[5]%(-1)]="null"
+            features[fnames[4]]="null"
+            features[fnames[9]]="null"
         
-        features[fnames[6]]=('\"' in text or '\'' in text)
+        #features[fnames[6]]=('\"' in text or '\'' in text)
         
        
             
-        features[fnames[7]]=len(words)
-        
+        features[fnames[10]]=len(words)
+
+        # the word's -2, -1, 0, 1, 2
         for i in range(-2, 3):
             #print text[index+i] 
-            if (index+i) >0 and (index+i) < len(text) and text[index+i] in self.dsp_dict :
-                features[fnames[8]%i]= self.dsp_dict[text[index+i]]
-                features[fnames[9]%i]=text[index+i] in self.title_words
+            if (index+i) >0 and (index+i) < len(text) and text[index+i] in self.dsp_dict:
+                features[fnames[11]%i]= self.dsp_dict[text[index+i]]
             else:
-                features[fnames[8]%i]='null'
-                features[fnames[9]%i]=False
-        features[fnames[10]]=self.TFIDF(text[index],self.texts[self.docID])  
+                features[fnames[11]%i]=-1 # not in descriptive list
+
+        features[fnames[12]]=int(text[index] in self.title_words)
+        features[fnames[13]]=self.TFIDF(text[index],self.texts[self.docID])
         
         # all the lists
-        #lstfiles=["subjective","report_verb","implicative","hedge","factive","bias-lexicon","assertive","negative-word", "positive-word"]
         for known_set in self.doc_sets.keys():
-	        #print "%s in %s is %d"%(text[index], known_set, text[index] in self.doc_sets[known_set])
-            features[("is "+known_set+" %d:")%(0)]=(text[index] in self.doc_sets[known_set]) 
-            #lst=[self.preprocessEachWord(line.strip()) for line in open(listspath+known_lst+".txt", 'r')]
-            #rls=self.whetherInList(lst, index, text)
-            #for i in range(len(rls)):
-                #features[("is "+known_lst+" %d:")%(i-2)]=rls[i] 
+            features[("is "+known_set)]=int(text[index] in self.doc_sets[known_set])
+
         return features
     
             
@@ -335,26 +400,23 @@ class FeatureExtractor(object):
             end_val=self.end_indices[i][start_pos]
             if cstart <= end_val:
                 #print '%d %d %d %d\n'%(self.start_indices[i][start_pos], end_val, cstart, cend)
-                return 'True'
+                return 1
         if end_pos < len(self.end_indices[i]):
             start_val=self.start_indices[i][end_pos]
             #assert(end_pos < len(self.start_indices[i])),('end_pos %d endi size %d, starti size %d, ')
             if start_val <= cend:
                 #print '%d %d %d %d\n'%(start_val, self.end_indices[i][end_pos], cstart, cend)
-                return 'True'
-        
-        #for start, end in self.indices:
-         #   if start <=cstart <=end or start <= cend <= end:
-          #      print '%d %d %d %d\n'%(start, end, cstart, cend)
-           #     return True
-        return 'False'
+                return 1
+        return 0
         
                 
             
+
     def train_model(self):
         
         invalid_ann={52:[225,224], 104:[224, 225], 148:[225,224],146:[224, 225],118:[167,153], 174:[167,153],68: [167],166:[167,153],39:[167,153]}
         train_set=[]
+        targets=[]
         puncts='#$&\()*+,-./:;<=>@[\\]^_`{|}~'
         for doc_id in self.texts.keys():
             print "Start Processing document: %d"%doc_id
@@ -413,17 +475,19 @@ class FeatureExtractor(object):
                         thew=words[windex][0]
                             
                         if thew == gov:
-                            f1["dependency: %s %s"%(rel, 'gov')]=True
+                            f1["dependency: %s %s"%(rel, 'gov')]=1
                         elif thew == sub:
-                            f1["dependency: %s %s"%(rel,'sub')]=True
-                            #else:
-                                #f1["dependency: %s %s"%(rel,'sub')]=False
-                                #f1["dependency: %s %s"%(rel, 'gov')]=False
+                            f1["dependency: %s %s"%(rel,'sub')]=1
+                        #else:
+                            #f1["dependency: %s %s"%(rel,'sub')]=False
+                            #f1["dependency: %s %s"%(rel, 'gov')]=False
                         for a in range(len(self.start_indices)):
-                            train_set.append((f1, self.isHighlighted(int(words[windex][1]['CharacterOffsetBegin'])+self.offsets[i],int(words[windex][1]['CharacterOffsetEnd'])+self.offsets[i],a)))
+                            train_set.append(f1)
+                            #pprint(f1)
+                            targets.append(self.isHighlighted(int(words[windex][1]['CharacterOffsetBegin'])+self.offsets[i],int(words[windex][1]['CharacterOffsetEnd'])+self.offsets[i],a))
             
 
-        return train_set
+        return (train_set,targets)
         
                             
 def saveModel(classifier, type='nb'):
