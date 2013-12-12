@@ -56,6 +56,8 @@ from sklearn import svm
 #train over 45 set of documents and test on 5 documents the other way around
 listspath='lists/'
 rm_invdata=True
+baseline=False
+CV=False
 class FeatureExtractor(object):
     
     
@@ -106,13 +108,23 @@ class FeatureExtractor(object):
         feature_data=vec.fit_transform(featuresets)
         print 'done transforming feature data'
         #randomized
+        if CV:
+            self.crossValidation(5, feature_data, targets)
+        else:
+            self.X_train, self.X_test, self.y_train, self.y_test = cross_validation.train_test_split(feature_data, targets, test_size=0.1, random_state=len(targets))
+            print 'done splitting sets'
+            self.feature_names=np.asarray(vec.get_feature_names())
+            self.runAllClassifiers()
 
-        self.X_train, self.X_test, self.y_train, self.y_test = cross_validation.train_test_split(feature_data, targets, test_size=0.1, random_state=len(targets))
-        print 'done splitting sets'
-        self.feature_names=np.asarray(vec.get_feature_names())
-
-        self.runAllClassifiers()
-
+    def crossValidation(self, nfold, X, Y):
+        from sklearn.cross_validation import KFold
+        kf=KFold(len(self.y_train), n_folds=nfold, indices=True)
+        counter=0
+        for train, test in kf:
+            self.X_train, self.X_test, self.y_train, self.y_test=X[train], X[test], Y[train], Y[test]
+            print 'fold %d \n\n'%counter
+            self.runTopClassifiers()
+            counter+=1
 
 
     # Benchmark classifiers
@@ -133,8 +145,12 @@ class FeatureExtractor(object):
 
         f1_score = metrics.f1_score(self.y_test, pred)
         acc_score=metrics.accuracy_score(self.y_test,pred)
+        precision_score=metrics.precision_score(self.y_test,pred)
+        recall_score=metrics.precision_score(self.y_test, pred)
         print("f1-score:   %0.3f" % f1_score)
         print("acc-score: %0.3f" % acc_score)
+        print('precision-score: %0.4f' %precision_score)
+        print('recall-score: %0.4f' %recall_score)
 
         if hasattr(clf, 'coef_'):
             print("dimensionality: %d" % clf.coef_.shape[1])
@@ -157,7 +173,11 @@ class FeatureExtractor(object):
 
         print()
         clf_descr = str(clf).split('(')[0]
-        return clf_descr, f1_score, acc_score,train_time, test_time
+        return clf_descr, f1_score, acc_score, precision_score, recall_score, train_time, test_time
+
+    def runTopClassifiers(self):
+        '''Top determined by running all classifiers on dataset of size 20'''
+        results=[]
 
     def runAllClassifiers(self):
         results = []
@@ -212,27 +232,29 @@ class FeatureExtractor(object):
                 X = self.transformer_.transform(X)
                 return LinearSVC.predict(self, X)
 
-        print('=' * 80)
-        print("LinearSVC with L1-based feature selection")
-        results.append(self.benchmark(L1LinearSVC()))
+        #print('=' * 80)
+        #print("LinearSVC with L1-based feature selection")
+        #esults.append(self.benchmark(L1LinearSVC()))
 
 
         # make some plots
-
+    def drawDiagram(self, results):
         indices = np.arange(len(results))
 
         results = [[x[i] for x in results] for i in range(5)]
 
-        clf_names, f1_score, acc_score, training_time, test_time = results
-        training_time = np.array(training_time) / np.max(training_time)
-        test_time = np.array(test_time) / np.max(test_time)
+        clf_names, f1_score, acc_score, precision_score, recall_score = results
+        #training_time = np.array(training_time) / np.max(training_time)
+        #test_time = np.array(test_time) / np.max(test_time)
 
         pl.figure(figsize=(12,8))
         pl.title("Score")
         pl.barh(indices, f1_score, .2, label="f1", color='r')
-        pl.barh(indices, acc_score, .2, label='accuracy', color='y')
-        pl.barh(indices + .3, training_time, .2, label="training time", color='g')
-        pl.barh(indices + .6, test_time, .2, label="test time", color='b')
+        pl.barh(indices+ .3, acc_score, .2, label='accuracy', color='y')
+        pl.barh(indices+ .56, precision_score, .2, label='precision', color='m')
+        pl.barh(indices+ .76, recall_score, .2, label='recall', color='c')
+        #pl.barh(indices + .3, training_time, .2, label="training time", color='g')
+        #pl.barh(indices + .6, test_time, .2, label="test time", color='b')
         pl.yticks(())
         pl.legend(loc='best')
         pl.subplots_adjust(left=.25)
@@ -268,7 +290,7 @@ class FeatureExtractor(object):
     def corpusFromDB(self):
         db=MySQLdb.connect(host='eltanin.cis.cornell.edu', user='annotator',passwd='Ann0tateTh!s', db='FrameAnnotation')
         c=db.cursor()
-        c.execute("SELECT  DISTINCT(doc_id),doc_html FROM Documents natural join Annotations WHERE doc_id = 28 ")#a_id > 125")
+        c.execute("SELECT  DISTINCT(doc_id),doc_html FROM Documents natural join Annotations WHERE doc_id != 1 LIMIT 20 ")#a_id > 125")
         
         rowall=c.fetchall()
         for row in rowall:
@@ -328,60 +350,61 @@ class FeatureExtractor(object):
     # %d is the word itself's location in -2, -1, 0, 1, 2 (or for bigram 0, 1)  
     #feature for a word      
     def generateFeatures(self, index, words):
-        global dsp_dict
-        fnames=["word", "word: -1",  'word +1', "word: -2", 'word +2',"pos", "pos -1", 'pos +1',  "pos -2", 'pos +2', "sentence length:", 'descriptiveness:%d', 'isInTitle:%d', 'TFIDF:']
-        features={}
-        text=['^']
-        poses=['BEG']
-        for wls in words:
-            text.append(self.preprocessEachWord(wls[0]))
-            poses.append(wls[1]['PartOfSpeech'])
-        text.append("^")
-        poses.append('END')
-        #stemmed_words=[self.stemmer.stem(self.lemmer.lemmatize(w[])) for w in words] # stem or not?
-        
-        
-        index+=1 #start from 0
-        
-        features[fnames[0]]=text[index]
-        features[fnames[1]]=text[index-1]
-        features[fnames[2]]=text[index+1]
+        if not baseline:
+            global dsp_dict
+            fnames=["word", "word: -1",  'word +1', "word: -2", 'word +2',"pos", "pos -1", 'pos +1',  "pos -2", 'pos +2', "sentence length:", 'descriptiveness:%d', 'isInTitle:%d', 'TFIDF:']
+            features={}
+            text=['^']
+            poses=['BEG']
+            for wls in words:
+                text.append(self.preprocessEachWord(wls[0]))
+                poses.append(wls[1]['PartOfSpeech'])
+            text.append("^")
+            poses.append('END')
+            #stemmed_words=[self.stemmer.stem(self.lemmer.lemmatize(w[])) for w in words] # stem or not?
 
-        features[fnames[5]]=poses[index]
-        features[fnames[6]]=poses[index-1]
-        features[fnames[7]]=poses[index+1]
 
-        
-        if(index>1):
-            features[fnames[3]]=text[index-2]
-            features[fnames[8]]=text[index-2]
-        else:
-            features[fnames[3]]='null'
-            features[fnames[8]]='null'
-        
-        if(index<len(poses)-2):
-            features[fnames[4]]=text[index+2]
-            features[fnames[9]]=text[index+2]
-        else:
-            features[fnames[4]]="null"
-            features[fnames[9]]="null"
-        
-        #features[fnames[6]]=('\"' in text or '\'' in text)
-        
-       
-            
-        features[fnames[10]]=len(words)
+            index+=1 #start from 0
 
-        # the word's -2, -1, 0, 1, 2
-        for i in range(-2, 3):
-            #print text[index+i] 
-            if (index+i) >0 and (index+i) < len(text) and text[index+i] in self.dsp_dict:
-                features[fnames[11]%i]= self.dsp_dict[text[index+i]]
+            features[fnames[0]]=text[index]
+            features[fnames[1]]=text[index-1]
+            features[fnames[2]]=text[index+1]
+
+            features[fnames[5]]=poses[index]
+            features[fnames[6]]=poses[index-1]
+            features[fnames[7]]=poses[index+1]
+
+
+            if(index>1):
+                features[fnames[3]]=text[index-2]
+                features[fnames[8]]=text[index-2]
             else:
-                features[fnames[11]%i]=0 # not in descriptive list
+                features[fnames[3]]='null'
+                features[fnames[8]]='null'
 
-        features[fnames[12]]=int(text[index] in self.title_words)
-        features[fnames[13]]=self.TFIDF(text[index],self.texts[self.docID])
+            if(index<len(poses)-2):
+                features[fnames[4]]=text[index+2]
+                features[fnames[9]]=text[index+2]
+            else:
+                features[fnames[4]]="null"
+                features[fnames[9]]="null"
+
+
+
+
+
+            features[fnames[10]]=len(words)
+
+            # the word's -2, -1, 0, 1, 2
+            for i in range(-2, 3):
+                #print text[index+i]
+                if (index+i) >0 and (index+i) < len(text) and text[index+i] in self.dsp_dict:
+                    features[fnames[11]%i]= self.dsp_dict[text[index+i]]
+                else:
+                    features[fnames[11]%i]=0 # not in descriptive list
+
+            features[fnames[12]]=int(text[index] in self.title_words)
+            features[fnames[13]]=self.TFIDF(text[index],self.texts[self.docID])
         
         # all the lists
         for known_set in self.doc_sets.keys():
