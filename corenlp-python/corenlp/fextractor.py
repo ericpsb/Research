@@ -110,13 +110,14 @@ class FeatureExtractor(object):
         self.X_train, self.X_test, self.y_train, self.y_test = cross_validation.train_test_split(feature_data, targets, test_size=0.1, random_state=len(targets))
         print 'done splitting sets'
         self.feature_names=np.asarray(vec.get_feature_names())
+
         self.runAllClassifiers()
 
 
 
     # Benchmark classifiers
     def benchmark(self, clf):
-        categories=[0,1]
+
         print('_' * 80)
         print("Training: ")
         print(clf)
@@ -141,15 +142,14 @@ class FeatureExtractor(object):
 
             if self.feature_names is not None:
                 print("top 10 keywords per class:")
-                for i, category in enumerate([0,1]):
-                    top10 = np.argsort(clf.coef_[i])[-10:]
-                    print("%s: %s" % (category, " ".join(self.feature_names[top10])))
+
+                top10 = np.argsort(clf.coef_[0])[-10:]
+                print("%s" % (" ".join(self.feature_names[top10])))
             print()
 
 
         print("classification report:")
-        print(metrics.classification_report(self.y_test, pred,
-                                                target_names=categories))
+        print(metrics.classification_report(self.y_test, pred, target_names=['class 0', 'class 1']))
 
 
         print("confusion matrix:")
@@ -157,15 +157,14 @@ class FeatureExtractor(object):
 
         print()
         clf_descr = str(clf).split('(')[0]
-        return clf_descr, score, train_time, test_time
+        return clf_descr, f1_score, acc_score,train_time, test_time
 
     def runAllClassifiers(self):
         results = []
         for clf, name in (
                 (RidgeClassifier(tol=1e-2, solver="lsqr"), "Ridge Classifier"),
                 (Perceptron(n_iter=50), "Perceptron"),
-                (PassiveAggressiveClassifier(n_iter=50), "Passive-Aggressive"),
-                (KNeighborsClassifier(n_neighbors=10), "kNN")):
+                (PassiveAggressiveClassifier(n_iter=50), "Passive-Aggressive")):#,(KNeighborsClassifier(n_neighbors=10), "kNN")
             print('=' * 80)
             print(name)
             results.append(self.benchmark(clf))
@@ -222,15 +221,16 @@ class FeatureExtractor(object):
 
         indices = np.arange(len(results))
 
-        results = [[x[i] for x in results] for i in range(4)]
+        results = [[x[i] for x in results] for i in range(5)]
 
-        clf_names, score, training_time, test_time = results
+        clf_names, f1_score, acc_score, training_time, test_time = results
         training_time = np.array(training_time) / np.max(training_time)
         test_time = np.array(test_time) / np.max(test_time)
 
         pl.figure(figsize=(12,8))
         pl.title("Score")
-        pl.barh(indices, score, .2, label="score", color='r')
+        pl.barh(indices, f1_score, .2, label="f1", color='r')
+        pl.barh(indices, acc_score, .2, label='accuracy', color='y')
         pl.barh(indices + .3, training_time, .2, label="training time", color='g')
         pl.barh(indices + .6, test_time, .2, label="test time", color='b')
         pl.yticks(())
@@ -254,9 +254,9 @@ class FeatureExtractor(object):
         # Save header row.
             word=self.stemmer.stem((row[0].lower()))
             count=row[1]
-            category=0.5  #"mid"
+            category=0.66  #"mid"
             if(count < self.dlow_mid_cutoff):
-                category=0 #'low'
+                category=0.33 #'low'
             elif(count > self.dmid_high_cutoff):
                 category=1 #"high"
             self.dsp_dict[word]=category
@@ -378,7 +378,7 @@ class FeatureExtractor(object):
             if (index+i) >0 and (index+i) < len(text) and text[index+i] in self.dsp_dict:
                 features[fnames[11]%i]= self.dsp_dict[text[index+i]]
             else:
-                features[fnames[11]%i]=-1 # not in descriptive list
+                features[fnames[11]%i]=0 # not in descriptive list
 
         features[fnames[12]]=int(text[index] in self.title_words)
         features[fnames[13]]=self.TFIDF(text[index],self.texts[self.docID])
