@@ -1,5 +1,6 @@
-#Different Feature Extractors
+#Feature Extractors, Model training and performance evaludation
 #@Author: Crystal Qin
+#Note: referenced some code from http://scikit-learn.org/stable/ User Guide and Examples
 from __future__ import division
 import nltk, MySQLdb,jsonrpclib
 import sys, re,random,os,time,string
@@ -40,24 +41,20 @@ import numpy as np
 from sklearn import cross_validation
 from sklearn import svm
 
-#experiment with stop words and puncts
-#python corenlp/corenlp.py -H localhost -p 3455 -S stanford-corenlp-full-2013-06-20/
-#python corenlp/corenlp.py -S stanford-corenlp-full-2013-06-20/
-#python corenlp/fextractor.py
-# cd /cygdrive/c/users/qin/cs_projects/tortoise/Research/corenlp-python
-# training with 20, 30 and 50 randomly selected dataset
-# using annotation randomly to test. 
-# other classifiers decision trees 
-# logistical regression
 
-# googling around, http://scikit-learn.org/stable/
-#JUST the lists -- baseline test
-#overall precisions/recalls and subsets
-#train over 45 set of documents and test on 5 documents the other way around
+
+#python corenlp/corenlp.py -S stanford-corenlp-full-2013-06-20/ (default)
+#could also specify port number if want: python corenlp/corenlp.py -H localhost -p 3455 -S stanford-corenlp-full-2013-06-20/
+#python corenlp/fextractor.py
+
+
 listspath='lists/'
-rm_invdata=True
-baseline=False
-CV=False
+
+rm_invdata=True # whether or not rm possible invalid annotations
+baseline=True # whether or not test on baseline features
+CV=False # whether or not do cross-validation on the top classifier
+Doc_num='10' # number of documents used in training set
+
 class FeatureExtractor(object):
     
     
@@ -75,10 +72,10 @@ class FeatureExtractor(object):
         #doc specific
         self.docID=0
         self.title_words=[]
-        self.coreParsed=[]#the sentences(containing all its information) of this text
+        self.coreParsed=[]#the sentences(containing all its information by stanford corenlp) of this text
         self.offsets=[]
         #for all anotations of this doc
-        self.start_indices=[]
+        self.start_indices=[] # fornat[[(1,3)... ann one heilight start indices], ...]
         self.end_indices=[]
 
         #data sets:
@@ -89,7 +86,7 @@ class FeatureExtractor(object):
         self.feature_names=None
 
     
-        
+    #Prepare feature extractor by generating the lists we are going to use and load corpus from DB
     def prepareExtractor(self):
         print 'execute extractor'
         self.preprocessDescriptiveness()
@@ -100,25 +97,27 @@ class FeatureExtractor(object):
           
         #Train Model
         self.corpusFromDB()
-        
+
+    #Execute feature extractor
     def executeExtractor(self):
-        featuresets,targets=self.train_model()
+        featuresets,targets=self.generate_feature_datasets()
         print "Got train_set, start training models"
         vec = DictVectorizer()
         feature_data=vec.fit_transform(featuresets)
         print 'done transforming feature data'
+        self.feature_names=np.asarray(vec.get_feature_names())
         #randomized
         if CV:
-            self.crossValidation(5, feature_data, targets)
+            self.crossValidation(5, feature_data, np.asarray(targets))
         else:
             self.X_train, self.X_test, self.y_train, self.y_test = cross_validation.train_test_split(feature_data, targets, test_size=0.1, random_state=len(targets))
             print 'done splitting sets'
-            self.feature_names=np.asarray(vec.get_feature_names())
-            self.runAllClassifiers()
+            self.drawDiagram(self.runAllClassifiers())
 
+    #Do cross validation on the feature data sets
     def crossValidation(self, nfold, X, Y):
         from sklearn.cross_validation import KFold
-        kf=KFold(len(self.y_train), n_folds=nfold, indices=True)
+        kf=KFold(len(Y), n_folds=nfold, indices=True)
         counter=0
         for train, test in kf:
             self.X_train, self.X_test, self.y_train, self.y_test=X[train], X[test], Y[train], Y[test]
@@ -127,7 +126,7 @@ class FeatureExtractor(object):
             counter+=1
 
 
-    # Benchmark classifiers
+    # Benchmark classifier:
     def benchmark(self, clf):
 
         print('_' * 80)
@@ -146,7 +145,7 @@ class FeatureExtractor(object):
         f1_score = metrics.f1_score(self.y_test, pred)
         acc_score=metrics.accuracy_score(self.y_test,pred)
         precision_score=metrics.precision_score(self.y_test,pred)
-        recall_score=metrics.precision_score(self.y_test, pred)
+        recall_score=metrics.recall_score(self.y_test, pred)
         print("f1-score:   %0.3f" % f1_score)
         print("acc-score: %0.3f" % acc_score)
         print('precision-score: %0.4f' %precision_score)
@@ -179,6 +178,14 @@ class FeatureExtractor(object):
         '''Top determined by running all classifiers on dataset of size 20'''
         results=[]
 
+        clf=Perceptron(n_iter=50)
+        name="Perceptron"
+
+        print('=' * 80)
+        print(name)
+        results.append(self.benchmark(clf))
+
+    # run all classifiers
     def runAllClassifiers(self):
         results = []
         for clf, name in (
@@ -189,24 +196,24 @@ class FeatureExtractor(object):
             print(name)
             results.append(self.benchmark(clf))
 
-        for penalty in ["l2", "l1"]:
-            print('=' * 80)
-            print("%s penalty" % penalty.upper())
+        #for penalty in ["l2", "l1"]:
+            #print('=' * 80)
+            #print("%s penalty" % penalty.upper())
             # Train Liblinear model
-            results.append(self.benchmark(LinearSVC(loss='l2', penalty=penalty,
-                                                    dual=False, tol=1e-3)))
+            #results.append(self.benchmark(LinearSVC(loss='l2', penalty=penalty,
+              #                                      dual=False, tol=1e-3)))
 
             # Train SGD model
-            results.append(self.benchmark(SGDClassifier(alpha=.0001, n_iter=50,
-                                                   penalty=penalty)))
+            #results.append(self.benchmark(SGDClassifier(alpha=.0001, n_iter=50,
+             #                                      penalty=penalty)))
 
         # Train SGD with Elastic Net penalty
-        print('=' * 80)
-        print("Elastic-Net penalty")
-        results.append(self.benchmark(SGDClassifier(alpha=.0001, n_iter=50,
-                                               penalty="elasticnet")))
+        #print('=' * 80)
+        #print("Elastic-Net penalty")
+        #results.append(self.benchmark(SGDClassifier(alpha=.0001, n_iter=50,
+         #                                      penalty="elasticnet")))
 
-        # Train NearestCentroid without threshold
+        #Train NearestCentroid without threshold
         print('=' * 80)
         print("NearestCentroid (aka Rocchio classifier)")
         results.append(self.benchmark(NearestCentroid()))
@@ -218,43 +225,43 @@ class FeatureExtractor(object):
         results.append(self.benchmark(BernoulliNB(alpha=.01)))
 
 
-        class L1LinearSVC(LinearSVC):
+        #class L1LinearSVC(LinearSVC):
 
-            def fit(self, X, y):
-                # The smaller C, the stronger the regularization.
-                # The more regularization, the more sparsity.
-                self.transformer_ = LinearSVC(penalty="l1",
-                                              dual=False, tol=1e-3)
-                X = self.transformer_.fit_transform(X, y)
-                return LinearSVC.fit(self, X, y)
-
-            def predict(self, X):
-                X = self.transformer_.transform(X)
-                return LinearSVC.predict(self, X)
+#            def fit(self, X, y):
+ #               # The smaller C, the stronger the regularization.
+  #              # The more regularization, the more sparsity.
+   #             self.transformer_ = LinearSVC(penalty="l1",
+    #                                          dual=False, tol=1e-3)
+     #           X = self.transformer_.fit_transform(X, y)
+      #          return LinearSVC.fit(self, X, y)
+#
+ #           def predict(self, X):
+  #              X = self.transformer_.transform(X)
+   #             return LinearSVC.predict(self, X)
 
         #print('=' * 80)
         #print("LinearSVC with L1-based feature selection")
         #esults.append(self.benchmark(L1LinearSVC()))
+        return results
 
-
-        # make some plots
+    # make some basic plots
     def drawDiagram(self, results):
         indices = np.arange(len(results))
 
-        results = [[x[i] for x in results] for i in range(5)]
+        results = [[x[i] for x in results] for i in range(7)]
 
-        clf_names, f1_score, acc_score, precision_score, recall_score = results
-        #training_time = np.array(training_time) / np.max(training_time)
-        #test_time = np.array(test_time) / np.max(test_time)
+        clf_names, f1_score, acc_score, precision_score, recall_score, training_time, test_time = results
+        training_time = np.array(training_time) / np.max(training_time)
+        test_time = np.array(test_time) / np.max(test_time)
 
         pl.figure(figsize=(12,8))
         pl.title("Score")
-        pl.barh(indices, f1_score, .2, label="f1", color='r')
-        pl.barh(indices+ .3, acc_score, .2, label='accuracy', color='y')
-        pl.barh(indices+ .56, precision_score, .2, label='precision', color='m')
-        pl.barh(indices+ .76, recall_score, .2, label='recall', color='c')
-        #pl.barh(indices + .3, training_time, .2, label="training time", color='g')
-        #pl.barh(indices + .6, test_time, .2, label="test time", color='b')
+        #pl.barh(indices, f1_score, .2, label="f1", color='r')
+        pl.barh(indices, acc_score, .2, label='accuracy', color='y')
+        #pl.barh(indices+ .56, precision_score, .2, label='precision', color='m')
+        #pl.barh(indices+ .76, recall_score, .2, label='recall', color='c')
+        pl.barh(indices + .3, training_time, .2, label="training time", color='g')
+        pl.barh(indices + .6, test_time, .2, label="test time", color='b')
         pl.yticks(())
         pl.legend(loc='best')
         pl.subplots_adjust(left=.25)
@@ -265,7 +272,7 @@ class FeatureExtractor(object):
             pl.text(-.3, i, c)
 
         pl.show()
-
+    # Preprocess Decriptiveness list for later use
     def preprocessDescriptiveness(self):
    
         dfile  = open(listspath+"ImageryRatings.csv", "rb")
@@ -286,11 +293,11 @@ class FeatureExtractor(object):
 
                 
 
-    
+    #Build corpus from data in DB
     def corpusFromDB(self):
         db=MySQLdb.connect(host='eltanin.cis.cornell.edu', user='annotator',passwd='Ann0tateTh!s', db='FrameAnnotation')
         c=db.cursor()
-        c.execute("SELECT  DISTINCT(doc_id),doc_html FROM Documents natural join Annotations WHERE doc_id != 1 LIMIT 20 ")#a_id > 125")
+        c.execute("SELECT  DISTINCT(doc_id),doc_html FROM Documents natural join Annotations WHERE doc_id != 1 LIMIT %s "%(Doc_num,))#a_id > 125")
         
         rowall=c.fetchall()
         for row in rowall:
@@ -302,13 +309,12 @@ class FeatureExtractor(object):
         
     
 
-# Function to create a TF*IDF vector for one document.  For each of
-# our unique words, we have a feature which is the td*idf for that word
-# in the current document
+    #calculate the tf_idf of a word in a certain document in our corpus
     def TFIDF(self, word,document):
         return self.collection.tf_idf(word,document)
-   #extract for each article
 
+
+    #Extract information of text using stanford corenlp
     def extractDependency(self,text):
         print "dependency extraction"
         
@@ -333,33 +339,28 @@ class FeatureExtractor(object):
             currTotal+=sent_len
             #assert(sent_len==len(sent)),('parsed_leng %d != expected %d '%(sent_len, len(sent)))
         
-        
-    def extractDependencyLarge(self):
-        corenlp_dir = "stanford-corenlp-full-2013-06-20/"   
-        raw_text_directory = "temp_raw_text/"
-        parsed = batch_parse(raw_text_directory, corenlp_dir) 
-        self.coreParsed=parsed.next()['sentences']
-        print 'done\n'
-        #pprint (self.coreParsed)
+
  
-        
+    # any preprocessing needed to be done for each word
     def preprocessEachWord(self, word):
         return self.stemmer.stem(word.lower())    
        
    
-    # %d is the word itself's location in -2, -1, 0, 1, 2 (or for bigram 0, 1)  
-    #feature for a word      
+    #generate feature vectors
     def generateFeatures(self, index, words):
+        features={}
+        text=['^']
+        for wls in words:
+            text.append(self.preprocessEachWord(wls[0]))
+        text.append("^")
         if not baseline:
             global dsp_dict
             fnames=["word", "word: -1",  'word +1', "word: -2", 'word +2',"pos", "pos -1", 'pos +1',  "pos -2", 'pos +2', "sentence length:", 'descriptiveness:%d', 'isInTitle:%d', 'TFIDF:']
-            features={}
-            text=['^']
+
+
             poses=['BEG']
             for wls in words:
-                text.append(self.preprocessEachWord(wls[0]))
                 poses.append(wls[1]['PartOfSpeech'])
-            text.append("^")
             poses.append('END')
             #stemmed_words=[self.stemmer.stem(self.lemmer.lemmatize(w[])) for w in words] # stem or not?
 
@@ -413,7 +414,8 @@ class FeatureExtractor(object):
         return features
     
             
- #cstart: the offset of the first char in the word, cend: the offset of the last char in the word       
+    #See whether a word is highlighted
+    #cstart: the offset of the first char in the word, cend: the offset of the last char in the word, i: the annotation index
     def isHighlighted(self,cstart,cend, i):
         start_pos=bisect_right(self.start_indices[i], cstart)-1 #right most that is <= cstart
         end_pos=bisect_left(self.end_indices[i], cend) # left most that is >= cend
@@ -434,8 +436,8 @@ class FeatureExtractor(object):
         
                 
             
-
-    def train_model(self):
+    #Generate feature vectors and labels for all the words
+    def generate_feature_datasets(self):
         
         invalid_ann={52:[225,224], 104:[224, 225], 148:[225,224],146:[224, 225],118:[167,153], 174:[167,153],68: [167],166:[167,153],39:[167,153]}
         train_set=[]
@@ -508,17 +510,16 @@ class FeatureExtractor(object):
                             train_set.append(f1)
                             #pprint(f1)
                             targets.append(self.isHighlighted(int(words[windex][1]['CharacterOffsetBegin'])+self.offsets[i],int(words[windex][1]['CharacterOffsetEnd'])+self.offsets[i],a))
-            
 
         return (train_set,targets)
         
-                            
+# save the trained model in python pickle module
 def saveModel(classifier, type='nb'):
 
     f = open(type+'_classifier.pickle', 'wb')
     pickle.dump(classifier, f)
     f.close()
-
+# load the saved model
 def loadModel(type='nb'):
     f = open(type+'_classifier.pickle')
     model=pickle.load(f)
@@ -528,17 +529,11 @@ def loadModel(type='nb'):
 def main(argv=None):
     print "Start Feature Extractor"
     # Preprocess read file
-    
-    
     #execute
     extractor=FeatureExtractor()
     extractor.prepareExtractor()
-    #time.sleep(300)
-    classifier=extractor.executeExtractor()
-    #context=nltk.word_tokenize("C is brave enough to handle that ?? tonde mo nai")
-    #print classifier.classify(self.generateFeatures(0, context,['aggressive']))
+    extractor.executeExtractor()
 
-        #[[randint(0, len(re.findall(r'\w+', sent))),randint(0, len(re.findall(r'\w+', sent)))] for sent in sents]  
     
         
     
