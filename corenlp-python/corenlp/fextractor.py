@@ -45,7 +45,7 @@ from sklearn import svm
 
 #python corenlp/corenlp.py -S stanford-corenlp-full-2013-06-20/ (default)
 #could also specify port number if want: python corenlp/corenlp.py -H localhost -p 3455 -S stanford-corenlp-full-2013-06-20/
-#python corenlp/fextractor.py
+#python corenlp/fextractor.py > results.txt
 
 
 listspath='lists/'
