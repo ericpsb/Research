@@ -43,9 +43,9 @@ from sklearn import svm
 
 
 
-#python corenlp/corenlp.py -S stanford-corenlp-full-2013-06-20/ (default)
+#python corenlp/corenlp.py -S stanford-corenlp-full-2013-06-20/
 #could also specify port number if want: python corenlp/corenlp.py -H localhost -p 3455 -S stanford-corenlp-full-2013-06-20/
-#python corenlp/fextractor.py > results.txt
+#python corenlp/fextractor.py 50 > results.txt
 
 
 listspath='lists/'
@@ -75,7 +75,7 @@ class FeatureExtractor(object):
         self.coreParsed=[]#the sentences(containing all its information by stanford corenlp) of this text
         self.offsets=[]
         #for all anotations of this doc
-        self.start_indices=[] # fornat[[(1,3)... ann one heilight start indices], ...]
+        self.start_indices=[] # format[[(1,3)... ann one heilight start indices], ...]
         self.end_indices=[]
 
         #data sets:
@@ -100,7 +100,7 @@ class FeatureExtractor(object):
 
     #Execute feature extractor
     def executeExtractor(self):
-        featuresets,targets=self.generate_feature_datasets()
+        featuresets,targets=self.generate_feature_datasets()# featuresets are all the feature vectors, targets are all the labels
         print "Got train_set, start training models"
         vec = DictVectorizer()
         feature_data=vec.fit_transform(featuresets)
@@ -215,7 +215,7 @@ class FeatureExtractor(object):
         results = []
         for clf, name in (
                 #(svm.SVC(),'SVM'),
-                (SGDClassifier(alpha=.0001, n_iter=50, penalty="l2"),"SGD with l2 penalty"),
+                #(SGDClassifier(alpha=.0001, n_iter=50, penalty="l2"),"SGD with l2 penalty"),
                 (Perceptron(n_iter=50), "Perceptron"),
                 (PassiveAggressiveClassifier(n_iter=50), "Passive-Aggressive")):#, (RidgeClassifier(tol=1e-2, solver="lsqr"), "Ridge Classifier"),(KNeighborsClassifier(n_neighbors=10), "kNN")
             print('=' * 80)
@@ -282,12 +282,12 @@ class FeatureExtractor(object):
 
         pl.figure(figsize=(12,8))
         pl.title("Score")
-        #pl.barh(indices, f1_score, .2, label="f1", color='r')
-        pl.barh(indices, acc_score, .2, label='accuracy', color='y')
-        #pl.barh(indices+ .56, precision_score, .2, label='precision', color='m')
-        #pl.barh(indices+ .76, recall_score, .2, label='recall', color='c')
-        pl.barh(indices + .3, training_time, .2, label="training time", color='g')
-        pl.barh(indices + .6, test_time, .2, label="test time", color='b')
+        pl.barh(indices, f1_score, .2, label="f1", color='r')
+        pl.barh(indices+.3, acc_score, .2, label='accuracy', color='y')
+        pl.barh(indices+ .56, precision_score, .2, label='precision', color='m')
+        pl.barh(indices+ .76, recall_score, .2, label='recall', color='c')
+        #pl.barh(indices + .3, training_time, .2, label="training time", color='g')
+        #pl.barh(indices + .6, test_time, .2, label="test time", color='b')
         pl.yticks(())
         pl.legend(loc='best')
         pl.subplots_adjust(left=.25)
@@ -298,6 +298,7 @@ class FeatureExtractor(object):
             pl.text(-.3, i, c)
 
         pl.show()
+
     # Preprocess Decriptiveness list for later use
     def preprocessDescriptiveness(self):
    
