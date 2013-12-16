@@ -38,6 +38,7 @@ from sklearn import metrics
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.naive_bayes import GaussianNB
 import numpy as np
+from scipy.sparse import vstack
 from sklearn import cross_validation
 from sklearn import svm
 
@@ -52,7 +53,7 @@ listspath='lists/'
 
 rm_invdata=True # whether or not rm possible invalid annotations
 baseline=False # whether or not test on baseline features
-CV= False # whether or not do cross-validation on the top classifier
+CV= True # whether or not do cross-validation on the top classifier
 doc_level=True
 
 class FeatureExtractor(object):
@@ -101,40 +102,44 @@ class FeatureExtractor(object):
     #Execute feature extractor
     def executeExtractor(self):
         global CV, doc_level
-        featuresets,targets=self.generate_feature_datasets()# featuresets are all the feature vectors, targets are all the labels
+        featuresets,targets, doc_offsets=self.generate_feature_datasets()# featuresets are all the feature vectors, targets are all the labels
         print "Got train_set, start training models"
         vec = DictVectorizer()
+        feature_data=vec.fit_transform(featuresets)
+        print 'done transforming feature data'
+        self.feature_names=np.asarray(vec.get_feature_names())
         if doc_level:
             random.seed(123456)
-            docs_to_use = featuresets.keys()
+            docs_to_use = doc_offsets.keys()
             if CV:
-                for key, val in featuresets.items():
-                    featuresets[key]=vec.fit_transform(val)
-                self.crossValidation(5, featuresets, docs_to_use, targets)
+                self.crossValidation(5, featuresets, docs_to_use, targets, doc_offsets)
             else:
                 random.shuffle(docs_to_use)
-                size = int(len(docs_to_use) * 0.1)
-                feature_vecs=[]
+                size = int(len(docs_to_use) * 0.5)
+                pprint (feature_data)
                 labels=[]
+                train_fs=[]
                 for did in docs_to_use[size:]:
-                    feature_vecs.extend(featuresets[did])
-                    labels.extend(targets[did])
-                self.X_train=vec.fit_transform(feature_vecs)
+                    start, end=doc_offsets[did]
+                    train_fs.append((start, end))
+                    labels.extend(targets[start:end])
+
+
+                self.X_train=vstack([feature_data[s:t] for s, t in train_fs])
                 self.y_train=np.asarray(labels)
-                self.feature_names=np.asarray(vec.get_feature_names())
-                feature_vecs=[]
+
                 labels=[]
+                test_fs=[]
                 for did in docs_to_use[:size]:
-                    feature_vecs.extend(featuresets[did])
-                    labels.extend(targets[did])
-                self.X_test=vec.fit_transform(feature_vecs)
+                    start, end=doc_offsets[did]
+                    test_fs.append((start, end))
+                    labels.extend(targets[start:end])
+                self.X_test=vstack([feature_data[s:t] for s, t in test_fs])
                 self.y_test=np.asarray(labels)
                 self.runAllClassifiers()
 
         else:
-            feature_data=vec.fit_transform(featuresets)
-            print 'done transforming feature data'
-            self.feature_names=np.asarray(vec.get_feature_names())
+
             #randomized
             if CV:
                 self.crossValidation(5, feature_data, np.asarray(targets))
@@ -144,8 +149,9 @@ class FeatureExtractor(object):
                 self.runAllClassifiers()
                 #self.drawDiagram()
 
-    #Do cross validation on the feature data sets, In doc_level, Y will be doc_ids and labels are the actuall labels
-    def crossValidation(self, nfold, X, Y, targets=None):
+    #Do cross validation on the feature data sets,
+    ## In doc_level, Y will be a list of doc_ids and targets are the actuall labels,
+    def crossValidation(self, nfold, X, Y, targets=None, doc_offsets=None):
         from sklearn.cross_validation import KFold,ShuffleSplit
         global doc_level
         #kf=KFold(len(Y), n_folds=nfold, indices=True)
@@ -155,29 +161,28 @@ class FeatureExtractor(object):
         mean={}
         for train, test in kf:
             if doc_level:
-                from scipy.sparse import hstack
-                feature_vecs=None
+
+                train_fs=[]
                 labels=[]
                 for ind in train:
                     did=Y[ind]
-                    if not feature_vecs:
-                        feature_vecs=X[did]
-                    else:
-                        hstack(feature_vecs, X[did])
-                    labels.extend(targets[did])
-                self.X_train=feature_vecs
+                    start, end=doc_offsets[did]
+                    train_fs.append((start, end))
+                    labels.extend(targets[start:end])
+
+                self.X_train=vstack([X[s:t] for s, t in train_fs])
                 self.y_train=np.asarray(labels)
-                feature_vecs=[]
+
                 labels=[]
-                for ind in test:
+                test_fs=[]
+                for ind in train:
                     did=Y[ind]
-                    if not feature_vecs:
-                        feature_vecs=X[did]
-                    else:
-                        hstack(feature_vecs, X[did])
-                    labels.extend(targets[did])
-                self.X_test=feature_vecs
+                    start, end=doc_offsets[did]
+                    test_fs.append((start, end))
+                    labels.extend(targets[start:end])
+                self.X_test=vstack([X[s:t] for s, t in test_fs])
                 self.y_test=np.asarray(labels)
+
             else:
                 self.X_train, self.X_test, self.y_train, self.y_test=X[train], X[test], Y[train], Y[test]
 
@@ -522,7 +527,7 @@ class FeatureExtractor(object):
             
     #Generate feature vectors and labels for all the words
     def generate_feature_datasets(self):
-        global doc_level
+
         invalid_ann={52:[225,224], 104:[224, 225], 148:[225,224],146:[224, 225],118:[167,153], 174:[167,153],68: [167],166:[167,153],39:[167,153]}
 
         train_set=[]
@@ -530,10 +535,11 @@ class FeatureExtractor(object):
         doc_offsets={}
 
         puncts='#$&\()*+,-./:;<=>@[\\]^_`{|}~'
+        f_counter=0
         for doc_id in self.texts.keys():
             print "Start Processing document: %d"%doc_id
             self.docID=doc_id
-
+            doc_offsets[doc_id]=[f_counter,0]
             self.offsets=[]
             self.coreParsed=[]
             
@@ -596,11 +602,13 @@ class FeatureExtractor(object):
                                 #f1["dependency: %s %s"%(rel,'sub')]=False
                                 #f1["dependency: %s %s"%(rel, 'gov')]=False
                     for a in range(len(self.start_indices)):
-                        train_set[doc_id].append(f1)
+                        train_set.append(f1)
                         #pprint(f1)
-                        targets[doc_id].append(self.isHighlighted(int(words[windex][1]['CharacterOffsetBegin'])+self.offsets[i],int(words[windex][1]['CharacterOffsetEnd'])+self.offsets[i],a))
+                        targets.append(self.isHighlighted(int(words[windex][1]['CharacterOffsetBegin'])+self.offsets[i],int(words[windex][1]['CharacterOffsetEnd'])+self.offsets[i],a))
+                        f_counter+=1
 
-        return (train_set,targets)
+            doc_offsets[doc_id][1]=f_counter
+        return (train_set,targets, doc_offsets)
         
 # save the trained model in python pickle module
 def saveModel(classifier, type='nb'):
