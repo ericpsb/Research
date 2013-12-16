@@ -121,11 +121,25 @@ class FeatureExtractor(object):
         #kf=KFold(len(Y), n_folds=nfold, indices=True)
         kf=ShuffleSplit(len(Y), n_iter=nfold, test_size=1.0/nfold, random_state=0)
         counter=0
+        mean={}
         for train, test in kf:
             self.X_train, self.X_test, self.y_train, self.y_test=X[train], X[test], Y[train], Y[test]
             print 'fold %d \n\n'%counter
-            self.runAllClassifiers()
+            results=self.runAllClassifiers()
+            if not mean:
+                mean={x[0]:[x[1],x[2],x[3],x[4]] for x in results}
+            else:
+                for tuple in results:
+                    for ind in range(4):
+                        mean[tuple[0]][ind]+=tuple[ind+1]
             counter+=1
+        for key, val in mean.items():
+            print('_' * 80)
+            print 'avg for %s'%(key)
+            print 'f1: %f'% (val[0]/nfold)
+            print 'acc: %f'%(val[1]/nfold)
+            print 'precision: %f'%(val[2]/nfold)
+            print 'recall: %f'%(val[3]/nfold)
 
 
     # Benchmark classifier:
@@ -200,7 +214,7 @@ class FeatureExtractor(object):
     def runAllClassifiers(self):
         results = []
         for clf, name in (
-                (svm.SVC(),'SVM'),
+                #(svm.SVC(),'SVM'),
                 (SGDClassifier(alpha=.0001, n_iter=50, penalty="l2"),"SGD with l2 penalty"),
                 (Perceptron(n_iter=50), "Perceptron"),
                 (PassiveAggressiveClassifier(n_iter=50), "Passive-Aggressive")):#, (RidgeClassifier(tol=1e-2, solver="lsqr"), "Ridge Classifier"),(KNeighborsClassifier(n_neighbors=10), "kNN")
