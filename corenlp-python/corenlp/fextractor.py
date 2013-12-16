@@ -52,8 +52,8 @@ listspath='lists/'
 
 rm_invdata=True # whether or not rm possible invalid annotations
 baseline=False # whether or not test on baseline features
-CV= True # whether or not do cross-validation on the top classifier
-
+CV= False # whether or not do cross-validation on the top classifier
+doc_level=True
 
 class FeatureExtractor(object):
     
@@ -100,30 +100,87 @@ class FeatureExtractor(object):
 
     #Execute feature extractor
     def executeExtractor(self):
+        global CV, doc_level
         featuresets,targets=self.generate_feature_datasets()# featuresets are all the feature vectors, targets are all the labels
         print "Got train_set, start training models"
         vec = DictVectorizer()
-        feature_data=vec.fit_transform(featuresets)
-        print 'done transforming feature data'
-        self.feature_names=np.asarray(vec.get_feature_names())
-        #randomized
-        if CV:
-            self.crossValidation(5, feature_data, np.asarray(targets))
-        else:
-            self.X_train, self.X_test, self.y_train, self.y_test = cross_validation.train_test_split(feature_data, targets, test_size=0.1, random_state=0)
-            print 'done splitting sets'
-            self.runAllClassifiers()
-            #self.drawDiagram()
+        if doc_level:
+            random.seed(123456)
+            docs_to_use = featuresets.keys()
+            if CV:
+                for key, val in featuresets.items():
+                    featuresets[key]=vec.fit_transform(val)
+                self.crossValidation(5, featuresets, docs_to_use, targets)
+            else:
+                random.shuffle(docs_to_use)
+                size = int(len(docs_to_use) * 0.1)
+                feature_vecs=[]
+                labels=[]
+                for did in docs_to_use[size:]:
+                    feature_vecs.extend(featuresets[did])
+                    labels.extend(targets[did])
+                self.X_train=vec.fit_transform(feature_vecs)
+                self.y_train=np.asarray(labels)
+                self.feature_names=np.asarray(vec.get_feature_names())
+                feature_vecs=[]
+                labels=[]
+                for did in docs_to_use[:size]:
+                    feature_vecs.extend(featuresets[did])
+                    labels.extend(targets[did])
+                self.X_test=vec.fit_transform(feature_vecs)
+                self.y_test=np.asarray(labels)
+                self.runAllClassifiers()
 
-    #Do cross validation on the feature data sets
-    def crossValidation(self, nfold, X, Y):
+        else:
+            feature_data=vec.fit_transform(featuresets)
+            print 'done transforming feature data'
+            self.feature_names=np.asarray(vec.get_feature_names())
+            #randomized
+            if CV:
+                self.crossValidation(5, feature_data, np.asarray(targets))
+            else:
+                self.X_train, self.X_test, self.y_train, self.y_test = cross_validation.train_test_split(feature_data, targets, test_size=0.1, random_state=0)
+                print 'done splitting sets'
+                self.runAllClassifiers()
+                #self.drawDiagram()
+
+    #Do cross validation on the feature data sets, In doc_level, Y will be doc_ids and labels are the actuall labels
+    def crossValidation(self, nfold, X, Y, targets=None):
         from sklearn.cross_validation import KFold,ShuffleSplit
+        global doc_level
         #kf=KFold(len(Y), n_folds=nfold, indices=True)
+
         kf=ShuffleSplit(len(Y), n_iter=nfold, test_size=1.0/nfold, random_state=0)
         counter=0
         mean={}
         for train, test in kf:
-            self.X_train, self.X_test, self.y_train, self.y_test=X[train], X[test], Y[train], Y[test]
+            if doc_level:
+                from scipy.sparse import hstack
+                feature_vecs=None
+                labels=[]
+                for ind in train:
+                    did=Y[ind]
+                    if not feature_vecs:
+                        feature_vecs=X[did]
+                    else:
+                        hstack(feature_vecs, X[did])
+                    labels.extend(targets[did])
+                self.X_train=feature_vecs
+                self.y_train=np.asarray(labels)
+                feature_vecs=[]
+                labels=[]
+                for ind in test:
+                    did=Y[ind]
+                    if not feature_vecs:
+                        feature_vecs=X[did]
+                    else:
+                        hstack(feature_vecs, X[did])
+                    labels.extend(targets[did])
+                self.X_test=feature_vecs
+                self.y_test=np.asarray(labels)
+            else:
+                self.X_train, self.X_test, self.y_train, self.y_test=X[train], X[test], Y[train], Y[test]
+
             print 'fold %d \n\n'%counter
             results=self.runAllClassifiers()
             if not mean:
@@ -465,14 +522,18 @@ class FeatureExtractor(object):
             
     #Generate feature vectors and labels for all the words
     def generate_feature_datasets(self):
-        
+        global doc_level
         invalid_ann={52:[225,224], 104:[224, 225], 148:[225,224],146:[224, 225],118:[167,153], 174:[167,153],68: [167],166:[167,153],39:[167,153]}
+
         train_set=[]
         targets=[]
+        doc_offsets={}
+
         puncts='#$&\()*+,-./:;<=>@[\\]^_`{|}~'
         for doc_id in self.texts.keys():
             print "Start Processing document: %d"%doc_id
             self.docID=doc_id
+
             self.offsets=[]
             self.coreParsed=[]
             
@@ -535,9 +596,9 @@ class FeatureExtractor(object):
                                 #f1["dependency: %s %s"%(rel,'sub')]=False
                                 #f1["dependency: %s %s"%(rel, 'gov')]=False
                     for a in range(len(self.start_indices)):
-                        train_set.append(f1)
-                            #pprint(f1)
-                        targets.append(self.isHighlighted(int(words[windex][1]['CharacterOffsetBegin'])+self.offsets[i],int(words[windex][1]['CharacterOffsetEnd'])+self.offsets[i],a))
+                        train_set[doc_id].append(f1)
+                        #pprint(f1)
+                        targets[doc_id].append(self.isHighlighted(int(words[windex][1]['CharacterOffsetBegin'])+self.offsets[i],int(words[windex][1]['CharacterOffsetEnd'])+self.offsets[i],a))
 
         return (train_set,targets)
         
