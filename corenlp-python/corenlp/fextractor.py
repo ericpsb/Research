@@ -51,9 +51,9 @@ from sklearn import svm
 listspath='lists/'
 
 rm_invdata=True # whether or not rm possible invalid annotations
-baseline=True # whether or not test on baseline features
-CV=False # whether or not do cross-validation on the top classifier
-Doc_num='50' # number of documents used in training set
+baseline=False # whether or not test on baseline features
+CV= False # whether or not do cross-validation on the top classifier
+
 
 class FeatureExtractor(object):
     
@@ -87,7 +87,7 @@ class FeatureExtractor(object):
 
     
     #Prepare feature extractor by generating the lists we are going to use and load corpus from DB
-    def prepareExtractor(self):
+    def prepareExtractor(self,doc_num):
         print 'execute extractor'
         self.preprocessDescriptiveness()
 
@@ -96,7 +96,7 @@ class FeatureExtractor(object):
             self.doc_sets[known_lst]=set([self.preprocessEachWord(line.strip()) for line in open(listspath+known_lst+".txt", 'r')])
           
         #build corpus
-        self.corpusFromDB()
+        self.corpusFromDB(doc_num)
 
     #Execute feature extractor
     def executeExtractor(self):
@@ -187,19 +187,19 @@ class FeatureExtractor(object):
     def runTopClassifiers(self):
         '''Top determined by running all classifiers on dataset of size 20'''
         results=[]
-
-        clf=Perceptron(n_iter=50)
-        name="Perceptron"
-
-        print('=' * 80)
-        print(name)
-        results.append(self.benchmark(clf))
+        for clf, name in (
+                #(SGDClassifier(alpha=.0001, n_iter=50, penalty="l2"),"SGD with Elastic-Net penalty"),
+                (Perceptron(n_iter=50), "Perceptron"),
+                (PassiveAggressiveClassifier(n_iter=50), "Passive-Aggressive")):#, (RidgeClassifier(tol=1e-2, solver="lsqr"), "Ridge Classifier"),(KNeighborsClassifier(n_neighbors=10), "kNN")
+            print('=' * 80)
+            print(name)
+            results.append(self.benchmark(clf))
 
     # run all classifiers
     def runAllClassifiers(self):
         results = []
         for clf, name in (
-                #(SGDClassifier(alpha=.0001, n_iter=50, penalty="l2"),"SGD with Elastic-Net penalty"),
+                (SGDClassifier(alpha=.0001, n_iter=50, penalty="l2"),"SGD with l2 penalty"),
                 (Perceptron(n_iter=50), "Perceptron"),
                 (PassiveAggressiveClassifier(n_iter=50), "Passive-Aggressive")):#, (RidgeClassifier(tol=1e-2, solver="lsqr"), "Ridge Classifier"),(KNeighborsClassifier(n_neighbors=10), "kNN")
             print('=' * 80)
@@ -303,11 +303,11 @@ class FeatureExtractor(object):
 
                 
 
-    #Build corpus from data in DB
-    def corpusFromDB(self):
+    #Build corpus from data in DB, doc_num is the number of docs you are gonna use
+    def corpusFromDB(self, doc_num):
         db=MySQLdb.connect(host='eltanin.cis.cornell.edu', user='annotator',passwd='Ann0tateTh!s', db='FrameAnnotation')
         c=db.cursor()
-        c.execute("SELECT  DISTINCT(doc_id),doc_html FROM Documents natural join Annotations WHERE doc_id != 1 LIMIT %s "%(Doc_num,))#a_id > 125")
+        c.execute("SELECT  DISTINCT(doc_id),doc_html FROM Documents natural join Annotations WHERE doc_id != 1 LIMIT %s "%(doc_num,))#a_id > 125")
         
         rowall=c.fetchall()
         for row in rowall:
@@ -540,9 +540,13 @@ def loadModel(type='nb'):
 def main(argv=None):
     print "Start Feature Extractor"
     # Preprocess read file
+    num_doc='50' # number of documents used in training set
+    if sys.argv != None:
+        num_doc=str(sys.argv[1])
+        print 'set num to %s'%num_doc
     #execute
     extractor=FeatureExtractor()
-    extractor.prepareExtractor()
+    extractor.prepareExtractor(num_doc)
     extractor.executeExtractor()
 
     
