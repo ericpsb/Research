@@ -112,7 +112,7 @@ class FeatureExtractor(object):
             random.seed(123456)
             docs_to_use = doc_offsets.keys()
             if CV:
-                self.crossValidation(5, featuresets, docs_to_use, targets, doc_offsets)
+                self.crossValidation(5, feature_data, docs_to_use, targets, doc_offsets)
             else:
                 random.shuffle(docs_to_use)
                 size = int(len(docs_to_use) * 0.5)
