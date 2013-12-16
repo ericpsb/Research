@@ -53,7 +53,7 @@ listspath='lists/'
 rm_invdata=True # whether or not rm possible invalid annotations
 baseline=True # whether or not test on baseline features
 CV=False # whether or not do cross-validation on the top classifier
-Doc_num='10' # number of documents used in training set
+Doc_num='50' # number of documents used in training set
 
 class FeatureExtractor(object):
     
@@ -90,12 +90,12 @@ class FeatureExtractor(object):
     def prepareExtractor(self):
         print 'execute extractor'
         self.preprocessDescriptiveness()
-        #extract sets
+
         lstfiles=["subjective","report_verb","implicative","hedge","factive","bias-lexicon","assertive","negative-word", "positive-word"]
         for known_lst in lstfiles:
             self.doc_sets[known_lst]=set([self.preprocessEachWord(line.strip()) for line in open(listspath+known_lst+".txt", 'r')])
           
-        #Train Model
+        #build corpus
         self.corpusFromDB()
 
     #Execute feature extractor
@@ -112,7 +112,8 @@ class FeatureExtractor(object):
         else:
             self.X_train, self.X_test, self.y_train, self.y_test = cross_validation.train_test_split(feature_data, targets, test_size=0.1, random_state=len(targets))
             print 'done splitting sets'
-            self.drawDiagram(self.runAllClassifiers())
+            self.runAllClassifiers()
+            #self.drawDiagram()
 
     #Do cross validation on the feature data sets
     def crossValidation(self, nfold, X, Y):
@@ -156,10 +157,12 @@ class FeatureExtractor(object):
             print("density: %f" % density(clf.coef_))
 
             if self.feature_names is not None:
-                print("top 10 keywords per class:")
+                nf=10
+                print("top %d keywords per class:"%(nf))
 
-                top10 = np.argsort(clf.coef_[0])[-10:]
-                print("%s" % (" ".join(self.feature_names[top10])))
+                self.show_most_informative_features(clf.coef_[0],nf)
+                #top10 = np.argsort(clf.coef_[0])[-20:]
+               # print("%s" % (" ".join(self.feature_names[top10])))
             print()
 
 
@@ -173,6 +176,13 @@ class FeatureExtractor(object):
         print()
         clf_descr = str(clf).split('(')[0]
         return clf_descr, f1_score, acc_score, precision_score, recall_score, train_time, test_time
+
+    def show_most_informative_features(self, lst, n=20):
+        c_f = sorted(zip(lst, self.feature_names))
+        top = zip(c_f[:n], c_f[:-(n+1):-1])
+        #weights and feature names
+        for (c1,f1),(c2,f2) in top:
+            print "\t%.4f\t%-15s\t\t%.4f\t%-15s" % (c1,f1,c2,f2)
 
     def runTopClassifiers(self):
         '''Top determined by running all classifiers on dataset of size 20'''
@@ -189,9 +199,9 @@ class FeatureExtractor(object):
     def runAllClassifiers(self):
         results = []
         for clf, name in (
-                (RidgeClassifier(tol=1e-2, solver="lsqr"), "Ridge Classifier"),
+                #(SGDClassifier(alpha=.0001, n_iter=50, penalty="l2"),"SGD with Elastic-Net penalty"),
                 (Perceptron(n_iter=50), "Perceptron"),
-                (PassiveAggressiveClassifier(n_iter=50), "Passive-Aggressive")):#,(KNeighborsClassifier(n_neighbors=10), "kNN")
+                (PassiveAggressiveClassifier(n_iter=50), "Passive-Aggressive")):#, (RidgeClassifier(tol=1e-2, solver="lsqr"), "Ridge Classifier"),(KNeighborsClassifier(n_neighbors=10), "kNN")
             print('=' * 80)
             print(name)
             results.append(self.benchmark(clf))
@@ -355,7 +365,7 @@ class FeatureExtractor(object):
         text.append("^")
         if not baseline:
             global dsp_dict
-            fnames=["word", "word: -1",  'word +1', "word: -2", 'word +2',"pos", "pos -1", 'pos +1',  "pos -2", 'pos +2', "sentence length:", 'descriptiveness:%d', 'isInTitle:%d', 'TFIDF:']
+            fnames=["word", "word: -1",  'word +1', "word: -2", 'word +2',"pos", "pos -1", 'pos +1',  "pos -2", 'pos +2', "sentence length:", 'descriptiveness:%d', 'WhetherInTitle:', 'TFIDF:']
 
 
             poses=['BEG']
@@ -409,7 +419,7 @@ class FeatureExtractor(object):
         
         # all the lists
         for known_set in self.doc_sets.keys():
-            features[("is "+known_set)]=int(text[index] in self.doc_sets[known_set])
+            features[("whether "+known_set)]=text[index] in self.doc_sets[known_set]
 
         return features
     
@@ -496,20 +506,21 @@ class FeatureExtractor(object):
                     if words[windex][0] in puncts:
                         continue
                     f1=self.generateFeatures(windex,words)
-                    for [rel, gov, sub] in tuples:
-                        thew=words[windex][0]
-                            
-                        if thew == gov:
-                            f1["dependency: %s %s"%(rel, 'gov')]=1
-                        elif thew == sub:
-                            f1["dependency: %s %s"%(rel,'sub')]=1
-                        #else:
-                            #f1["dependency: %s %s"%(rel,'sub')]=False
-                            #f1["dependency: %s %s"%(rel, 'gov')]=False
-                        for a in range(len(self.start_indices)):
-                            train_set.append(f1)
+                    if not baseline:
+                        for [rel, gov, sub] in tuples:
+                            thew=words[windex][0]
+
+                            if thew == gov:
+                                f1["dependency: %s %s"%(rel, 'gov')]=1
+                            elif thew == sub:
+                                f1["dependency: %s %s"%(rel,'sub')]=1
+                            #else:
+                                #f1["dependency: %s %s"%(rel,'sub')]=False
+                                #f1["dependency: %s %s"%(rel, 'gov')]=False
+                    for a in range(len(self.start_indices)):
+                        train_set.append(f1)
                             #pprint(f1)
-                            targets.append(self.isHighlighted(int(words[windex][1]['CharacterOffsetBegin'])+self.offsets[i],int(words[windex][1]['CharacterOffsetEnd'])+self.offsets[i],a))
+                        targets.append(self.isHighlighted(int(words[windex][1]['CharacterOffsetBegin'])+self.offsets[i],int(words[windex][1]['CharacterOffsetEnd'])+self.offsets[i],a))
 
         return (train_set,targets)
         
