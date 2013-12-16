@@ -52,7 +52,7 @@ listspath='lists/'
 
 rm_invdata=True # whether or not rm possible invalid annotations
 baseline=False # whether or not test on baseline features
-CV= False # whether or not do cross-validation on the top classifier
+CV= True # whether or not do cross-validation on the top classifier
 
 
 class FeatureExtractor(object):
@@ -110,20 +110,21 @@ class FeatureExtractor(object):
         if CV:
             self.crossValidation(5, feature_data, np.asarray(targets))
         else:
-            self.X_train, self.X_test, self.y_train, self.y_test = cross_validation.train_test_split(feature_data, targets, test_size=0.1, random_state=len(targets))
+            self.X_train, self.X_test, self.y_train, self.y_test = cross_validation.train_test_split(feature_data, targets, test_size=0.1, random_state=0)
             print 'done splitting sets'
             self.runAllClassifiers()
             #self.drawDiagram()
 
     #Do cross validation on the feature data sets
     def crossValidation(self, nfold, X, Y):
-        from sklearn.cross_validation import KFold
-        kf=KFold(len(Y), n_folds=nfold, indices=True)
+        from sklearn.cross_validation import KFold,ShuffleSplit
+        #kf=KFold(len(Y), n_folds=nfold, indices=True)
+        kf=ShuffleSplit(len(Y), n_iter=nfold, test_size=1.0/nfold, random_state=0)
         counter=0
         for train, test in kf:
             self.X_train, self.X_test, self.y_train, self.y_test=X[train], X[test], Y[train], Y[test]
             print 'fold %d \n\n'%counter
-            self.runTopClassifiers()
+            self.runAllClassifiers()
             counter+=1
 
 
@@ -199,6 +200,7 @@ class FeatureExtractor(object):
     def runAllClassifiers(self):
         results = []
         for clf, name in (
+                (svm.SVC(),'SVM'),
                 (SGDClassifier(alpha=.0001, n_iter=50, penalty="l2"),"SGD with l2 penalty"),
                 (Perceptron(n_iter=50), "Perceptron"),
                 (PassiveAggressiveClassifier(n_iter=50), "Passive-Aggressive")):#, (RidgeClassifier(tol=1e-2, solver="lsqr"), "Ridge Classifier"),(KNeighborsClassifier(n_neighbors=10), "kNN")
