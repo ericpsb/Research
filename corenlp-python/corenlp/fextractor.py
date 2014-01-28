@@ -10,6 +10,7 @@ from json import loads
 from corenlp import batch_parse
 from bisect import bisect_left, bisect_right
 import pickle
+import copy
 
 #nltk imports
 from nltk.stem.wordnet import WordNetLemmatizer
@@ -37,7 +38,9 @@ from sklearn.utils.extmath import density
 from sklearn import metrics
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.naive_bayes import GaussianNB
+from sklearn.dummy import DummyClassifier
 import numpy as np
+import scipy as sp
 from scipy.sparse import vstack
 from sklearn import cross_validation
 from sklearn import svm
@@ -52,9 +55,18 @@ from sklearn import svm
 listspath='lists/'
 
 rm_invdata=True # whether or not rm possible invalid annotations
-baseline=False # whether or not test on baseline features
 CV= True # whether or not do cross-validation on the top classifier
 doc_level=True
+
+# set of booleans to turn on or off certain features
+feat_words = True # use the token- and lemma-based features
+feat_POS = True # use the POS-based features
+feat_relns = True # use grammatical dependencies as a feature
+feat_sent_len = False # use the sentence length feature
+feat_title = True # use whether the word is in the title as a feature
+feat_TFIDF = False # use TFIDF as a feature
+feat_imagery = True # use the imagery/descriptiveness rating feature
+feat_word_lists = True # use the special lists of words (factives, implicatives, etc.)
 
 class FeatureExtractor(object):
     
@@ -69,6 +81,7 @@ class FeatureExtractor(object):
         self.dsp_dict={}
         self.server = jsonrpclib.Server("http://127.0.0.1:8080")
         self.doc_sets={}
+        self.tfidf_bins = {}
         
         #doc specific
         self.docID=0
@@ -92,9 +105,12 @@ class FeatureExtractor(object):
         print 'execute extractor'
         self.preprocessDescriptiveness()
 
-        lstfiles=["subjective","report_verb","implicative","hedge","factive","bias-lexicon","assertive","negative-word", "positive-word"]
+        lstfiles=["subjective","report_verb","implicative","hedge","factive","entailment","bias-lexicon","assertive","negative-word", "positive-word"]
         for known_lst in lstfiles:
-            self.doc_sets[known_lst]=set([self.preprocessEachWord(line.strip()) for line in open(listspath+known_lst+".txt", 'r')])
+            # epsb: changing to use dict rather than set
+            self.doc_sets[known_lst] = dict( [(self.preprocessEachWord(line.strip()), True) 
+                    for line in open(listspath+known_lst+".txt", 'r')] )
+            #self.doc_sets[known_lst]=set([self.preprocessEachWord(line.strip()) for line in open(listspath+known_lst+".txt", 'r')])
           
         #build corpus
         self.corpusFromDB(doc_num)
@@ -112,14 +128,14 @@ class FeatureExtractor(object):
             random.seed(123456)
             docs_to_use = doc_offsets.keys()
             if CV:
-                self.crossValidation(5, feature_data, docs_to_use, targets, doc_offsets)
+                self.crossValidation(10, feature_data, docs_to_use, targets, doc_offsets)
             else:
                 random.shuffle(docs_to_use)
                 size = int(len(docs_to_use) * 0.5)
                 pprint (feature_data)
                 labels=[]
                 train_fs=[]
-                for did in docs_to_use[size:]:
+                for did in docs_to_use[:size]:
                     start, end=doc_offsets[did]
                     train_fs.append((start, end))
                     labels.extend(targets[start:end])
@@ -130,7 +146,7 @@ class FeatureExtractor(object):
 
                 labels=[]
                 test_fs=[]
-                for did in docs_to_use[:size]:
+                for did in docs_to_use[size:]:
                     start, end=doc_offsets[did]
                     test_fs.append((start, end))
                     labels.extend(targets[start:end])
@@ -142,7 +158,7 @@ class FeatureExtractor(object):
 
             #randomized
             if CV:
-                self.crossValidation(5, feature_data, np.asarray(targets))
+                self.crossValidation(10, feature_data, np.asarray(targets))
             else:
                 self.X_train, self.X_test, self.y_train, self.y_test = cross_validation.train_test_split(feature_data, targets, test_size=0.1, random_state=0)
                 print 'done splitting sets'
@@ -150,15 +166,18 @@ class FeatureExtractor(object):
                 #self.drawDiagram()
 
     #Do cross validation on the feature data sets,
-    ## In doc_level, Y will be a list of doc_ids and targets are the actuall labels,
+    ## In doc_level, Y will be a list of doc_ids and targets are the actual labels,
     def crossValidation(self, nfold, X, Y, targets=None, doc_offsets=None):
-        from sklearn.cross_validation import KFold,ShuffleSplit
+        from sklearn.cross_validation import KFold, ShuffleSplit, StratifiedKFold
         global doc_level
-        #kf=KFold(len(Y), n_folds=nfold, indices=True)
-
-        kf=ShuffleSplit(len(Y), n_iter=nfold, test_size=1.0/nfold, random_state=0)
+        
+        #kf=KFold(len(Y), n_folds=nfold, shuffle=True, random_state=0, indices=True)
+        kf=ShuffleSplit(len(Y), n_iter=nfold, test_size=2.0/(nfold), random_state=0)
+        #kf = StratifiedKFold(Y, n_folds=nfold)
+        
         counter=0
         mean={}
+        corrs = {} # correlations between avg predictions and avg annotations
         for train, test in kf:
             if doc_level:
 
@@ -175,7 +194,8 @@ class FeatureExtractor(object):
 
                 labels=[]
                 test_fs=[]
-                for ind in train:
+                # for ind in train: # epsb thinks this is an error
+                for ind in test:
                     did=Y[ind]
                     start, end=doc_offsets[did]
                     test_fs.append((start, end))
@@ -188,21 +208,76 @@ class FeatureExtractor(object):
 
             print 'fold %d \n\n'%counter
             results=self.runAllClassifiers()
+            """
+            # store the correlations from this fold
+            for result in results:
+                if result[0] not in corrs:
+                    corrs[result[0]] = {}
+                cur_start_offset = 0 # for keeping track of doc offsets in predictions
+                for nth_doc in test:
+                    doc_id = doc_offsets.keys()[nth_doc]
+                    #doc_len = int( (doc_offsets[doc_id][1] - doc_offsets[doc_id][0]) / 5 )
+                    doc_len = doc_offsets[doc_id][1] - doc_offsets[doc_id][0]
+                    # get all the annotations (i.e., targets) for this doc
+                    doc_ations = targets[doc_offsets[doc_id][0]:doc_offsets[doc_id][1]]
+                    all_preds = list(result[7])
+                    doc_preds = all_preds[cur_start_offset:cur_start_offset + doc_len]
+                    corrs[result[0]][doc_id] = sp.stats.pearsonr(doc_ations, doc_preds)
+                    
+                    cur_start_offset += doc_len
+
+                    # NB: the following was required when training on each annotation separately. 
+                    # not required when training on binned annotations averages.
+                    '''
+                    # determine the average annotations (i.e., targets) for this doc
+                    avg_ations = [0] * doc_len
+                    for i in range(0,5):
+                        for j in range(0,doc_len):
+                            avg_ations[j] += doc_ations[i::5][j]
+                    avg_ations = [a / 5.0 for a in avg_ations]
+                    
+                    # determine the average predictions for this document
+                    avg_preds = [0] * doc_len
+                    all_preds = list(result[7]) # classifier's predictions
+                    for i in range(0,5):
+                        for j in range(0,doc_len):
+                            avg_preds[j] += all_preds[i::5][j]
+                    avg_preds = [a / 5.0 for a in avg_preds]
+                    
+                    # key is classifier's name
+                    corrs[result[0]][doc_id] = sp.stats.pearsonr(avg_ations, avg_preds)
+                    '''
+            """
+            for x in results:
+                if x[0] not in mean:
+                    mean[x[0]] = [0,0,0,0]
+                for ind in range(4):
+                    mean[x[0]][ind]+=x[ind+1]
+            '''
             if not mean:
                 mean={x[0]:[x[1],x[2],x[3],x[4]] for x in results}
             else:
                 for tuple in results:
                     for ind in range(4):
                         mean[tuple[0]][ind]+=tuple[ind+1]
+            '''
             counter+=1
+        
+        # print average performance across all folds
         for key, val in mean.items():
             print('_' * 80)
             print 'avg for %s'%(key)
-            print 'f1: %f'% (val[0]/nfold)
-            print 'acc: %f'%(val[1]/nfold)
-            print 'precision: %f'%(val[2]/nfold)
-            print 'recall: %f'%(val[3]/nfold)
-
+            print 'f1: %f'% (val[0]/len(kf))
+            print 'acc: %f'%(val[1]/len(kf))
+            print 'precision: %f'%(val[2]/len(kf))
+            print 'recall: %f'%(val[3]/len(kf))
+            """
+            correls = [cor[0] for cor in corrs[key].values() if not np.isnan(cor[0])]
+            if len(correls) > 0:
+                print 'avg correlation: %f'%(np.mean(correls))
+                print 'min correlation: %f' % min(correls)
+                print 'max correlation: %f' % max(correls)
+            """
 
     # Benchmark classifier:
     def benchmark(self, clf):
@@ -234,7 +309,7 @@ class FeatureExtractor(object):
             print("density: %f" % density(clf.coef_))
 
             if self.feature_names is not None:
-                nf=10
+                nf=50
                 print("top %d keywords per class:"%(nf))
 
                 self.show_most_informative_features(clf.coef_[0],nf)
@@ -244,7 +319,7 @@ class FeatureExtractor(object):
 
 
         print("classification report:")
-        print(metrics.classification_report(self.y_test, pred, target_names=['class 0', 'class 1']))
+        print(metrics.classification_report(self.y_test, pred, target_names=['class 0','class 1']))
 
 
         print("confusion matrix:")
@@ -252,7 +327,8 @@ class FeatureExtractor(object):
 
         print()
         clf_descr = str(clf).split('(')[0]
-        return clf_descr, f1_score, acc_score, precision_score, recall_score, train_time, test_time
+        return clf_descr, f1_score, acc_score, precision_score, recall_score, train_time, \
+                test_time, pred
 
     def show_most_informative_features(self, lst, n=20):
         c_f = sorted(zip(lst, self.feature_names))
@@ -276,10 +352,23 @@ class FeatureExtractor(object):
     def runAllClassifiers(self):
         results = []
         for clf, name in (
-                #(svm.SVC(),'SVM'),
-                #(SGDClassifier(alpha=.0001, n_iter=50, penalty="l2"),"SGD with l2 penalty"),
+                #(svm.SVC(cache_size = 500, class_weight='auto', kernel='rbf'),'SVM rbf'),
+                #(svm.SVC(cache_size = 500, class_weight='auto', kernel='poly'),'SVM poly'),
+                (SGDClassifier(alpha=.0001, n_iter=50, penalty="l2"),"SGD with l2 penalty"),
                 (Perceptron(n_iter=50), "Perceptron"),
-                (PassiveAggressiveClassifier(n_iter=50), "Passive-Aggressive")):#, (RidgeClassifier(tol=1e-2, solver="lsqr"), "Ridge Classifier"),(KNeighborsClassifier(n_neighbors=10), "kNN")
+                #(KNeighborsClassifier(n_neighbors=10), "k Nearest Neighbors 10"),
+                #(RidgeClassifier(tol=1e-2, solver="lsqr"), "Ridge Classifier"),
+                (PassiveAggressiveClassifier(n_iter=50), "Passive-Aggressive"),
+                (NearestCentroid(),"NearestCentroid"),
+                #(MultinomialNB(alpha=.01), "Multinomial Naive Bayes - alpha .01"),
+                (MultinomialNB(alpha=.05), "Multinomial Naive Bayes"),
+                #(MultinomialNB(alpha=.1), "Multinomial Naive Bayes - alpha .1"),
+                #(MultinomialNB(alpha=.5), "Multinomial Naive Bayes - alpha .5"),
+                #(MultinomialNB(alpha=1), "Multinomial Naive Bayes - alpha 1"),
+                (BernoulliNB(alpha=.01), "Bernouli Naive Bayes"),
+                #(GaussianNB(),"Gaussian Naive Bayes"), # doesn't handle sparse matrices
+                (DummyClassifier(), "Dummy Baseline")
+                ):
             print('=' * 80)
             print(name)
             results.append(self.benchmark(clf))
@@ -302,15 +391,19 @@ class FeatureExtractor(object):
          #                                      penalty="elasticnet")))
 
         #Train NearestCentroid without threshold
+        '''
         print('=' * 80)
         print("NearestCentroid (aka Rocchio classifier)")
         results.append(self.benchmark(NearestCentroid()))
+        '''
 
         # Train sparse Naive Bayes classifiers
+        '''
         print('=' * 80)
         print("Naive Bayes")
         results.append(self.benchmark(MultinomialNB(alpha=.01)))
         results.append(self.benchmark(BernoulliNB(alpha=.01)))
+        '''
 
 
         #class L1LinearSVC(LinearSVC):
@@ -386,21 +479,44 @@ class FeatureExtractor(object):
     def corpusFromDB(self, doc_num):
         db=MySQLdb.connect(host='eltanin.cis.cornell.edu', user='annotator',passwd='Ann0tateTh!s', db='FrameAnnotation')
         c=db.cursor()
-        c.execute("SELECT  DISTINCT(doc_id),doc_html FROM Documents natural join Annotations WHERE doc_id != 1 LIMIT %s "%(doc_num,))#a_id > 125")
+        c.execute("SELECT  DISTINCT(doc_id),doc_html FROM Documents natural join Annotations WHERE doc_id != 1 order by doc_id desc LIMIT %s "%(doc_num,))#a_id > 125")
         
         rowall=c.fetchall()
         for row in rowall:
           
             doc=nltk.clean_html(row[1])
-            text=nltk.Text([self.preprocessEachWord(w) for w in nltk.word_tokenize(doc) if len(w) >= 1])
+            text=nltk.Text([self.preprocessEachWord(w) for w in nltk.wordpunct_tokenize(doc) if len(w) >= 1 and not all(a in string.punctuation for a in w)])
             self.texts[int(row[0])]=text
         self.collection=nltk.TextCollection(self.texts.values())
         
     
 
-    #calculate the tf_idf of a word in a certain document in our corpus
+    #calculate the tf_idf bin of a word in a certain document in our corpus
     def TFIDF(self, word,document):
-        return self.collection.tf_idf(word,document)
+        if document not in self.tfidf_bins:
+            self.tfidf_bins[document] = {}
+            # get the tfidf scores for all tokens in this document
+            token_freq = [(self.collection.tf_idf(w, document), self.collection.tf(w,document), 
+                    self.collection.idf(w, document), w) for w in document.vocab().samples() if 
+                    not all(a in string.punctuation for a in w)]
+            token_freq.sort(reverse=True)
+            
+            # based on the tfidf scores, assign words into bins
+            interval = len(token_freq) / 36 # make 8 bins of increasing size
+            cur_bin = 1
+            cur_cutoff = interval
+            for tf in token_freq:
+                token = tf[-1]
+                if token_freq.index(tf) >= cur_cutoff:
+                    cur_bin += 1
+                    cur_cutoff += cur_bin * interval
+                # cap the number of bins at 8; this addressing rounding issues causing more bins
+                if cur_bin > 8:
+                    cur_bin = 8
+                self.tfidf_bins[document][token] = cur_bin
+        
+        return self.tfidf_bins[document].get(word, 8) # use this so punct get the max tfidf bin
+
 
 
     #Extract information of text using stanford corenlp
@@ -436,73 +552,195 @@ class FeatureExtractor(object):
        
    
     #generate feature vectors
-    def generateFeatures(self, index, words):
+    def generateFeatures(self, outer_index, words):
         features={}
-        text=['^']
+        tokens = ['^^^']
+        lemmas = ['^^^']
+        stems=['^']
         for wls in words:
-            text.append(self.preprocessEachWord(wls[0]))
-        text.append("^")
-        if not baseline:
-            global dsp_dict
-            fnames=["word", "word: -1",  'word +1', "word: -2", 'word +2',"pos", "pos -1", 'pos +1',  "pos -2", 'pos +2', "sentence length:", 'descriptiveness:%d', 'WhetherInTitle:', 'TFIDF:']
-
-
+            #text.append(self.preprocessEachWord(wls[0]))
+            tokens.append(wls[0].lower())
+            lemmas.append(wls[1]['Lemma'])
+            stems.append(self.preprocessEachWord(wls[0]))
+        tokens.append("^^^")
+        lemmas.append("^^^")
+        stems.append("^^^")
+        
+        index = outer_index + 1 # adjust for initial and terminal strings
+        
+        fnames = [] # this is our list of feature names
+        
+        if feat_words:
+            # use the token and lemma (and +/- 1,2) features
+            fnames.extend(["token", "token: -1",  'token +1', "token: -2", 'token +2', 'lemma', 
+                    'lemma: -1', 'lemma: +1', 'lemma: -2', 'lemma: +2'])
+            
+            features['token'] = tokens[index]
+            self.plus_minus_features_list('token', 1, tokens, index, features)
+            self.plus_minus_features_list('token', 2, tokens, index, features)
+            
+            features['lemma'] = lemmas[index]
+            self.plus_minus_features_list('lemma', 1, lemmas, index, features)
+            self.plus_minus_features_list('lemma', 2, lemmas, index, features)
+            
+            fnames.extend(['bigram -1', 'bigram +1', 'trigram -1', 'trigram 0', 'trigram +1'])
+            
+            # bigrams
+            if index > 0:
+                features['bigram -1'] = lemmas[index-1] + ' ' + lemmas[index]
+            else:
+                features['bigram -1'] = 'null'
+            if index < len(lemmas) - 1:
+                features['bigram +1'] = lemmas[index] + ' ' + lemmas[index+1]
+            else:
+                features['bigram +1'] = 'null'
+            
+            # trigrams
+            if index > 1:
+                features['trigram - 1'] = lemmas[index - 2] + ' ' + lemmas[index - 1] + ' ' + \
+                        lemmas[index]
+            else:
+                features['trigram - 1'] = 'null'
+            if index > 0 and index < len(lemmas) - 1:
+                features['trigram 0'] = lemmas[index - 1] + ' ' + lemmas[index] + ' ' + \
+                        lemmas[index + 1]
+            else:
+                features['trigram 0'] = 'null'
+            if index < len(lemmas) - 2:
+                features['trigram +1'] = lemmas[index] + ' ' + lemmas[index + 1] + ' ' + \
+                        lemmas[index + 2]
+            else:
+                features['trigram +1'] = 'null'
+        
+        if feat_POS:
+            # use the POS, POS +/- 1, and POS +/- 2 features
+            fnames.extend(["pos", "pos -1", 'pos +1',  "pos -2", 'pos +2'])
+            
             poses=['BEG']
             for wls in words:
                 poses.append(wls[1]['PartOfSpeech'])
             poses.append('END')
-            #stemmed_words=[self.stemmer.stem(self.lemmer.lemmatize(w[])) for w in words] # stem or not?
-
-
-            index+=1 #start from 0
-
-            features[fnames[0]]=text[index]
-            features[fnames[1]]=text[index-1]
-            features[fnames[2]]=text[index+1]
-
-            features[fnames[5]]=poses[index]
-            features[fnames[6]]=poses[index-1]
-            features[fnames[7]]=poses[index+1]
-
-
-            if(index>1):
-                features[fnames[3]]=text[index-2]
-                features[fnames[8]]=text[index-2]
-            else:
-                features[fnames[3]]='null'
-                features[fnames[8]]='null'
-
-            if(index<len(poses)-2):
-                features[fnames[4]]=text[index+2]
-                features[fnames[9]]=text[index+2]
-            else:
-                features[fnames[4]]="null"
-                features[fnames[9]]="null"
-
-
-
-
-
-            features[fnames[10]]=len(words)
-
-            # the word's -2, -1, 0, 1, 2
-            for i in range(-2, 3):
-                #print text[index+i]
-                if (index+i) >0 and (index+i) < len(text) and text[index+i] in self.dsp_dict:
-                    features[fnames[11]%i]= self.dsp_dict[text[index+i]]
-                else:
-                    features[fnames[11]%i]=0 # not in descriptive list
-
-            features[fnames[12]]=int(text[index] in self.title_words)
-            features[fnames[13]]=self.TFIDF(text[index],self.texts[self.docID])
+            
+            features['pos'] = poses[index]
+            self.plus_minus_features_list('pos', 1, poses, index, features)
+            self.plus_minus_features_list('pos', 2, poses, index, features)
+                    
+        if feat_sent_len:
+            # use the sentence length feature
+            fnames.extend(['sentence length:'])
+            features['sentence length:']=len(words)
         
-        # all the lists
-        for known_set in self.doc_sets.keys():
-            features[("whether "+known_set)]=text[index] in self.doc_sets[known_set]
+        if feat_title:
+            # use whether the word is in the title as a feature
+            fnames.extend(['InTitle'])
+            features['InTitle'] = int(stems[index] in self.title_words)
+        
+        if feat_TFIDF:
+            # use TFIDF as a feature
+            fnames.extend(['TFIDF'])
+            features['TFDIF']=self.TFIDF(stems[index],self.texts[self.docID])
+        
+        if feat_imagery:
+            # use the imagery/descriptiveness rating feature
+            fnames.extend(['descriptiveness', 'descriptiveness +1', 'descriptiveness -1', 
+                    'descriptiveness +2', 'descriptiveness -2', 'descriptiveness average'])
+            
+            try:
+                features['descriptiveness'] = self.dsp_dict[stems[index]]
+            except KeyError:
+                features['descriptiveness'] = 'null'
+            self.plus_minus_features_dict('descriptiveness', 1, stems, self.dsp_dict, index, 
+                    features)
+            self.plus_minus_features_dict('descriptiveness', 2, stems, self.dsp_dict, index, 
+                    features)
+            
+            desc_avg = 0
+            desc_avg += (0 if features['descriptiveness'] == 'null' else 
+                    features['descriptiveness'])
+            desc_avg += (0 if features['descriptiveness: +1'] == 'null' else 
+                    features['descriptiveness: +1'])
+            desc_avg += (0 if features['descriptiveness: +2'] == 'null' else 
+                    features['descriptiveness: +2'])
+            desc_avg += (0 if features['descriptiveness: -1'] == 'null' else 
+                    features['descriptiveness: -1'])
+            desc_avg += (0 if features['descriptiveness: -2'] == 'null' else 
+                    features['descriptiveness: -2'])
+            desc_count = sum([features['descriptiveness'] != 'null', features['descriptiveness: +1'] != 'null', features['descriptiveness: +2'] != 'null', features['descriptiveness: -1'] != 'null', features['descriptiveness: -2'] != 'null'])
+            if desc_count > 0:
+                desc_avg /= desc_count
+                features['descriptiveness average'] = desc_avg
+            else:
+                features['descriptiveness average'] = 'null'
+            for i in range(1,3):
+                features.pop("descriptiveness: -%d" % i)
+                features.pop("descriptiveness: +%d" % i)
+            
+        
+        if feat_word_lists:
+            # use the special lists of words (factives, implicatives, etc.)
+            for known_set in self.doc_sets.keys():
+                fnames.append(known_set)
+                
+                features[(known_set)] = stems[index] in self.doc_sets[known_set]
+                self.plus_minus_features_dict(known_set, 1, stems, self.doc_sets[known_set],
+                        index, features)
+                self.plus_minus_features_dict(known_set, 2, stems, self.doc_sets[known_set],
+                        index, features)
+                features[known_set + " in context"] = features[known_set + ": +1"] or \
+                        features[known_set + ": -1"] or features[known_set + ": +2"] or \
+                        features[known_set + ": -2"]
+                for i in range(1,3):
+                    features.pop(known_set + ": -%d" % i)
+                    features.pop(known_set + ": +%d" % i)
 
         return features
     
-            
+    def plus_minus_features_list(self, fname, offset, values_list, index, features):
+        '''
+        Convenience method for features that involve words +/- some fixed index from the current 
+        word index. Works when values for features are stored in a list.
+        @param fname: The name of the feature.
+        @param offset: How much to +/-.
+        @param values_list: The list of values into which to index.
+        @param index: Current index for checking the size of the offset.
+        @param features: The feature vector to update.
+        '''
+        if index > 0:
+            features[fname + ": -%d" % offset] = values_list[index - offset]
+        else:
+            features[fname + ": -%d" % offset] = 'null'
+        if index < len(values_list) - offset:
+            features[fname + ": +%d" % offset] = values_list[index + offset]
+        else:
+            features[fname + ": +%d" % offset] = 'null'
+    
+    def plus_minus_features_dict(self, fname, offset, key_list, values_dict, index, features):
+        '''
+        Convenience method for features that involve words +/- some fixed index from the current 
+        word index. Works when values for features are stored in a dictionary.
+        @param fname: The name of the feature.
+        @param offset: How much to +/-.
+        @param key_list: The list of keys into which to index.
+        @param values_dict: The dictionary of values; the key comes from key_list.
+        @param index: Current index for checking the size of the offset.
+        @param features: The feature vector to update.
+        '''
+        
+        if index > 0:
+            try:
+                features[fname + ": -%d" % offset] = values_dict[key_list[index - offset]]
+            except KeyError:
+                features[fname + ": -%d" % offset] = 'null'
+        else:
+            features[fname + ": -%d" % offset] = 'null'
+        if index < len(key_list) - offset:
+            try:
+                features[fname + ": +%d" % offset] = values_dict[key_list[index + offset]]
+            except KeyError:
+                features[fname + ": +%d" % offset] = 'null'
+        else:
+            features[fname + ": +%d" % offset] = 'null'
+    
     #See whether a word is highlighted
     #cstart: the offset of the first char in the word, cend: the offset of the last char in the word, i: the annotation index
     def isHighlighted(self,cstart,cend, i):
@@ -533,8 +771,11 @@ class FeatureExtractor(object):
         train_set=[]
         targets=[]
         doc_offsets={}
+        
+        # for recoding average annotations into target classes for training
+        recode_dict = {0:0, 1:0, 2:1, 3:1, 4:1, 5:1}
 
-        puncts='#$&\()*+,-./:;<=>@[\\]^_`{|}~'
+        
         f_counter=0
         for doc_id in self.texts.keys():
             print "Start Processing document: %d"%doc_id
@@ -551,7 +792,7 @@ class FeatureExtractor(object):
            
             text=nltk.clean_html(c.fetchone()[0])
             separate=text.split('\n',1)
-            self.title_words=[self.stemmer.stem(self.lemmer.lemmatize(w)) for w in nltk.word_tokenize(separate[0])]
+            self.title_words=[self.stemmer.stem(self.lemmer.lemmatize(w)) for w in nltk.wordpunct_tokenize(separate[0])]
             
             self.extractDependency(text)
             
@@ -568,6 +809,7 @@ class FeatureExtractor(object):
                 if indexStr is None or (rm_invdata and doc_id in invalid_ann and rows[i][1] in invalid_ann[doc_id]):
                     print 'invalide annotation %d %d ignored'%(doc_id, rows[i][1])
                     continue
+
                 self.start_indices.append([])
                 self.end_indices.append([])
                 isents=indexStr.split('.')
@@ -587,10 +829,10 @@ class FeatureExtractor(object):
                 for windex in range(len(words)):
                     
                     #ignore punctuations
-                    if words[windex][0] in puncts:
+                    if all(a in string.punctuation for a in words[windex][0]):
                         continue
                     f1=self.generateFeatures(windex,words)
-                    if not baseline:
+                    if feat_relns:
                         for [rel, gov, sub] in tuples:
                             thew=words[windex][0]
 
@@ -601,11 +843,26 @@ class FeatureExtractor(object):
                             #else:
                                 #f1["dependency: %s %s"%(rel,'sub')]=False
                                 #f1["dependency: %s %s"%(rel, 'gov')]=False
+                    # recode annotations. 0-1 annotators = low, 2-3 = medium, 4-5 = high
+                    ation_aggregate = 0
                     for a in range(len(self.start_indices)):
-                        train_set.append(f1)
+                        #train_set.append(f1)
                         #pprint(f1)
-                        targets.append(self.isHighlighted(int(words[windex][1]['CharacterOffsetBegin'])+self.offsets[i],int(words[windex][1]['CharacterOffsetEnd'])+self.offsets[i],a))
+                        ation_aggregate += \
+                                self.isHighlighted(int(words[windex][1]['CharacterOffsetBegin']) +\
+                                self.offsets[i], int(words[windex][1]['CharacterOffsetEnd']) + \
+                                self.offsets[i], a)
+                        '''
+                        targets.append(
+                                self.isHighlighted(int(words[windex][1]['CharacterOffsetBegin']) + 
+                                self.offsets[i], int(words[windex][1]['CharacterOffsetEnd']) + 
+                                self.offsets[i], a)
+                                )
                         f_counter+=1
+                        '''
+                    train_set.append(f1)
+                    targets.append(1 if float(ation_aggregate) / len(self.start_indices) > 0.3 else 0)
+                    f_counter+=1
 
             doc_offsets[doc_id][1]=f_counter
         return (train_set,targets, doc_offsets)
