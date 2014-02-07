@@ -1,4 +1,5 @@
-#Feature Extractors, Model training and performance evaludation
+# NLP Tool to train and test Political Framing Words Classifiers
+# Including:Feature Extractors, Model training and performance evaluation
 #@Author: Crystal Qin
 #Note: referenced some code from http://scikit-learn.org/stable/ User Guide and Examples
 from __future__ import division
@@ -68,8 +69,11 @@ feat_TFIDF = False # use TFIDF as a feature
 feat_imagery = True # use the imagery/descriptiveness rating feature
 feat_word_lists = True # use the special lists of words (factives, implicatives, etc.)
 
+
 class FeatureExtractor(object):
-    
+    """
+    NLP Tool to train and test Political Framing Words Classifiers
+    """
     
     def __init__(self):
         self.texts={}
