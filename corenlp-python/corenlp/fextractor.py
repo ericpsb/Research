@@ -97,9 +97,9 @@ class FeatureExtractor(object):
         self.end_indices=[]
 
         #data sets:
-        self.X_train=None
+        self.X_train=None #X = features, e.g. negative, assertive, subjective
         self.X_test=None
-        self.y_train=None
+        self.y_train=None #y = labels, e.g. is this framing or not
         self.y_test=None
         self.feature_names=None
 
