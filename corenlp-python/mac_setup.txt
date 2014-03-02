@@ -1,7 +1,0 @@
-Mac instructions for setting up
-
-1. follow all instructions in "set_up_instruction.txt"
-2. in bash:
-      export PATH=\"/usr/local/mysql/bin:$PATH\"
-      sudo /usr/local/mysql/support-files/mysql.server start
-      mysql -u annotator -p Ann0tateTh!s -D FrameAnnotation

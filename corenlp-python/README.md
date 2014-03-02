@@ -1,4 +1,0 @@
-Research
-========
-
-Research
