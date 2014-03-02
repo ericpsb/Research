@@ -1,0 +1,200 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module fextractor</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>fextractor</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/qin/Documents/CSProjects/Research/corenlp-python/corenlp/fextractor.py">/home/qin/Documents/CSProjects/Research/corenlp-python/corenlp/fextractor.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;NLP&nbsp;Tool&nbsp;to&nbsp;train&nbsp;and&nbsp;test&nbsp;Political&nbsp;Framing&nbsp;Words&nbsp;Classifiers<br>
+#&nbsp;Including:Feature&nbsp;Extractors,&nbsp;Model&nbsp;training&nbsp;and&nbsp;performance&nbsp;evaluation<br>
+#@Author:&nbsp;Crystal&nbsp;Qin<br>
+#Note:&nbsp;referenced&nbsp;some&nbsp;code&nbsp;from&nbsp;<a href="http://scikit-learn.org/stable/">http://scikit-learn.org/stable/</a>&nbsp;User&nbsp;Guide&nbsp;and&nbsp;Examples</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="MySQLdb.html">MySQLdb</a><br>
+<a href="collections.html">collections</a><br>
+<a href="copy.html">copy</a><br>
+<a href="sklearn.cross_validation.html">sklearn.cross_validation</a><br>
+<a href="csv.html">csv</a><br>
+</td><td width="25%" valign=top><a href="jsonrpclib.html">jsonrpclib</a><br>
+<a href="sklearn.metrics.html">sklearn.metrics</a><br>
+<a href="nltk.html">nltk</a><br>
+<a href="numpy.html">numpy</a><br>
+<a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="pickle.html">pickle</a><br>
+<a href="pylab.html">pylab</a><br>
+<a href="random.html">random</a><br>
+<a href="re.html">re</a><br>
+<a href="scipy.html">scipy</a><br>
+</td><td width="25%" valign=top><a href="string.html">string</a><br>
+<a href="sklearn.svm.html">sklearn.svm</a><br>
+<a href="sys.html">sys</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="fextractor.html#FeatureExtractor">FeatureExtractor</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="FeatureExtractor">class <strong>FeatureExtractor</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>NLP&nbsp;Tool&nbsp;to&nbsp;train&nbsp;and&nbsp;test&nbsp;Political&nbsp;Framing&nbsp;Words&nbsp;Classifiers<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="FeatureExtractor-TFIDF"><strong>TFIDF</strong></a>(self, word, document)</dt><dd><tt>Calculate&nbsp;the&nbsp;tf_idf&nbsp;bin&nbsp;of&nbsp;a&nbsp;WORD&nbsp;in&nbsp;a&nbsp;certain&nbsp;DOCUMENT&nbsp;in&nbsp;our&nbsp;corpus<br>
+@param:&nbsp;the&nbsp;target&nbsp;word<br>
+@param:&nbsp;the&nbsp;target&nbsp;document</tt></dd></dl>
+
+<dl><dt><a name="FeatureExtractor-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="FeatureExtractor-benchmark"><strong>benchmark</strong></a>(self, clf)</dt><dd><tt>Benchmark&nbsp;classifier&nbsp;by&nbsp;evaluating&nbsp;and&nbsp;printing&nbsp;out&nbsp;it's&nbsp;train&nbsp;time,&nbsp;test&nbsp;time,&nbsp;<br>
+f1-score,&nbsp;acc-score,&nbsp;precision-score,&nbsp;recall-score,&nbsp;etc.<br>
+@param&nbsp;clf:&nbsp;the&nbsp;classifier&nbsp;to&nbsp;benchmark</tt></dd></dl>
+
+<dl><dt><a name="FeatureExtractor-corpusFromDB"><strong>corpusFromDB</strong></a>(self, doc_num)</dt><dd><tt>Build&nbsp;corpus&nbsp;from&nbsp;data&nbsp;in&nbsp;DB<br>
+@param&nbsp;doc_num:&nbsp;the&nbsp;number&nbsp;of&nbsp;docs&nbsp;you&nbsp;are&nbsp;gonna&nbsp;use</tt></dd></dl>
+
+<dl><dt><a name="FeatureExtractor-crossValidation"><strong>crossValidation</strong></a>(self, nfold, X, Y, targets<font color="#909090">=None</font>, doc_offsets<font color="#909090">=None</font>)</dt><dd><tt>Do&nbsp;cross&nbsp;validation&nbsp;on&nbsp;the&nbsp;feature&nbsp;data&nbsp;sets<br>
+@param&nbsp;X:&nbsp;the&nbsp;list&nbsp;of&nbsp;features<br>
+@param&nbsp;Y:&nbsp;In&nbsp;word_level,&nbsp;the&nbsp;list&nbsp;of&nbsp;labels;&nbsp;In&nbsp;doc_level,&nbsp;list&nbsp;of&nbsp;doc_ids&nbsp;<br>
+@param&nbsp;targets:In&nbsp;word_level,&nbsp;None;&nbsp;In&nbsp;doc_level,&nbsp;the&nbsp;actual&nbsp;labels<br>
+@param&nbsp;doc_offsets:&nbsp;In&nbsp;word_level,&nbsp;None;&nbsp;In&nbsp;doc_level,&nbsp;the&nbsp;offsets&nbsp;generated&nbsp;by&nbsp;<a href="#FeatureExtractor-generate_feature_datasets">generate_feature_datasets</a>()&nbsp;method</tt></dd></dl>
+
+<dl><dt><a name="FeatureExtractor-drawDiagram"><strong>drawDiagram</strong></a>(self, results)</dt><dd><tt>make&nbsp;basic&nbsp;bar&nbsp;diagram&nbsp;to&nbsp;compare&nbsp;classifier&nbsp;performance.<br>
+@param&nbsp;results:&nbsp;the&nbsp;benchmark&nbsp;results&nbsp;on&nbsp;all&nbsp;classifiers</tt></dd></dl>
+
+<dl><dt><a name="FeatureExtractor-executeExtractor"><strong>executeExtractor</strong></a>(self)</dt><dd><tt>Generate&nbsp;features&nbsp;and&nbsp;labels&nbsp;using&nbsp;training&nbsp;data.&nbsp;Then&nbsp;partition&nbsp;the&nbsp;data&nbsp;either&nbsp;doc_level&nbsp;or&nbsp;word_level,&nbsp;running&nbsp;all&nbsp;classifiers<br>
+on&nbsp;it&nbsp;to&nbsp;test&nbsp;performance.Using&nbsp;cross&nbsp;validation&nbsp;if&nbsp;CV&nbsp;bit&nbsp;is&nbsp;turned&nbsp;on</tt></dd></dl>
+
+<dl><dt><a name="FeatureExtractor-extractDependency"><strong>extractDependency</strong></a>(self, text)</dt><dd><tt>Extract&nbsp;information&nbsp;of&nbsp;a&nbsp;text&nbsp;using&nbsp;stanford&nbsp;corenlp<br>
+@param&nbsp;text:&nbsp;the&nbsp;input&nbsp;text</tt></dd></dl>
+
+<dl><dt><a name="FeatureExtractor-generateFeatures"><strong>generateFeatures</strong></a>(self, outer_index, words)</dt><dd><tt>Generate&nbsp;feature&nbsp;vectors&nbsp;for&nbsp;words&nbsp;in&nbsp;a&nbsp;sentence.<br>
+@param&nbsp;words:&nbsp;all&nbsp;the&nbsp;words&nbsp;in&nbsp;a&nbsp;sentence.<br>
+@param&nbsp;outer_index:&nbsp;the&nbsp;word&nbsp;position&nbsp;in&nbsp;the&nbsp;sentence</tt></dd></dl>
+
+<dl><dt><a name="FeatureExtractor-generate_feature_datasets"><strong>generate_feature_datasets</strong></a>(self)</dt><dd><tt>Generate&nbsp;feature&nbsp;vectors&nbsp;and&nbsp;labels&nbsp;for&nbsp;all&nbsp;the&nbsp;words&nbsp;in&nbsp;the&nbsp;corpus</tt></dd></dl>
+
+<dl><dt><a name="FeatureExtractor-isHighlighted"><strong>isHighlighted</strong></a>(self, cstart, cend, i)</dt><dd><tt>Return&nbsp;whether&nbsp;a&nbsp;word&nbsp;is&nbsp;highlighted<br>
+@param&nbsp;cstart:&nbsp;the&nbsp;offset&nbsp;of&nbsp;the&nbsp;first&nbsp;char&nbsp;in&nbsp;the&nbsp;word<br>
+@param&nbsp;cend:&nbsp;the&nbsp;offset&nbsp;of&nbsp;the&nbsp;last&nbsp;char&nbsp;in&nbsp;the&nbsp;word<br>
+@param&nbsp;i:&nbsp;the&nbsp;annotation&nbsp;index&nbsp;of&nbsp;the&nbsp;word</tt></dd></dl>
+
+<dl><dt><a name="FeatureExtractor-plus_minus_features_dict"><strong>plus_minus_features_dict</strong></a>(self, fname, offset, key_list, values_dict, index, features)</dt><dd><tt>Convenience&nbsp;method&nbsp;for&nbsp;features&nbsp;that&nbsp;involve&nbsp;words&nbsp;+/-&nbsp;some&nbsp;fixed&nbsp;index&nbsp;from&nbsp;the&nbsp;current&nbsp;<br>
+word&nbsp;index.&nbsp;Works&nbsp;when&nbsp;values&nbsp;for&nbsp;features&nbsp;are&nbsp;stored&nbsp;in&nbsp;a&nbsp;dictionary.<br>
+@param&nbsp;fname:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;feature.<br>
+@param&nbsp;offset:&nbsp;How&nbsp;much&nbsp;to&nbsp;+/-.<br>
+@param&nbsp;key_list:&nbsp;The&nbsp;list&nbsp;of&nbsp;keys&nbsp;into&nbsp;which&nbsp;to&nbsp;index.<br>
+@param&nbsp;values_dict:&nbsp;The&nbsp;dictionary&nbsp;of&nbsp;values;&nbsp;the&nbsp;key&nbsp;comes&nbsp;from&nbsp;key_list.<br>
+@param&nbsp;index:&nbsp;Current&nbsp;index&nbsp;for&nbsp;checking&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;offset.<br>
+@param&nbsp;features:&nbsp;The&nbsp;feature&nbsp;vector&nbsp;to&nbsp;update.</tt></dd></dl>
+
+<dl><dt><a name="FeatureExtractor-plus_minus_features_list"><strong>plus_minus_features_list</strong></a>(self, fname, offset, values_list, index, features)</dt><dd><tt>Convenience&nbsp;method&nbsp;for&nbsp;features&nbsp;that&nbsp;involve&nbsp;words&nbsp;+/-&nbsp;some&nbsp;fixed&nbsp;index&nbsp;from&nbsp;the&nbsp;current&nbsp;<br>
+word&nbsp;index.&nbsp;Works&nbsp;when&nbsp;values&nbsp;for&nbsp;features&nbsp;are&nbsp;stored&nbsp;in&nbsp;a&nbsp;list.<br>
+@param&nbsp;fname:&nbsp;The&nbsp;name&nbsp;of&nbsp;the&nbsp;feature.<br>
+@param&nbsp;offset:&nbsp;How&nbsp;much&nbsp;to&nbsp;+/-.<br>
+@param&nbsp;values_list:&nbsp;The&nbsp;list&nbsp;of&nbsp;values&nbsp;into&nbsp;which&nbsp;to&nbsp;index.<br>
+@param&nbsp;index:&nbsp;Current&nbsp;index&nbsp;for&nbsp;checking&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;offset.<br>
+@param&nbsp;features:&nbsp;The&nbsp;feature&nbsp;vector&nbsp;to&nbsp;update.</tt></dd></dl>
+
+<dl><dt><a name="FeatureExtractor-prepareExtractor"><strong>prepareExtractor</strong></a>(self, doc_num)</dt><dd><tt>Prepare&nbsp;feature&nbsp;extractor&nbsp;by&nbsp;preprocessing&nbsp;and&nbsp;storing&nbsp;the&nbsp;lists&nbsp;we&nbsp;are&nbsp;going&nbsp;to&nbsp;use&nbsp;and&nbsp;loading&nbsp;corpus&nbsp;from&nbsp;DB.<br>
+@param&nbsp;doc_num:&nbsp;the&nbsp;total&nbsp;number&nbsp;of&nbsp;documents&nbsp;you&nbsp;want&nbsp;to&nbsp;include&nbsp;in&nbsp;this&nbsp;training&nbsp;and&nbsp;testing</tt></dd></dl>
+
+<dl><dt><a name="FeatureExtractor-preprocessDescriptiveness"><strong>preprocessDescriptiveness</strong></a>(self)</dt><dd><tt>Preprocess&nbsp;Decriptiveness&nbsp;list&nbsp;for&nbsp;later&nbsp;use</tt></dd></dl>
+
+<dl><dt><a name="FeatureExtractor-preprocessEachWord"><strong>preprocessEachWord</strong></a>(self, word)</dt><dd><tt>Implement&nbsp;any&nbsp;preprocessing&nbsp;needed&nbsp;to&nbsp;be&nbsp;done&nbsp;for&nbsp;each&nbsp;word</tt></dd></dl>
+
+<dl><dt><a name="FeatureExtractor-runAllClassifiers"><strong>runAllClassifiers</strong></a>(self)</dt><dd><tt>#&nbsp;run&nbsp;all&nbsp;classifiers</tt></dd></dl>
+
+<dl><dt><a name="FeatureExtractor-runTopClassifiers"><strong>runTopClassifiers</strong></a>(self)</dt><dd><tt>Top&nbsp;determined&nbsp;by&nbsp;running&nbsp;all&nbsp;classifiers&nbsp;on&nbsp;dataset&nbsp;of&nbsp;size&nbsp;20</tt></dd></dl>
+
+<dl><dt><a name="FeatureExtractor-show_most_informative_features"><strong>show_most_informative_features</strong></a>(self, lst, n<font color="#909090">=20</font>)</dt><dd><tt>Show&nbsp;most&nbsp;informative&nbsp;n&nbsp;features<br>
+@param&nbsp;n:&nbsp;number&nbsp;of&nbsp;top&nbsp;features&nbsp;you&nbsp;want&nbsp;to&nbsp;show</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-bisect_left"><strong>bisect_left</strong></a>(...)</dt><dd><tt><a href="#-bisect_left">bisect_left</a>(a,&nbsp;x[,&nbsp;lo[,&nbsp;hi]])&nbsp;-&gt;&nbsp;index<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;index&nbsp;where&nbsp;to&nbsp;insert&nbsp;item&nbsp;x&nbsp;in&nbsp;list&nbsp;a,&nbsp;assuming&nbsp;a&nbsp;is&nbsp;sorted.<br>
+&nbsp;<br>
+The&nbsp;return&nbsp;value&nbsp;i&nbsp;is&nbsp;such&nbsp;that&nbsp;all&nbsp;e&nbsp;in&nbsp;a[:i]&nbsp;have&nbsp;e&nbsp;&lt;&nbsp;x,&nbsp;and&nbsp;all&nbsp;e&nbsp;in<br>
+a[i:]&nbsp;have&nbsp;e&nbsp;&gt;=&nbsp;x.&nbsp;&nbsp;So&nbsp;if&nbsp;x&nbsp;already&nbsp;appears&nbsp;in&nbsp;the&nbsp;list,&nbsp;i&nbsp;points&nbsp;just<br>
+before&nbsp;the&nbsp;leftmost&nbsp;x&nbsp;already&nbsp;there.<br>
+&nbsp;<br>
+Optional&nbsp;args&nbsp;lo&nbsp;(default&nbsp;0)&nbsp;and&nbsp;hi&nbsp;(default&nbsp;len(a))&nbsp;bound&nbsp;the<br>
+slice&nbsp;of&nbsp;a&nbsp;to&nbsp;be&nbsp;searched.</tt></dd></dl>
+ <dl><dt><a name="-bisect_right"><strong>bisect_right</strong></a>(...)</dt><dd><tt><a href="#-bisect_right">bisect_right</a>(a,&nbsp;x[,&nbsp;lo[,&nbsp;hi]])&nbsp;-&gt;&nbsp;index<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;index&nbsp;where&nbsp;to&nbsp;insert&nbsp;item&nbsp;x&nbsp;in&nbsp;list&nbsp;a,&nbsp;assuming&nbsp;a&nbsp;is&nbsp;sorted.<br>
+&nbsp;<br>
+The&nbsp;return&nbsp;value&nbsp;i&nbsp;is&nbsp;such&nbsp;that&nbsp;all&nbsp;e&nbsp;in&nbsp;a[:i]&nbsp;have&nbsp;e&nbsp;&lt;=&nbsp;x,&nbsp;and&nbsp;all&nbsp;e&nbsp;in<br>
+a[i:]&nbsp;have&nbsp;e&nbsp;&gt;&nbsp;x.&nbsp;&nbsp;So&nbsp;if&nbsp;x&nbsp;already&nbsp;appears&nbsp;in&nbsp;the&nbsp;list,&nbsp;i&nbsp;points&nbsp;just<br>
+beyond&nbsp;the&nbsp;rightmost&nbsp;x&nbsp;already&nbsp;there<br>
+&nbsp;<br>
+Optional&nbsp;args&nbsp;lo&nbsp;(default&nbsp;0)&nbsp;and&nbsp;hi&nbsp;(default&nbsp;len(a))&nbsp;bound&nbsp;the<br>
+slice&nbsp;of&nbsp;a&nbsp;to&nbsp;be&nbsp;searched.</tt></dd></dl>
+ <dl><dt><a name="-loadModel"><strong>loadModel</strong></a>(type<font color="#909090">='nb'</font>)</dt><dd><tt>load&nbsp;the&nbsp;saved&nbsp;model<br>
+@param&nbsp;type:&nbsp;the&nbsp;type&nbsp;of&nbsp;the&nbsp;classifier&nbsp;you&nbsp;are&nbsp;loading</tt></dd></dl>
+ <dl><dt><a name="-main"><strong>main</strong></a>(argv<font color="#909090">=None</font>)</dt></dl>
+ <dl><dt><a name="-saveModel"><strong>saveModel</strong></a>(classifier, type<font color="#909090">='nb'</font>)</dt><dd><tt>Save&nbsp;the&nbsp;trained&nbsp;model&nbsp;in&nbsp;python&nbsp;pickle&nbsp;module<br>
+@param&nbsp;type:&nbsp;the&nbsp;type&nbsp;of&nbsp;the&nbsp;classifier&nbsp;you&nbsp;are&nbsp;saving</tt></dd></dl>
+ <dl><dt><a name="-time"><strong>time</strong></a>(...)</dt><dd><tt><a href="#-time">time</a>()&nbsp;-&gt;&nbsp;floating&nbsp;point&nbsp;number<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;current&nbsp;time&nbsp;in&nbsp;seconds&nbsp;since&nbsp;the&nbsp;Epoch.<br>
+Fractions&nbsp;of&nbsp;a&nbsp;second&nbsp;may&nbsp;be&nbsp;present&nbsp;if&nbsp;the&nbsp;system&nbsp;clock&nbsp;provides&nbsp;them.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>CV</strong> = True<br>
+<strong>division</strong> = _Feature((2, 2, 0, 'alpha', 2), (3, 0, 0, 'alpha', 0), 8192)<br>
+<strong>doc_level</strong> = True<br>
+<strong>feat_POS</strong> = True<br>
+<strong>feat_TFIDF</strong> = False<br>
+<strong>feat_imagery</strong> = True<br>
+<strong>feat_relns</strong> = True<br>
+<strong>feat_sent_len</strong> = False<br>
+<strong>feat_title</strong> = True<br>
+<strong>feat_word_lists</strong> = True<br>
+<strong>feat_words</strong> = True<br>
+<strong>listspath</strong> = 'lists/'<br>
+<strong>rm_invdata</strong> = True</td></tr></table>
+</body></html>
