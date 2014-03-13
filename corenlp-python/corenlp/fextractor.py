@@ -858,7 +858,8 @@ class FeatureExtractor(object):
             
             self.extractDependency(text)
             
-            c.execute('SELECT char_annotation, a_id from Annotations WHERE doc_id = %s'%(doc_id,))
+            #using only valid annotations; to use all annotations, take out 'where' clause
+            c.execute('SELECT char_annotation, a_id from Annotations WHERE valid = 1 AND doc_id = %s'%(doc_id,))
             rows=c.fetchall()
 
             num_ann=len(rows)
