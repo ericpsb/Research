@@ -62,9 +62,9 @@ doc_level=True
 feat_words = True # use the token- and lemma-based features
 feat_POS = True # use the POS-based features
 feat_relns = True # use grammatical dependencies as a feature
-feat_sent_len = False # use the sentence length feature
+feat_sent_len = True # use the sentence length feature
 feat_title = True # use whether the word is in the title as a feature
-feat_TFIDF = False # use TFIDF as a feature
+feat_TFIDF = True # use TFIDF as a feature
 feat_imagery = True # use the imagery/descriptiveness rating feature
 feat_word_lists = True # use the special lists of words (factives, implicatives, etc.)
 
@@ -479,7 +479,8 @@ class FeatureExtractor(object):
     def corpusFromDB(self, doc_num):
         db=MySQLdb.connect(host='eltanin.cis.cornell.edu', user='annotator',passwd='Ann0tateTh!s', db='FrameAnnotation')
         c=db.cursor()
-        c.execute("SELECT  DISTINCT(doc_id),doc_html FROM Documents natural join Annotations WHERE doc_id != 1 order by doc_id desc LIMIT %s "%(doc_num,))#a_id > 125")
+        # we only want documents that have at least three valid annotations
+        c.execute("SELECT  doc_id, doc_html, sum(valid) as tot_valid FROM Documents natural join Annotations WHERE doc_id > 1 group by doc_id having tot_valid >= 3 order by doc_id desc LIMIT %s "%(doc_num,))#a_id > 125")
         
         rowall=c.fetchall()
         for row in rowall:
@@ -796,7 +797,7 @@ class FeatureExtractor(object):
             
             self.extractDependency(text)
             
-            c.execute('SELECT char_annotation, a_id from Annotations WHERE doc_id = %s'%(doc_id,))
+            c.execute('SELECT char_annotation, a_id from Annotations WHERE doc_id = %s and valid = 1'%(doc_id,))
             rows=c.fetchall()
 
             num_ann=len(rows)
@@ -806,9 +807,11 @@ class FeatureExtractor(object):
             for i in range(num_ann):
                 indexStr=rows[i][0]
 
+                '''
                 if indexStr is None or (rm_invdata and doc_id in invalid_ann and rows[i][1] in invalid_ann[doc_id]):
                     print 'invalide annotation %d %d ignored'%(doc_id, rows[i][1])
                     continue
+                '''
 
                 self.start_indices.append([])
                 self.end_indices.append([])
@@ -861,7 +864,24 @@ class FeatureExtractor(object):
                         f_counter+=1
                         '''
                     train_set.append(f1)
-                    targets.append(1 if float(ation_aggregate) / len(self.start_indices) > 0.3 else 0)
+                    # targets.append(recode_dict[ation_aggregate])
+                    normed_ation = float(ation_aggregate) / len(self.start_indices)
+                    if normed_ation > float(1/3):
+                        targets.append(1)
+                    else:
+                        targets.append(0)
+                    # what percentage of annotators highlighted this word?
+                    '''
+                    if normed_ation == 0:
+                        # no one highlighted, this is not framed
+                        targets.append(0)
+                    elif normed_ation <= float(1/3):
+                        # less than half the annotators highlighted, low likelihood
+                        targets.append(1)
+                    else:
+                        # more than half the annotators highlighted, high likelihood
+                        targets.append(2)
+                    '''
                     f_counter+=1
 
             doc_offsets[doc_id][1]=f_counter
