@@ -584,10 +584,13 @@ class FeatureExtractor(object):
         
         # check to see if we've parsed this document or not
         parse_this = not doc_id in self.coreParsed
+        if parse_this:
+            print "Parsing..."
+        else:
+            print "Parse already in cache."
 
         for sent in sents:
             if parse_this:
-                print "Parsing..."
                 result=self.server.parse(sent)
                 #pprint(result)
                 newlsts=(loads(result))['sentences']
@@ -596,8 +599,6 @@ class FeatureExtractor(object):
                     self.coreParsed[doc_id]=newlsts
                 else:
                     self.coreParsed[doc_id].extend(newlsts)
-            else:
-                print "Parse already in cache."
             #pprint(newlsts)
             #sent_len=int(newlsts[-1]['words'][-1][1]['CharacterOffsetEnd'])
             sent_len = \
@@ -1004,7 +1005,7 @@ def main(argv=None):
     if sys.argv != None:
         num_doc=str(sys.argv[1])
         print 'set num to %s'%num_doc
-    if len(sys.argv) > 1:
+    if len(sys.argv) > 2:
         parses_file = str(sys.argv[2])
     #execute
     extractor=FeatureExtractor()
