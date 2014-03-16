@@ -10,7 +10,7 @@ import csv, collections
 from json import loads
 from corenlp import batch_parse
 from bisect import bisect_left, bisect_right
-import pickle
+import pickle, cPickle
 import copy
 
 #nltk imports
@@ -90,7 +90,7 @@ class FeatureExtractor(object):
         #doc specific
         self.docID=0
         self.title_words=[]
-        self.coreParsed=[]#the sentences(containing all its information by stanford corenlp) of this text
+        self.coreParsed={}#the sentences(containing all its information by stanford corenlp) of this text
         self.offsets=[]
         #for all anotations of this doc
         self.start_indices=[] # format[[(1,3)... ann one heilight start indices], ...]
@@ -124,13 +124,18 @@ class FeatureExtractor(object):
         self.corpusFromDB(doc_num)
 
     
-    def executeExtractor(self):
+    def executeExtractor(self, parses_file=None):
 	"""
 	Generate features and labels using training data. Then partition the data either doc_level or word_level, running all classifiers
         on it to test performance.Using cross validation if CV bit is turned on 	
 	"""
         global CV, doc_level
         featuresets,targets, doc_offsets=self.generate_feature_datasets()# featuresets are all the feature vectors, targets are all the labels
+        if parses_file:
+            # save the parses
+            outfile = open(parses_file, 'w')
+            cPickle.dump(self.coreParsed, outfile)
+            outfile.close()
         print "Got train_set, start training models"
         vec = DictVectorizer()
         feature_data=vec.fit_transform(featuresets)
@@ -518,6 +523,7 @@ class FeatureExtractor(object):
         c=db.cursor()
         # we only want documents that have at least three valid annotations
         c.execute("SELECT  doc_id, doc_html, sum(valid) as tot_valid FROM Documents natural join Annotations WHERE doc_id > 1 group by doc_id having tot_valid >= 3 order by doc_id desc LIMIT %s "%(doc_num,))#a_id > 125")
+        #c.execute("select doc_id, doc_html from Documents where doc_id > 1 order by doc_id desc LIMIT %s"%(doc_num,))
         
         rowall=c.fetchall()
         for row in rowall:
@@ -563,32 +569,46 @@ class FeatureExtractor(object):
 
 
     
-    def extractDependency(self,text):
+    def extractDependency(self,text, doc_id):
 	"""
 	Extract information of a text using stanford corenlp
         @param text: the input text
+        @param doc_id: The ID of the document for this text.
 	"""
         print "dependency extraction"
         
         sents=nltk.sent_tokenize(text)
         
         currTotal=0
+        sent_index = 0
+        
+        # check to see if we've parsed this document or not
+        parse_this = not doc_id in self.coreParsed
 
         for sent in sents:
-            result=self.server.parse(sent)
-            #pprint(result)
-            newlsts=(loads(result))['sentences']
-            if self.coreParsed == []:
-                self.coreParsed=newlsts
+            if parse_this:
+                print "Parsing..."
+                result=self.server.parse(sent)
+                #pprint(result)
+                newlsts=(loads(result))['sentences']
+                # only parse this sentence if we haven't already
+                if doc_id not in self.coreParsed:
+                    self.coreParsed[doc_id]=newlsts
+                else:
+                    self.coreParsed[doc_id].extend(newlsts)
             else:
-                self.coreParsed.extend(newlsts)
+                print "Parse already in cache."
             #pprint(newlsts)
-            sent_len=int(newlsts[-1]['words'][-1][1]['CharacterOffsetEnd'])
+            #sent_len=int(newlsts[-1]['words'][-1][1]['CharacterOffsetEnd'])
+            sent_len = \
+                    int(self.coreParsed[doc_id][sent_index]['words'][-1][1]['CharacterOffsetEnd'])
 
-            self.offsets.extend([currTotal for k in range(len(newlsts))])
+            self.offsets.extend([currTotal for k in 
+                    range(len(self.coreParsed[doc_id][sent_index]))])
 
             #pprint(newlsts)
             currTotal+=sent_len
+            sent_index += 1
             #assert(sent_len==len(sent)),('parsed_leng %d != expected %d '%(sent_len, len(sent)))
         
 
@@ -845,7 +865,7 @@ class FeatureExtractor(object):
             self.docID=doc_id
             doc_offsets[doc_id]=[f_counter,0]
             self.offsets=[]
-            self.coreParsed=[]
+            #self.coreParsed=[]
             
             db=MySQLdb.connect(host='eltanin.cis.cornell.edu', user='annotator',passwd='Ann0tateTh!s', db='FrameAnnotation', charset='ascii')
             c=db.cursor()
@@ -857,9 +877,10 @@ class FeatureExtractor(object):
             separate=text.split('\n',1)
             self.title_words=[self.stemmer.stem(self.lemmer.lemmatize(w)) for w in nltk.wordpunct_tokenize(separate[0])]
             
-            self.extractDependency(text)
+            self.extractDependency(text, doc_id)
             
             c.execute('SELECT char_annotation, a_id from Annotations WHERE doc_id = %s and valid = 1'%(doc_id,))
+            #c.execute('SELECT char_annotation, a_id from Annotations WHERE doc_id = %s'%(doc_id,))
             rows=c.fetchall()
 
             num_ann=len(rows)
@@ -869,11 +890,9 @@ class FeatureExtractor(object):
             for i in range(num_ann):
                 indexStr=rows[i][0]
 
-                '''
                 if indexStr is None or (rm_invdata and doc_id in invalid_ann and rows[i][1] in invalid_ann[doc_id]):
                     print 'invalide annotation %d %d ignored'%(doc_id, rows[i][1])
                     continue
-                '''
 
                 self.start_indices.append([])
                 self.end_indices.append([])
@@ -886,11 +905,11 @@ class FeatureExtractor(object):
                 #pprint (self.coreParsed[0])
             #pprint(self.start_indices)
             #pprint(self.end_indices)
-            for i in range(len(self.coreParsed)):
-                    #sent=self.coreParsed[i]['text']
-                tuples=self.coreParsed[i]['dependencies']
+            for i in range(len(self.coreParsed[doc_id])):
+                    #sent=self.coreParsed[doc_id][i]['text']
+                tuples=self.coreParsed[doc_id][i]['dependencies']
                     #pprint(tuples)
-                words=self.coreParsed[i]['words'] #words are words properties
+                words=self.coreParsed[doc_id][i]['words'] #words are words properties
                 for windex in range(len(words)):
                     
                     #ignore punctuations
@@ -928,7 +947,7 @@ class FeatureExtractor(object):
                     train_set.append(f1)
                     # targets.append(recode_dict[ation_aggregate])
                     normed_ation = float(ation_aggregate) / len(self.start_indices)
-                    if normed_ation > float(1/3):
+                    if normed_ation >= float(1/3.0):
                         targets.append(1)
                     else:
                         targets.append(0)
@@ -937,7 +956,7 @@ class FeatureExtractor(object):
                     if normed_ation == 0:
                         # no one highlighted, this is not framed
                         targets.append(0)
-                    elif normed_ation <= float(1/3):
+                    elif normed_ation <= float(1/3.0):
                         # less than half the annotators highlighted, low likelihood
                         targets.append(1)
                     else:
@@ -948,7 +967,14 @@ class FeatureExtractor(object):
 
             doc_offsets[doc_id][1]=f_counter
         return (train_set,targets, doc_offsets)
+    
+    def loadParses(self, parses_file):
+        """
+        Load parsed versions of documents from a file.
+        """
         
+        print "Loading parses from %s..." % parses_file
+        self.coreParsed = cPickle.load(open(parses_file, 'r'))
 
 def saveModel(classifier, type='nb'):
     """
@@ -974,13 +1000,18 @@ def main(argv=None):
     print "Start Feature Extractor"
     # Preprocess read file
     num_doc='50' # number of documents used in training set
+    parses_file = None # by default, parse it yourself
     if sys.argv != None:
         num_doc=str(sys.argv[1])
         print 'set num to %s'%num_doc
+    if len(sys.argv) > 1:
+        parses_file = str(sys.argv[2])
     #execute
     extractor=FeatureExtractor()
     extractor.prepareExtractor(num_doc)
-    extractor.executeExtractor()
+    if parses_file:
+        extractor.loadParses(parses_file)
+    extractor.executeExtractor(parses_file)
 
     
         
