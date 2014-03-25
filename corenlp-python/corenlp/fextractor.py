@@ -94,8 +94,9 @@ class FeatureExtractor(object):
         self.offsets=[] #the start char offset for each sentence in this doc.
                         #i.e corenlp generated char offset+self.offsets[i]=char_annotation start index from database
         #for all anotations of this doc
-        self.start_indices=[] # format[[(1,3)... ann one heilight start indices], ...]
-        self.end_indices=[]
+        self.start_indices=[] # format[[a1_s1, a1_s2, a1_s3...], [a2_s1, a2_s2, a3_s3... ] ...]
+                             #ai_sj: means this doc's annotation i's jth highlighting's start index
+        self.end_indices=[] #same format as above but for the end indices
 
         #data sets:
         self.X_train=None
@@ -134,9 +135,9 @@ class FeatureExtractor(object):
         featuresets,targets, doc_offsets=self.generate_feature_datasets()# featuresets are all the feature vectors, targets are all the labels
         print "Got train_set, start training models"
         vec = DictVectorizer()
-        feature_data=vec.fit_transform(featuresets)
+        feature_data=vec.fit_transform(featuresets) # the sparse matrix of 0-1 values
         print 'done transforming feature data'
-        self.feature_names=np.asarray(vec.get_feature_names())
+        self.feature_names=np.asarray(vec.get_feature_names()) #the feature names for the sparse matrix values
         if doc_level:
             random.seed(123456)
             docs_to_use = doc_offsets.keys()
