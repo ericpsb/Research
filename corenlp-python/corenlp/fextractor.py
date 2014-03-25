@@ -91,7 +91,8 @@ class FeatureExtractor(object):
         self.docID=0
         self.title_words=[]
         self.coreParsed=[]#the sentences(containing all its information by stanford corenlp) of this text
-        self.offsets=[]
+        self.offsets=[] #the start char offset for each sentence in this doc.
+                        #i.e corenlp generated char offset+self.offsets[i]=char_annotation start index from database
         #for all anotations of this doc
         self.start_indices=[] # format[[(1,3)... ann one heilight start indices], ...]
         self.end_indices=[]
@@ -869,7 +870,7 @@ class FeatureExtractor(object):
                 indexStr=rows[i][0]
 
                 if indexStr is None or (rm_invdata and doc_id in invalid_ann and rows[i][1] in invalid_ann[doc_id]):
-                    print 'invalide annotation %d %d ignored'%(doc_id, rows[i][1])
+                    print 'invalid annotation %d %d ignored'%(doc_id, rows[i][1])
                     continue
 
                 self.start_indices.append([])
