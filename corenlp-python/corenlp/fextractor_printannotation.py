@@ -56,7 +56,7 @@ from sklearn import svm
 listspath='lists/'
 
 rm_invdata=True # whether or not rm possible invalid annotations
-CV= True # whether or not do cross-validation on the top classifier
+CV= False # whether or not do cross-validation on the top classifier
 doc_level=True
 
 # set of booleans to turn on or off certain features
@@ -137,7 +137,7 @@ class FeatureExtractor(object):
         print 'done transforming feature data'
         self.feature_names=np.asarray(vec.get_feature_names())
         if doc_level:
-            random.seed(123456)
+            #random.seed(123456) <- removed random selection of docs
             docs_to_use = doc_offsets.keys()
             if CV:
                 self.crossValidation(10, feature_data, docs_to_use, targets, doc_offsets)
@@ -315,6 +315,10 @@ class FeatureExtractor(object):
 
         t0 = time()
         pred = clf.predict(self.X_test)
+        print ("doc_id:")
+        print (self.docID)
+        print ("prediction: ")
+        print(pred) #added this line to print out prediction
         test_time = time() - t0
         print("test time:  %0.3fs" % test_time)
 
@@ -958,14 +962,15 @@ def main(argv=None):
     if sys.argv != None:
         num_doc=str(sys.argv[1])
         print 'set num to %s'%num_doc
+        if len(sys.argv) > 2:
+            classifername = str(sys.argv[2])
+            if classifername in ['RidgeClassifier','LinearSVC','SGDClassifier','Perceptron','PassiveAggressiveClassifier','BernoulliNB', 'MultinomialNB','GaussianNB', 'DummyClassifier']:
+                
     #execute
     extractor=FeatureExtractor()
     extractor.prepareExtractor(num_doc)
     extractor.executeExtractor()
 
-    
-        
-    
     
 if __name__ == "__main__":
     main() 

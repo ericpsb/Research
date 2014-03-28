@@ -368,7 +368,7 @@ class StanfordCoreNLP:
             # NER-muc classifier (~60sec)
             # CoNLL classifier (~50sec)
             # PCFG (~3sec)
-            timeouts = [20, 200, 600, 600, 20]
+            timeouts = [200, 2000, 6000, 6000, 200]
             for i in xrange(5):
                 self.corenlp.expect("done.", timeout=timeouts[i])  # Load model
                 pbar.update(i + 1)
