@@ -18,7 +18,7 @@ Test installation: run python then type import nltk
 
 3.5 download wordnet for nltk corpora and punkt from nltk models using nltk.download
 
-4.pip install MySQL-python
+4.install MySQLdb (interface between Mysql and python API): pip install MySQL-python
 
 5. install jsonrpclib and corenlp-python:
 sudo pip install pexpect unidecode jsonrpclib   
