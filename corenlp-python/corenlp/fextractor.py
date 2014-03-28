@@ -4,7 +4,7 @@
 #Note: referenced some code from http://scikit-learn.org/stable/ User Guide and Examples
 from __future__ import division
 import nltk, MySQLdb,jsonrpclib
-import sys, re,random,os,time,string, unicode
+import sys, re,random,os,time,string, unicodedata
 from pprint import pprint
 import csv, collections
 from json import loads
