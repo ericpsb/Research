@@ -32,6 +32,7 @@ from sklearn.svm import LinearSVC
 from sklearn.linear_model import SGDClassifier
 from sklearn.linear_model import Perceptron
 from sklearn.linear_model import PassiveAggressiveClassifier
+from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import BernoulliNB, MultinomialNB
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neighbors import NearestCentroid
@@ -91,7 +92,7 @@ class FeatureExtractor(object):
         #doc specific
         self.docID=0
         self.title_words=[]
-        self.coreParsed=[]#the sentences(containing all its information by stanford corenlp) of this text
+        self.coreParsed={}#the sentences(containing all its information by stanford corenlp) of this text
         self.offsets=[] #the start char offset for each sentence in this doc.
                         #i.e corenlp generated char offset+self.offsets[i]=char_annotation start index from database
         #for all anotations of this doc
@@ -401,6 +402,7 @@ class FeatureExtractor(object):
                 #(MultinomialNB(alpha=.5), "Multinomial Naive Bayes - alpha .5"),
                 #(MultinomialNB(alpha=1), "Multinomial Naive Bayes - alpha 1"),
                 (BernoulliNB(alpha=.01), "Bernouli Naive Bayes"),
+                (LogisticRegression(), "Logistic Classifier"),
                 #(GaussianNB(),"Gaussian Naive Bayes"), # doesn't handle sparse matrices
                 (DummyClassifier(), "Dummy Baseline")
                 ):
@@ -654,16 +656,16 @@ class FeatureExtractor(object):
         
         if feat_words:
             # use the token and lemma (and +/- 1,2) features
-            fnames.extend(["token", "token: -1",  'token +1', "token: -2", 'token +2', 'lemma', 
-                    'lemma: -1', 'lemma: +1', 'lemma: -2', 'lemma: +2'])
-            
+            '''
+            fnames.extend(["token", "token: -1",  'token +1', "token: -2", 'token +2'])
             features['token'] = tokens[index]
-            self.plus_minus_features_list('token', 1, tokens, index, features)
-            self.plus_minus_features_list('token', 2, tokens, index, features)
-            
+            self.plus_minus_features_list('token', 1, tokens, index, features, True)
+            self.plus_minus_features_list('token', 2, tokens, index, features, True)
+            '''
+            fnames.extend(['lemma', 'lemma: -1', 'lemma: +1', 'lemma: -2', 'lemma: +2'])
             features['lemma'] = lemmas[index]
-            self.plus_minus_features_list('lemma', 1, lemmas, index, features)
-            self.plus_minus_features_list('lemma', 2, lemmas, index, features)
+            self.plus_minus_features_list('lemma', 1, lemmas, index, features, True)
+            self.plus_minus_features_list('lemma', 2, lemmas, index, features, True)
             
             fnames.extend(['bigram -1', 'bigram +1', 'trigram -1', 'trigram 0', 'trigram +1'])
             
@@ -1071,7 +1073,7 @@ class FeatureExtractor(object):
                     train_set.append(f1)
                     # targets.append(recode_dict[ation_aggregate])
                     normed_ation = float(ation_aggregate) / len(self.start_indices)
-                    if normed_ation >= float(1/3.0):
+                    if normed_ation >= float(1/2.0):
                         targets.append(1)
                     else:
                         targets.append(0)
