@@ -37,5 +37,7 @@ cd into corenlp-python folder:
 in one terminal tab run: corenlp/corenlp.py -S stanford-corenlp-full-2013-06-20/
 in another terminal tab run: python corenlp/fextractor.py 10
 
+To cache parser (and thus significantly speed up processing time), add an additional command line parameter telling fextractor the file in which to cache the parses, e.g.:
+python corenlp/fextractor.py 10 parse.cache
 
 
