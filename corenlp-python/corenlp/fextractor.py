@@ -569,7 +569,9 @@ class FeatureExtractor(object):
                     cur_bin = 8
                 self.tfidf_bins[document][token] = cur_bin
         
-        return self.tfidf_bins[document].get(word, 8) # use this so punct get the max tfidf bin
+        # punct get the max tfidf bin
+        # normalize to range (0,1)
+        return (self.tfidf_bins[document].get(word, 8)) / 8.0
 
 
 
@@ -1073,7 +1075,7 @@ class FeatureExtractor(object):
                     train_set.append(f1)
                     # targets.append(recode_dict[ation_aggregate])
                     normed_ation = float(ation_aggregate) / len(self.start_indices)
-                    if normed_ation >= float(1/2.0):
+                    if normed_ation >= float(1/3.0):
                         targets.append(1)
                     else:
                         targets.append(0)
