@@ -135,17 +135,20 @@ class FeatureExtractor(object):
 	"""
         global CV, doc_level
         featuresets,targets, doc_offsets=self.generate_feature_datasets()# featuresets are all the feature vectors, targets are all the labels
-        if parses_file:
+	if parses_file:
             # save the parses
             outfile = open(parses_file, 'w')
             cPickle.dump(self.coreParsed, outfile)
             outfile.close()
         print "Got train_set, start training models"
         vec = DictVectorizer()
-        feature_data=vec.fit_transform(featuresets) # the sparse matrix of 0-1 values
+        feature_data=vec.fit_transform(featuresets)# the sparse matrix of 0-1 values
         print 'done transforming feature data'
         self.feature_names=np.asarray(vec.get_feature_names()) #the feature names for the sparse matrix values
-        if doc_level:
+	f = open('vec.pickle', 'wb')
+	pickle.dump(vec, f)
+	f.close()
+	if doc_level:
             random.seed(123456)
             docs_to_use = doc_offsets.keys()
             if CV:
@@ -235,6 +238,7 @@ class FeatureExtractor(object):
 
             print 'fold %d \n\n'%counter
             results=self.runAllClassifiers()
+	    
             """
             # store the correlations from this fold
             for result in results:
@@ -406,9 +410,12 @@ class FeatureExtractor(object):
                 #(GaussianNB(),"Gaussian Naive Bayes"), # doesn't handle sparse matrices
                 (DummyClassifier(), "Dummy Baseline")
                 ):
-            print('=' * 80)
-            print(name)
-            results.append(self.benchmark(clf))
+	    print('=' * 80)
+	    print(name)
+	    results.append(self.benchmark(clf))
+	    saveModel(clf,name)
+	   
+	    
 
         #for penalty in ["l2", "l1"]:
             #print('=' * 80)
@@ -568,7 +575,6 @@ class FeatureExtractor(object):
                 if cur_bin > 8:
                     cur_bin = 8
                 self.tfidf_bins[document][token] = cur_bin
-        
         return self.tfidf_bins[document].get(word, 8) # use this so punct get the max tfidf bin
 
 
@@ -852,7 +858,6 @@ class FeatureExtractor(object):
                 for i in range(1,3):
                     features.pop(known_set + ": -%d" % i)
                     features.pop(known_set + ": +%d" % i)
-
         return features
     
     def plus_minus_features_list(self, fname, offset, values_list, index, features, filter=False):
@@ -1070,10 +1075,11 @@ class FeatureExtractor(object):
                                 )
                         f_counter+=1
                         '''
-                    train_set.append(f1)
+
+		    train_set.append(f1)
                     # targets.append(recode_dict[ation_aggregate])
                     normed_ation = float(ation_aggregate) / len(self.start_indices)
-                    if normed_ation >= float(1/2.0):
+                    if normed_ation >= float(1/3.0):
                         targets.append(1)
                     else:
                         targets.append(0)
@@ -1142,10 +1148,9 @@ def main(argv=None):
     if parses_file:
         extractor.loadParses(parses_file)
     extractor.executeExtractor(parses_file)
-
     
         
     
     
 if __name__ == "__main__":
-    main() 
+    main()
