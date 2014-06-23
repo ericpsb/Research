@@ -39,7 +39,7 @@ from scipy.sparse import vstack
 from sklearn import cross_validation
 from sklearn import svm
 
-listspath='Researchgit/corenlp-python/lists/'
+listspath='lists/'
 
 
 # set of booleans to turn on or off certain features
@@ -76,6 +76,7 @@ def extract_text_and_html(URL):
             extracted_text,extracted_html=get_Article_Text_and_Html(URL)
         except:
             #single redirect before boilerpipe extraction
+            print 'special article'
             extracted_text,extracted_html=get_SpecialArticle_Text_and_HTMl(URL)
     return extracted_text, extracted_html
 def get_SpecialArticle_Text_and_HTMl(URL):
