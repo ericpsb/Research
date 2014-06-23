@@ -630,7 +630,7 @@ def loadModel(type):
     load the saved model
     @param type: the type of the classifier you are loading
     """
-    f = open('/Users/elishaelovic/Researchgit/corenlp-python/' +type+'_classifier.pickle')
+    f = open('classifiers/' +type+'_classifier.pickle')
     model=pickle.load(f)
     f.close()
     return model
