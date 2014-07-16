@@ -142,9 +142,9 @@ class FeatureExtractor(object):
             cPickle.dump(self.coreParsed, outfile)
             outfile.close()
         print "Got train_set, start training models"
-        hasher=FeatureHasher()
-	#hasher=DictVectorizer()
-	feature_data=hasher.transform(featuresets)# the sparse matrix of 0-1 values
+        #hasher=FeatureHasher()
+	hasher=DictVectorizer()
+	feature_data=hasher.fit_transform(featuresets)# the sparse matrix of 0-1 values
         print 'done transforming feature data'
         self.feature_names=np.asarray(hasher.get_feature_names()) #the feature names for the sparse matrix values
 	f = open('hasher.pickle', 'wb')
@@ -1122,7 +1122,8 @@ class FeatureExtractor(object):
 
     
     def runEnsemble(self):
-	pred=[]
+	preds=[]
+	count=1;
 	for clf, name in (
 		    (SGDClassifier(alpha=.0001, n_iter=50, penalty="l2"),"SGD with l2 penalty"),
 		    (Perceptron(n_iter=50), "Perceptron"),
@@ -1130,25 +1131,31 @@ class FeatureExtractor(object):
 		    (MultinomialNB(alpha=.05), "Multinomial Naive Bayes"),
 		    (BernoulliNB(alpha=.01), "Bernouli Naive Bayes")):
 	    clf.fit(self.X_train, self.y_train)
-	    pred=self.add(pred, clf.predict(self.X_test))
-	    pred=[list(t) for t in zip(*pred)]
-	    print pred
-	print pred
-	pred=[0 for j in pred if j<3]
-	pred=[1 for i in pred if i>=3]
-	print pred
+	    if count % 2 !=0:
+		pred1 = clf.predict(self.X_test)
+		print 'p1:'
+		print pred1
+	    else:
+		pred2=clf.predict(self.X_test)
+		print 'p2:'
+		print pred2
+	    if count>1:
+		preds=[(x+y)for x in pred1 and y in pred2]
+		print 'sum:'
+		print preds
+	    count +=1
+	predicts=[0 for j in preds if j<3]
+	predicts=[1 for i in preds if i>=3]
+	print predicts
 	
-	f1_score = metrics.f1_score(self.y_test, pred, pos_label=1, average='weighted')
-	acc_score=metrics.accuracy_score(self.y_test,pred)
-	precision_score=metrics.precision_score(self.y_test,pred, pos_label=1, average='weighted')
-	recall_score=metrics.recall_score(self.y_test, pred, pos_label=1, average='weighted')
+	f1_score = metrics.f1_score(self.y_test, predicts, pos_label=1, average='weighted')
+	acc_score=metrics.accuracy_score(self.y_test,predicts)
+	precision_score=metrics.precision_score(self.y_test,predicts, pos_label=1, average='weighted')
+	recall_score=metrics.recall_score(self.y_test, predicts, pos_label=1, average='weighted')
 	print("f1-score:   %0.3f" % f1_score)
 	print("acc-score: %0.3f" % acc_score)
 	print('precision-score: %0.4f' %precision_score)
 	print('recall-score: %0.4f' %recall_score)
-
-    def add(self,l1,l2):
-	return  [(x + y) for x, y in zip(l1, l2)]
 
 def saveModel(classifier, type='nb'):
     """
