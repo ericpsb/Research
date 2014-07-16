@@ -582,7 +582,14 @@ class FeatureExtractor(object):
                 if cur_bin > 8:
                     cur_bin = 8
                 self.tfidf_bins[document][token] = cur_bin
+<<<<<<< HEAD
         return self.tfidf_bins[document].get(word, 8) # use this so punct get the max tfidf bin
+=======
+        
+        # punct get the max tfidf bin
+        # normalize to range (0,1)
+        return (self.tfidf_bins[document].get(word, 8)) / 8.0
+>>>>>>> FETCH_HEAD
 
 
 
