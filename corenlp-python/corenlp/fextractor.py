@@ -38,6 +38,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neighbors import NearestCentroid
 from sklearn.utils.extmath import density
 from sklearn import metrics
+from sklearn.feature_extraction import FeatureHasher
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.naive_bayes import GaussianNB
 from sklearn.dummy import DummyClassifier
@@ -57,7 +58,7 @@ from sklearn import svm
 listspath='lists/'
 
 rm_invdata=True # whether or not rm possible invalid annotations
-CV= True # whether or not do cross-validation on the top classifier
+CV= False# whether or not do cross-validation on the top classifier
 doc_level=True
 
 # set of booleans to turn on or off certain features
@@ -85,7 +86,7 @@ class FeatureExtractor(object):
         self.dlow_mid_cutoff= 3.48
         self.dmid_high_cutoff=6.10
         self.dsp_dict={}
-        self.server = jsonrpclib.Server("http://127.0.0.1:8080")
+        self.server = jsonrpclib.Server("http://127.0.0.1:5000")
         self.doc_sets={}
         self.tfidf_bins = {}
         
@@ -141,12 +142,13 @@ class FeatureExtractor(object):
             cPickle.dump(self.coreParsed, outfile)
             outfile.close()
         print "Got train_set, start training models"
-        vec = DictVectorizer()
-        feature_data=vec.fit_transform(featuresets)# the sparse matrix of 0-1 values
+        hasher=FeatureHasher()
+	#hasher=DictVectorizer()
+	feature_data=hasher.transform(featuresets)# the sparse matrix of 0-1 values
         print 'done transforming feature data'
-        self.feature_names=np.asarray(vec.get_feature_names()) #the feature names for the sparse matrix values
-	f = open('vec.pickle', 'wb')
-	pickle.dump(vec, f)
+        self.feature_names=np.asarray(hasher.get_feature_names()) #the feature names for the sparse matrix values
+	f = open('hasher.pickle', 'wb')
+	pickle.dump(hasher, f)
 	f.close()
 	if doc_level:
             random.seed(123456)
@@ -176,8 +178,8 @@ class FeatureExtractor(object):
                     labels.extend(targets[start:end])
                 self.X_test=vstack([feature_data[s:t] for s, t in test_fs])
                 self.y_test=np.asarray(labels)
-                self.runAllClassifiers()
-
+                #self.runAllClassifiers()
+                self.runEnsemble()
         else:
 
             #randomized
@@ -186,7 +188,8 @@ class FeatureExtractor(object):
             else:
                 self.X_train, self.X_test, self.y_train, self.y_test = cross_validation.train_test_split(feature_data, targets, test_size=0.1, random_state=0)
                 print 'done splitting sets'
-                self.runAllClassifiers()
+                #self.runAllClassifiers()
+		self.runEnsemble()
                 #self.drawDiagram()
 
     
@@ -237,7 +240,8 @@ class FeatureExtractor(object):
                 self.X_train, self.X_test, self.y_train, self.y_test=X[train], X[test], Y[train], Y[test]
 
             print 'fold %d \n\n'%counter
-            results=self.runAllClassifiers()
+            #results=self.runAllClassifiers()
+	    results=self.runEnsemble()
 	    
             """
             # store the correlations from this fold
@@ -534,7 +538,7 @@ class FeatureExtractor(object):
         db=MySQLdb.connect(host='eltanin.cis.cornell.edu', user='annotator',passwd='Ann0tateTh!s', db='FrameAnnotation')
         c=db.cursor()
         # we only want documents that have at least three valid annotations
-        c.execute("SELECT  doc_id, doc_html, sum(valid) as tot_valid FROM Documents natural join Annotations WHERE doc_id > 1 group by doc_id having tot_valid >= 3 order by doc_id desc LIMIT %s "%(doc_num,))#a_id > 125")
+        c.execute("SELECT  doc_id, doc_html, sum(valid) as tot_valid FROM Documents natural join Annotations WHERE doc_id > 1 AND doc_id<>192 group by doc_id having tot_valid >= 3 order by doc_id desc LIMIT %s "%(doc_num,))#a_id > 125")
         #c.execute("select doc_id, doc_html from Documents where doc_id > 1 order by doc_id desc LIMIT %s"%(doc_num,))
         
         rowall=c.fetchall()
@@ -544,6 +548,9 @@ class FeatureExtractor(object):
             text=nltk.Text([self.preprocessEachWord(w) for w in nltk.wordpunct_tokenize(doc) if len(w) >= 1 and not all(a in string.punctuation for a in w)])
             self.texts[int(row[0])]=text
         self.collection=nltk.TextCollection(self.texts.values())
+	f = open('texts.pickle', 'wb')
+	pickle.dump(self.texts, f)
+	f.close()
         
     
 
@@ -1112,6 +1119,37 @@ class FeatureExtractor(object):
             # the file doesn't exist yet. do the parses and save them to this file.
             self.coreParsed = {}
 
+
+    
+    def runEnsemble(self):
+	pred=[]
+	for clf, name in (
+		    (SGDClassifier(alpha=.0001, n_iter=50, penalty="l2"),"SGD with l2 penalty"),
+		    (Perceptron(n_iter=50), "Perceptron"),
+		    (PassiveAggressiveClassifier(n_iter=50), "Passive-Aggressive"),
+		    (MultinomialNB(alpha=.05), "Multinomial Naive Bayes"),
+		    (BernoulliNB(alpha=.01), "Bernouli Naive Bayes")):
+	    clf.fit(self.X_train, self.y_train)
+	    pred=self.add(pred, clf.predict(self.X_test))
+	    pred=[list(t) for t in zip(*pred)]
+	    print pred
+	print pred
+	pred=[0 for j in pred if j<3]
+	pred=[1 for i in pred if i>=3]
+	print pred
+	
+	f1_score = metrics.f1_score(self.y_test, pred, pos_label=1, average='weighted')
+	acc_score=metrics.accuracy_score(self.y_test,pred)
+	precision_score=metrics.precision_score(self.y_test,pred, pos_label=1, average='weighted')
+	recall_score=metrics.recall_score(self.y_test, pred, pos_label=1, average='weighted')
+	print("f1-score:   %0.3f" % f1_score)
+	print("acc-score: %0.3f" % acc_score)
+	print('precision-score: %0.4f' %precision_score)
+	print('recall-score: %0.4f' %recall_score)
+
+    def add(self,l1,l2):
+	return  [(x + y) for x, y in zip(l1, l2)]
+
 def saveModel(classifier, type='nb'):
     """
     Save the trained model in python pickle module
@@ -1131,6 +1169,8 @@ def loadModel(type='nb'):
     model=pickle.load(f)
     f.close()
     return model
+
+
 
 def main(argv=None):
     print "Start Feature Extractor"

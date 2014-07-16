@@ -517,8 +517,8 @@ if __name__ == '__main__':
     """
     from jsonrpclib.SimpleJSONRPCServer import SimpleJSONRPCServer
     parser = optparse.OptionParser(usage="%prog [OPTIONS]")
-    parser.add_option('-p', '--port', default='8080',
-                      help='Port to serve on (default 8080)')
+    parser.add_option('-p', '--port', default='5000',
+                      help='Port to serve on (default 5000)')
     parser.add_option('-H', '--host', default='127.0.0.1',
                       help='Host to serve on (default localhost; 0.0.0.0 to make public)')
     parser.add_option('-q', '--quiet', action='store_false', default=True, dest='verbose',

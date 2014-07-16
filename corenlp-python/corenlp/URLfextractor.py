@@ -576,22 +576,25 @@ def addTOcorpusFromDB(doc_num,text):
     Build corpus from data in DB
     @param doc_num: the number of docs you are gonna use
     """
-    db=MySQLdb.connect(host='eltanin.cis.cornell.edu', user='annotator',passwd='Ann0tateTh!s', db='FrameAnnotation')
-    c=db.cursor()
-    # we only want documents that have at least three valid annotations
-    c.execute("SELECT  doc_id, doc_html, sum(valid) as tot_valid FROM Documents natural join Annotations WHERE doc_id > 1 group by doc_id having tot_valid >= 3 order by doc_id desc LIMIT %s "%(doc_num,))#a_id > 125")
-    #c.execute("select doc_id, doc_html from Documents where doc_id > 1 order by doc_id desc LIMIT %s"%(doc_num,))
-    
-    rowall=c.fetchall()
-    rowsTaken=[]
-    for row in rowall:
-        doc=nltk.clean_html(row[1])
-        texty=nltk.Text([preprocess_each_word(w) for w in nltk.wordpunct_tokenize(doc) if len(w) >= 1 and not all(a in string.punctuation for a in w)])
-        texts[int(row[0])]=texty
-        rowsTaken.append(row[0])
+    #db=MySQLdb.connect(host='eltanin.cis.cornell.edu', user='annotator',passwd='Ann0tateTh!s', db='FrameAnnotation')
+    #c=db.cursor()
+    ## we only want documents that have at least three valid annotations
+    #c.execute("SELECT  doc_id, doc_html, sum(valid) as tot_valid FROM Documents natural join Annotations WHERE doc_id > 1 group by doc_id having tot_valid >= 3 order by doc_id desc LIMIT %s "%(doc_num,))#a_id > 125")
+    ##c.execute("select doc_id, doc_html from Documents where doc_id > 1 order by doc_id desc LIMIT %s"%(doc_num,))
+    #
+    #rowall=c.fetchall()
+    #rowsTaken=[]
+    #for row in rowall:
+    #    doc=nltk.clean_html(row[1])
+    #    texty=nltk.Text([preprocess_each_word(w) for w in nltk.wordpunct_tokenize(doc) if len(w) >= 1 and not all(a in string.punctuation for a in w)])
+    #    texts[int(row[0])]=texty
+    #    rowsTaken.append(row[0])
+    f = open('texts.pickle')
+    texts=pickle.load(f)
+    f.close()
     newText=nltk.Text([preprocess_each_word(w) for w in nltk.wordpunct_tokenize(text) if len(w) >= 1 and not all(a in string.punctuation for a in w)])
-    rowNum=int(min(rowsTaken))-1
-    texts[rowNum]=newText
+    texts[5]=newText
+    rowNum=5
     collection=nltk.TextCollection(texts.values())
     return rowNum, texts, collection
   
@@ -630,7 +633,7 @@ def loadModel(type):
     load the saved model
     @param type: the type of the classifier you are loading
     """
-    f = open('classifiers/' +type+'_classifier.pickle')
+    f = open(type+'_classifier.pickle')
     model=pickle.load(f)
     f.close()
     return model
@@ -643,7 +646,7 @@ def extractFeatures(extracted_text, doc_num):
 
 def predictions(classifier, feat, doc_num):
     clf=loadModel(classifier)
-    g=open("/Users/elishaelovic/Researchgit/corenlp-python/vec.pickle")
+    g=open("vec.pickle")
     vec = pickle.load(g)
     g.close()
     print "Predicting..."
