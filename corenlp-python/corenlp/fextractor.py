@@ -57,7 +57,7 @@ from sklearn import svm
 listspath='lists/'
 
 rm_invdata=True # whether or not rm possible invalid annotations
-CV= True # whether or not do cross-validation on the top classifier
+CV= True# whether or not do cross-validation on the top classifier
 doc_level=True
 
 # set of booleans to turn on or off certain features
@@ -85,7 +85,7 @@ class FeatureExtractor(object):
         self.dlow_mid_cutoff= 3.48
         self.dmid_high_cutoff=6.10
         self.dsp_dict={}
-        self.server = jsonrpclib.Server("http://127.0.0.1:8080")
+        self.server = jsonrpclib.Server("http://127.0.0.1:5000")
         self.doc_sets={}
         self.tfidf_bins = {}
         
@@ -135,25 +135,26 @@ class FeatureExtractor(object):
 	"""
         global CV, doc_level
         featuresets,targets, doc_offsets=self.generate_feature_datasets()# featuresets are all the feature vectors, targets are all the labels
-        if parses_file:
+	if parses_file:
             # save the parses
             outfile = open(parses_file, 'w')
             cPickle.dump(self.coreParsed, outfile)
             outfile.close()
         print "Got train_set, start training models"
-        #vec = DictVectorizer()
-        vec = FeatureHasher(non_negative=True)
-        print featuresets
-        feature_data=vec.fit_transform(featuresets)
-        print feature_data
+        #hasher = DictVectorizer()
+        hasher = FeatureHasher(non_negative=True)
+        feature_data=hasher.fit_transform(featuresets)
         print 'done transforming feature data'
         # get the feature names for the sparse matrix values
         try:
-            self.feature_names=np.asarray(vec.get_feature_names())
+            self.feature_names=np.asarray(hasher.get_feature_names())
         except:
             # feature names only useful during development. during deployment, use FeatureHasher, 
             # which doesn't provide feature names.
             self.feature_names = None
+        f = open('hasher.pickle', 'wb')
+        pickle.dump(hasher, f)
+        f.close()
         if doc_level:
             random.seed(123456)
             docs_to_use = doc_offsets.keys()
@@ -183,7 +184,7 @@ class FeatureExtractor(object):
                 self.X_test=vstack([feature_data[s:t] for s, t in test_fs])
                 self.y_test=np.asarray(labels)
                 self.runAllClassifiers()
-
+                #self.runEnsemble()
         else:
 
             #randomized
@@ -193,6 +194,7 @@ class FeatureExtractor(object):
                 self.X_train, self.X_test, self.y_train, self.y_test = cross_validation.train_test_split(feature_data, targets, test_size=0.1, random_state=0)
                 print 'done splitting sets'
                 self.runAllClassifiers()
+		        #self.runEnsemble()
                 #self.drawDiagram()
 
     
@@ -244,6 +246,9 @@ class FeatureExtractor(object):
 
             print 'fold %d \n\n'%counter
             results=self.runAllClassifiers()
+            print '\ngot results\n'
+	        #results=self.runEnsemble()
+	    
             """
             # store the correlations from this fold
             for result in results:
@@ -415,9 +420,12 @@ class FeatureExtractor(object):
                 #(GaussianNB(),"Gaussian Naive Bayes"), # doesn't handle sparse matrices
                 (DummyClassifier(), "Dummy Baseline")
                 ):
-            print('=' * 80)
-            print(name)
-            results.append(self.benchmark(clf))
+	    print('=' * 80)
+	    print(name)
+	    results.append(self.benchmark(clf))
+	    saveModel(clf,name)
+	   
+	    
 
         #for penalty in ["l2", "l1"]:
             #print('=' * 80)
@@ -536,7 +544,7 @@ class FeatureExtractor(object):
         db=MySQLdb.connect(host='eltanin.cis.cornell.edu', user='annotator',passwd='Ann0tateTh!s', db='FrameAnnotation')
         c=db.cursor()
         # we only want documents that have at least three valid annotations
-        c.execute("SELECT  doc_id, doc_html, sum(valid) as tot_valid FROM Documents natural join Annotations WHERE doc_id > 1 group by doc_id having tot_valid >= 3 order by doc_id desc LIMIT %s "%(doc_num,))#a_id > 125")
+        c.execute("SELECT  doc_id, doc_html, sum(valid) as tot_valid FROM Documents natural join Annotations WHERE doc_id > 1 AND doc_id<>192 group by doc_id having tot_valid >= 3 order by doc_id desc LIMIT %s "%(doc_num,))#a_id > 125")
         #c.execute("select doc_id, doc_html from Documents where doc_id > 1 order by doc_id desc LIMIT %s"%(doc_num,))
         
         rowall=c.fetchall()
@@ -546,6 +554,9 @@ class FeatureExtractor(object):
             text=nltk.Text([self.preprocessEachWord(w) for w in nltk.wordpunct_tokenize(doc) if len(w) >= 1 and not all(a in string.punctuation for a in w)])
             self.texts[int(row[0])]=text
         self.collection=nltk.TextCollection(self.texts.values())
+	f = open('texts.pickle', 'wb')
+	pickle.dump(self.texts, f)
+	f.close()
         
     
 
@@ -577,7 +588,6 @@ class FeatureExtractor(object):
                 if cur_bin > 8:
                     cur_bin = 8
                 self.tfidf_bins[document][token] = cur_bin
-        
         # punct get the max tfidf bin
         # normalize to range (0,1)
         return (self.tfidf_bins[document].get(word, 8)) / 8.0
@@ -842,7 +852,6 @@ class FeatureExtractor(object):
                 for i in range(1,3):
                     features.pop(known_set + ": -%d" % i)
                     features.pop(known_set + ": +%d" % i)
-
         return features
     
     def plus_minus_features_list(self, fname, offset, values_list, index, features, filter=False):
@@ -1048,7 +1057,8 @@ class FeatureExtractor(object):
                                 )
                         f_counter+=1
                         '''
-                    train_set.append(f1)
+
+		    train_set.append(f1)
                     # targets.append(recode_dict[ation_aggregate])
                     normed_ation = float(ation_aggregate) / len(self.start_indices)
                     if normed_ation >= float(1/3.0):
@@ -1084,6 +1094,44 @@ class FeatureExtractor(object):
             # the file doesn't exist yet. do the parses and save them to this file.
             self.coreParsed = {}
 
+
+    
+    def runEnsemble(self):
+	preds=[]
+	count=1;
+	for clf, name in (
+		    (SGDClassifier(alpha=.0001, n_iter=50, penalty="l2"),"SGD with l2 penalty"),
+		    (Perceptron(n_iter=50), "Perceptron"),
+		    (PassiveAggressiveClassifier(n_iter=50), "Passive-Aggressive"),
+		    (MultinomialNB(alpha=.05), "Multinomial Naive Bayes"),
+		    (BernoulliNB(alpha=.01), "Bernouli Naive Bayes")):
+	    clf.fit(self.X_train, self.y_train)
+	    if count % 2 !=0:
+		pred1 = clf.predict(self.X_test)
+		print 'p1:'
+		print pred1
+	    else:
+		pred2=clf.predict(self.X_test)
+		print 'p2:'
+		print pred2
+	    if count>1:
+		preds=[(x+y)for x in pred1 and y in pred2]
+		print 'sum:'
+		print preds
+	    count +=1
+	predicts=[0 for j in preds if j<3]
+	predicts=[1 for i in preds if i>=3]
+	print predicts
+	
+	f1_score = metrics.f1_score(self.y_test, predicts, pos_label=1, average='weighted')
+	acc_score=metrics.accuracy_score(self.y_test,predicts)
+	precision_score=metrics.precision_score(self.y_test,predicts, pos_label=1, average='weighted')
+	recall_score=metrics.recall_score(self.y_test, predicts, pos_label=1, average='weighted')
+	print("f1-score:   %0.3f" % f1_score)
+	print("acc-score: %0.3f" % acc_score)
+	print('precision-score: %0.4f' %precision_score)
+	print('recall-score: %0.4f' %recall_score)
+
 def saveModel(classifier, type='nb'):
     """
     Save the trained model in python pickle module
@@ -1104,6 +1152,8 @@ def loadModel(type='nb'):
     f.close()
     return model
 
+
+
 def main(argv=None):
     print "Start Feature Extractor"
     # Preprocess read file
@@ -1120,10 +1170,9 @@ def main(argv=None):
     if parses_file:
         extractor.loadParses(parses_file)
     extractor.executeExtractor(parses_file)
-
     
         
     
     
 if __name__ == "__main__":
-    main() 
+    main()
