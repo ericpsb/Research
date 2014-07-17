@@ -38,7 +38,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.neighbors import NearestCentroid
 from sklearn.utils.extmath import density
 from sklearn import metrics
-from sklearn.feature_extraction import DictVectorizer
+from sklearn.feature_extraction import DictVectorizer, FeatureHasher
 from sklearn.naive_bayes import GaussianNB
 from sklearn.dummy import DummyClassifier
 import numpy as np
@@ -141,10 +141,19 @@ class FeatureExtractor(object):
             cPickle.dump(self.coreParsed, outfile)
             outfile.close()
         print "Got train_set, start training models"
-        vec = DictVectorizer()
-        feature_data=vec.fit_transform(featuresets) # the sparse matrix of 0-1 values
+        #vec = DictVectorizer()
+        vec = FeatureHasher(non_negative=True)
+        print featuresets
+        feature_data=vec.fit_transform(featuresets)
+        print feature_data
         print 'done transforming feature data'
-        self.feature_names=np.asarray(vec.get_feature_names()) #the feature names for the sparse matrix values
+        # get the feature names for the sparse matrix values
+        try:
+            self.feature_names=np.asarray(vec.get_feature_names())
+        except:
+            # feature names only useful during development. during deployment, use FeatureHasher, 
+            # which doesn't provide feature names.
+            self.feature_names = None
         if doc_level:
             random.seed(123456)
             docs_to_use = doc_offsets.keys()
@@ -665,55 +674,35 @@ class FeatureExtractor(object):
             self.plus_minus_features_list('token', 2, tokens, index, features, True)
             '''
             fnames.extend(['lemma', 'lemma: -1', 'lemma: +1', 'lemma: -2', 'lemma: +2'])
-            features['lemma'] = lemmas[index]
-            self.plus_minus_features_list('lemma', 1, lemmas, index, features, True)
-            self.plus_minus_features_list('lemma', 2, lemmas, index, features, True)
-            
-            fnames.extend(['bigram -1', 'bigram +1', 'trigram -1', 'trigram 0', 'trigram +1'])
+            features['lemma ' + lemmas[index]] = 1
+            self.plus_minus_features_list('lemma ', 1, lemmas, index, features, True)
+            self.plus_minus_features_list('lemma ', 2, lemmas, index, features, True)
             
             # bigrams
+            fnames.extend(['bigram -1', 'bigram +1'])
             # ignore bigrams that include stopwords, punctuation, and numbers
             if index > 0:
-                if self.filter_word(lemmas[index-1]):
-                    features['bigram -1'] = 'null'
-                else:
-                    features['bigram -1'] = lemmas[index-1] + ' ' + lemmas[index]
-            else:
-                features['bigram -1'] = 'null'
+                if not self.filter_word(lemmas[index-1]):
+                    features['bigram -1 ' + lemmas[index-1] + ' ' + lemmas[index]] = 1
             if index < len(lemmas) - 1:
-                if self.filter_word(lemmas[index+1]):
-                    features['bigram -1'] = 'null'
-                else:
-                    features['bigram +1'] = lemmas[index] + ' ' + lemmas[index+1]
-            else:
-                features['bigram +1'] = 'null'
+                if not self.filter_word(lemmas[index+1]):
+                    features['bigram +1 ' + lemmas[index] + ' ' + lemmas[index+1]] = 1
             
             # trigrams
+            fnames.extend(['trigram -1', 'trigram 0', 'trigram +1'])
             # ignore trigrams that include stopwords, punctuation, and numbers
             if index > 1:
-                if self.filter_word(lemmas[index-2]) or self.filter_word(lemmas[index-1]):
-                    features['trigram - 1'] = 'null'
-                else:
-                    features['trigram - 1'] = lemmas[index - 2] + ' ' + lemmas[index - 1] \
-                            + lemmas[index]
-            else:
-                features['trigram - 1'] = 'null'
+                if not (self.filter_word(lemmas[index-2]) or self.filter_word(lemmas[index-1])):
+                    features['trigram - 1 ' + lemmas[index - 2] + ' ' + lemmas[index - 1] \
+                            + lemmas[index]] = 1
             if index > 0 and index < len(lemmas) - 1:
-                if self.filter_word(lemmas[index-1]) or self.filter_word(lemmas[index+1]):
-                    features['trigram 0'] = 'null'
-                else:
-                    features['trigram 0'] = lemmas[index - 1] + ' ' + lemmas[index] + ' ' + \
-                            lemmas[index + 1]
-            else:
-                features['trigram 0'] = 'null'
+                if not (self.filter_word(lemmas[index-1]) or self.filter_word(lemmas[index+1])):
+                    features['trigram 0 ' + lemmas[index - 1] + ' ' + lemmas[index] + ' ' + \
+                            lemmas[index + 1]] = 1
             if index < len(lemmas) - 2:
                 if self.filter_word(lemmas[index+1]) or self.filter_word(lemmas[index+2]):
-                    features['trigram +1'] = 'null'
-                else:
-                    features['trigram +1'] = lemmas[index] + ' ' + lemmas[index + 1] + ' ' + \
-                            lemmas[index + 2]
-            else:
-                features['trigram +1'] = 'null'
+                    features['trigram +1 ' + lemmas[index] + ' ' + lemmas[index + 1] + ' ' + \
+                            lemmas[index + 2]] = 1
         
         if feat_POS:
             # use the POS, POS +/- 1, and POS +/- 2 features
@@ -724,7 +713,7 @@ class FeatureExtractor(object):
                 poses.append(wls[1]['PartOfSpeech'])
             poses.append('END')
             
-            features['pos'] = poses[index]
+            features['pos' + poses[index]] = 1
             self.plus_minus_features_list('pos', 1, poses, index, features)
             self.plus_minus_features_list('pos', 2, poses, index, features)
 
@@ -732,7 +721,7 @@ class FeatureExtractor(object):
             # use the type of named entity as a feature
             fnames.extend(['entity type', 'entity bigram - 1', 'entity bigram + 1', 
                     'entity trigram - 1', 'entity trigram 0', 'entity trigram + 1'])
-            features['entity type'] = entities[index]
+            features['entity type ' + entities[index]] = 1
             self.plus_minus_features_list('entity type', 1, entities, index, features)
             self.plus_minus_features_list('entity type', 2, entities, index, features)
             '''
@@ -782,8 +771,8 @@ class FeatureExtractor(object):
 
         if feat_sent_len:
             # use the sentence length feature
-            fnames.extend(['sentence length:', 'sentence position:'])
-            features['sentence length:']=len(words)
+            fnames.extend(['sentence length', 'sentence position'])
+            features['sentence length']=len(words)
             sentence_position = float(index) / float(len(words))
             if sentence_position < (float(1/3.0)):
                 features['sentence position:']=1
@@ -831,8 +820,7 @@ class FeatureExtractor(object):
             if desc_count > 0:
                 desc_avg /= desc_count
                 features['descriptiveness average'] = desc_avg
-            else:
-                features['descriptiveness average'] = 'null'
+            features.pop('descriptiveness')
             for i in range(1,3):
                 features.pop("descriptiveness: -%d" % i)
                 features.pop("descriptiveness: +%d" % i)
@@ -843,14 +831,14 @@ class FeatureExtractor(object):
             for known_set in self.doc_sets.keys():
                 fnames.append(known_set)
                 
-                features[(known_set)] = stems[index] in self.doc_sets[known_set]
+                features[(known_set)] = 1 if stems[index] in self.doc_sets[known_set] else 0
                 self.plus_minus_features_dict(known_set, 1, stems, self.doc_sets[known_set],
                         index, features)
                 self.plus_minus_features_dict(known_set, 2, stems, self.doc_sets[known_set],
                         index, features)
-                features[known_set + " in context"] = features[known_set + ": +1"] or \
+                features[known_set + " in context"] = 1 if (features[known_set + ": +1"] or \
                         features[known_set + ": -1"] or features[known_set + ": +2"] or \
-                        features[known_set + ": -2"]
+                        features[known_set + ": -2"]) else 0
                 for i in range(1,3):
                     features.pop(known_set + ": -%d" % i)
                     features.pop(known_set + ": +%d" % i)
@@ -870,25 +858,17 @@ class FeatureExtractor(object):
         '''
         if index > 0:
             if filter:
-                if self.filter_word(values_list[index - offset]):
-                    features[fname + ": -%d" % offset] = 'null'
-                else:
-                    features[fname + ": -%d" % offset] = values_list[index - offset]
+                if not self.filter_word(values_list[index - offset]):
+                    features[fname + ": -%d" % offset + values_list[index - offset]] = 1
             else:
-                features[fname + ": -%d" % offset] = values_list[index - offset]
-        else:
-            features[fname + ": -%d" % offset] = 'null'
+                features[fname + ": -%d" % offset + values_list[index - offset]] = 1
             
         if index < len(values_list) - offset:
             if filter:
                 if self.filter_word(values_list[index + offset]):
-                    features[fname + ": +%d" % offset] = 'null'
-                else:
-                    features[fname + ": +%d" % offset] = values_list[index + offset]
+                    features[fname + ": +%d" % offset + values_list[index + offset]] = 1
             else:
-                features[fname + ": +%d" % offset] = values_list[index + offset]
-        else:
-            features[fname + ": +%d" % offset] = 'null'
+                features[fname + ": +%d" % offset + values_list[index + offset]] = 1
     
     def plus_minus_features_dict(self, fname, offset, key_list, values_dict, index, features):
         '''
@@ -907,15 +887,11 @@ class FeatureExtractor(object):
                 features[fname + ": -%d" % offset] = values_dict[key_list[index - offset]]
             except KeyError:
                 features[fname + ": -%d" % offset] = 'null'
-        else:
-            features[fname + ": -%d" % offset] = 'null'
         if index < len(key_list) - offset:
             try:
                 features[fname + ": +%d" % offset] = values_dict[key_list[index + offset]]
             except KeyError:
                 features[fname + ": +%d" % offset] = 'null'
-        else:
-            features[fname + ": +%d" % offset] = 'null'
     
     def filter_word(self, word):
         """
@@ -1035,7 +1011,7 @@ class FeatureExtractor(object):
                 words=self.coreParsed[doc_id][i]['words'] #words are words properties
                 for windex in range(len(words)):
                     
-                    #ignore punctuations
+                    #ignore punctuations, numbers, stopwords, etc.
                     if self.filter_word(words[windex][0]):
                         continue
                     f1=self.generateFeatures(windex,words)
