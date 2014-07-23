@@ -167,7 +167,9 @@ def parse_parser_results(text):
     if type(text) == str:
         text = text.decode('utf-8')
 
-    for line in unidecode(text).split("\n"):
+    #for line in unidecode(text).split("\n"):
+    # we don't want unicode tranliteration, leave text as we receive it
+    for line in text.split("\n"):
         line = line.strip()
 
         if line.startswith("Sentence #"):
