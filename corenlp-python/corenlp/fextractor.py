@@ -46,8 +46,8 @@ import scipy as sp
 from scipy.sparse import vstack
 from sklearn import cross_validation
 from sklearn import svm
-
-
+from sklearn.preprocessing import LabelEncoder
+from sklearn.externals import joblib
 
 #python corenlp/corenlp.py -S stanford-corenlp-full-2013-06-20/
 #could also specify port number if want: python corenlp/corenlp.py -H localhost -p 3455 -S stanford-corenlp-full-2013-06-20/
@@ -70,8 +70,9 @@ feat_title = True # use whether the word is in the title as a feature
 feat_TFIDF = True # use TFIDF as a feature
 feat_imagery = True # use the imagery/descriptiveness rating feature
 feat_word_lists = True # use the special lists of words (factives, implicatives, etc.)
+feat_figurative= True # use the figurative langauge feature
 
-
+norm_ation_thresh=float(1/4.0)
 class FeatureExtractor(object):
     """
     NLP Tool to train and test Political Framing Words Classifiers
@@ -85,6 +86,7 @@ class FeatureExtractor(object):
         self.dlow_mid_cutoff= 3.48
         self.dmid_high_cutoff=6.10
         self.dsp_dict={}
+	self.abst_dict={}
         self.server = jsonrpclib.Server("http://127.0.0.1:5000")
         self.doc_sets={}
         self.tfidf_bins = {}
@@ -116,7 +118,7 @@ class FeatureExtractor(object):
 	"""
         print 'execute extractor'
         self.preprocessDescriptiveness()
-
+        self.preprocessAbstractness()
         lstfiles=["subjective","report_verb","implicative","hedge","factive","entailment","bias-lexicon","assertive","negative-word", "positive-word"]
         for known_lst in lstfiles:
             # epsb: changing to use dict rather than set
@@ -174,7 +176,7 @@ class FeatureExtractor(object):
 
                 self.X_train=vstack([feature_data[s:t] for s, t in train_fs])
                 self.y_train=np.asarray(labels)
-
+		
                 labels=[]
                 test_fs=[]
                 for did in docs_to_use[size:]:
@@ -209,7 +211,7 @@ class FeatureExtractor(object):
         from sklearn.cross_validation import KFold, ShuffleSplit, StratifiedKFold
         global doc_level
         
-        #kf=KFold(len(Y), n_folds=nfold, shuffle=True, random_state=0, indices=True)
+        #kf=KFold(len(Y), n_folds=nfold, , random_state=0, indices=True)
         kf=ShuffleSplit(len(Y), n_iter=nfold, test_size=2.0/(nfold), random_state=0)
         #kf = StratifiedKFold(Y, n_folds=nfold)
         
@@ -248,7 +250,7 @@ class FeatureExtractor(object):
             results=self.runAllClassifiers()
             print '\ngot results\n'
 	        #results=self.runEnsemble()
-	    
+
             """
             # store the correlations from this fold
             for result in results:
@@ -291,7 +293,7 @@ class FeatureExtractor(object):
             """
             for x in results:
                 if x[0] not in mean:
-                    mean[x[0]] = [0,0,0,0]
+		    mean[x[0]] = [0,0,0,0]
                 for ind in range(4):
                     mean[x[0]][ind]+=x[ind+1]
             '''
@@ -321,7 +323,7 @@ class FeatureExtractor(object):
             """
 
    
-    def benchmark(self, clf):
+    def benchmark(self, clf,name):
 	"""
 	Benchmark classifier by evaluating and printing out it's train time, test time, 
 	f1-score, acc-score, precision-score, recall-score, etc.
@@ -333,6 +335,7 @@ class FeatureExtractor(object):
         print(clf)
         t0 = time()
         clf.fit(self.X_train, self.y_train)
+	#saveModel(clf,name)
         train_time = time() - t0
         print("train time: %0.3fs" % train_time)
 
@@ -372,7 +375,7 @@ class FeatureExtractor(object):
         print(metrics.confusion_matrix(self.y_test, pred))
 
         print()
-        clf_descr = str(clf).split('(')[0]
+        clf_descr = str(clf)#.split('(')[0]
         return clf_descr, f1_score, acc_score, precision_score, recall_score, train_time, \
                 test_time, pred
 
@@ -402,30 +405,58 @@ class FeatureExtractor(object):
     def runAllClassifiers(self):
         results = []
         for clf, name in (
-                #(svm.SVC(cache_size = 500, class_weight='auto', kernel='rbf'),'SVM rbf'),
-                #(svm.SVC(cache_size = 500, class_weight='auto', kernel='poly'),'SVM poly'),
-                (SGDClassifier(alpha=.0001, n_iter=50, penalty="l2"),"SGD with l2 penalty"),
-                (Perceptron(n_iter=50), "Perceptron"),
+                #(svm.SVC(cache_size = 500,  kernel='rbf'),'SVM rbf'),
+                #(svm.SVC(cache_size = 500,  kernel='poly'),'SVM poly'),
+#                (SGDClassifier(alpha=.0001, n_iter=50,penalty="l2",shuffle=True),"SGD with l2 penalty hinge 50"),
+#                (SGDClassifier(alpha=.0001, n_iter=50,penalty="l1",shuffle=True),"SGD with l1 penalty hinge 50"),
+#				(SGDClassifier(alpha=.0001, n_iter=25,penalty="l2",shuffle=True),"SGD with l2 penalty hinge 25"),
+#				(SGDClassifier(alpha=.0001, n_iter=25,penalty="l1",shuffle=True),"SGD with l1 penalty hinge 25"),
+#				(SGDClassifier(alpha=.0001, n_iter=20,penalty="l2",shuffle=True),"SGD with l2 penalty hinge 20"),
+#				(SGDClassifier(alpha=.0001, n_iter=20,penalty="l1",shuffle=True),"SGD with l1 penalty hinge 20"),
+#				(SGDClassifier(alpha=.0001,loss="log",n_iter=20, penalty="l1",shuffle=True),"SGD with l1 penalty log 20"),
+#				(SGDClassifier(alpha=.0001,loss="log",n_iter=20, penalty="l2",shuffle=True),"SGD with l2 penalty log 20"),
+#				(SGDClassifier(alpha=.0001,loss="log",n_iter=25, penalty="l1",shuffle=True),"SGD with l1 penalty log 25"),
+#				(SGDClassifier(alpha=.0001,loss="log",n_iter=25, penalty="l2",shuffle=True),"SGD with l2 penalty log 25"),
+#				(SGDClassifier(alpha=.0001,loss="log",n_iter=50, penalty="l1",shuffle=True),"SGD with l1 penalty log 50"),
+#				(SGDClassifier(alpha=.0001,loss="log",n_iter=50, penalty="l2",shuffle=True),"SGD with l2 penalty log 50"),
+#				(SGDClassifier(alpha=.0001,loss="modified_huber",n_iter=20, penalty="l1",shuffle=True),"SGD with l1 penalty modified_huber 20"),
+#				(SGDClassifier(alpha=.0001,loss="modified_huber",n_iter=20, penalty="l2",shuffle=True),"SGD with l2 penalty modified_huber 20"),
+#				(SGDClassifier(alpha=.0001,loss="modified_huber",n_iter=25, penalty="l1",shuffle=True),"SGD with l1 penalty modified_huber 25"),
+#				(SGDClassifier(alpha=.0001,loss="modified_huber",n_iter=25, penalty="l2",shuffle=True),"SGD with l2 penalty modified_huber 25"),
+#				(SGDClassifier(alpha=.0001,loss="modified_huber",n_iter=50, penalty="l1",shuffle=True),"SGD with l1 penalty modified_huber 50"),
+#				(SGDClassifier(alpha=.0001,loss="modified_huber",n_iter=50, penalty="l2",shuffle=True),"SGD with l2 penalty modified_huber 50"),
+#				(SGDClassifier(alpha=.0001,loss="huber",n_iter=20, penalty="l1",shuffle=True),"SGD with l1 penalty huber 20"),
+#				(SGDClassifier(alpha=.0001,loss="huber",n_iter=20, penalty="l2",shuffle=True),"SGD with l2 penalty huber 20"),
+#				(SGDClassifier(alpha=.0001,loss="huber",n_iter=25, penalty="l1",shuffle=True),"SGD with l1 penalty huber 25"),
+#				(SGDClassifier(alpha=.0001,loss="huber",n_iter=25, penalty="l2",shuffle=True),"SGD with l2 penalty huber 25"),
+#				(SGDClassifier(alpha=.0001,loss="huber",n_iter=50, penalty="l1",shuffle=True),"SGD with l1 penalty huber 50"),
+#				(SGDClassifier(alpha=.0001,loss="huber",n_iter=50, penalty="l2",shuffle=True),"SGD with l2 penalty huber 50"),
+				#(Perceptron(n_iter=50,shuffle=True), "Perceptron 50"),
+				#(Perceptron(n_iter=35,shuffle=True), "Perceptron 35"),
+				(Perceptron(n_iter=42,shuffle=True,class_weight='auto'), "Perceptron 42"),
                 #(KNeighborsClassifier(n_neighbors=10), "k Nearest Neighbors 10"),
                 #(RidgeClassifier(tol=1e-2, solver="lsqr"), "Ridge Classifier"),
-                (PassiveAggressiveClassifier(n_iter=50), "Passive-Aggressive"),
-                (NearestCentroid(),"NearestCentroid"),
-                #(MultinomialNB(alpha=.01), "Multinomial Naive Bayes - alpha .01"),
-                (MultinomialNB(alpha=.05), "Multinomial Naive Bayes"),
+                #(PassiveAggressiveClassifier(n_iter=50,shuffle=True), "Passive-Aggressive 50"),
+				(PassiveAggressiveClassifier(n_iter=35,shuffle=True), "Passive-Aggressive 35"),
+				#(PassiveAggressiveClassifier(n_iter=42,shuffle=True), "Passive-Aggressive 42"),
+                #(NearestCentroid(),"NearestCentroid"),
+                (MultinomialNB(alpha=.03), "Multinomial Naive Bayes - alpha .03"),
+                #(MultinomialNB(alpha=.05), "Multinomial Naive Bayes"),
                 #(MultinomialNB(alpha=.1), "Multinomial Naive Bayes - alpha .1"),
+				#(MultinomialNB(alpha=.01), "Multinomial Naive Bayes - alpha .01"),
                 #(MultinomialNB(alpha=.5), "Multinomial Naive Bayes - alpha .5"),
                 #(MultinomialNB(alpha=1), "Multinomial Naive Bayes - alpha 1"),
-                (BernoulliNB(alpha=.01), "Bernouli Naive Bayes"),
-                (LogisticRegression(), "Logistic Classifier"),
+                #(BernoulliNB(alpha=.01), "Bernouli Naive Bayes"),
+                #(LogisticRegression(), "Logistic Classifier"),
                 #(GaussianNB(),"Gaussian Naive Bayes"), # doesn't handle sparse matrices
                 (DummyClassifier(), "Dummy Baseline")
                 ):
 	    print('=' * 80)
 	    print(name)
-	    results.append(self.benchmark(clf))
-	    saveModel(clf,name)
-	   
-	    
+	    results.append(self.benchmark(clf,name))
+	    #saveModel(clf,name)
+
+
 
         #for penalty in ["l2", "l1"]:
             #print('=' * 80)
@@ -533,8 +564,19 @@ class FeatureExtractor(object):
             self.dsp_dict[word]=category
 
 
-                
-
+    def preprocessAbstractness(self):
+	"""
+	Preprocess Abstractness list for later use
+	"""
+	 
+	ratings= open(listspath+'abstract-concrete.txt', 'r')
+	linNum=1
+        for line in ratings:
+	    if linNum>47 and linNum<114549:
+		info=self.preprocessEachWord(line.strip()).split(' ',1)
+		self.abst_dict[info[1]]=float(info[0])
+	    linNum+=1
+	
     
     def corpusFromDB(self, doc_num):
 	"""
@@ -592,6 +634,28 @@ class FeatureExtractor(object):
         # normalize to range (0,1)
         return (self.tfidf_bins[document].get(word, 8)) / 8.0
 
+    def abstDiffScorePair(self,w1,w2):
+	"""
+	calculate the absolute value of the difference between a word pairs abstractness ratings
+	"""
+    
+	try:
+	    avDiff=abs(self.abst_dict[w1]-self.abst_dict[w2])
+	except:
+	    avDiff='null'
+	return avDiff
+
+    def abstDiffScore(self,word,pairs):
+	"""
+	calculate the figurative rating for a word based on all words its paired with
+	"""
+    
+	scores=[self.abstDiffScorePair(word,j) for j in pairs if self.abstDiffScorePair(word,j) != 'null']
+	try:
+	    abstDiffScore=float(sum(scores))/float(len(scores))
+	except:
+	    abstDiffScore=-1
+	return abstDiffScore 
 
 
     
@@ -647,9 +711,9 @@ class FeatureExtractor(object):
 	"""
         return self.stemmer.stem(word.lower())    
        
+
    
-   
-    def generateFeatures(self, outer_index, words):
+    def generateFeatures(self, outer_index, words,deps):
 	"""
 	Generate feature vectors for words in a sentence.
 	@param words: all the words in a sentence.
@@ -677,12 +741,12 @@ class FeatureExtractor(object):
         
         if feat_words:
             # use the token and lemma (and +/- 1,2) features
-            '''
+        
             fnames.extend(["token", "token: -1",  'token +1', "token: -2", 'token +2'])
-            features['token'] = tokens[index]
+            features['token' + tokens[index]] = 1
             self.plus_minus_features_list('token', 1, tokens, index, features, True)
             self.plus_minus_features_list('token', 2, tokens, index, features, True)
-            '''
+        
             fnames.extend(['lemma', 'lemma: -1', 'lemma: +1', 'lemma: -2', 'lemma: +2'])
             features['lemma ' + lemmas[index]] = 1
             self.plus_minus_features_list('lemma ', 1, lemmas, index, features, True)
@@ -803,8 +867,8 @@ class FeatureExtractor(object):
         
         if feat_imagery:
             # use the imagery/descriptiveness rating feature
-            fnames.extend(['descriptiveness', 'descriptiveness +1', 'descriptiveness -1', 
-                    'descriptiveness +2', 'descriptiveness -2', 'descriptiveness average'])
+            fnames.extend(['descriptiveness', 'descriptiveness: +1', 'descriptiveness: -1', 
+                    'descriptiveness: +2', 'descriptiveness: -2', 'descriptiveness average'])
             
             try:
                 features['descriptiveness'] = self.dsp_dict[stems[index]]
@@ -852,8 +916,29 @@ class FeatureExtractor(object):
                 for i in range(1,3):
                     features.pop(known_set + ": -%d" % i)
                     features.pop(known_set + ": +%d" % i)
-        return features
-    
+	
+		if feat_figurative:
+			fnames.extend(['figRating'])
+			pairs=[]
+			for d in deps:
+				dash1=string.find(d[1],'-')
+				d1=self.preprocessEachWord(d[1][0:dash1])+d[1][dash1:]
+				dash2=string.find(d[2],'-')
+				d2=self.preprocessEachWord(d[2][0:dash2])+d[2][dash2:]
+				#print d
+				#print 'd1:', d1
+				#print 'd2:',d2
+				#print 'word:', stems[index]+'-'+ str(index)
+				if d1 == (stems[index]+'-'+ str(index)):
+					dash=string.find(d2,'-')
+					pairs.append(d2[0:dash].encode('utf-8'))
+				if d2==(stems[index]+'-'+ str(index)):
+					dash=string.find(d1,'-')
+					pairs.append(d1[0:dash].encode('utf-8'))
+			#print 'pairs:',pairs
+			features['figRating']=self.abstDiffScore(stems[index],pairs)
+			return features
+		
     def plus_minus_features_list(self, fname, offset, values_list, index, features, filter=False):
         '''
         Convenience method for features that involve words +/- some fixed index from the current 
@@ -890,7 +975,19 @@ class FeatureExtractor(object):
         @param index: Current index for checking the size of the offset.
         @param features: The feature vector to update.
         '''
-        
+
+        #if index > 0:
+	try:
+	    features[fname + ": -%d" % offset] = values_dict[key_list[index - offset]]
+	except KeyError:
+	    features[fname + ": -%d" % offset] = 'null'	
+        #if index <= len(key_list) - offset:
+	try:
+	    features[fname + ": +%d" % offset] = values_dict[key_list[index + offset]]
+	except :
+	    features[fname + ": +%d" % offset] = 'null'
+
+
         if index > 0:
             try:
                 features[fname + ": -%d" % offset] = values_dict[key_list[index - offset]]
@@ -902,6 +999,7 @@ class FeatureExtractor(object):
             except KeyError:
                 features[fname + ": +%d" % offset] = 'null'
     
+
     def filter_word(self, word):
         """
         Return true if this words meets any of the criteria for filtering (stopword, punctuation,
@@ -1016,14 +1114,15 @@ class FeatureExtractor(object):
             for i in range(len(self.coreParsed[doc_id])):
                     #sent=self.coreParsed[doc_id][i]['text']
                 tuples=self.coreParsed[doc_id][i]['dependencies']
+		deps=self.coreParsed[doc_id][i]['indexeddependencies']
                     #pprint(tuples)
                 words=self.coreParsed[doc_id][i]['words'] #words are words properties
                 for windex in range(len(words)):
                     
                     #ignore punctuations, numbers, stopwords, etc.
-                    if self.filter_word(words[windex][0]):
-                        continue
-                    f1=self.generateFeatures(windex,words)
+                    #if self.filter_word(words[windex][0]):
+                    #    continue
+                    f1=self.generateFeatures(windex,words,deps)
                     if feat_relns:
                         for [rel, gov, sub] in tuples:
                             thew=words[windex][0]
@@ -1045,26 +1144,26 @@ class FeatureExtractor(object):
                     for a in range(len(self.start_indices)):
                         #train_set.append(f1)
                         #pprint(f1)
-                        ation_aggregate += \
-                                self.isHighlighted(int(words[windex][1]['CharacterOffsetBegin']) +\
-                                self.offsets[i], int(words[windex][1]['CharacterOffsetEnd']) + \
-                                self.offsets[i], a)
-                        '''
-                        targets.append(
-                                self.isHighlighted(int(words[windex][1]['CharacterOffsetBegin']) + 
-                                self.offsets[i], int(words[windex][1]['CharacterOffsetEnd']) + 
-                                self.offsets[i], a)
-                                )
-                        f_counter+=1
-                        '''
-
+			ation_aggregate += \
+			    self.isHighlighted(int(words[windex][1]['CharacterOffsetBegin']) +\
+			    self.offsets[i], int(words[windex][1]['CharacterOffsetEnd']) + \
+				self.offsets[i], a)
+			'''
+			targets.append(
+				self.isHighlighted(int(words[windex][1]['CharacterOffsetBegin']) + 
+				self.offsets[i], int(words[windex][1]['CharacterOffsetEnd']) + 
+				self.offsets[i], a)
+				)
+			f_counter+=1
+			'''
 		    train_set.append(f1)
                     # targets.append(recode_dict[ation_aggregate])
                     normed_ation = float(ation_aggregate) / len(self.start_indices)
-                    if normed_ation >= float(1/3.0):
-                        targets.append(1)
-                    else:
-                        targets.append(0)
+		    if (self.filter_word(words[windex][0]) or normed_ation < norm_ation_thresh):
+			targets.append(0)
+		    else:
+			targets.append(1)
+                    #print targets 
                     # what percentage of annotators highlighted this word?
                     '''
                     if normed_ation == 0:
@@ -1095,50 +1194,13 @@ class FeatureExtractor(object):
             self.coreParsed = {}
 
 
-    
-    def runEnsemble(self):
-	preds=[]
-	count=1;
-	for clf, name in (
-		    (SGDClassifier(alpha=.0001, n_iter=50, penalty="l2"),"SGD with l2 penalty"),
-		    (Perceptron(n_iter=50), "Perceptron"),
-		    (PassiveAggressiveClassifier(n_iter=50), "Passive-Aggressive"),
-		    (MultinomialNB(alpha=.05), "Multinomial Naive Bayes"),
-		    (BernoulliNB(alpha=.01), "Bernouli Naive Bayes")):
-	    clf.fit(self.X_train, self.y_train)
-	    if count % 2 !=0:
-		pred1 = clf.predict(self.X_test)
-		print 'p1:'
-		print pred1
-	    else:
-		pred2=clf.predict(self.X_test)
-		print 'p2:'
-		print pred2
-	    if count>1:
-		preds=[(x+y)for x in pred1 and y in pred2]
-		print 'sum:'
-		print preds
-	    count +=1
-	predicts=[0 for j in preds if j<3]
-	predicts=[1 for i in preds if i>=3]
-	print predicts
-	
-	f1_score = metrics.f1_score(self.y_test, predicts, pos_label=1, average='weighted')
-	acc_score=metrics.accuracy_score(self.y_test,predicts)
-	precision_score=metrics.precision_score(self.y_test,predicts, pos_label=1, average='weighted')
-	recall_score=metrics.recall_score(self.y_test, predicts, pos_label=1, average='weighted')
-	print("f1-score:   %0.3f" % f1_score)
-	print("acc-score: %0.3f" % acc_score)
-	print('precision-score: %0.4f' %precision_score)
-	print('recall-score: %0.4f' %recall_score)
-
 def saveModel(classifier, type='nb'):
     """
     Save the trained model in python pickle module
     @param type: the type of the classifier you are saving
     """
 
-    f = open(type+'_classifier.pickle', 'wb')
+    f = open('classifiers/'+type+'_classifier.pickle', 'wb')
     pickle.dump(classifier, f)
     f.close()
 
@@ -1147,7 +1209,7 @@ def loadModel(type='nb'):
     load the saved model
     @param type: the type of the classifier you are loading
     """
-    f = open(type+'_classifier.pickle')
+    f = open('classifiers/'+type+'_classifier.pickle')
     model=pickle.load(f)
     f.close()
     return model
