@@ -1226,85 +1226,85 @@ class FeatureExtractorEns(object):
           #  except:
             clf.fit(self.X_train, self.y_train)
             
-            if hasattr(clf, 'coef_'):
-               print("classifier: %s" %name)
-               print("dimensionality: %d" % clf.coef_.shape[1])
-               print("density: %f" % density(clf.coef_))
+            #if hasattr(clf, 'coef_'):
+            #   print("classifier: %s" %name)
+            #   print("dimensionality: %d" % clf.coef_.shape[1])
+            #   print("density: %f" % density(clf.coef_))
+            #
+            #   if self.feature_names is not None:
+            #       nf=10
+            #       print("top %d keywords per class:"%(nf))
+            #
+            #       self.show_most_informative_features(clf.coef_[0],nf)
+            #   print()
             
-               if self.feature_names is not None:
-                   nf=10
-                   print("top %d keywords per class:"%(nf))
+            train_time+=time()-t0
+            t0=time()
+            #pred=clf.predict(self.X_test)
+            try:
+                predp = clf.predict_proba(self.X_test)
+                predp=[i[1] for i in predp]
+            #print predp
+            except:
+                d = clf.decision_function(self.X_test)
+                predp= np.exp(d) / (1 + np.exp(d))
             
-                   self.show_most_informative_features(clf.coef_[0],nf)
-               print()
+            probs=predp
+            #f.write('\n \n %s classifier:'%(name))
+            #for prob in probs:
+            #    f.write('\n' + str(prob))
+            #f.close()
+            #predp=1/(1 + np.exp(-d))
+            #print predp
+            #f1_s = metrics.f1_score(self.y_test, pred, pos_label=1, average='weighted')
+            #acc=metrics.accuracy_score(self.y_test,pred)
+            #allF+=f1_s*acc
+            #pred=[np.power(i,1/2)*f1_s*acc for i in predp]
+            test_time+=time()-t0
+            #print pred
+            if count<=1:
+                preds=predp
+            else:
+                preds=[preds[i]+predp[i] for i in range(len(predp))]
+            #print preds
+            saveModel(clf,norm_ation_thresh, name)
+            count +=1
+           
             
-        #    train_time+=time()-t0
-        #    t0=time()
-        #    #pred=clf.predict(self.X_test)
-        #    try:
-        #        predp = clf.predict_proba(self.X_test)
-        #        predp=[i[1] for i in predp]
-        #    #print predp
-        #    except:
-        #        d = clf.decision_function(self.X_test)
-        #        predp= np.exp(d) / (1 + np.exp(d))
-        #    
-        #    probs=predp
-        #    #f.write('\n \n %s classifier:'%(name))
-        #    #for prob in probs:
-        #    #    f.write('\n' + str(prob))
-        #    #f.close()
-        #    #predp=1/(1 + np.exp(-d))
-        #    #print predp
-        #    #f1_s = metrics.f1_score(self.y_test, pred, pos_label=1, average='weighted')
-        #    #acc=metrics.accuracy_score(self.y_test,pred)
-        #    #allF+=f1_s*acc
-        #    #pred=[np.power(i,1/2)*f1_s*acc for i in predp]
-        #    test_time+=time()-t0
-        #    #print pred
-        #    if count<=1:
-        #        preds=predp
-        #    else:
-        #        preds=[preds[i]+predp[i] for i in range(len(predp))]
-        #    #print preds
-        #    saveModel(clf,norm_ation_thresh, name)
-        #    count +=1
-        #   
-        #    
-        #        
-        ##print preds
-        #self.rounds +=1
-        ##predicts=[1 if i/allF>=float(1/3.0) else 0 for i in preds]
-        #    #predicts=[1 if i>=1 else 0 for i in preds]
-        #numC=len(classifiers)
-        #
-        #"""
-        #label true if average prob is greater than 1/2
-        #"""
-        ##predicts=[1 if i/numC>=float(0.45) else 0 for i in preds]
-        ##print predicts
-        #"""
-        #label true if in tavg prob in top 22 percentile 
-        #"""
-        #avgProbs=np.array([i/numC for i in preds])
-        #p=np.percentile(avgProbs,78)
-        #predicts=[1 if a>=p else 0 for a in avgProbs]
-        #
-        #
-        #
-        #f1_score = metrics.f1_score(self.y_test, predicts, pos_label=1, average='weighted')
-        #acc_score=metrics.accuracy_score(self.y_test,predicts)
-        #precision_score=metrics.precision_score(self.y_test,predicts, pos_label=1, average='weighted')
-        #recall_score=metrics.recall_score(self.y_test, predicts, pos_label=1, average='weighted')
-        #print("f1-score:   %0.3f" % f1_score)
-        #print("acc-score: %0.3f" % acc_score)
-        #print('precision-score: %0.4f' %precision_score)
-        #print('recall-score: %0.4f' %recall_score)
-        #clf_descr=str(clf)
-        #results.append([clf_descr, f1_score, acc_score, precision_score, recall_score, train_time, \
-        #            test_time, predicts])
-        #return results
-        #
+                
+        #print preds
+        self.rounds +=1
+        #predicts=[1 if i/allF>=float(1/3.0) else 0 for i in preds]
+            #predicts=[1 if i>=1 else 0 for i in preds]
+        numC=len(classifiers)
+        
+        """
+        label true if average prob is greater than 1/2
+        """
+        #predicts=[1 if i/numC>=float(0.45) else 0 for i in preds]
+        #print predicts
+        """
+        label true if in tavg prob in top 22 percentile 
+        """
+        avgProbs=np.array([i/numC for i in preds])
+        p=np.percentile(avgProbs,78)
+        predicts=[1 if a>=p else 0 for a in avgProbs]
+        
+        
+        
+        f1_score = metrics.f1_score(self.y_test, predicts, pos_label=1, average='weighted')
+        acc_score=metrics.accuracy_score(self.y_test,predicts)
+        precision_score=metrics.precision_score(self.y_test,predicts, pos_label=1, average='weighted')
+        recall_score=metrics.recall_score(self.y_test, predicts, pos_label=1, average='weighted')
+        print("f1-score:   %0.3f" % f1_score)
+        print("acc-score: %0.3f" % acc_score)
+        print('precision-score: %0.4f' %precision_score)
+        print('recall-score: %0.4f' %recall_score)
+        clf_descr=str(clf)
+        results.append([clf_descr, f1_score, acc_score, precision_score, recall_score, train_time, \
+                    test_time, predicts])
+        return results
+        
 def saveModel(classifier, thresh,type='nb'):
     """
     Save the trained model in python pickle module
