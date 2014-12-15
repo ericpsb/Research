@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>FrameCheck Options </title>
+		<script src="jquery-1.11.0.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="mystyle.css">
+	</head>
+	<body>
+		<div id="header">
+		</div>
+		<div id="content">
+			<img id="icon" width="140px" height="auto" src="logo.png">
+			<div id="siteslist">
+				<p>FrameCheck will run on the following sites.</p>
+				<div id="list"></div>
+				<button id="delete">Delete Site </button>
+			</div>
+			<label id="actkeylabel">
+				<p>Activation Key:</p>
+				<input id="actKey" type="text" maxlength="10" size="14">
+				<button id="save">Save</button>
+			</label>
+			<div id="status1"></div>
+			<div id="whitelistCont">
+			<label>
+				<p>Add More Sites:</p>
+				<input id="whitelist" type="text" size="50">
+				<button id="add">Add </button>
+			</label>
+			<div id="status"></div>
+			</div>
+		</div>
+		<script src="options.js"></script>
+		<script src="uri.js"></script>
+	</body>
+</html>

@@ -1,0 +1,105 @@
+		body {
+			font-family: Arial,Verdana,sans-serif;
+			width:770px;
+			background-color: #F1F1F1;
+		}
+		p {
+			display: inline-block;
+		}
+		input {
+			display:inline-block;
+		}
+		#list {
+			border: 1px solid #A9A9A9;
+			margin-bottom: 10px;
+			margin-top: 5px;
+			padding-left:20px;
+			padding-bottom: 13px;
+			width:400px;
+			max-height: 400px;
+			overflow:scroll;
+		}
+		#siteslist{
+			float:right;
+		}
+		.sitelist {
+			margin-bottom: -13px;
+		}
+		#whitelistCont {
+			margin-left: 20px;
+			float:left;
+		}
+
+ 		#list input {
+ 			margin-right: 7px;
+ 		}
+ 		#actkeylabel{
+ 			margin-left: 20px;
+ 		}
+ 		#whitelistCont label p{
+ 			display: block;
+ 			margin-bottom: 5px;
+ 		}
+ 		button {
+ 			font-size: 13px;
+
+ 			border: 1px solid #BCBCBC;
+			background: #e6e6e6  50% 50% repeat-x;
+			font-weight: normal;
+			color: #555555;
+			moz-border-radius: 4px;
+			-webkit-border-radius: 4px;
+			-khtml-border-radius: 4px;
+			border-radius: 4px;
+			background: -webkit-linear-gradient(#F0F0F0, #E2E2E2); /* For Safari 5.1 to 6.0 */
+			background: -o-linear-gradient(#F0F0F0, #E2E2E2); /* For Opera 11.1 to 12.0 */
+			background: -moz-linear-gradient(#F0F0F0, #E2E2E2); /* For Firefox 3.6 to 15 */
+			background: linear-gradient(#F0F0F0, #E2E2E2); /* Standard syntax */
+ 		}
+ 		#delete {
+ 			margin-top: 5px;
+ 		}
+ 		#whitelist{
+ 			width:200px;
+ 			margin-right: 5px;
+ 		}
+ 		#add {
+ 			width: 60px;
+ 		}
+ 		#save {
+ 			width:60px;
+ 			margin-left: 3px;
+ 		}
+ 		#delete {
+ 			width:120px;
+ 		}
+ 		h2 {
+ 			display: inline-block;
+ 			vertical-align: 50%;
+ 		}
+ 		#icon {
+ 			display: inline-block;
+ 			margin-top: 10px;
+ 			margin-left: 30px;
+ 			margin-right: 30px;
+ 		}
+ 		#header {
+ 			position: absolute;
+ 			top:0;
+ 			left:0;
+ 		}
+ 		#content {
+ 			moz-border-radius: 4px;
+			-webkit-border-radius: 4px;
+ 			margin-top: 50px;
+ 			margin-left: 40px;
+ 			padding-right: 20px;
+ 			border: 1px solid #BABABA;
+ 			padding-top: 10px;
+ 			width:750px;
+ 			height:530px;
+			-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+			-moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+			box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+			background-color: #FFF;
+ 		}
