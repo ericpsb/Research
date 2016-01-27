@@ -22,10 +22,12 @@ def main():
 	#reading check file for status. It points to the last line of accesstokens.txt. 
 	checkfile = open('check.txt','r')
 	check = int(checkfile.read())
+	checkfile.close()
 
 	#need to open accesstokens.txt to read the line denoted by 
 	actok = open('accesstokens.txt','r')
 	lines = actok.readlines()
+	actok.close()
 
 	#Gets the number of lines from index(from check.txt) to last line in accesstokes.txt
 	print len(lines)
@@ -106,12 +108,12 @@ def main():
 					userInfo['name'] = profile['first_name']+" "+profile['last_name'] 
                                         userInfo['vizDone'] = 0
                                         print "YOLO, this user does not exit in the database"
-                                        print "new profile",userInfo
-					print "old profle",existing
+#                                        print "new profile",userInfo
+#					print "old profle",existing
                         	        collection.insert_one(userInfo)
 				else:
-					print "current profile",existing
-					print "new profile",userInfo
+#					print "current profile",existing
+#					print "new profile",userInfo
 					print "this user exists in the database"
 					collection.update({'id':user_id},{"$set":{'access_token':acltat}})  
 
@@ -131,5 +133,6 @@ def main():
                                 checkfileagain = open('check.txt','w')
                                 checkfileagain.write(str(check))
                                 checkfileagain.close()
+
 if __name__ == "__main__":
       main()

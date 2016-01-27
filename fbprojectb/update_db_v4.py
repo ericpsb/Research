@@ -10,8 +10,8 @@ import requests
 import time
 import logging
 import newViz
-from subprocess import Popen, PIPE
-
+#from subprocess import Popen, PIPE
+import os
 
 
 def main():
@@ -175,7 +175,8 @@ def main():
             x = newViz.GenerateViz()
             x.init(user_id)
 	    logging.info("Generated or updated visualization")
-	    Popen(['mail','-s','Your visualization is ready to view',profile['email'],'<<<','Hi,\n,Your network visualization on the Social Interaction Graph app is ready to view. Thank you for your support!'])
+	    #Popen(['mail','-s','Your visualization is ready to view',profile['email'],'<<<','Hi,Your network visualization on the Social Interaction Graph app is ready to view. Thank you for your support!'])
+	    os.system("""mail -s "Your network visualization is ready" {} < email_content.txt""".format(profile['email']))
             for friend in to_update_friends:
                 y = newViz.GenerateViz()
                 y.init(friend)

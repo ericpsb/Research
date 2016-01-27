@@ -55,18 +55,20 @@ document.getElementById("last").innerHTML = "   " + json["last"][0] + " on "+jso
 document.getElementById("numf").innerHTML = "   " + json["friends"]
 document.getElementById("nume").innerHTML = "   " + json["events"]
 </script>
-<h4 style="color:#8585ad">   Please wait while we generate your visualization. We will notify you when it is ready.</h3> 
+<h4 style="color:#8585ad">   Please wait while we generate your visualization. We will notify you through email when it is ready.</h3> 
 <p></p>
 <button id="Viz Button" type="submit" disabled>Visualization</button>
 <script>
 var x  = <?php echo json_encode($user); ?>;
+console.log(x);
 var uid = JSON.parse(x);
 console.log(uid);
 $.post('backendInit.php', { A : uid},function(result){
+console.log(result);
 var userdata = $.parseJSON(result);
 console.log(userdata);
 if (userdata["json"]) {
-  document.getElementById("Viz button").disabled = false;
+  document.getElementById("Viz Button").disabled = false;
   document.getElementById("Viz Button").onclick = function(){
                 //window.top.location.href="https://eltanin.cis.cornell.edu/fbprojectb/initViz.php?resp="+getParamByName('resp')+"&user="+getParamByName('user');
                 window.top.location.href="https://apps.facebook.com/1582658458614337/viz.php?resp="+getParamByName('resp')+"&user="+getParamByName('user');

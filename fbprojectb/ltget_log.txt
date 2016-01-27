@@ -641,3 +641,232 @@
 2015-12-21 11:32:43,089 "GET /me?access_token=CAAWfa2M5ZBkEBAG4jyU4k6n1HWf1VqxEYeprtRvsQMZBYreSnfZAoErgaVvU4lNbszzZByVgbCL4q4h9bTn6QBMYyZBKJNdC3496i9KbscqCfZBGBqBCH45CmLCbPpGCxP1cU32fRQWaHKV6HWzHJ4XblY3vaxQt4RL51vd39fEZAwknFWHiy26 HTTP/1.1" 200 342
 2015-12-21 11:32:43,314 Starting new HTTPS connection (1): graph.facebook.com
 2015-12-21 11:32:43,510 "GET /me?access_token=CAAWfa2M5ZBkEBAG9JxHgkjaPIRoTt2g1e6y2MwZBZC9xjejZCASPgaIEfxHPfECcrsY14G6csFDRwvyMBhKRpBrA6D6jFI8mhFbMoPZC8J6ZA77q41ELIYk1rfMNWubZBPI7adcZBvhmIwFLuTWCAg752DnEFaQMMar5mG81WQYOiWQMRkbX5LZCHfFVWZConfcgEZD HTTP/1.1" 200 342
+2015-12-22 21:35:43,943 =================== Start ===================
+2015-12-22 21:35:44,119 Starting new HTTPS connection (1): graph.facebook.com
+2015-12-22 21:35:44,341 "GET /me?access_token=CAAWfa2M5ZBkEBAMdRjacoUwtZCyeEDGXthZCVNWCL8wMMaGbZBd98lbDTYYJVw61NTp2CKihnLEGrWOPpA3iOcxpCTmFtniHYuthsVgFG7v5QgZBO1oRBwmz9VezpZADeFEExrzwvEP7kuKXWMvGKgZARZAvv6Rm3S4y5PAPjnd6CfwUEIJgZAW0ZC HTTP/1.1" 200 342
+2015-12-22 21:42:54,001 =================== Start ===================
+2015-12-22 21:43:19,575 =================== Start ===================
+2015-12-23 09:55:51,760 =================== Start ===================
+2015-12-23 09:59:06,748 =================== Start ===================
+2015-12-23 09:59:06,924 Starting new HTTPS connection (1): graph.facebook.com
+2015-12-23 09:59:07,150 "GET /me?access_token=CAAWfa2M5ZBkEBALsWrBZBY01Rdc9YkqIRFuQs1TJw1uei3eqGSj7g4IZAv4nOSSYEHWx6n1Nj7ztamn98S8vqGBAlZAUrJR2DQxei4aHFtjH6rFuFkw5qAekauY9jU0Dltjl5CeuDifXDjTtGIjfJsznANZCGC23EWVch1SO9yEVLZCcZBVJ7d84VrQZC22HmbcZD HTTP/1.1" 200 342
+2015-12-23 10:58:16,658 =================== Start ===================
+2015-12-23 10:58:16,840 Starting new HTTPS connection (1): graph.facebook.com
+2015-12-23 10:58:17,116 "GET /me?access_token=CAAWfa2M5ZBkEBANO9UrzCpZC916jJrEmWpXZA693vS2RfMIdeoulqhckYqBdEPC52kvQf2D1b6Wn0wyGcZA3cXAeDbZBQnUiaznv7MNVYZAMvzC5JmZAH2pKWrcn0AERQL1hTwZBBaFa7E2EeUDRlZBhnDVuItPT2LU3YuXfmJIRi3f8aqEmbGFDw HTTP/1.1" 200 342
+2015-12-23 10:58:17,801 Starting new HTTPS connection (1): graph.facebook.com
+2015-12-23 10:58:17,994 "GET /me?access_token=CAAWfa2M5ZBkEBAMEBAhpNinLZC3gYTn3UDPsB9TgGWh338fkaKxDb5wngl1o23ixZAwjZArD9UiBZA7AR9wWu0XuU0vwUByEC0PgZCauqZCeR5QZCiddIBT8zkxa63QnzfJRGnH9H7tgKQpERPlQWZAeHTWRuez0sY2AUt8ZCCqd0XzXDHrheiyoZA08oj5ysVT4ZC8ZD HTTP/1.1" 200 342
+2015-12-23 10:58:18,205 Starting new HTTPS connection (1): graph.facebook.com
+2015-12-23 10:58:18,397 "GET /me?access_token=CAAWfa2M5ZBkEBAAW5A85pZB6Wdt6hqqMxWaHoNGgea225sS8ZB4p3nal5I9nWKh7AElEODCsMFTJ687CZBAklZC0Ks7cVvydaPSG5OPbAfJE5lPKgLhVdHSFRWZAwhiHkLRKlxBHFulVkCqH1hJ2lecQ1gBy4X02oyP0GhqlyVv0VYrS07sSdN HTTP/1.1" 200 342
+2015-12-23 10:58:18,620 Starting new HTTPS connection (1): graph.facebook.com
+2015-12-23 10:58:18,815 "GET /me?access_token=CAAWfa2M5ZBkEBAEpQkgRjZCkZBEInNBzFLVgazmZAuiM5hgtQGbne12qsmvaVkuemPZCa5MuWV0WdPDojvMUBnYntMdistTW5GKoblMp0UKZBZBUBQbuLlsTRSbfmgEch9rLVq2RrQUZCFhzGGkJyrklAEYkNrXZCF0oGd51oX5ZCFI7GWwDNGopGHSOefX8ZAz3UwZD HTTP/1.1" 200 342
+2015-12-23 10:58:19,018 Starting new HTTPS connection (1): graph.facebook.com
+2015-12-23 10:58:19,201 "GET /me?access_token=CAAWfa2M5ZBkEBACzfzpULqs1HCfkxJYfZBuJrAfi5uZBA8bfWqDzQHK7sWbtFjTmXlZBI7qBeXGsrJ8RGvxRHT9RQaeSDtZCJHW9FZAxJeqK5GuQhIq820Eb7emKZCVZBMraFHjXg4V8uOTLEttgxcdasbLBBAz3oEMGl65GEg18B5TcxpyvIsyQOUHmRzTU9eYZD HTTP/1.1" 200 342
+2015-12-23 16:31:50,790 =================== Start ===================
+2015-12-23 16:31:53,705 =================== Start ===================
+2015-12-23 16:31:56,703 =================== Start ===================
+2015-12-23 16:31:59,686 =================== Start ===================
+2015-12-23 16:32:02,698 =================== Start ===================
+2015-12-23 16:32:05,681 =================== Start ===================
+2015-12-23 16:32:08,763 =================== Start ===================
+2015-12-23 16:32:11,714 =================== Start ===================
+2015-12-23 16:32:14,681 =================== Start ===================
+2015-12-23 16:32:17,618 =================== Start ===================
+2015-12-23 16:32:20,590 =================== Start ===================
+2015-12-23 16:32:23,518 =================== Start ===================
+2015-12-23 16:32:26,692 =================== Start ===================
+2015-12-23 16:32:29,685 =================== Start ===================
+2015-12-23 16:32:37,224 =================== Start ===================
+2015-12-23 16:32:40,147 =================== Start ===================
+2015-12-23 16:32:43,094 =================== Start ===================
+2015-12-23 16:32:46,063 =================== Start ===================
+2015-12-23 16:32:49,058 =================== Start ===================
+2015-12-23 16:32:52,028 =================== Start ===================
+2015-12-23 16:32:54,999 =================== Start ===================
+2015-12-23 16:32:57,923 =================== Start ===================
+2015-12-23 16:33:00,845 =================== Start ===================
+2015-12-25 13:28:50,151 =================== Start ===================
+2015-12-25 13:28:50,476 Starting new HTTPS connection (1): graph.facebook.com
+2015-12-25 13:28:50,722 "GET /me?access_token=CAAWfa2M5ZBkEBABu7E410ZBrxZBUP1IavPNK15052rzg9fQgdZBDwupA2oJQZCseaVZCLGCXBQg2h4nmoqCiwhgbyJUyWHPELwDZAo60PirSIcZAQfNt9N3uXZAGx1gCbuRFT1JcuWzIMPeA1bo7aDcwZBJRrl3cLZCZBen3moI5dV1OPrlJEnfHtmtfwY8vAWMyAcQZD HTTP/1.1" 200 267
+2015-12-26 13:29:19,518 =================== Start ===================
+2015-12-26 13:29:19,841 Starting new HTTPS connection (1): graph.facebook.com
+2015-12-26 13:29:20,087 "GET /me?access_token=CAAWfa2M5ZBkEBAKXdxIBKmVWGCkW4eSnWUjLMoI8HD1WEb38dh3Q3YtcjgVDYhYin0Pa4W0vZCh6Wh3sZAu5c9pLAYRb0iZBSrYmChBZBXmWTAw8QhkJXUsxGAZC7KYZByNmJSFzBqIzkb6zRycRAIMqYjphTRLCLxfc77xSDICxBFSrZB97uIQ1i6cCZBbafkHEZD HTTP/1.1" 200 271
+2015-12-26 13:29:24,265 =================== Start ===================
+2015-12-26 16:25:48,393 =================== Start ===================
+2015-12-26 16:25:48,705 Starting new HTTPS connection (1): graph.facebook.com
+2015-12-26 16:25:48,991 "GET /me?access_token=CAAWfa2M5ZBkEBAKs0COQ4YYS2RtZB1AXJLVuGmYbpIrzJV32uCVyuE8NWQMoPadgSl8iRvFn6oqZBTZCOymqm0YTgvA4ZBagAPvo2WCEszJm1XARZB7TRQCRZC7wkaRwkj0uVJueMXwoyf3ovOBPvRZBeBtaqx6RNzlEkDaqhrOASw40V01Y3dsjSZCHMEoVSDDEZD HTTP/1.1" 200 274
+2015-12-26 16:25:55,222 =================== Start ===================
+2015-12-26 17:03:13,269 =================== Start ===================
+2015-12-26 17:03:13,450 Starting new HTTPS connection (1): graph.facebook.com
+2015-12-26 17:03:13,666 "GET /me?access_token=CAAWfa2M5ZBkEBABYJyrHMLqTPSMlMNYfm27CPnrc9zNwfRSNsucgL7ZCZAHJL9PyqmnqK8rDC715QDtDNZARUK4AVprFrL8a8QsK9AmLMZA6ubvHtelTvtZCl0YXED07B8uREl8fibJZBqRumgQNxcPAVinq3r8HntNsBDaKYAV6QFZCcK5ZADkiYqj6WpI9z7BQZD HTTP/1.1" 200 274
+2015-12-26 17:03:17,833 =================== Start ===================
+2016-01-01 09:34:08,394 =================== Start ===================
+2016-01-01 09:34:08,921 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-01 09:34:09,421 "GET /me?access_token=CAAWfa2M5ZBkEBACMmxBNM7iXNqKlcjW3hjRlVswqRuQOuaaX1Im0bLvv3kOJBJoOJLepjwgIwTsmeYIOZC1ZBOaXSIip3cTkMHkr9GO3BojxkxO3pGbb5mPgQC84RmDZBDP8D0eZArtzcQDdalHTbBPwokfJR68NDsoSbrPzDfVwkZBRFXHGu0 HTTP/1.1" 200 265
+2016-01-01 11:40:43,971 =================== Start ===================
+2016-01-01 11:40:44,495 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-01 11:40:45,022 "GET /me?access_token=CAAWfa2M5ZBkEBAEs9ZAAyajzLeDRyeam8IRBjyCIAZBeuUweZCg5tmGgxZCKJ1eZBAETcnyRfgQjZAv5ILZCKbCs5EJVua1DqrIakt7yy6rsCZB7A9GEBpaOcFlSgdZCRCNWB8k241gZBZBceZCSOvXD1rFQ8WCjoYyl5Bm8M9F7nYFX30ZAlNJvueCt63mvJoqmzPqAcZD HTTP/1.1" 200 264
+2016-01-01 22:14:17,079 =================== Start ===================
+2016-01-01 22:14:17,474 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-01 22:14:17,949 "GET /me?access_token=CAAWfa2M5ZBkEBAOWZA3ZBwQlThZAgm1nl0Kemx2bt14xEWCbYZCR5AG7vzHudtWLaDzTmWB9JvjF8K0GvpYm4cwIGX9xQVMpQLCYIVKP8ZBiUtDvLJ82HZB2ZBH60JDZCa0iKGRQaI4Ck4SS3Aa6VOk9II6lMzxZASN2PviMr9IXrQGukVCiOzgBxK HTTP/1.1" 200 264
+2016-01-02 08:18:26,767 =================== Start ===================
+2016-01-02 08:18:27,066 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-02 08:18:27,984 "GET /me?access_token=CAAWfa2M5ZBkEBAMtm2yrdxrX2QIt8rwmE3QxrfdyXKf4JbDna6GZCLJNbiP6S9wsYXEl1GhDRLb7xJrkM7Fqaq0KSYOjSPI9yy1yVSbDLrngfJ6b1KnRHFYpthp43AXzy7Fgl5wE2bvCaUyXLqyL7a2BYjdPcx7ZAt5flAPMcwgPP9NBhSu HTTP/1.1" 200 381
+2016-01-02 08:18:31,052 =================== Start ===================
+2016-01-02 08:21:03,185 =================== Start ===================
+2016-01-02 08:21:03,351 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-02 08:21:03,561 "GET /me?access_token=CAAWfa2M5ZBkEBAH79MaZBWRrZCEZAnbZAHVrZBgTQYGsSgEr242LM0fqKVmoFYpjEx3RjL2iJJIqgcsDGkrhurGEmUDlyIR4ZB80rAjhrxV3l2siiTpbfftx5ba6MwMQtZCtvbEdYzI7AtyAiUiGbwk3VwXYFtv4OX4catnmceJK3Yf1a6BpztvKltkLywqoS8UZD HTTP/1.1" 200 381
+2016-01-02 20:16:36,632 =================== Start ===================
+2016-01-02 20:16:37,186 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-02 20:16:37,640 "GET /me?access_token=CAAWfa2M5ZBkEBAHcZBqO6DIS1Q0dhoPPVNEd8eLm0W5WAblXy6JOOcpK8WiclqPJrqX8ZBQYBL5t89OsFowTLCDOF8sGqtpLhXJHZAbyODq4iUhqhvt2CY6k98HxJFmmZBbrH7X13xr60rbGDRrlsDmkaq0suGvZBOrzsor0z4miP8KlJHLrcR HTTP/1.1" 200 263
+2016-01-02 20:16:41,651 =================== Start ===================
+2016-01-03 08:15:54,431 =================== Start ===================
+2016-01-03 08:15:54,640 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-03 08:15:54,862 "GET /me?access_token=CAAWfa2M5ZBkEBAMGB6iZByVsDKv0iB63jFJuNM72UkvZAYJZAYfYunlZAZAu3rwS7cpUZCH7Te4PeWL10Dk9oKtGZA6ZBOrrwr4YgWrUB62ZAYrjcLJUfaw8YRDTG3HP33JTdV2ZAXbtDa36yRJliXMKW9oUrG28ncZBmnVGY8cBj6yg4D793eT6dtfL HTTP/1.1" 200 265
+2016-01-03 08:16:18,948 =================== Start ===================
+2016-01-03 08:16:42,182 =================== Start ===================
+2016-01-03 08:16:42,329 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-03 08:16:42,542 "GET /me?access_token=CAAWfa2M5ZBkEBAG8TIUVj7WkZCdaStKgGnuEZA9nZCkfIlzpGxpuM6GK8JwpxTzgjiwgU3pC7dBq9hg7qPDziPXvWMqtcaSNzWXzcTpPzGbVNtThL5pPjbv9lcLg3x30K0LIcBRAgmZA2e5gnFOlZBoL2eNyZCTV93cXM7SZA8I5AFKCyZBsy85Lp1miDAJ7TTxEZD HTTP/1.1" 200 265
+2016-01-03 08:21:22,708 =================== Start ===================
+2016-01-04 12:18:44,926 =================== Start ===================
+2016-01-04 12:18:45,220 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-04 12:18:45,449 "GET /me?access_token=CAAWfa2M5ZBkEBAH2U23OdtlRrfHxsFZB55jiONmoXVcSlzIKmoepJqCrEOu7MrFHPneOj50fgHZChXGKg8FkeA9Czz18bw3lAA4LOoKHE4X9T1uuSgDv3AycFE7zyEZA9gdaJGZCHhtflfk0ph9hNicbv8plPzsvi2ZCtGctKZArKWpBD3ebbYa HTTP/1.1" 200 320
+2016-01-04 12:18:48,699 =================== Start ===================
+2016-01-04 12:55:13,668 =================== Start ===================
+2016-01-04 12:55:13,809 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-04 12:55:14,002 "GET /me?access_token=CAAWfa2M5ZBkEBAI7crWjyPX9ZCPoJCiUGl32SgWshsCCCQMn8CNWJj0Vib84bngQ54e8P9vr91mn1GD4ZBAOpBR5xrS1azKrYUogsZCx6j0CIXlGEXMqySjBvruOuCUJuLDjH9YCe8wdq7vEZBIfeBdeqGEvzG6MZAPhFpZAva9ybc11aAxIMe1 HTTP/1.1" 200 320
+2016-01-04 12:55:17,180 =================== Start ===================
+2016-01-04 12:55:48,918 =================== Start ===================
+2016-01-04 12:55:49,059 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-04 12:55:49,304 "GET /me?access_token=CAAWfa2M5ZBkEBANrdoqqFLkRZBSj8M5PUyuPYlhOC7D75qvYKZCJ5nUsZBF8GN6mm61YoFZB984kEzgXU1BneIy0NJRtBQgrGEQOyyEfWEPHuXZCYRMYe229h3ZBvKSYsaCCwAbBrZCJoRb7Be5ORjcliWCleHMmHjQJCV3XnW5KsPhCmy6FCX6A HTTP/1.1" 200 320
+2016-01-05 05:44:48,618 =================== Start ===================
+2016-01-05 05:44:48,910 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-05 05:44:49,113 "GET /me?access_token=CAAWfa2M5ZBkEBABDUQlyo78eQpzLuSiPggARsUyZA0cKBrcCJWiZBgWtiB1S4Rj8wDba7giWDnzYwZCasZBOy2E6Mye85ZCi0g7lZBMYjb6SZAzmCDAaMAZAmJsFyQbiaKFMbkirf1V8WAn2s0xLXWTqNgTxSjo7iuYaGfG7nZAWJZBAzZAGQSeucR3ZA HTTP/1.1" 200 275
+2016-01-05 05:45:35,677 =================== Start ===================
+2016-01-05 05:45:35,821 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-05 05:45:36,047 "GET /me?access_token=CAAWfa2M5ZBkEBAKrAQ6isN8Lxqy8tnTFSuzS2whYubzgD4ZBqaPkSnn60PM4bIHJVFMxtig7cTS96Ul9BKAkIjpfdXUVakIvVeoNbZBm2d3OdvbLgwsZBZAnoZClHsnz1rrmvp8IucOSPVWrrAzfjzce1HnZA9AeMeWZBQUeHstXgdf3IY6LzBKr0DUvEUE4nfoZD HTTP/1.1" 200 275
+2016-01-05 05:45:42,140 =================== Start ===================
+2016-01-05 05:45:42,271 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-05 05:45:42,497 "GET /me?access_token=CAAWfa2M5ZBkEBALhxiKtJm5GrZBAiOeGo49S6rq15ZCDiOCXpyLBZC0QxhCPdgqxqmAilpZCS1tZCJwqQwLVER6bZBgdQCJZCIuklrfASa8ddClfw9znMTherxXzIeLCUUtzyk7RlkMkLKvLpjOeA8zGxpzzzcjcq36budzUkEvRjA2012Llmu8g HTTP/1.1" 200 275
+2016-01-06 03:13:43,006 =================== Start ===================
+2016-01-06 03:13:43,326 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-06 03:13:43,601 "GET /me?access_token=CAAWfa2M5ZBkEBACVOosyCP32sOLMXv1Slim4GkjW4RRyxIvHCABAQIFZCKshZBfBVPZCGWc2gJKCwPZCfygcAF8orF6zHGOPEA7kHRqot1Jk1It8Uq02KVQEAnXsBPUiuCZAZBBfVgVrZAM8FOgirHEtti8BAMiDsKDLs9qIR29mHZAcInN5CQLhJ HTTP/1.1" 200 308
+2016-01-06 03:13:47,168 =================== Start ===================
+2016-01-07 12:33:52,262 =================== Start ===================
+2016-01-07 12:33:52,567 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-07 12:33:52,853 "GET /me?access_token=CAAWfa2M5ZBkEBAHX0ZBnEEdZAQiZAogsfy4fyZCmCzgvegvn0cuYAvcTO2kdwmFjRi6OhfKO9kjBlCHZBYEDer10pQ74zgWQp29Qz4h6ix73H0tniB4vHqxHzqOCzJZBBQMeM3BxSZBWWozoHGGnWu554WyZAaxSqOmW5XP160WgNOIwg7CMfkZAI0 HTTP/1.1" 200 281
+2016-01-07 12:34:00,980 =================== Start ===================
+2016-01-09 12:59:30,090 =================== Start ===================
+2016-01-09 12:59:30,388 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-09 12:59:30,694 "GET /me?access_token=CAAWfa2M5ZBkEBAMzzNZBq4VsjCavUHVLkAZCGRAAgFAX8J4OEErS34mWJ91HxOY4kG2rUUkiAwWIZBqK3Gb28z4m71pseKTh4SnDuKbftykWQLdIc6ZBmJDgjFlqZCGqpWqmiXi8PI4vSi2CIRCyMzvNtnPW6Bbb22trnOxtgFrpxCZBUsjCHxBNGeZBZB6Pdrg4ZD HTTP/1.1" 200 305
+2016-01-09 12:59:34,587 =================== Start ===================
+2016-01-09 13:01:34,856 =================== Start ===================
+2016-01-09 13:01:35,005 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-09 13:01:35,272 "GET /me?access_token=CAAWfa2M5ZBkEBAEoM1LTYpAZCAbwjQMuaBbrDXB9ZBC2iEb0EiX8ZB3ZCIO0tVAK2ZADWmXoyn5tKjEU9rqx7TZCV7PPeK3QCkjmmgDdFXuWF7QEFJwUaWcZCIHTm10jc0sX2ltik5NGvwaukpsYBrhZBPJpFhi8wRGBNyLagrBLIZA1AaMRFtizTZCSlXWoCqoV5YZD HTTP/1.1" 200 305
+2016-01-09 13:01:38,395 =================== Start ===================
+2016-01-10 14:46:07,650 =================== Start ===================
+2016-01-10 14:46:08,053 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-10 14:46:08,520 "GET /me?access_token=CAAWfa2M5ZBkEBADApmhE4dQbZCaJ7D4yKIxuZAVx9beFHl89ZCbbpaViGqFzs2OQNLQwRtMJ4KTvgtHwJSyzRqRiRzziXoFxaajtk84OjIUPgVtAMcTLlA89icSaQY6gZBb5jbldnFy2wlW8P2PTrREDa3tmdlZA17k6wCcE2ouj2Vhz6cAbKxzSdLo6lptZBAZD HTTP/1.1" 200 303
+2016-01-10 14:46:11,625 =================== Start ===================
+2016-01-11 00:13:26,497 =================== Start ===================
+2016-01-11 00:13:26,874 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-11 00:13:27,309 "GET /me?access_token=CAAWfa2M5ZBkEBADTUnn4HJ3COetMV0XCycSwHkClpKRCia4Qhc26nmqVUlU5KrYKZBOAyxrFZALLwfQZCqIIsblP51ZCEAZAGVcgDRZCElxw3rdLOotmDa82tGrvW3ES4Mxc7Q00BpZBpbZBJoaP7gu2xtEFU3bvAFC7IL8muZCZAq1PY9KpILdbJcy8dOXFAdg8CEZD HTTP/1.1" 200 303
+2016-01-12 11:52:19,410 =================== Start ===================
+2016-01-12 11:52:19,949 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-12 11:52:20,471 "GET /me?access_token=CAAWfa2M5ZBkEBAKqaQsAHmTUbjlIcFSC7JzZAS3aDRaOJGB9ZB3MjlYFhFL22jMCubPrzZADtqLjviK3rO8kP6It2WuV5z3jlqYBLQ8jvNGSVPVz1aoFtO4ihAfeARcrGKrsBscaJnCpKBcwH3MSllvnx6DOIKO8qwayZARMKnJw5ntW146IDd2mCBKp8EtIZD HTTP/1.1" 200 304
+2016-01-12 11:52:24,741 =================== Start ===================
+2016-01-12 16:16:13,870 =================== Start ===================
+2016-01-12 16:16:14,011 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-12 16:16:14,289 "GET /me?access_token=CAAWfa2M5ZBkEBAC2JeqH0SX81842MUZBT6wA5QURcNoOIAJsxGVxWltnsVQpBiLZCK58YKSLJn2vOhs7gsN643OUcqZC3MQ0vzbuZAe77D2CWWFANLhjGyq1nA24ZCZCSRbnG8WPTjFHZBJl6s8BSeSfBwq5pRLizU561IVGZCOO7teZAmy6SKmhZAr HTTP/1.1" 200 312
+2016-01-12 16:16:26,567 =================== Start ===================
+2016-01-13 19:00:55,517 =================== Start ===================
+2016-01-13 19:00:55,825 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-13 19:00:56,045 "GET /me?access_token=CAAWfa2M5ZBkEBAKdKyKqTNZBOKuL4C3LzEVPV3SuIRuXwIO4ghXZBxeM3AvcYYAMRBoLU6e5WPAZB07H20wpSlbHIuinTaMvwZB89qDeIZBN60AqWE8ZBx9kzsGpF6ZBjgFvN6TiWhEZB1AEcB9mmdgaTYd5PA2mtS0WWtgY3WTBsunkjPJ6fZASZAYQwsLI2b8KNsZD HTTP/1.1" 200 269
+2016-01-13 19:00:59,190 =================== Start ===================
+2016-01-13 20:44:26,495 =================== Start ===================
+2016-01-13 20:44:26,640 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-13 20:44:26,879 "GET /me?access_token=CAAWfa2M5ZBkEBAHmnkl0ZAuzNFeUBrx1Vs1r6y5E86gm0RGnklb7j1GQjj2zl2kcZAMuTEdmrAWi2ugw4Od52KhLyyqZC4ebDS0MLt6BUGquTaCOXQZA02m1m54valiZBZATSzlhAtrZAjn7iUtZBAGW1uCMH9QbxZCXZBphr0zGamcrz2tL8DgG3k2TIl2a4uoDX4ZD HTTP/1.1" 200 269
+2016-01-14 07:08:33,358 =================== Start ===================
+2016-01-14 07:08:33,648 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-14 07:08:33,853 "GET /me?access_token=CAAWfa2M5ZBkEBALNCbtfdNbYVrkoboQMUbqivbDxZBZBY2KhZAdVrYW5dxv8IBLfqZB2wbrmjpyAy6wZBb0hfn05b5Ei2A8sQHcZAg5LV9sd3I2GbYSoD2GFMzSVymLGwrt4bcoliZCpErQthxnjPZAqnj3W0AYZAMPcSxDRYtuA1UN67GIyYHj6Ir HTTP/1.1" 200 293
+2016-01-14 09:15:31,206 =================== Start ===================
+2016-01-14 09:15:31,533 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-14 09:15:36,976 "GET /me?access_token=CAAWfa2M5ZBkEBALPx9GFo6IRFikmohc02rwNRIFuIh6xmoClXnZAZAPhWRowyNqLFDZA9RJ0d63Mp4rzauhz8WMZAI7qxZBuXqAOVUxDBuUfms5JqGPyIr58gTEDdLJSZA2jEVhj8yptjNzp5d0QbxZBbRNtYGIz9rDaIeZCIHzV9ptZAdXN43uxYc HTTP/1.1" 200 280
+2016-01-14 09:15:40,197 =================== Start ===================
+2016-01-14 09:20:41,248 =================== Start ===================
+2016-01-14 09:20:41,393 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-14 09:20:42,350 "GET /me?access_token=CAAWfa2M5ZBkEBAFcpJJHzqTf2i7hdj5tGGfUZAGJMiF5uGUN5AFZCkqnFAsq6ZCTsXXDD3aHzMyPZBjDxoSksaAVZCmaqByzGqXu8CgEemB4PJ1QZCDE6gXxvcHZAWzbesYqLBazzl86ifbEOwYv68RLcDJbnfGjxAaNmtB76aTpFQGUpqyN9Yl9ZBjGpGfXsa20ZD HTTP/1.1" 200 280
+2016-01-14 09:20:51,882 =================== Start ===================
+2016-01-15 07:41:07,853 =================== Start ===================
+2016-01-15 07:41:07,998 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-15 07:41:08,202 "GET /me?access_token=CAAWfa2M5ZBkEBAILiC7V6ppGHcsaqbSrZAy72buFBxo5T3t25lBlBkBLNiDpKhmZBcbpqOfN6ZBWxwCIyNZAGSix7xZBvnkMjeW6lUP3NxZAWerokkHSI1zkyvzXTDoBTWV5IcYZB4LpswZByutUNi0vEhclq84tRZCBCNaB3arbRYglsbw5OEfjCDstB1LzrzDEYZD HTTP/1.1" 200 293
+2016-01-15 07:41:12,595 =================== Start ===================
+2016-01-15 21:22:36,404 =================== Start ===================
+2016-01-15 21:22:36,707 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-15 21:22:36,917 "GET /me?access_token=CAAWfa2M5ZBkEBAMF7AZBQLmtSY5C5lbPRQwqsW2uARjZB3XwSxpjm9tmBa0fIruaXNZAOZBFNzwmggjfCNkT71ob9HkxarENLYGNtxrC16C6wNEJtQlqoO2EiGapw0nCfESqqstVONaKP1vwKbWIb6wYNjXn7lV5f9xEtytupDVTXPTnZAuYhyzVoGhLe0vvYZD HTTP/1.1" 200 269
+2016-01-15 21:22:41,898 =================== Start ===================
+2016-01-15 21:22:55,161 =================== Start ===================
+2016-01-15 21:22:55,307 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-15 21:22:55,533 "GET /me?access_token=CAAWfa2M5ZBkEBAFpgINRUF2R302DYit8PmaxnQJwhea4H4eCjvH7TwdZCQSU3QAADuZBXGeVuTIWeDyTGyuQ0BQfsNCtmf2MYn0fZAfHpjeZBYAvBqbwVKGBMuUKy3viPiqLgUjd2hYXEZAnOiP6NPQhZCZAzDX2Wjo6S2dwi2z04TKFrZCZBx6OH8xYV0ZAUtNasgZD HTTP/1.1" 200 269
+2016-01-15 21:24:24,020 =================== Start ===================
+2016-01-15 21:24:24,164 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-15 21:24:24,362 "GET /me?access_token=CAAWfa2M5ZBkEBAPCJMsRlCYHuAfX0DkIZAyxRBbhkEvr47jpyHoMScLAJon2GsrZCYnBowXRD4OeNrlJ9KkmuUKBq6NJVdKJVXL91vxVnTBIcumHvbhZAkFUZCbixrsP0a8usm2Mve70eK0dAdnTCkbcQJpIZAAwJnmRJ7inaNlBHw2AIKQyVwJdTK2EZB6KjAZD HTTP/1.1" 200 269
+2016-01-15 21:26:46,075 =================== Start ===================
+2016-01-15 21:26:46,361 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-15 21:26:46,559 "GET /me?access_token=CAAWfa2M5ZBkEBAIZB5qDNTj3vxZA2XOZCWGVHvhUMlx2iyLe60lBvoRQHDBvAbqrhIeK9YpGcIWO9ZBQjhCihAwQoyLZB5tewJsccllLS62WD4sNLM77G41Ht2cLzvZAbr3JHED4SKWBGZBSSbDpl1oQM0bfeZANPL0gnWtZCkoozgAR9aeZAB4OZAhji3VF3tdK9msZD HTTP/1.1" 200 280
+2016-01-15 21:26:51,778 =================== Start ===================
+2016-01-16 12:42:40,374 =================== Start ===================
+2016-01-16 12:42:40,694 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-16 12:42:40,989 "GET /me?access_token=CAAWfa2M5ZBkEBAMREeXO6TJuJL82VxgqjEGG5lUZABppKE0kFpUNbRv74t7owyZCLzocTgBZCZCMnJpjm9HCVZCdmO7lJYjz6726KZAyRnveu9tCCOKDGS22SdkJpZAmQ8jyjXs6PmZBFZA2QTlb2nE72pZAasHbIQtbOAvZBJ5CSdbuXRmF3KpmPlAQ HTTP/1.1" 200 269
+2016-01-16 13:29:27,203 =================== Start ===================
+2016-01-16 13:29:27,373 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-16 13:29:27,653 "GET /me?access_token=CAAWfa2M5ZBkEBAAx0IEgGDptZCrsZAgZBkb5TiP4ZAqjNPnZAd7y5HRPpGzn0cdMK20j9Ar0MMqPRZAwKr4fG0NJj0cdjWzZAdlrOHgz3KbfDbs8EHZAlq4XxCx8Oo8Wnal6GBU9BbQu8hztbGLQrSTkEPkAiPXakJHsSNLm2aeUmzLxFHZBTZBF32vt8AINdbSoowZD HTTP/1.1" 200 269
+2016-01-16 13:29:35,896 =================== Start ===================
+2016-01-16 13:29:36,062 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-16 13:29:36,281 "GET /me?access_token=CAAWfa2M5ZBkEBACPeWtFQ5nfbkwshbittPP5vHFFDXIbvwuVCmF8uzS4l94kQ5gmPqE8RMlafCCCI4D71BwPDwZC4muvmRQv9ZBJ7qwFWixUZCqe9VgeHnQyPkpIZA92Yk1ZB08VdO5c9vB46rqkqOSwv2hdOGfuLrhplT3FC8MI9fiYRZCeV6H HTTP/1.1" 200 269
+2016-01-17 17:02:33,894 =================== Start ===================
+2016-01-17 17:02:34,216 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-17 17:02:34,489 "GET /me?access_token=CAAWfa2M5ZBkEBAOzDa3T1FwZCQyiPwbbICwNG5D7ZBQNtgL7RThh14ibnGKgj9aC2tfSbfui6iZBDQIWl3fpXgDB7ZAhbWvAi0DPuwIEbSqPsiNuhlrLI9GIJgHHpZCork6hMAOO6UZCzMszMspqaiCctHjOsQLmxxShIhJEBe9ENFyd8WXcVJBZA6oE2KJbNt4ZD HTTP/1.1" 200 280
+2016-01-17 17:02:37,783 =================== Start ===================
+2016-01-18 00:05:37,742 =================== Start ===================
+2016-01-18 00:05:38,064 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-18 00:05:38,348 "GET /me?access_token=CAAWfa2M5ZBkEBAJ5lugzeJgOvSb9kvZBh6cZB84hZA58HyTpKbDi43qVwQwZBNCZABks5vh40lxZCErYQtHKqRF4cgi683141mOQciXw2keIFREgkvjfbUuMgD860nxKRMTSfkCxeK7PQ2WblFt6WBC8P8qv3fWtf4EPRhx6MLlBmQsdcMFkpfZByt8AbVPd33kZD HTTP/1.1" 200 321
+2016-01-18 00:05:41,519 =================== Start ===================
+2016-01-18 22:42:36,586 =================== Start ===================
+2016-01-18 22:42:36,745 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-18 22:42:36,977 "GET /me?access_token=CAAWfa2M5ZBkEBAMuZAGDFvK3xv6gqYeFgD0BKp5ge9gzvZBxqO8ntknyC4hIsoM0UJHWVs2r4h60NVUcrv8ky4hNYZA8w0RIabZA9VuQZA9ZBgRJgsjXM5Aky6o9vcQYqcQWWZBZAa1iiO8vZC3F0TJ8zWKlFq06sTg3ZClR02QOlJj3a5MHUtWmJjC HTTP/1.1" 200 916
+2016-01-19 08:39:41,887 =================== Start ===================
+2016-01-19 08:39:42,203 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-19 08:39:42,463 "GET /me?access_token=CAAWfa2M5ZBkEBAP810DcuUY9JS4pCAprZB6Ws6nOjOWyV7dz7PtQHg8ZADbvwtVxMVByqY96PmpCBOh8tEexPH6dagL34OddKWmzz08WfWMwQhKCbk1j6TrZCZAXaOIaRcyTBjVWxOf4Pln16KK5JDQq2q3wKsLPqLzt6r0OZCnZC2bkVV79ucS HTTP/1.1" 200 249
+2016-01-19 08:39:49,519 =================== Start ===================
+2016-01-20 12:18:53,736 =================== Start ===================
+2016-01-20 12:18:53,901 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-20 12:18:54,139 "GET /me?access_token=CAAWfa2M5ZBkEBALULtwlTp4EfdeFjZCC6Mf4GrmzzgQwONx6ftZAddGtsHzow7gp5EB4ZA3DnTfp0N3pTt5StRYSpUHRfEPJs0817N7ZCNaiu6z0gerF0I3vvdngCajiFmuvaFixRGP3eeMRAJ5YOcT8YNedV12j7DYcZC4yjrSJzKSUkkwIk0 HTTP/1.1" 200 320
+2016-01-20 12:18:58,121 =================== Start ===================
+2016-01-21 04:23:10,619 =================== Start ===================
+2016-01-21 04:23:10,797 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-21 04:23:11,081 "GET /me?access_token=CAAWfa2M5ZBkEBADcCdMKiOZAYmxDV5ODIBL9ywtvLNtjcKbFAvyx9R5Miv9T6zgZCSh5qnvIgUYZAfq2jT9iRs71PSvZBhGvnp5gbq4fFBy6L5vNaMcJ9ANXUPAhtWbnIkUvgagTjC8EOGsDSWpZAhgrEJ7sjHSJq1xKytZAprZAHpKtZCUwWZCOWkvZCkGq2AtyjwZD HTTP/1.1" 200 293
+2016-01-21 11:02:36,065 =================== Start ===================
+2016-01-21 11:02:36,586 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-21 11:02:37,087 "GET /me?access_token=CAAWfa2M5ZBkEBAOJq6fjnZA7U4Dretddx6WqqC8jNjH30HCSrGvykfKpnt6G7RmqwD8nyZC1YRyaMbnxZClIIjLdNNn2cykAlEb8AAcOfOgubq9ay4xF0hZBOKotGzjIkrOoSYtPECPF350fZCUuZApBUO5mwKbgRnZCEBt86ahHtOCmYs0JXW3r HTTP/1.1" 200 318
+2016-01-21 11:02:40,571 =================== Start ===================
+2016-01-21 11:04:15,965 =================== Start ===================
+2016-01-23 14:39:11,672 =================== Start ===================
+2016-01-23 14:39:11,981 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-23 14:39:12,266 "GET /me?access_token=CAAWfa2M5ZBkEBAIGfnmzkHRJDDFWkfM1RjIYSstnIUgT9WC6L1HnQj2aGwFsjnZABFZCDTiLq7RrhSdLmVjYJN23yw9Du7QsHhxKDRwuBNZBAffilHmMCfNb5suzZB6os7nMF2Sys2hHWtr9fGsRIft2kRRFuFfuaNKIhMdsGTPjfvWVplP7M HTTP/1.1" 200 288
+2016-01-23 14:39:17,757 =================== Start ===================
+2016-01-23 17:56:08,551 =================== Start ===================
+2016-01-23 17:56:08,705 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-23 17:56:08,951 "GET /me?access_token=CAAWfa2M5ZBkEBAPWmcz9bGWgaFzDQiIQTTjZC0eDqjEiuTWkra70JZAEs2epo5vIW09O9SpVsnSEH6quwLCTdPVmIQrbzwD4z6trxAm15KOOKGbTmtYsH7DvJ7oc3XaoqRHzAGDacqiGB5HdDV38gTfs3J3kbCRRLZB7WCWJJEKvxBkodsW8 HTTP/1.1" 200 288
+2016-01-23 17:56:12,609 =================== Start ===================
+2016-01-23 18:57:44,550 =================== Start ===================
+2016-01-23 18:57:44,695 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-23 18:57:44,902 "GET /me?access_token=CAAWfa2M5ZBkEBAGaUYKxfrWOohvANJxF3sJZBi4gz2GQ4vdoiiWaZAdtDqQMwVka9dG4WJQAPzGYSZAPGaKK6rmBf4OfynqZCRi0v2jnjE4iam4EfZBEPKj20rzdQWYb2rgPc81UePDCgZBsa9XA19WTzUdjihbXkEkXvO38af3aZAhc1LG5Q1pZA HTTP/1.1" 200 288
+2016-01-23 18:57:50,624 =================== Start ===================
+2016-01-24 18:34:04,074 =================== Start ===================
+2016-01-24 18:34:04,369 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-24 18:34:04,629 "GET /me?access_token=CAAWfa2M5ZBkEBAHDeKxgoLRwOhE7wrFoEGNInVqbDKJvZBzWGgxXPHZBNm5CEVWrgYkUJcRoCx4epZAtivAwL9jiXSnZByZAZCIAvmTMdDCn3AeLzuFPb7emEF5Hdqi684wJjXSlE6KZCb2sq0OckNUSZAa6exPIX0VdhSZCyNqygm3RLsy1ndUYTe HTTP/1.1" 200 271
+2016-01-24 18:34:07,967 =================== Start ===================
+2016-01-25 09:25:15,403 =================== Start ===================
+2016-01-25 09:25:15,716 Starting new HTTPS connection (1): graph.facebook.com
+2016-01-25 09:25:15,926 "GET /me?access_token=CAAWfa2M5ZBkEBAFZCg327ri4T4CXtDlPYk5ZByrAiZBUkK196FwETGIwqIKV8bYGhqYEUuw7Pk7cRhuvsAFWIuIvnABT2xilRaDCW1IRyykceZBMmNp9VNRHPDSrwu01FoncloCMxywLAu2ZANPgJlUQyiW8KK9jZCOCAM0Qt7AYdW7QBAFBZCqA3AekZAnO8G5QZD HTTP/1.1" 200 276
+2016-01-25 09:25:20,971 =================== Start ===================

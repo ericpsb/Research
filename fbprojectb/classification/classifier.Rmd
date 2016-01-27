@@ -1,0 +1,72 @@
+---
+title: "classifier"
+output: pdf_document
+---
+```{r}
+# library(caret)
+library(knitr)
+# library(e1071)
+library(FactoMineR) #for PCA
+library(MASS) # for stepwise
+library(caTools) # for sample
+library(DAAG) # for cv
+data = read.csv("/Users/yihuifu/GitHub/FB NoUse/ego_alter.csv",header = TRUE,sep = ",")
+friended = data[,55]
+friended = factor(friended)
+x = data[,0:50] # Remove names and ids
+new_data = cbind(x,friended)
+# summary(new_data)
+```
+
+```{r}
+pca = PCA(x)
+pca$eig
+pca$var$contrib
+```
+
+```{r}
+new_x = x[c(-270,-274,-374,-158,-277,-375,-173,-50,-355),] # remove outliers
+pca2 = PCA(new_x)
+pca2$eig
+pca2$var$contrib
+```
+
+```{r}
+# inTrain <- createDataPartition(new_data, p = 0.7, list=FALSE)
+# train <- total[inTrain,] #get training data
+# test <- total[-inTrain,]
+# traincontrol <- trainControl(method = "cv", number = 10,verboseIter=TRUE)
+sample = sample.split(friended, SplitRatio = .7)
+train = subset(new_data, sample == TRUE)
+test = subset(new_data, sample == FALSE)
+# train_x = train[,0:50]
+# train_y = train[,51]
+# test_x = test[,0:50]
+# test_y = test[,51]
+```
+
+```{r}
+model_logit = glm(friended~., data = train, family = binomial())
+```
+```{r,results='hide',warning=FALSE}
+# knitr::opts_chunk$set(warning=FALSE, message=FALSE)
+logistic2 = stepAIC(model_logit,direction = "backward")
+# summary(logistic)
+```
+
+```{r}
+logistic2$anova
+summary(logistic2)
+```
+
+```{r}
+logistic3 = stepAIC(model_logit, direction = "forward")
+logistic3$anova
+summary(logistic3)
+```
+
+```{r}
+# model_glm <- train(friended ~., data = train, method="bayesglm", trControl=traincontrol)
+# predictrf <- predict(modelrf, test)
+# confusionMatrix(predictrf,test$classe)
+```
