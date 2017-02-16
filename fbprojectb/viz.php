@@ -126,7 +126,61 @@ stroke:#999;
 <script language="Javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.15.2/URI.min.js"></script>
 <div id="fb-root"></div>
 <div id="hero" style="width:2500px;">
-<h1 style="color:#FFFFFF">This is what your friend network looks like</h1></div>
+<h1 style="color:#FFFFFF; display:inline; float:left; margin:0 80px 20px 20px">This is what your <i>TRUE</i> friend network looks like</h1>
+<button id = "return" style = "display:inline; float:left;">Return to Fun Facts</button>
+<script>
+window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1582658458614337', // App ID
+      status     : true,    // check login status
+      cookie     : true,    // enable cookies to allow the
+                            // server to access the session
+      xfbml      : true,     // parse page for xfbml or html5
+                            // social plugins like login button below
+      version		 : 'v2.7',  // Specify an API version
+    });
+
+    // Put additional init code here
+};
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+
+function getParamByName(name){
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+    results = regex.exec(window.location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+ document.getElementById("return").onclick = function(){
+                window.top.location.href="https://eltanin.cis.cornell.edu/fbprojectb/initViz.php?resp="+getParamByName('resp')+"&user="+getParamByName('user');
+                //window.top.location.href="https://apps.facebook.com/1582658458614337/initViz.php?resp="+getParamByName('resp')+"&user="+getParamByName('user');
+};
+
+var ac = getParamByName("resp");
+var uid = getParamByName("user");
+
+var sharefun = function(t){
+FB.ui({
+  method: 'share_open_graph',
+  action_type: 'pages.saves',
+  action_properties: JSON.stringify({
+	  object:'https://eltanin.cis.cornell.edu/fbprojectb/',
+	  tags:t,
+	  access_token: ac
+  })
+}, function(response){});
+
+};
+
+</script>
+</div>
 <script>
 
 var width = 2000,
@@ -223,12 +277,18 @@ var drag= d3.behavior.drag().on("drag",dragmove);
 
 //Functions to fetch the message on clicking a node
 function popMsg(A,name,interactions){
+    console.log("ppmsg start");
     var content = "";
+    console.log(A);
+    console.log(name);
+    console.log(interactions);
     if (interactions != [] && interactions != null){
-    for (i=0; i<interactions.length;i++){
+    for (var i=0; i<interactions.length;i++){
           var interaction=interactions[i];
-          content = content.concat(i+1);
-          content= content.concat(") ");
+          if(i != 0){
+            content = content.concat(i);
+            content= content.concat(") ");
+          }
           if (interaction[0] == "photo"){
             var onlyUrl = interaction[2];
             var myImg = '<img src="'+onlyUrl+'" />';
@@ -508,16 +568,26 @@ var circ = $(this);
 console.log($('.popover'));
 $.post('backendData.php', { A : main['name'],B:d.name },function(result){interactions = $.parseJSON(result);
    console.log("This seems right");    
-   console.log(main['name']); 
+   console.log(main['name']);
+   console.log(interactions); 
    circ.popover({title:d.name+" & "+main['name'], content:
     function()
        {  
+          console.log("running content fuction");
           if (d.name != main['name']){
           var content= popMsg.call(this,main['name'],d.name,interactions['data']);
+           console.log(interactions['data']);
+           console.log(content);
+           if (content === undefined){
+              console.log("content undefined");
+              content = "You have no interactions with this person";
+           }
            if (content == ""){
              content = content.concat("You have no interactions with this person"); 
            }
+	   content = content.concat("<br/><button id = 'share' onclick = \"sharefun('"+interactions["tag"]+"')\">Share to Facebook</button>");
           }
+	  console.log(content);
           return content;
           //return '<div class="fb-video" data-href=https://www.facebook.com/10205816450603289/videos/10205695820187604 data-width="50"></div>'      
 }
@@ -549,12 +619,16 @@ circ.popover({title:d.name+" & "+lastClickedNode.name, content:
           var content;
             content = popMsg.call(this,interactions['source'],interactions['target'],interactions['data']);
            if (content == ""){
-             content = content.concat("You have no interactions with this person"); 
+             content = content.concat("There was a problem finding interactions between these two people"); 
            }
+	console.log("checking content");
+	 console.log(content);
+	  content.concat("<iframe src='https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Feltanin.cis.cornell.edu%2Ffbprojectb&layout=button&size=small&mobile_iframe=true&width=59&height=20&appId' width='59' height='20' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowTransparency='true'></iframe>");
           }
+	  console.log(content);
           return content;
           //return '<div class="fb-video" data-href=https://www.facebook.com/10205816450603289/videos/10205695820187604 data-width="50"></div>'      
-},html:true,container:'body',trigger:"manual", template:'<div class="popover" role="tooltip"><div class="popover-title"></div><div class="popover-content"></div></div>'});
+},html:true,container:'body',trigger:"manual", template:'<div class="popover" role="tooltip"><div class="popover-title"></div><button id = "share" onclick = "sharefun()">Share to Facebook</button><div class="popover-content"></div></div>'});
 circ.popover('toggle');
 neighborSelection = circ;
 neighborNode = d;

@@ -66,6 +66,7 @@ fclose($fp);
       <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
                     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
                                    <link rel="shortcut icon" href="../assets/ico/favicon.png">
+<script language="JavaScript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -97,10 +98,24 @@ fclose($fp);
   });
  };
  
+
+var uid  = getParamByName("user");
+    console.log(uid);
+    
+$.post('backendInit.php', { A : uid},function(result){
+      // console.log(result);
+      var userdbdata = $.parseJSON(result);
+      if (userdbdata["json"]) {
+        document.getElementById("Viz Button").onclick = function(){
+          window.top.location.href="https://eltanin.cis.cornell.edu/fbprojectb/viz.php?resp="+getParamByName('resp')+"&user="+getParamByName('user');}
+          //window.top.location.href="https://apps.facebook.com/1582658458614337/viz.php?resp="+getParamByName('resp')+"&user="+getParamByName('user');   
+      } else {
   document.getElementById("Viz Button").onclick = function(){
-                //window.top.location.href="https://eltanin.cis.cornell.edu/fbprojectb/initViz.php?resp="+getParamByName('resp')+"&user="+getParamByName('user');
-                window.top.location.href="https://apps.facebook.com/1582658458614337/initViz.php?resp="+getParamByName('resp')+"&user="+getParamByName('user');
+                window.top.location.href="https://eltanin.cis.cornell.edu/fbprojectb/initViz.php?resp="+getParamByName('resp')+"&user="+getParamByName('user');
+                //window.top.location.href="https://apps.facebook.com/1582658458614337/initViz.php?resp="+getParamByName('resp')+"&user="+getParamByName('user');
 };
+    }
+    });
 </script>
         </form>
       </div>

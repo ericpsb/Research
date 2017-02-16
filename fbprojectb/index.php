@@ -1,20 +1,20 @@
 <?php
 //Defining the name of the file
-$file = 'uids.txt';
+//$file = 'uids.txt';
 
 //Need to capture resp variable from the HTTP Get variable
-$uid = $_GET['uid'];
+//$uid = $_GET['uid'];
 
 //Let save this access token to the server for the future
-file_put_contents($file, $uid.PHP_EOL, FILE_APPEND);
+//file_put_contents($file, $uid.PHP_EOL, FILE_APPEND);
 
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<title>Facebook Project Login</title>
+<title>True Friend Login</title>
  <meta charset="utf-8">
-    <title>Facebook Project</title>
+    <title>True Friend</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -174,16 +174,16 @@ file_put_contents($file, $uid.PHP_EOL, FILE_APPEND);
         <h1 style="color:black">Facebook Project</h1>
         <p> </p>
         <p> </p>
-        <p style = "color:#999966">This app is a part of a research led by Cornell University to analyze non-use of Facebook. Please click on the login button below to authorize us to access your Facebook usage data. On the basis of the data you provide and depending on the number of your friends using this app, you will be able to see a visualization of your friend network and all you interactions with them. </p>   
+        <p style = "color:#999966">You know you're friends with lots of people on Facebook. But how many of them are <e>really</e> your friends? This app analyzes your news feed to create a visualization showing which of your friends you're closest to based on your interactions on Facebook. It also shows how close your friends are with each other. Plus, if you share the app with your friends, your visualization gets more detailed. </p>   
         <p> </p>
-        <p> </p>
-        <p><fb:login-button scope="public_profile,email,user_friends,user_posts,user_events,user_likes" onlogin="checkLoginState();">
+        <p>Click below to log in and check it out.</p>
+        <p><fb:login-button scope="public_profile,email,user_friends,user_posts,user_events,user_likes,user_birthday" onlogin="checkLoginState();">
         </fb:login-button></p>
         <div id="status">
       </div>
 
       <hr>
-
+     <p>This app is part of a research project to analyze how people do and do not use social media. It's led by researchers in the <a href="http://idl.cornell.edu/">Interaction Design Lab</a> at <a href="http://cornell.edu">Cornell University</a>.</p>
     </div> <!-- /container -->
 
 

@@ -54,7 +54,7 @@ def main():
 
         # initialize the fields
         fb = 'https://graph.facebook.com/v2.5/me?fields='
-        me_field = 'id,name,first_name,last_name,email,gender,link,verified,timezone,updated_time'
+        me_field = 'id,name,first_name,last_name,email,gender,link,verified,timezone,updated_time,birthday'
         event_field = 'events.limit(50){name,description,start_time,id,rsvp_status,end_time,category,cover,owner,type,attending.limit(50)}'
         friend_field = 'friends.limit(50){name,id,context}'
         taggable_friend_field = 'taggable_friends.limit(100)'
@@ -176,7 +176,14 @@ def main():
             x.init(user_id)
 	    logging.info("Generated or updated visualization")
 	    #Popen(['mail','-s','Your visualization is ready to view',profile['email'],'<<<','Hi,Your network visualization on the Social Interaction Graph app is ready to view. Thank you for your support!'])
-	    os.system("""mail -s "Your network visualization is ready" {} < email_content.txt""".format(profile['email']))
+	    vizurl = "https://eltanin.cis.cornell.edu/fbprojectb/viz.php?resp={}&user={}".format(token, user_id)
+	   # with open("email_content.txt","a") as myfile:
+   		#myfile.write("/n"+vizurl)
+	    os.system("""echo "Hi,\n\nYour network visualization on our Facebook App TrueFriends is ready to view now. The link is shown below. Thank you for your support on our project"'!'"\n\n"'{}' | mail -s "Your network visualization is ready" {}""".format(vizurl,profile['email']))
+	   # with open('check_db.txt', 'w+') as file2:
+		#lines = file2.readlines()
+		#lines = lines[:-1]
+		#file2.write(lines)
             for friend in to_update_friends:
                 y = newViz.GenerateViz()
                 y.init(friend)
@@ -243,8 +250,8 @@ def update_db(token,activity_url,profile,user_name,user_id,user,people,events,fr
             taggable['friend_of'] = [{"name": user_name, "id": user_id}]
             if taggable_friends.find_one({"$and": [{"name": taggable['name']}, {"friend_of.id": user_id}]}) == None:
 		taggable_friends.insert_one(taggable)
-	    else:
-	        taggable_friends.remove({"$and": [{"name": taggable['name']}, {"friend_of.id": user_id}]})
+	    #else:
+	        #taggable_friends.remove({"$and": [{"name": taggable['name']}, {"friend_of.id": user_id}]})
 	        # is this correct?
 
 	print "Store all taggable friends from {}".format(user_name)

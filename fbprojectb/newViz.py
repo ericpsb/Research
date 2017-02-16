@@ -42,7 +42,7 @@ class GenerateViz():
                friends = []
                links =[]
                # get profile object
-               user_name = graph.get('me')['name']
+               user_name = graph.get('me')['name'].title()
                nodes.append({'name':user_name})
                linkIndex = 0
                nodeIndex = 1
@@ -50,52 +50,54 @@ class GenerateViz():
                cursor1.batch_size(30)
                if (cursor1 != None):
                  for doc in cursor1:
-                  interactions = {}
-                  interactions["source"] = user_name
-                  message = []
-                  nodes.append({'name':doc['small_name']})
-                  interactions['target']=doc['small_name']
-                  self.createJson(user_name,doc,graph,interactions,message,nodes,links,linkIndex,admin,access_token)
-                  linkIndex += 1
-                  collection3.insert_one(interactions)
+                   if({'name':doc['small_name']} not in nodes): 	
+                     interactions = {}
+                     interactions["source"] = user_name
+                     message = []                  
+                     nodes.append({'name':doc['small_name']})
+                     interactions['target']=doc['small_name']
+                     self.createJson(user_name,doc,graph,interactions,message,nodes,links,linkIndex,admin,access_token)
+                     linkIndex += 1
+                     collection3.insert_one(interactions)
                cursor3 = collection1.find({"small_id":Id})
                cursor3.batch_size(30)
                if (cursor3 != None):
-                for doc in cursor3:
-                  interactions = {}
-                  interactions["source"] = user_name
-                  message = []
-                  nodes.append({'name':doc['large_name']})
-                  interactions['target']=doc['large_name']
-                  self.createJson(user_name,doc,graph,interactions,message,nodes,links,linkIndex,admin,access_token)
-                  linkIndex += 1
-                  collection3.insert_one(interactions)
+                 for doc in cursor3:
+                   if ({'name':doc['large_name']} not in nodes):                
+                     interactions = {}
+                     interactions["source"] = user_name
+                     message = []
+                     nodes.append({'name':doc['large_name']})
+                     interactions['target']=doc['large_name']
+                     self.createJson(user_name,doc,graph,interactions,message,nodes,links,linkIndex,admin,access_token)
+                     linkIndex += 1
+                     collection3.insert_one(interactions)
 
 
-               cursor2 = collection1.find({"collected_from":{ "$in": [{'name':name,'id':Id}] }})
+               cursor2 = collection1.find({"collected_from":{ "$in": [{'name':user_name,'id':Id}] }})
                cursor2.batch_size(30);
                for doc in cursor2:
                  if (doc["large_id"] != Id and doc["small_id"] != Id):
                   if ({'name':doc['large_name']} not in nodes):
-                      interactions = {}
+                      #interactions = {}
                       nodes.append({'name':doc['large_name']})
-                      interactions['source']=user_name
-                      interactions['target']=doc['large_name']
-                      try:
-                         collection3.insert_one(interactions)
-                      except:
-                         print "Interaction exists:"+doc['large_name']
+                      #interactions['source']=user_name
+                      #interactions['target']=doc['large_name']
+                      #try:
+                         #collection3.insert_one(interactions)
+                      #except:
+                         #print "Interaction exists:"+doc['large_name']
 
                   if ({'name':doc['small_name']} not in nodes):
-                      interactions = {}
+                      #interactions = {}
                       nodes.append({'name':doc['small_name']})
-                      interactions['source']=user_name
-                      interactions['target']=doc['small_name']
-                      try:
-                         collection3.insert_one(interactions)
-                      except:
-                         print "interaction exists:"+doc['small_name']
-
+                      #interactions['source']=user_name
+                      #interactions['target']=doc['small_name']
+                      #try:
+                         #collection3.insert_one(interactions)
+                      #except:
+                         #print "interaction exists:"+doc['small_name']
+                  
                   interactions = {}
                   interactions['source'] = doc["large_name"]
                   message = []
@@ -180,27 +182,28 @@ class GenerateViz():
             picture = "" 
             video = ""
             if ('status_type' in post):
-               status_type = post['status_type']
-               if (status_type not in notReq):
-                 if ('message' in post):
-                    Postmsg = post['message']
-                 if ('story' in post):
-                    story = post['story']
-                    if (story.find("others wrote on your timeline") != -1):
-                       BdayMsg = True
-                 if ('link' in post): 
-                    link = post['link']
-                 if ('description' in post):
-                    description = post['description']
-                 if ('picture' in post):
-                    picture = post['picture']
-                 date = dateparser.parse(post['created_time']).strftime('%m/%d/%y')
-                 if (status_type == 'added_video'):
-                     video = self.createVideo(link)    
-                 if (BdayMsg == True and (interactionType == "large_posts_post_to_small_timeline_id" or interactionType == "small_posts_post_to_large_timeline_id")):
-                      message = ["post","Bday",story,Postmsg,description,link,picture,video,date]
-                 else:
-                      message = ["post",status_type,interactionType,story,Postmsg,description,link,picture,video,date]
+                status_type = post['status_type']
+            if ('message' in post):
+                Postmsg = post['message']
+            if ('story' in post):
+                story = post['story']
+            if (story.find("others wrote on your timeline") != -1):
+                BdayMsg = True
+            if ('link' in post): 
+                link = post['link']
+            if ('description' in post):
+                description = post['description']
+            if ('picture' in post):
+                picture = post['picture']
+            if ('created_time' in post): 
+                date = dateparser.parse(post['created_time']).strftime('%m/%d/%y')
+            if (status_type == 'added_video'):
+                video = self.createVideo(link)    
+            if (BdayMsg == True and (interactionType == "large_posts_post_to_small_timeline_id" or interactionType == "small_posts_post_to_large_timeline_id")):
+                message = ["post","Bday",story,Postmsg,description,link,picture,video,date]
+            else:
+                message = ["post",status_type,interactionType,story,Postmsg,description,link,picture,video,date]
+	    print message
         
             return message       
                  

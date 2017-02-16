@@ -39,7 +39,7 @@ echo "Running ltget.py ..."
 
 #updating database 
 #python update_db_v4.py &
-python update_db_v4.py
+python update_db_v4.py &
 #python newViz.py
 done
 
