@@ -105,7 +105,7 @@ var uid  = getParamByName("user");
 $.post('backendInit.php', { A : uid},function(result){
       // console.log(result);
       var userdbdata = $.parseJSON(result);
-      if (userdbdata["json"]) {
+      if (userdbdata != null && userdbdata["json"]) {
         document.getElementById("Viz Button").onclick = function(){
           window.top.location.href="https://eltanin.cis.cornell.edu/fbprojectb/viz.php?resp="+getParamByName('resp')+"&user="+getParamByName('user');}
           //window.top.location.href="https://apps.facebook.com/1582658458614337/viz.php?resp="+getParamByName('resp')+"&user="+getParamByName('user');   
