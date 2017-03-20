@@ -3,10 +3,10 @@
 $file = 'accesstokens.txt';
 
 //Need to capture resp variable from the HTTP Get variable
-$access_token = $_GET['resp'];
+$access_token = !empty($_GET['resp']) ? $_GET['resp'] : NULL;
 
 //Need to capture uid variable from the HTTP GET variable
-$uid = $_GET['uid'];
+$uid = !empty($_GET['uid']) ? $_GET['uid'] : NULL;
 
 //Let save this access token to the server for the future
 #file_put_contents($file, $access_token.PHP_EOL, FILE_APPEND);
@@ -19,9 +19,11 @@ $accuid[0] = $access_token;
 $accuid[1] = $uid;
 
 //now doing all the nasty file operations
-$fp = fopen('accesstokens.txt','a');
-fputcsv($fp,$accuid);
-fclose($fp);
+if (!empty($access_token) && !empty($uid)) {
+  $fp = fopen('accesstokens.txt','a');
+  fputcsv($fp,$accuid);
+  fclose($fp);
+}
 
 ?>
 <html>

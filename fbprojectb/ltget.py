@@ -119,16 +119,16 @@ def main():
                         userInfo['birthday'] = profile['birthday']
                         userInfo['name'] = user_name.title()
                         userInfo['vizDone'] = 0
-                        print "YOLO, this user does not exit in the database"
+                        print "This user does not exist in the database."
 #                                        print "new profile",userInfo
 #					print "old profle",existing
                         collection.insert_one(userInfo)
                     else:
                         #					print "current profile",existing
                         #					print "new profile",userInfo
-                        print "this user exists in the database"
+                        print "This user exists in the database."
                         collection.update({'user id': user_id}, {
-                                          "$set": {'access_token': acltat}})
+                            "$set": {'access_token': acltat}})
 
                     # need to increment the value of check by 1
 #	                        check = check + 1
@@ -139,7 +139,7 @@ def main():
                     checkfileagain.write(str(check))
                     checkfileagain.close()
                 except:
-                    print "user loged out"
+                    print "User logged out."
                     # need to increment the value of check by 1
  #                               check = check + 1
 
