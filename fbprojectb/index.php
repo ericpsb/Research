@@ -20,7 +20,7 @@
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link href="../bootstrap.css" rel="stylesheet">
+    <link href="bootstrap.css" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -121,7 +121,7 @@
     cookie     : true,  // enable cookies to allow the server to access 
                         // the session
     xfbml      : true,  // parse social plugins on this page
-    version    : 'v2.3' // use version 2.1
+    version    : 'v2.8' // use version 2.8
   });
   // Now that we've initialized the JavaScript SDK, we call 
   // FB.getLoginStatus().  This function gets the state of the

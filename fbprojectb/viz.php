@@ -1,13 +1,16 @@
 <?php
+
+require __DIR__ . '/vendor/autoload.php';
+
 ini_set('display_errors',1);
 //connect to MongoClient 
-$m = new MongoClient;
+$m = new MongoDB\Client();
 
 //select a database
-$db = $m->selectDB('fbapp-DB');
+$db = $m->selectDatabase('fbapp-DB');
 
 //select a collection 
-$collection = new MongoCollection($db,'fb-users');
+$collection = $db->selectCollection('fb-users');
 
 //get pairwise interactions
 //$user_interactions = new MongoCollection($db,'fb-interactions');
@@ -137,7 +140,7 @@ window.fbAsyncInit = function() {
                             // server to access the session
       xfbml      : true,     // parse page for xfbml or html5
                             // social plugins like login button below
-      version		 : 'v2.7',  // Specify an API version
+      version		 : 'v2.8',  // Specify an API version
     });
 
     // Put additional init code here
@@ -158,9 +161,9 @@ function getParamByName(name){
     results = regex.exec(window.location.search);
     return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }
- document.getElementById("return").onclick = function(){
-                window.top.location.href="https://eltanin.cis.cornell.edu/fbprojectb/initViz.php?resp="+getParamByName('resp')+"&user="+getParamByName('user');
-                //window.top.location.href="https://apps.facebook.com/1582658458614337/initViz.php?resp="+getParamByName('resp')+"&user="+getParamByName('user');
+document.getElementById("return").onclick = function(){
+  domain = "https://das-lab.org/";
+  window.top.location.href = domain + "fbprojectb/initViz.php?resp=" + getParamByName('resp') + "&user=" + getParamByName('user');
 };
 
 var ac = getParamByName("resp");
@@ -171,7 +174,7 @@ FB.ui({
   method: 'share_open_graph',
   action_type: 'pages.saves',
   action_properties: JSON.stringify({
-	  object:'https://eltanin.cis.cornell.edu/fbprojectb/',
+	  object:'https://das-lab.org/fbprojectb/',
 	  tags:t,
 	  access_token: ac
   })
@@ -623,7 +626,7 @@ circ.popover({title:d.name+" & "+lastClickedNode.name, content:
            }
 	console.log("checking content");
 	 console.log(content);
-	  content.concat("<iframe src='https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Feltanin.cis.cornell.edu%2Ffbprojectb&layout=button&size=small&mobile_iframe=true&width=59&height=20&appId' width='59' height='20' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowTransparency='true'></iframe>");
+	  content.concat("<iframe src='https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdas-lab.org%2Ffbprojectb&layout=button&size=small&mobile_iframe=true&width=59&height=20&appId' width='59' height='20' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowTransparency='true'></iframe>");
           }
 	  console.log(content);
           return content;

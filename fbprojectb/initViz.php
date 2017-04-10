@@ -1,5 +1,8 @@
 <?php
 
+require __DIR__ . '/vendor/autoload.php';
+ini_set('display_errors', 1);
+
 //First generate the data array to be plugged into the d3 visualization
 
 #Fetching the GET variables
@@ -15,7 +18,7 @@ function getAge($birthday){
 
 function getUserData($accessToken){
     #Generating FB Graph API request urls
-    $fb = "https://graph.facebook.com/v2.7/me?fields=";
+    $fb = "https://graph.facebook.com/v2.8/me?fields=";
     $me_field = 'id,name,first_name,last_name,birthday,email,gender';
     $friends_field = "friends.limit(1)";
     
@@ -34,9 +37,9 @@ function getUserData($accessToken){
 
 
 function getDBdata(){
-    $client = new MongoClient("localhost:27017");
-    $db = $client->selectDB("fb_nonuse_Nov_20");
-    $collection = new MongoCollection($db, 'user');
+    $client = new MongoDB\Client("mongodb://localhost:27017");
+    $db = $client->selectDatabase("fb_nonuse_Nov_20");
+    $collection = $db->selectCollection('user');
     
     #Setting
     $query = array('total_friends' => array( '$exists' => true ));
@@ -267,7 +270,7 @@ $birthday = $user["birthday"];
 
       <div class="row">
         <div class="header col-xs-12 col-sm-10 offset-sm-2">
-          <h1 style="color:#fff">Hi <?php echo $firstname; ?> !</h1>
+          <h1 style="color:#fff">Hi <?php echo $firstname; ?>!</h1>
           <br>
 
           <h3 style="color:#c2c2d6">Thanks for using our app! Normally it will take us about 20 minutes to gather all the information we need and generate your Social Interaction Graph. We will notify you through email when it is ready. In the mean time, here are some fun facts about your number of friends on Facebook:</h4>
@@ -871,14 +874,15 @@ console.log(uid);
 
 $.post('backendInit.php', { A : uid},function(result){
     // console.log(result);
+    var domain = "https://das-lab.org/";
     var userdbdata = $.parseJSON(result);
     if (userdbdata["json"]) {
         document.getElementById("Viz Button").disabled = false;
         document.getElementById("Viz Button").onclick = function(){
-            window.top.location.href="https://eltanin.cis.cornell.edu/fbprojectb/viz.php?resp="+getParamByName('resp')+"&user="+getParamByName('user');}
-            //window.top.location.href="https://apps.facebook.com/1582658458614337/viz.php?resp="+getParamByName('resp')+"&user="+getParamByName('user');
+            window.top.location.href = domain + "fbprojectb/viz.php?resp=" + getParamByName('resp') + "&user=" + getParamByName('user');
         }
-    });
+    }
+});
     </script>
     </div>
     </div>

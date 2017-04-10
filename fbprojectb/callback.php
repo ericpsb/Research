@@ -36,7 +36,7 @@ if (!empty($access_token) && !empty($uid)) {
     <meta name="author" content="">
 
     <!-- Le styles -->
-    <link href="../bootstrap.css" rel="stylesheet">
+    <link href="bootstrap.css" rel="stylesheet">
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -80,7 +80,7 @@ if (!empty($access_token) && !empty($uid)) {
         <p> </p>
         <p> </p>
         <p style="font-weight:bold">Thank you for allowing us access to your Facebook usage data.</p>
-<p style="font-weight:bold" >Please help the research by sharing this app  with your friends </p>
+<p style="font-weight:bold" >Please help the research by sharing this app with your friends.</p>
         <form>  
           <button id="Viz Button" type="submit">Proceed to Visualization</button>
           <script type="text/javascript">
@@ -96,7 +96,7 @@ if (!empty($access_token) && !empty($uid)) {
     cookie     : true,  // enable cookies to allow the server to access 
                         // the session
     xfbml      : true,  // parse social plugins on this page
-    version    : 'v2.3' // use version 2.1
+    version    : 'v2.8' // use version 2.8
   });
  };
  
@@ -106,24 +106,21 @@ var uid  = getParamByName("user");
     
 $.post('backendInit.php', { A : uid},function(result){
       // console.log(result);
+      var domain = "https://das-lab.org/";
       var userdbdata = $.parseJSON(result);
       if (userdbdata != null && userdbdata["json"]) {
         document.getElementById("Viz Button").onclick = function(){
-          window.top.location.href="https://eltanin.cis.cornell.edu/fbprojectb/viz.php?resp="+getParamByName('resp')+"&user="+getParamByName('user');}
-          //window.top.location.href="https://apps.facebook.com/1582658458614337/viz.php?resp="+getParamByName('resp')+"&user="+getParamByName('user');   
+          window.top.location.href = domain + "fbprojectb/viz.php?resp=" + getParamByName('resp') + "&user=" + getParamByName('user');
+        } 
       } else {
   document.getElementById("Viz Button").onclick = function(){
-                window.top.location.href="https://eltanin.cis.cornell.edu/fbprojectb/initViz.php?resp="+getParamByName('resp')+"&user="+getParamByName('user');
-                //window.top.location.href="https://apps.facebook.com/1582658458614337/initViz.php?resp="+getParamByName('resp')+"&user="+getParamByName('user');
+                window.top.location.href = domain + "fbprojectb/initViz.php?resp=" + getParamByName('resp') + "&user=" + getParamByName('user');
 };
     }
     });
 </script>
         </form>
       </div>
-
-      <hr>
-
     </div> <!-- /container -->
 
 
