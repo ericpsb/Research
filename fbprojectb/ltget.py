@@ -2,7 +2,7 @@
 # import stuff here
 import httplib
 import csv
-import facebook
+# import facebook
 import facepy
 import json
 import pymongo

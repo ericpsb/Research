@@ -1,4 +1,6 @@
 <?php
+  ini_set('display_errors', 1);
+
 //Defining the name of the file
 $file = 'accesstokens.txt';
 

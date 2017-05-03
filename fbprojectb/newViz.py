@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 #do all imports here
-import facebook
 import facepy
 import requests
 import urllib2
