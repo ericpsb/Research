@@ -183,7 +183,7 @@
       </div>
 
       <hr>
-     <p>This app is part of a research project to analyze how people do and do not use social media. It's led by researchers in the <a href="http://idl.cornell.edu/">Interaction Design Lab</a> at <a href="http://cornell.edu">Cornell University</a>.</p>
+     <p>This app is part of a research project to analyze how people do and do not use social media. It's led by researchers in the <a href="https://www.das-lab.org/">DAS Lab</a> at <a href="http://www.lehigh.edu/">Lehigh University</a> in collaboration with the <a href="http://idl.cornell.edu/">Interaction Design Lab</a> at <a href="http://cornell.edu">Cornell University</a>.</p>
     </div> <!-- /container -->
 
 
