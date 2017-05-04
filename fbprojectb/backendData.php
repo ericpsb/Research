@@ -29,7 +29,7 @@ $filter = [
     'source' => $name1,
     'target' => $name2
 ];
-$filterWhenEmpty = [
+$filterReverse = [
     'source' => $name2,
     'target' => $name1
 ];
@@ -50,15 +50,21 @@ $manager = new MongoDB\Driver\Manager('mongodb://localhost:27017');
 $readPreference = new MongoDB\Driver\ReadPreference(MongoDB\Driver\ReadPreference::RP_PRIMARY);
 
 $interactions = $manager->executeQuery('fbapp-DB.fb-interactions', $query, $readPreference);
+$interactions = iterator_to_array($interactions,false);
 
 if (empty($interactions)) {
-    $query = new MongoDB\Driver\Query($filterWhenEmpty, $options);
+    $query = new MongoDB\Driver\Query($filterReverse, $options);
     $interactions = $manager->executeQuery('fbapp-DB.fb-interactions', $query, $readPreference);
+    $interactions = iterator_to_array($interactions,false);
 }
 
-$interactions = iterator_to_array($interactions,false);
-$result = (array) $interactions[0];
-$result["tag"] = $tag;
-$result = json_encode($result);
-echo $result;
+if (empty($interactions)) {
+    echo "null\n";
+}
+else {
+    $result = (array) $interactions[0];
+    $result["tag"] = $tag;
+    $result = json_encode($result);
+    echo $result . "\n";
+}
 ?>

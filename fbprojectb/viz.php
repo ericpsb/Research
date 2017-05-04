@@ -191,6 +191,9 @@ $json = $collection->findOne(array('user id' => $userId));
         };
       </script>
     </div>
+
+    <!-- ========================================================================================================================================================== -->
+
     <script>
       var width = 2000,
         height = 2000;
@@ -642,7 +645,7 @@ $json = $collection->findOne(array('user id' => $userId));
           A: main['name'],
           B: d.name
         }, function(result) {
-          interactions = $.parseJSON(result);
+          interactions = JSON.parse(result);
           console.log("This seems right");
           console.log(main['name']);
           console.log(interactions);
@@ -695,7 +698,7 @@ $json = $collection->findOne(array('user id' => $userId));
             A: lastClickedNode.name,
             B: d.name
           }, function(result) {
-            interactions = $.parseJSON(result);
+            interactions = JSON.parse(result);
             circ.popover({
               title: d.name + " & " + lastClickedNode.name,
               content: function() {
@@ -707,7 +710,7 @@ $json = $collection->findOne(array('user id' => $userId));
                   }
                   console.log("checking content");
                   console.log(content);
-                  content.concat("<iframe src='https://www.facebook.com/plugins/share_button.php?href=https%3A%2F%2Fdas-lab.org%2Ffbprojectb&layout=button&size=small&mobile_iframe=true&width=59&height=20&appId' width='59' height='20' style='border:none;overflow:hidden' scrolling='no' frameborder='0' allowTransparency='true'></iframe>");
+                  content = content.concat("<br/><button id = 'share' onclick = \"sharefun('" + interactions["tag"] + "')\">Share to Facebook</button>");
                 }
                 console.log(content);
                 return content;
@@ -716,7 +719,7 @@ $json = $collection->findOne(array('user id' => $userId));
               html: true,
               container: 'body',
               trigger: "manual",
-              template: '<div class="popover" role="tooltip"><div class="popover-title"></div><button id = "share" onclick = "sharefun()">Share to Facebook</button><div class="popover-content"></div></div>'
+              template: '<div class="popover" role="tooltip"><div class="popover-title"></div><div class="popover-content"></div></div>'
             });
             circ.popover('toggle');
             neighborSelection = circ;
