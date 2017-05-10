@@ -875,7 +875,7 @@ console.log(uid);
 $.post('backendInit.php', { A : uid},function(result){
     // console.log(result);
     var domain = "https://das-lab.org/";
-    var userdbdata = $.parseJSON(result);
+    var userdbdata = JSON.parse(result);
     if (userdbdata["json"]) {
         document.getElementById("Viz Button").disabled = false;
         document.getElementById("Viz Button").onclick = function(){

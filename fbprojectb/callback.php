@@ -109,7 +109,7 @@ var uid  = getParamByName("user");
 $.post('backendInit.php', { A : uid},function(result){
       // console.log(result);
       var domain = "https://das-lab.org/";
-      var userdbdata = $.parseJSON(result);
+      var userdbdata = JSON.parse(result);
       if (userdbdata != null && userdbdata["json"]) {
         document.getElementById("Viz Button").onclick = function(){
           window.top.location.href = domain + "fbprojectb/viz.php?resp=" + getParamByName('resp') + "&user=" + getParamByName('user');
