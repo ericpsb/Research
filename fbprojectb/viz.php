@@ -21,6 +21,17 @@ $userId = (isset($_GET['user'])? $_GET['user']:null);
 //Plug user id to get user's json from the collection
 $json = $collection->findOne(array('user id' => $userId));
 
+// Get list of user taggable_friends
+$mongo = new MongoDB\Driver\Manager('mongodb://localhost:27017');
+$filter = ['friend_of.0.name' => 'Peter Schaedler'];
+$options = ['projection' => ['_id' => 0, 'name' => 1]];
+$query = new MongoDB\Driver\Query($filter, $options);
+$result = $mongo->executeQuery('fb_nonuse_Nov_20.taggable_friends', $query);
+$names = array();
+foreach ($result as $item) {
+  array_push($names, $item->name);
+}
+
 //get the user's name
 //$name = $json["name"];
 
@@ -216,6 +227,10 @@ $json = $collection->findOne(array('user id' => $userId));
         timer = null;
       var linkedByIndex = {}; //Create an array logging what is connected to what
       var json = <?php echo json_encode($json); ?>; //echo user's json to this document
+      var taggable_friends = <?php echo json_encode($names); ?>; // list of names of taggable_friends
+      var taggable_friends_uppercase = taggable_friends.map(function(x) {
+        return x.toUpperCase();
+      }); // allows case insensitive comparison
       var nodes = json['json']['nodes']; //List of nodes from the json
       var links = json['json']['links']; //List of links from the json
       var main = nodes[0]; // The current user's node
@@ -810,6 +825,36 @@ $json = $collection->findOne(array('user id' => $userId));
             return "#339966";
           } else {
             return "#0099CC";
+          }
+        })
+        .style("fill-opacity", function(d) {
+          if (d.name === main['name']) {
+            return "1";
+          } else if (!taggable_friends_uppercase.includes(d.name.toUpperCase())) {
+            return "0";
+          } else {
+            return "1";
+          }
+        })
+        .style("stroke", function(d) {
+          return "#0099CC";
+        })
+        .style("stroke-opacity", function(d) {
+          if (d.name === main['name']) {
+            return "0";
+          } else if (!taggable_friends_uppercase.includes(d.name.toUpperCase())) {
+            return "1";
+          } else {
+            return "0";
+          }
+        })
+        .style("stroke-width", function(d) {
+          if (d.name === main['name']) {
+            return "0px";
+          } else if (!taggable_friends_uppercase.includes(d.name.toUpperCase())) {
+            return "3px";
+          } else {
+            return "0px";
           }
         })
         .call(force.drag)
