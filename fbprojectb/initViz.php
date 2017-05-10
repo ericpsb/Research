@@ -115,7 +115,7 @@ $birthday = $user["birthday"];
     <script language="JavaScript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script language="JavaScript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script language="Javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.15.2/URI.min.js"></script>
-    <script language="Javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/1.12.0/d3-legend.min.js"></script>
+    <script language="Javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/1.13.0/d3-legend.min.js"></script>
 
     <style>
       .container-fluid {

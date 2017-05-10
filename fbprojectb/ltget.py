@@ -75,28 +75,12 @@ def main():
 
                     # getting and storing  the full response
                     ltat = conn.getresponse()
-                    data = ltat.read()
+                    data = json.load(ltat)
                     print data
 
-                    # first split the response string along '='
-                    fsplit = data.split('=')
-
+                    # Parse the long term access token out of JSON response
                     filelt = open('longtermaccesstoken.txt', 'a')
-                    # second split string along & (all this because accesstoken
-                    # size could be variable)
-                    ssplit = fsplit[1].split('&')
-
-                    # finally store the result of second split into long term
-                    # access token
-                    acltat = ssplit[0]
-
-                    # we need to store this into a file of long term
-                    # accesstokens
-                    thisrow = [1, 2]
-                    thisrow[0] = acltat
-                    thisrow[1] = uid
-                    writer = csv.writer(filelt, delimiter=',')
-
+                    acltat = data["access_token"]
                     filelt.write(acltat + ',' + uid + '\n')
                     filelt.close()
 
@@ -137,7 +121,8 @@ def main():
                     checkfileagain = open('check.txt', 'w')
                     checkfileagain.write(str(check))
                     checkfileagain.close()
-                except:
+                except Exception, e:
+                    print "EXCEPTION: " + str(e)
                     print "User logged out."
                     # need to increment the value of check by 1
  #                               check = check + 1

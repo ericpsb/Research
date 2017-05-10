@@ -30,7 +30,7 @@ echo " "
 #echo "running curl http://localhost/files.php?file=$HTTPFINAL"
 #/usr/bin/curl "http://localhost/files.php?file=$HTTPFINAL"
 
-echo "Running ltget.py ..."
+echo "Running update_db_v4.py ..."
 
 #running ltget.py
 #python ltget.py

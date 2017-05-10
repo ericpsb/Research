@@ -15,7 +15,6 @@
   <head>
     <title>True Friend Login</title>
     <meta charset="utf-8">
-    <title>True Friend</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -93,9 +92,6 @@
           var resp = response.authResponse.accessToken;
           //Redirecting to web page
           window.top.location.href = "https://apps.facebook.com/1582658458614337/callback.php?resp=" + resp + "&uid=" + uid + "&user=" + user;
-          //window.top.location.href="https://eltanin.cis.cornell.edu/fbprojectb/callback.php?resp="+resp+"&uid="+uid+"&user="+user;
-          //Testing with console.log
-          //console.log(resp);
         } else if (response.status === 'not_authorized') {
           // The person is logged into Facebook, but not your app.
           document.getElementById('status').innerHTML = 'Please log ' +
