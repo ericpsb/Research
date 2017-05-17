@@ -1,0 +1,1 @@
+outgoing links are not being collected and the same information for all of the bodies is being collected from the social media wrapper

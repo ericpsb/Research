@@ -1,0 +1,17 @@
+Corpus:
+Total Tokens: 17660629, Total Posts: 42341, Unique Tokens: 220722
+
+
+Number of Posts per Blog:
+
+Min. 1st Qu.  Median  Mean    3rd Qu.    Max.    Sd
+6.0   195.8   432.5   661.6   708.8     2816.0   683.9619
+
+
+Number of Words per Post:
+
+Min. 1st Qu.  Median    Mean    3rd Qu.    Max.    Sd
+0.0   159.0   335.0     417.1   564.0    29250.0   446.0666
+
+
+Note: Based on the frequency plots it seems that both the distributions for posts per blog and words per post are both skewed right.
