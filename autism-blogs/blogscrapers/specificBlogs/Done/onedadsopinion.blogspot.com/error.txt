@@ -1,0 +1,1 @@
+Website would not load but I'm pretty sure it can be scraped with the generic .blogspot scraper.

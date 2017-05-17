@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<body>
+<script src="d3.js"></script>
+<script src="jquery.js"></script>
+<script src="cosineData.js"></script>
+
+<div class="filters" style="position:relative">
+
+<!-- vaccine_vaccines_thimerosal -->
+<input class='filter_button' id='50' value='50' type='checkbox'>All Topics</input><br>
+<input class="filter_button" id="0" value=0 type="checkbox"></input><br>
+<input class="filter_button" id="1" value=1 type="checkbox"></input><br>
+<input class="filter_button" id="2" value=2 type="checkbox"></input><br>
+<input class="filter_button" id="3" value=3 type="checkbox"></input><br>
+<input class="filter_button" id="4" value=4 type="checkbox"></input><br>
+<input class="filter_button" id="5" value=5 type="checkbox"></input><br>
+<input class="filter_button" id="6" value=6 type="checkbox"></input><br>
+<input class="filter_button" id="7" value=7 type="checkbox"></input><br>
+<input class="filter_button" id="8" value=8 type="checkbox"></input><br>
+<input class="filter_button" id="9" value=9 type="checkbox"></input><br>
+<input class="filter_button" id="10" value=10 type="checkbox"></input><br>
+<input class="filter_button" id="11" value=11 type="checkbox"></input><br>
+<input class="filter_button" id="12" value=12 type="checkbox"></input><br>
+<input class="filter_button" id="13" value=13 type="checkbox"></input><br>
+<input class="filter_button" id="14" value=14 type="checkbox"></input><br>
+<input class="filter_button" id="15" value=15 type="checkbox"></input><br>
+<input class="filter_button" id="16" value=16 type="checkbox"></input><br>
+<input class="filter_button" id="17" value=17 type="checkbox"></input><br>
+<input class="filter_button" id="18" value=18 type="checkbox"></input><br>
+<input class="filter_button" id="19" value=19 type="checkbox"></input><br>
+<input class="filter_button" id="20" value=20 type="checkbox"></input><br>
+<input class="filter_button" id="21" value=21 type="checkbox"></input><br>
+<input class="filter_button" id="22" value=22 type="checkbox"></input><br>
+<input class="filter_button" id="23" value=23 type="checkbox"></input><br>
+<input class="filter_button" id="24" value=24 type="checkbox"></input><br>
+<input class="filter_button" id="25" value=25 type="checkbox"></input><br>
+<input class="filter_button" id="26" value=26 type="checkbox"></input><br>
+<input class="filter_button" id="27" value=27 type="checkbox"></input><br>
+<input class="filter_button" id="28" value=28 type="checkbox"></input><br>
+<input class="filter_button" id="29" value=29 type="checkbox"></input><br>
+<input class="filter_button" id="30" value=30 type="checkbox"></input><br>
+<input class="filter_button" id="31" value=31 type="checkbox"></input><br>
+<input class="filter_button" id="32" value=32 type="checkbox"></input><br>
+<input class="filter_button" id="33" value=33 type="checkbox"></input><br>
+<input class="filter_button" id="34" value=34 type="checkbox"></input><br>
+<input class="filter_button" id="35" value=35 type="checkbox"></input><br>
+<input class="filter_button" id="36" value=36 type="checkbox"></input><br>
+<input class="filter_button" id="37" value=37 type="checkbox"></input><br>
+<input class="filter_button" id="38" value=38 type="checkbox"></input><br>
+<input class="filter_button" id="39" value=39 type="checkbox"></input><br>
+<input class="filter_button" id="40" value=40 type="checkbox"></input><br>
+<input class="filter_button" id="41" value=41 type="checkbox"></input><br>
+<input class="filter_button" id="42" value=42 type="checkbox"></input><br>
+<input class="filter_button" id="43" value=43 type="checkbox"></input><br>
+<input class="filter_button" id="44" value=44 type="checkbox"></input><br>
+<input class="filter_button" id="45" value=45 type="checkbox"></input><br>
+<input class="filter_button" id="46" value=46 type="checkbox"></input><br>
+<input class="filter_button" id="47" value=47 type="checkbox"></input><br>
+<input class="filter_button" id="48" value=48 type="checkbox"></input><br>
+<input class="filter_button" id="49" value=49 type="checkbox"></input><br>
+
+</div>
+
+<script>
+
+// assign the topic names to the check boxes
+var checkboxes = document.getElementsByClassName("filter_button");
+// by default, we want to start with All Topics selected
+checkboxes[0].defaultChecked = true;
+for (var i=1; i<checkboxes.length; i++) {
+	checkboxes[i].outerHTML = "<input class=\"filter_button\" id=\"" + i + "\" value=" + i + " type=\"checkbox\">" + topics[parseInt(checkboxes[i].value)] + "</input>";
+	//checkboxes[i].text = topics[parseInt(checkboxes[i].value)];
+}
+
+var blogs = ["ablogonthespectrum.blogspot.com", "adiaryofamom.com", "adventuresinautism.blogspot.co.uk", "alyric.blogspot.com", "aspergersquare8.blogspot.com",
+			 "autism-vicky.blogspot.com", "autism.typepad.com", "autismandoughtisms.wordpress.com", "autismblogsdirectory.blogspot.com", "autismcrisis.blogspot.com:", // id = 10
+			 "autismgadfly.blogspot.com", "autisminnb.blogspot.com", "autismjabberwocky.blogspot.com", "autismnaturalvariation.blogspot.com", "autismschmatism.blogspot.com", 
+			 "autismsedges.blogspot.com", "autismsucksrocks.blogspot.com", "bloom-parentingkidswithdisabilities.blogspot.com", "carrielink.blogspot.com", "chavisory.wordpress.com", // id = 20
+			 "club166.blogspot.com", "confessionsofanaspergersmom.blogspot.com", "daysixtyseven.blogspot.com", "donnathomson.com", "elvis-sightings.blogspot.com:", 
+			 "embracingchaos.stephanieallencrist.com", "esteeklar.com", "extraordinary-ordinary.net", "fullspectrummama.blogspot.com", "hoopdeedoo.blogspot.com", // id = 30
+			 "idoinautismland.com", "injectingsense.blogspot.com", "jennyalice.com", "joeyandymom.blogspot.com", "juststimming.wordpress.com", 
+			 "leftbrainrightbrain.co.uk", "letitbeautism.blogspot.com", "lizditz.typepad.com", "lovethatmax.com", "maternalinstincts.wordpress.com", // id = 40
+			 "mfamama.typepad.com:my-blog", "momnos.blogspot.com", "motherofshrek.blogspot.com", "noahsdad.com", "onedadsopinion.blogspot.com", 
+			 "questioning-answers.blogspot.com", "qw88nb88.wordpress.com", "rebekahscot.wordpress.com", "rhemashope.wordpress.com", "roostercalls.blogspot.com", // id = 50
+			 "specialed.wordpress.com", "spectrumliving.blogspot.com", "squashedmom.com", "squidalicious.com", "stimcity.org", 
+			 "stimeyland.com", "susanetlinger.typepad.com", "susansenator.com:blog", "teenautism.com", "theadventuresofboywonder.blogspot.com", // id = 60
+			 "thefamilyvoyage.blogspot.com", "therocchronicles.wordpress.com", "thismom.blogs.com", "tinygracenotes.blogspot.com", "trydefyinggravity.wordpress.com/autism", 
+			 "unstrangemind.wordpress.com"];
+
+var posts = [870, 1613, 1352, 58, 391, 
+			 6, 2097, 412, 373, 109,
+			 430, 2393, 392, 173, 198,
+			 233, 134, 1162, 696, 243, 
+			 209, 483, 456, 459, 481, 
+			 587, 450, 1399, 168, 189, 
+			 202, 279, 683, 1510, 34,
+			 2816, 181, 403, 2187, 523, 
+			 1373, 747, 259, 443, 152, 
+			 1331, 571, 29, 665, 516, 
+			 326, 132, 585, 2553, 113, 
+			 1770, 295, 1846, 435, 128, 
+			 516, 365, 806, 64, 236, 
+			 90]
+
+//Blogs used in analysis (as of Dec 2016)
+var blogids = [1,2,3,4,7,
+			   8,12,13,14,15,
+			   16,19,21,22,23,
+			   25,26,27,29,30,
+			   32,33,34,36,37,
+			   40,42,43,45,48,
+			   49,50,51,52,53,
+			   54,55,56,57,58,
+			   59,60,61,62,63,
+			   65]
+
+// var blogids = [1,2,3,4,6,
+//                7,8,12,13,14,
+//                15,16,19,21,22,
+//                23,25,26,27,29,
+//                30,32,33,34,36,
+//                37,38,40,42,43,
+//                45,48,49,50,51,
+//                52,53,54,56,57,
+//                58,59,60,61,62,
+//                63,64]
+
+//Width and Height of the frame
+var width = 1400,
+    height = 700;
+
+//Make an SVG Container
+var svgContainer = d3.select("body").append("svg")
+                                    .attr("width", width)
+                                    .attr("height", height)
+                                    .style("vertical-align", "top")
+                                    .style("display", "inline-block")
+                                    .style("position", "absolute");
+
+d3.select(".filters").style("display", "inline-block")
+
+
+//Make the blog nodes
+var i = 0,
+    cx = width/2,
+    cy = height/2,
+    bigradius = 300,
+    radius = 10;
+
+var slice = 2 * Math.PI / blogids.length; 
+var phase = 0;
+var cen = 128;
+var w = 127;
+
+// set up scale circles around middle
+var strokeOpacity = 0.0;
+for (i = 1; i * (bigradius / 8.0) <= bigradius; i++) {
+	strokeOpacity = 0.2; // calculate opacity based on distance
+	strokeOpacity -= ( ((i % 2) != 0) ? 0.05 : 0.0 );
+	strokeOpacity -= ( ((i % 4) != 0) ? 0.10 : 0.0 );
+	svgContainer.append("circle")
+						.attr("cx", cx)
+						.attr("cy", cy)
+						.attr("class", "scaleCircle")
+						.style("stroke", "black")
+						.style("stroke-opacity", strokeOpacity)
+						.style("fill-opacity", 0)
+						.attr("r", i * (bigradius / 8.0));
+}
+
+
+for (var i = 0; i < blogids.length; i++){
+  id = blogids[i]; // id encodes the index in the list of blogs (or rather, the index + 1)
+  var angle = slice * i;
+  var newX = (cx + bigradius * Math.cos(angle));
+  var newY = (cy + bigradius * Math.sin(angle));
+  var name = blogs[id - 1];
+  // the following line should use Math.max(posts), but Math.max doesn't seem to handle Arrays
+  radius = (((posts[id - 1] - 6) / (2816 - 6)) * 10) + 3;
+  var red   = Math.sin(slice*i+2+phase) * w + cen;
+  var green = Math.sin(slice*i+0+phase) * w + cen;
+  var blue  = Math.sin(slice*i+4+phase) * w + cen;
+  var circle = svgContainer.append("circle")
+                                    .attr("id", id)
+                                    .attr("cx", newX)
+                                    .attr("cy", newY)
+                                    .attr("x", newX)
+                                    .attr("y", newY)
+                                    .attr("class", "blogCircle")
+                                    .style("fill", RGB2Color(red,green,blue))
+                                    .attr("oldr", radius)
+                                    .attr("r", radius);
+
+  // $("circle").off().on("click", click);
+  // $("circle").on("mouseover", mouseover);
+  // $("circle").on("mouseout", mouseout);
+
+  //Set up hover div to display blog name
+  var div = d3.select("body")
+          .append("div")   
+          .attr("class", "tooltip")               
+          .style("display", "none")
+          .style("float", "right" );
+
+  // Set up div to display similar topics
+  // var div = d3.select("body")
+  //         .append("div")
+  //         .attr("class", "tooltip");
+}
+
+//Display blog name in div
+function mouseover(){
+  div.text(blogs[$(this).attr("id") - 1]);
+  div.style("display","block");
+  $(this).attr("r", 15);  
+}
+//Hide blog name from div
+function mouseout(){
+   div.style("display","none");
+   $(this).attr("r", $(this).attr("oldr"));
+}
+
+var blogCircles = document.getElementsByClassName("blogCircle");
+for (var i = 0; i < blogCircles.length; i++) {
+	blogCircles[i].addEventListener("mouseover", mouseover);
+	blogCircles[i].addEventListener("mouseout", mouseout);
+	blogCircles[i].addEventListener("click", click);
+}
+
+//Respond to clicked circle
+function click(){
+	var foo = d3.selectAll("circle[class=blogCircle]").filter(function (d) 
+		{return (this.getAttribute("cx") == width/2 && this.getAttribute("cy") == height/2); }
+		);
+	centerNode = foo.nodes()[0];
+  
+    //Check if it is in the center return all nodes to outside circle
+    //if ($(this).attr("cx") != $(this).attr("x") || $(this).attr("cy") != $(this).attr("y")) {
+    if ($(this).attr("cx") == (width/2) && $(this).attr("cy") == (height/2)) {
+      // we shouldn't be testing if this is blog away from its own spot but if it's in the center
+      //$(this).css("fill", "blue");
+      
+      var nodes = document.getElementsByClassName("blogCircle");
+      for (var i = 0; i < nodes.length; i++) {
+      	var oldx = $(nodes[i]).attr("x");
+      	var oldy = $(nodes[i]).attr("y");
+      	$(nodes[i]).attr("cx", oldx);
+      	$(nodes[i]).attr("cy", oldy);
+      }
+
+      	
+      //Not Implemented - get representative documents from blog for topics selected
+      	/*var center = $(document.querySelectorAll('[clicked="true"]')).attr("id");
+      	var checkedBoxes = getCheckedBoxes("filter_button");
+      	var vectorA = data[center];
+
+      	$.getJSON("mytest.json", function(json) {
+    		var maxCosSim = 0;
+    		var maxText = "";
+    		for (var i = 0; i < json.length; i++) {
+    			var vectorB = [];
+    			for (var j = 4; i < 54; j++) {
+    				vectorB.push(json[i][j]);
+    			}
+
+    			var current = cosineSim(vectorA, vectorB, checkedBoxes);
+    			if (current > maxCosSim){
+    				maxCosSim = current;
+    				maxText = json[i]["text"];
+    			}
+    		}
+    		console.log(maxText);
+		});*/
+      
+    }
+
+    else if (centerNode) {
+      // if something else is in the center, show the matching topics
+      var selfid =  $(this).attr("id");
+      var selfIndex = blogids.indexOf(parseInt(selfid));
+      var selectedTopics = getCheckedBoxes("filter_button");
+      var centerID = centerNode.id;
+      var centerIndex = blogids.indexOf(parseInt(centerID));
+      // look up average topic scores for this blog and for the center blog
+      var selfTopics = data[selfIndex];
+      var centerTopcis = data[centerIndex];
+
+      // calculate like a dot product, but put into a vector rather than adding
+      var dotVector = Array(selectedTopics.length);
+      for (var i = 0; i < selfTopics.length; i++) {
+  	    if (selectedTopics.indexOf(i)!=-1){
+  	      dotVector[i] = selfTopics[i] * centerTopcis[i];
+  	  	}
+      }
+      // match dot-like vector with topics to sort
+      var topicSimScores = dotVector.map(function(e, i) {
+        return [e, topics[i]];
+      });
+      // now sort the topics
+      var sortedTopics = topicSimScores.sort(function (a, b) {
+        return b[0] - a[0];
+      });
+      // ugly hack for now. these should be presented in a pop-up or mouseover for each blog.
+      alert(sortedTopics);
+	  
+    }
+
+    //Move node to center and adjust all other circles around it.
+    
+    else{
+      $(this).attr("cx", width/2);
+      $(this).attr("cy", height/2);
+      $(this).attr("clicked", "true");
+      //$(this).css("fill", "black");
+      var selfid =  $(this).attr("id");
+      var selfIndex = blogids.indexOf(parseInt(selfid));
+      var checkedBoxes = getCheckedBoxes("filter_button");
+      var nodes = document.getElementsByClassName("blogCircle");
+      for (var i = 0; i < nodes.length; i++) {
+      	var otherid = nodes[i].id;
+      	var otherIndex = blogids.indexOf(parseInt(otherid));
+      	//console.log(id);
+      	if (selfIndex != otherIndex){
+      		//console.log("self:" + selfid + " " + selfIndex);
+      		//console.log("other:" + otherid + " " + otherIndex);
+      		var cosim = cosineSim(data[selfIndex], data[otherIndex], checkedBoxes);
+      		//console.log(cosim);
+			var sli = 2 * Math.PI / blogids.length;   
+			var ang = sli * i;
+  			var newx = ((width/2) + (bigradius*(1 -(cosim))) * Math.cos(ang));
+  			//console.log(newx);
+  			var newy = ((height/2) + (bigradius*(1-(cosim))) * Math.sin(ang));
+      		$(nodes[i]).attr("cx", newx);
+      		$(nodes[i]).attr("cy", newy);
+      		//$(nodes[i]).attr("r", 5);
+      		//console.log(newd);
+      	}
+      }
+      
+    }
+  }
+
+//Returns a list of checked box values
+function getCheckedBoxes(chkboxName) {
+  var checkboxes = document.getElementsByClassName(chkboxName);
+  var checkboxesChecked = [];
+  // loop over them all, skipping the All Topics one
+  for (var i=0; i<checkboxes.length; i++) {
+     // And stick the checked ones onto an array...
+     if (checkboxes[i].checked) {
+        var val = d3.select(checkboxes[i]).attr("value");
+        checkboxesChecked.push(parseInt(val));
+     }
+  }
+  // if (checkboxesChecked.length == 1 && checkboxesChecked[0] == '50'){
+  // make All Topics override other selections.
+  if (checkboxesChecked[0] == '50'){
+  	checkboxesChecked = [];
+  	for (var i = 0; i < 50; i++) {
+  		checkboxesChecked.push(i);
+  	}
+  	//console.log(checkboxesChecked);
+  }
+  else
+  {
+    // epsb: since the checkboxes includes "All Topics" at the beginning, we need to decrement to get the proper topic number
+    for (var i = 0; i < checkboxesChecked.length; i++) {
+      checkboxesChecked[i] -= 1;
+    }
+  }
+  // Return the array if it is non-empty, or null
+  return checkboxesChecked.length > 0 ? checkboxesChecked : null;
+}
+
+function RGB2Color(r,g,b)
+  {
+    return '#' + byte2Hex(r) + byte2Hex(g) + byte2Hex(b);
+  }
+function byte2Hex(n)
+  {
+    var nybHexString = "0123456789ABCDEF";
+    return String(nybHexString.substr((n >> 4) & 0x0F,1)) + nybHexString.substr(n & 0x0F,1);
+  }
+
+//Gives cosine similarity of two equal length vectors A and B for selected topics
+function cosineSim(vectorA, vectorB, selectedTopics) {
+  var numerator = 0;
+  var denomA = 0;
+  var denomB = 0;
+  if (selectedTopics.length == 1){
+  	var difference = Math.abs(vectorA[selectedTopics[0]] - vectorB[selectedTopics[0]]);
+  	var ave = vectorA[selectedTopics[0]] / 2.0 + vectorB[selectedTopics[0]] / 2.0;
+  	var pd = difference/ave;
+  	if (pd > 1){
+  		pd = 1
+  	}
+  	return 1 - pd;
+  }
+
+  else{
+	  for (var i = 0; i < vectorA.length; i++) {
+	    if (selectedTopics.indexOf(i)!=-1){
+	      numerator = numerator + (vectorA[i] * vectorB[i]);
+	      //console.log(numerator);
+	      denomA = denomA + (vectorA[i] * vectorA[i]);
+	      //console.log(denomA);
+	      denomB = denomB + (vectorB[i] * vectorB[i]);
+	      //console.log(denomB);
+	  	}
+	  }
+	  var denominator = Math.sqrt(denomA) * Math.sqrt(denomB);
+	  return numerator/(denominator);
+  }
+ }
+
+
+
+
+
+</script>
