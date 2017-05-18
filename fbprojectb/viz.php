@@ -720,6 +720,7 @@ foreach ($result as $item) {
                 if (d.name != main['name']) {
                   var content;
                   content = popMsg.call(this, interactions['source'], interactions['target'], interactions['data']);
+                  content = content ? content : "";
                   if (content == "") {
                     content = content.concat("There was a problem finding interactions between these two people");
                   }
