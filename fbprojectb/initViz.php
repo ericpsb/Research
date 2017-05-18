@@ -3,6 +3,9 @@
 require __DIR__ . '/vendor/autoload.php';
 ini_set('display_errors', 1);
 
+// access config file
+$config = parse_ini_file('config.ini');
+
 //First generate the data array to be plugged into the d3 visualization
 
 #Fetching the GET variables
@@ -37,8 +40,8 @@ function getUserData($accessToken){
 
 
 function getDBdata(){
-    $client = new MongoDB\Client("mongodb://localhost:27017");
-    $db = $client->selectDatabase("fb_nonuse_Nov_20");
+    $client = new MongoDB\Client("mongodb://127.0.0.1:27017");
+    $db = $client->selectDatabase($config["facebook-info-db"]);
     $collection = $db->selectCollection('user');
     
     #Setting

@@ -16,15 +16,16 @@ from facepy.exceptions import OAuthError
 from facepy.exceptions import FacebookError
 from itertools import combinations
 import itertools
+import config
 
 class GenerateViz():
 
     def init(self,userid):
           self.userid = userid
-          client = MongoClient('localhost', 27017)
-          db1 = client['fb_nonuse_Nov_20']
+          client = MongoClient('127.0.0.1', 27017)
+          db1 = client[config.FB_INFO_DB]
           collection1 = db1['interactions']
-          db2 = client['fbapp-DB']
+          db2 = client[config.USER_DB]
           collection2 = db2['fb-users']
           collection3 = db2['fb-interactions']
           admin_token = ""
@@ -74,7 +75,7 @@ class GenerateViz():
 
 
                cursor2 = collection1.find({"collected_from":{ "$in": [{'name':user_name,'id':Id}] }})
-               cursor2.batch_size(30);
+               cursor2.batch_size(30)
                for doc in cursor2:
                  if (doc["large_id"] != Id and doc["small_id"] != Id):
                   if ({'name':doc['large_name']} not in nodes):

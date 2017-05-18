@@ -3,11 +3,15 @@
 require __DIR__ . '/vendor/autoload.php';
 
 ini_set('display_errors',1);
+
+// access config file
+$config = parse_ini_file('config.ini');
+
 //connect to MongoClient
 $m = new MongoDB\Client();
 
 //select a database
-$db = $m->selectDatabase('fbapp-DB');
+$db = $m->selectDatabase($config['user-db']);
 
 //select a collection
 $collection = $db->selectCollection('fb-users');
@@ -22,11 +26,11 @@ $userId = (isset($_GET['user'])? $_GET['user']:null);
 $json = $collection->findOne(array('user id' => $userId));
 
 // Get list of user taggable_friends
-$mongo = new MongoDB\Driver\Manager('mongodb://localhost:27017');
+$mongo = new MongoDB\Driver\Manager('mongodb://127.0.0.1:27017');
 $filter = ['friend_of.0.name' => 'Peter Schaedler'];
 $options = ['projection' => ['_id' => 0, 'name' => 1]];
 $query = new MongoDB\Driver\Query($filter, $options);
-$result = $mongo->executeQuery('fb_nonuse_Nov_20.taggable_friends', $query);
+$result = $mongo->executeQuery($config['facebook-info-db'] . '.taggable_friends', $query);
 $names = array();
 foreach ($result as $item) {
   array_push($names, $item->name);

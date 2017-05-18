@@ -10,6 +10,7 @@ import simplejson as json
 import requests
 import time
 import logging
+import config
 
 
 def main():
@@ -42,9 +43,9 @@ def main():
     appsecret = "c938c071248be2751bbde872cdc56262"
 
     # Connecting to MongoDB
-    client = MongoClient('localhost', 27017)
+    client = MongoClient('127.0.0.1', 27017)
     # Creating a MongoDB database
-    db = client['fbapp-DB']
+    db = client[config.USER_DB]
     # Creating a collection within the database
     collection = db['fb-users']
 

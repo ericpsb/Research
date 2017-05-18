@@ -2,11 +2,14 @@
 ini_set('display_errors',1);
 //connect to MongoClient 
 require __DIR__ . '/vendor/autoload.php';
-$m = new MongoDB\Client("mongodb://localhost:27017");
+$m = new MongoDB\Client("mongodb://127.0.0.1:27017");
+
+// access config file
+$config = parse_ini_file('config.ini');
 
 //select a database
-$db = $m->selectDatabase('fbapp-DB');
-$db2 = $m->selectDatabase('fb_nonuse_Nov_20');
+$db = $m->selectDatabase($config['user-db']);
+$db2 = $m->selectDatabase($config['facebook-info-db']);
 
 //get pairwise interactions
 $user_interactions = $db->selectCollection('fb-interactions');
@@ -37,12 +40,12 @@ $query = new MongoDB\Driver\Query($filter, $options);
 $manager = new MongoDB\Driver\Manager('mongodb://localhost:27017');
 $readPreference = new MongoDB\Driver\ReadPreference(MongoDB\Driver\ReadPreference::RP_PRIMARY);
 
-$interactions = $manager->executeQuery('fbapp-DB.fb-interactions', $query, $readPreference);
+$interactions = $manager->executeQuery($config['user-db'] . '.fb-interactions', $query, $readPreference);
 $interactions = iterator_to_array($interactions,false);
 
 if (empty($interactions)) {
     $query = new MongoDB\Driver\Query($filterReverse, $options);
-    $interactions = $manager->executeQuery('fbapp-DB.fb-interactions', $query, $readPreference);
+    $interactions = $manager->executeQuery($config['user-db'] . '.fb-interactions', $query, $readPreference);
     $interactions = iterator_to_array($interactions,false);
 }
 

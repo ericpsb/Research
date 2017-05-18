@@ -3,11 +3,15 @@
 require __DIR__ . '/vendor/autoload.php';
 
 ini_set('display_errors',1);
+
+// access config file
+$config = parse_ini_file('config.ini');
+
 //connect to MongoClient 
-$m = new MongoDB\Client("mongodb://localhost:27017");
+$m = new MongoDB\Client("mongodb://127.0.0.1:27017");
 
 //select a database
-$db = $m->selectDatabase('fbapp-DB');
+$db = $m->selectDatabase($config['user-db']);
 
 // $user_db = new MongoDB\Collection($db,'fb-users');
 $user_db = $db->selectCollection('fb-users');

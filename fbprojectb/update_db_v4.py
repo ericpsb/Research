@@ -12,6 +12,7 @@ import logging
 import newViz
 #from subprocess import Popen, PIPE
 import os
+import config
 
 
 def main():
@@ -41,8 +42,8 @@ def main():
         runtime = []
 
         # Connecting to MongoDB
-        client = MongoClient('localhost', 27017)
-        db = client.fb_nonuse_Nov_20
+        client = MongoClient('127.0.0.1', 27017)
+        db = client[config.FB_INFO_DB]
         # Create or use collections
         user = db.user
         people = db.people  # everyone appeared in comments, tags, likes, etc
