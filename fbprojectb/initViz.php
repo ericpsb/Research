@@ -40,8 +40,9 @@ function getUserData($accessToken){
 
 
 function getDBdata(){
+    global $config;
     $client = new MongoDB\Client("mongodb://127.0.0.1:27017");
-    $db = $client->selectDatabase($config["facebook-info-db"]);
+    $db = $client->selectDatabase($config['facebook-info-db']);
     $collection = $db->selectCollection('user');
     
     #Setting
@@ -252,8 +253,11 @@ $birthday = $user["birthday"];
 
         function morefriendsthan(array, value) {
           var i = 0;
-          while (array[i] < value && i < array.length) {
+          while (array[i] <= value && i < array.length) {
             i++;
+          }
+          if (array.length === 0) {
+              return 1;
           }
           return i / array.length;
         }
