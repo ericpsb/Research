@@ -49,7 +49,7 @@ class GenerateViz():
             nodeIndex = 1
             cursor1 = collection1.find({"large_id": Id})
             cursor1.batch_size(30)
-            if (cursor1 != None):
+            if (cursor1 != None and cursor1.count() > 0):
                 for doc in cursor1:
                     if({'name': doc['small_name']} not in nodes):
                         interactions = {}
@@ -57,14 +57,13 @@ class GenerateViz():
                         message = []
                         nodes.append({'name': doc['small_name']})
                         interactions['target'] = doc['small_name']
-                        self.createJson(user_name, doc, graph, interactions,
-                                        message, nodes, links, linkIndex, admin, access_token)
+                        self.createJson(user_name, doc, interactions, nodes, links, linkIndex, access_token)
                         linkIndex += 1
                         collection3.insert_one(interactions)
             cursor1.close()
             cursor3 = collection1.find({"small_id": Id})
             cursor3.batch_size(30)
-            if (cursor3 != None):
+            if (cursor3 != None and cursor3.count() > 0):
                 for doc in cursor3:
                     if ({'name': doc['large_name']} not in nodes):
                         interactions = {}
@@ -72,52 +71,51 @@ class GenerateViz():
                         message = []
                         nodes.append({'name': doc['large_name']})
                         interactions['target'] = doc['large_name']
-                        self.createJson(user_name, doc, graph, interactions,
-                                        message, nodes, links, linkIndex, admin, access_token)
+                        self.createJson(user_name, doc, interactions, nodes, links, linkIndex, access_token)
                         linkIndex += 1
                         collection3.insert_one(interactions)
             cursor3.close()
             cursor2 = collection1.find(
                 {"collected_from": {"$in": [{'name': user_name, 'id': Id}]}})
             cursor2.batch_size(30)
-            for doc in cursor2:
-                if (doc["large_id"] != Id and doc["small_id"] != Id):
-                    if ({'name': doc['large_name']} not in nodes):
-                        #interactions = {}
-                        nodes.append({'name': doc['large_name']})
-                        # interactions['source']=user_name
-                        # interactions['target']=doc['large_name']
-                        # try:
-                        # collection3.insert_one(interactions)
-                        # except:
-                        # print "Interaction exists:"+doc['large_name']
+            if (cursor2 != None and cursor2.count() > 0):
+                for doc in cursor2:
+                    if (doc["large_id"] != Id and doc["small_id"] != Id):
+                        if ({'name': doc['large_name']} not in nodes):
+                            #interactions = {}
+                            nodes.append({'name': doc['large_name']})
+                            # interactions['source']=user_name
+                            # interactions['target']=doc['large_name']
+                            # try:
+                            # collection3.insert_one(interactions)
+                            # except:
+                            # print "Interaction exists:"+doc['large_name']
 
-                    if ({'name': doc['small_name']} not in nodes):
-                        #interactions = {}
-                        nodes.append({'name': doc['small_name']})
-                        # interactions['source']=user_name
-                        # interactions['target']=doc['small_name']
-                        # try:
-                        # collection3.insert_one(interactions)
-                        # except:
-                        # print "interaction exists:"+doc['small_name']
+                        if ({'name': doc['small_name']} not in nodes):
+                            #interactions = {}
+                            nodes.append({'name': doc['small_name']})
+                            # interactions['source']=user_name
+                            # interactions['target']=doc['small_name']
+                            # try:
+                            # collection3.insert_one(interactions)
+                            # except:
+                            # print "interaction exists:"+doc['small_name']
 
-                    interactions = {}
-                    interactions['source'] = doc["large_name"]
-                    message = []
-                    interactions['target'] = doc["small_name"]
+                        interactions = {}
+                        interactions['source'] = doc["large_name"]
+                        message = []
+                        interactions['target'] = doc["small_name"]
 
-                    # if (collection3.find_one({"source":doc["large_name"],"target":doc["small_name"]}) != None):
-                    # collection3.delete_one(collection3.find_one({"source":doc["large_name"],"target":doc["small_name"]}))
-                    # if (collection3.find_one({"source":doc["small_name"],"target":doc["large_name"]}) != None):
-                    # collection3.delete_one(collection3.find_one({"source":doc["small_name"],"target":doc["large_name"]}))
+                        # if (collection3.find_one({"source":doc["large_name"],"target":doc["small_name"]}) != None):
+                        # collection3.delete_one(collection3.find_one({"source":doc["large_name"],"target":doc["small_name"]}))
+                        # if (collection3.find_one({"source":doc["small_name"],"target":doc["large_name"]}) != None):
+                        # collection3.delete_one(collection3.find_one({"source":doc["small_name"],"target":doc["large_name"]}))
 
-                    if (doc != {} and doc != None):
-                        self.createJson(user_name, doc, graph, interactions,
-                                        message, nodes, links, linkIndex, admin, access_token)
-                    linkIndex += 1
+                        if (doc != {} and doc != None):
+                            self.createJson(user_name, doc, interactions, nodes, links, linkIndex, access_token)
+                        linkIndex += 1
 
-                    collection3.insert_one(interactions)
+                        collection3.insert_one(interactions)
             cursor2.close()
 
             print "Done"
