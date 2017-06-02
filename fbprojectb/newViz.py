@@ -21,6 +21,70 @@ import config
 
 class GenerateViz():
 
+        # long_id : long descriptor for interaction
+    # short_id : short descriptor for interaction
+    # link_number : [Peter] Honestly I'm not sure what it is, but it's different for different things
+    def add_photo_message(self, doc, interactions, nodes, links, linkIndex, access_token, long_id, short_id, link_number):
+        fb = "https://graph.facebook.com/v2.4/"
+        # image = ""
+
+        if (long_id in doc):
+            if (doc[long_id] != [] and doc[long_id] != "NA"):
+                for photo in doc[long_id]:
+                    try:
+                        photoId = photo['id']
+                        url = fb + photoId + "?fields=picture,created_time&access_token=" + access_token
+                        photoData = requests.get(url).json()
+                        date = dateparser.parse(
+                            photoData['created_time']).strftime('%m/%d/%y')
+                        if ('picture' in photoData):
+                            image = photoData['picture']
+                        message = [
+                            "photo", short_id, image, date]
+                        self.addMsg(message, interactions)
+
+                    except Exception, e:
+                        print doc['large_name'] + "," + doc['small_name']
+                        print long_id
+                        print str(e)
+                        print photoId
+                    self.add_to_link(
+                        doc['large_name'], doc['small_name'], 2, nodes, links, linkIndex)
+
+    # long_id : long descriptor for interaction
+    # short_id : short descriptor for interaction
+    # link_number : [Peter] Honestly I'm not sure what it is, but it's different for different things
+    # Note[Peter, 6/2/17]: This is quite similar to add_photo_message,
+    # but there are a few key differences (the url and how messages are constructed)
+    # so I'm keeping them separate for now.
+    def add_post_message(self, doc, interactions, nodes, links, linkIndex, access_token, long_id, short_id, link_number):
+        fb = "https://graph.facebook.com/v2.4/"
+        # image = ""
+
+        if (long_id in doc):
+            if (doc[long_id] != [] and doc[long_id] != "NA"):
+                for post in doc[long_id]:
+                    try:
+                        postId = post['id']
+                        # fields = "fields=created_time,from,images,link,name,name_tags,picture,comments.limit(25){created_time,from},likes.limit(25){name},tags.limit(25){name}"
+                        url = fb + postId + "?fields=created_time,picture,story,message&access_token=" + access_token
+                        postData = requests.get(url).json()
+                        date = dateparser.parse(
+                            postData['created_time']).strftime('%m/%d/%y')
+                        # if ('picture' in postData):
+                        #     image = postData['picture']
+                        message = self.createPostsMessage(
+                            postData, short_id)
+                        self.addMsg(message, interactions)
+
+                    except Exception, e:
+                        print doc['large_name'] + "," + doc['small_name']
+                        print long_id
+                        print str(e)
+                        print postId
+                    self.add_to_link(
+                        doc['large_name'], doc['small_name'], link_number, nodes, links, linkIndex)
+
     def init(self, userid):
         self.userid = userid
         client = MongoClient('127.0.0.1', 27017)
@@ -57,7 +121,7 @@ class GenerateViz():
                         message = []
                         nodes.append({'name': doc['small_name']})
                         interactions['target'] = doc['small_name']
-                        self.createJson(user_name, doc, interactions, nodes, links, linkIndex, access_token)
+                        self.createJson(doc, interactions, nodes, links, linkIndex, access_token)
                         linkIndex += 1
                         collection3.insert_one(interactions)
             cursor1.close()
@@ -71,7 +135,7 @@ class GenerateViz():
                         message = []
                         nodes.append({'name': doc['large_name']})
                         interactions['target'] = doc['large_name']
-                        self.createJson(user_name, doc, interactions, nodes, links, linkIndex, access_token)
+                        self.createJson(doc, interactions, nodes, links, linkIndex, access_token)
                         linkIndex += 1
                         collection3.insert_one(interactions)
             cursor3.close()
@@ -112,7 +176,7 @@ class GenerateViz():
                         # collection3.delete_one(collection3.find_one({"source":doc["small_name"],"target":doc["large_name"]}))
 
                         if (doc != {} and doc != None):
-                            self.createJson(user_name, doc, interactions, nodes, links, linkIndex, access_token)
+                            self.createJson(doc, interactions, nodes, links, linkIndex, access_token)
                         linkIndex += 1
 
                         collection3.insert_one(interactions)
@@ -395,70 +459,6 @@ class GenerateViz():
             interactions['data'].sort()
             interactions['data'] = list(
                 interactions['data'] for interactions['data'], _ in itertools.groupby(interactions['data']))
-
-    # long_id : long descriptor for interaction
-    # short_id : short descriptor for interaction
-    # link_number : [Peter] Honestly I'm not sure what it is, but it's different for different things
-    def add_photo_message(self, doc, interactions, nodes, links, linkIndex, access_token, long_id, short_id, link_number):
-        fb = "https://graph.facebook.com/v2.4/"
-        # image = ""
-
-        if (long_id in doc):
-            if (doc[long_id] != [] and doc[long_id] != "NA"):
-                for photo in doc[long_id]:
-                    try:
-                        photoId = photo['id']
-                        url = fb + photoId + "?fields=picture,created_time&access_token=" + access_token
-                        photoData = requests.get(url).json()
-                        date = dateparser.parse(
-                            photoData['created_time']).strftime('%m/%d/%y')
-                        if ('picture' in photoData):
-                            image = photoData['picture']
-                        message = [
-                            "photo", short_id, image, date]
-                        self.addMsg(message, interactions)
-
-                    except Exception, e:
-                        print doc['large_name'] + "," + doc['small_name']
-                        print long_id
-                        print str(e)
-                        print photoId
-                    self.add_to_link(
-                        doc['large_name'], doc['small_name'], 2, nodes, links, linkIndex)
-
-    # long_id : long descriptor for interaction
-    # short_id : short descriptor for interaction
-    # link_number : [Peter] Honestly I'm not sure what it is, but it's different for different things
-    # Note[Peter, 6/2/17]: This is quite similar to add_photo_message,
-    # but there are a few key differences (the url and how messages are constructed)
-    # so I'm keeping them separate for now.
-    def add_post_message(self, doc, interactions, nodes, links, linkIndex, access_token, long_id, short_id, link_number):
-        fb = "https://graph.facebook.com/v2.4/"
-        # image = ""
-
-        if (long_id in doc):
-            if (doc[long_id] != [] and doc[long_id] != "NA"):
-                for post in doc[long_id]:
-                    try:
-                        postId = post['id']
-                        # fields = "fields=created_time,from,images,link,name,name_tags,picture,comments.limit(25){created_time,from},likes.limit(25){name},tags.limit(25){name}"
-                        url = fb + postId + "?fields=created_time,picture,story,message&access_token=" + access_token
-                        postData = requests.get(url).json()
-                        date = dateparser.parse(
-                            postData['created_time']).strftime('%m/%d/%y')
-                        # if ('picture' in postData):
-                        #     image = postData['picture']
-                        message = self.createPostsMessage(
-                            postData, short_id)
-                        self.addMsg(message, interactions)
-
-                    except Exception, e:
-                        print doc['large_name'] + "," + doc['small_name']
-                        print long_id
-                        print str(e)
-                        print postId
-                    self.add_to_link(
-                        doc['large_name'], doc['small_name'], link_number, nodes, links, linkIndex)
 
     # [Peter, 6/2/17] This is almost the exact same as add_post_message... and I don't think statuses
     # are necessary.

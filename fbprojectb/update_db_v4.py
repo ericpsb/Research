@@ -13,7 +13,7 @@ import newViz
 #from subprocess import Popen, PIPE
 import os
 import config
-
+import sys
 
 def main():
     logging.basicConfig(filename='update_db_log.txt',
@@ -67,7 +67,6 @@ def main():
         me_url = fb + me_field + '&access_token='
         activity_field = event_field + ',' + friend_field + ',' + \
             taggable_friend_field + ',' + like_field + ',' + feed_field
-        # activity_field = event_field + ',' + friend_field + ',' + like_field + ',' + feed_field
         activity_url = fb + activity_field + '&access_token='
 
         # traverse the token list till the end to get all new access tokens
@@ -272,9 +271,6 @@ def update_db(token, activity_url, profile, user_name, user_id, user, people, ev
             taggable['friend_of'] = [{"name": user_name, "id": user_id}]
             if taggable_friends.find_one({"$and": [{"name": taggable['name']}, {"friend_of.id": user_id}]}) == None:
                 taggable_friends.insert_one(taggable)
-            # else:
-                #taggable_friends.remove({"$and": [{"name": taggable['name']}, {"friend_of.id": user_id}]})
-                # is this correct?
 
         print "Store all taggable friends from {}".format(user_name)
         logging.info("Store all taggable friends from {}".format(user_name))
@@ -302,6 +298,8 @@ def process_feed(feeds, data, user_name, user_id, relation, people, interactions
     logging.info("Find {}\'s {}".format(user_name, 'feed'))
 
     for doc in result_total:
+        print '.',
+        sys.stdout.flush()
         # pagination on tags/likes/comments
         if 'likes' in doc:
             doc['likes']['data'] = pagination(doc['likes'])
@@ -309,11 +307,6 @@ def process_feed(feeds, data, user_name, user_id, relation, people, interactions
             doc['comments']['data'] = pagination(doc['comments'])
         if 'with_tags' in doc:
             doc['with_tags']['data'] = pagination(doc['with_tags'])
-       # if 'story_tags' in doc:
-        # doc['story_tags']['data'] = []
-          #  for key in doc['story_tags']:
-        #     if key != 'data':
-            #        doc['story_tags']['data'].extend(doc['story_tags'][key])
 
         # check the document if exists in the feeds
         doc_in_col = feeds.find_one({"id": doc['id']})
@@ -329,7 +322,10 @@ def process_feed(feeds, data, user_name, user_id, relation, people, interactions
                 doc[relation].append({"name": user_name, "id": user_id})
             feeds.update({"id": doc['id']}, doc)
 
+    print '\nLoop 2'
     for doc in result_total:
+        print '.',
+        sys.stdout.flush()
         # collect people name and id from a doc, add to both people feeds
         people_list = []
         find_people(doc, people, people_list, user_name, user_id)
@@ -358,8 +354,6 @@ def process_feed(feeds, data, user_name, user_id, relation, people, interactions
                         "small_id": small['id'], "large_id": large['id']}
                     # if this node pair exists, print information
                     if track_pair in track_list:
-                        #                        logging.info("Node pair " + small['name'] + " " + large[
-                     #                           'name'] + " is already collected for this user {}".format(user_name))
                         continue
                     # else, add to the tracking list[]
                     else:
@@ -378,7 +372,6 @@ def process_feed(feeds, data, user_name, user_id, relation, people, interactions
                             pair['collected_from'] = [
                                 {"name": user_name, "id": user_id}]
                             interactions.insert_one(pair)
-  #                          logging.info("Find a new node pair " + small['name'] + " " + large['name'])
                         # or update the existing one
                         # remember to copy existing "collected_from" list
                         else:
@@ -388,9 +381,8 @@ def process_feed(feeds, data, user_name, user_id, relation, people, interactions
                                     {"name": user_name, "id": user_id})
                             interactions.update(
                                 {"$and": [{"small_id": small['id']}, {"large_id": large['id']}]}, pair)
-   #                         logging.info("Update an existing pair " + small['name'] + " " + large['name'])
 
-    print 'Store all {} from {} in the database'.format('feed', user_name)
+    print '\nStore all {} from {} in the database'.format('feed', user_name)
     logging.info(
         "Store all {} from {} in the database".format('feed', user_name))
 
@@ -499,9 +491,6 @@ def pre_process(key, collection, data, user_name, user_id, relation):
         existing = collection.find_one({"id": doc['id']})
         # if it not exists in relevant collection
         if existing == None:
-            # if key == 'events':
-            # 	doc['attending']['data'] = pagination(doc['attending'])
-
             # add "relation" attribute to record source
             doc[relation] = [{"name": user_name, "id": user_id}]
             # insert into collection
