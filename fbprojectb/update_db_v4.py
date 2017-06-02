@@ -182,6 +182,9 @@ def main():
                 logging.info(
                     "check_db.txt is updated for successfully collecting a user's data.")
 
+            # close database connections - newViz will use its own
+            client.close()
+
             # generate or update visualization
             to_update_friends = list(set(to_update_friends))
             x = newViz.GenerateViz()
@@ -464,16 +467,19 @@ def find_people(doc, collection, people_list, user_name, user_id):
 # should be 'likes'
 def pagination(data):
     result_total = []
-    while (data['data'] != []):
-        result_total.extend(data['data'])
-        if 'paging' in data:
-            if 'next' in data['paging']:
-                next_url = data['paging']['next']
-                data = requests.get(next_url).json()
+    try:
+        while (data['data'] != []):
+            result_total.extend(data['data'])
+            if 'paging' in data:
+                if 'next' in data['paging']:
+                    next_url = data['paging']['next']
+                    data = requests.get(next_url).json()
+                else:
+                    break
             else:
                 break
-        else:
-            break
+    except KeyError:
+        pass
     return result_total
 
 # A function to loop through pagination and insert document into correpsonding collection
