@@ -229,6 +229,10 @@ $birthday = $user["birthday"];
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-size: 60%;
       }
+
+      #viz_button:disabled{
+        background-color: #ddd;
+      }
     </style>
   </head>
 
@@ -866,7 +870,7 @@ function draw(data) {
 <div id="footer col-xs-12 col-sm-6 offset-sm-2">
 <h4 style="color:#8585ad">Please wait while we generate your visualization. </h4>
     <p></p>
-<button id="Viz Button" type="submit" disabled>Visualization</button>
+<button id="viz_button" type="submit" disabled>Visualization</button>
 </div>
 <script>
 function getParamByName(name){
@@ -884,8 +888,8 @@ $.post('backendInit.php', { A : uid},function(result){
     var domain = "https://das-lab.org/";
     var userdbdata = JSON.parse(result);
     if (userdbdata["json"]) {
-        document.getElementById("Viz Button").disabled = false;
-        document.getElementById("Viz Button").onclick = function(){
+        document.getElementById("viz_button").disabled = false;
+        document.getElementById("viz_button").onclick = function(){
             window.top.location.href = domain + "fbprojectb/viz.php?resp=" + getParamByName('resp') + "&user=" + getParamByName('user');
         }
     }
