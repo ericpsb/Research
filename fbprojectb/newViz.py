@@ -21,70 +21,6 @@ import config
 
 class GenerateViz():
 
-        # long_id : long descriptor for interaction
-    # short_id : short descriptor for interaction
-    # link_number : [Peter] Honestly I'm not sure what it is, but it's different for different things
-    def add_photo_message(self, doc, interactions, nodes, links, linkIndex, access_token, long_id, short_id, link_number):
-        fb = "https://graph.facebook.com/v2.4/"
-        # image = ""
-
-        if (long_id in doc):
-            if (doc[long_id] != [] and doc[long_id] != "NA"):
-                for photo in doc[long_id]:
-                    try:
-                        photoId = photo['id']
-                        url = fb + photoId + "?fields=picture,created_time&access_token=" + access_token
-                        photoData = requests.get(url).json()
-                        date = dateparser.parse(
-                            photoData['created_time']).strftime('%m/%d/%y')
-                        if ('picture' in photoData):
-                            image = photoData['picture']
-                        message = [
-                            "photo", short_id, image, date]
-                        self.addMsg(message, interactions)
-
-                    except Exception, e:
-                        print doc['large_name'] + "," + doc['small_name']
-                        print long_id
-                        print str(e)
-                        print photoId
-                    self.add_to_link(
-                        doc['large_name'], doc['small_name'], 2, nodes, links, linkIndex)
-
-    # long_id : long descriptor for interaction
-    # short_id : short descriptor for interaction
-    # link_number : [Peter] Honestly I'm not sure what it is, but it's different for different things
-    # Note[Peter, 6/2/17]: This is quite similar to add_photo_message,
-    # but there are a few key differences (the url and how messages are constructed)
-    # so I'm keeping them separate for now.
-    def add_post_message(self, doc, interactions, nodes, links, linkIndex, access_token, long_id, short_id, link_number):
-        fb = "https://graph.facebook.com/v2.4/"
-        # image = ""
-
-        if (long_id in doc):
-            if (doc[long_id] != [] and doc[long_id] != "NA"):
-                for post in doc[long_id]:
-                    try:
-                        postId = post['id']
-                        # fields = "fields=created_time,from,images,link,name,name_tags,picture,comments.limit(25){created_time,from},likes.limit(25){name},tags.limit(25){name}"
-                        url = fb + postId + "?fields=created_time,picture,story,message&access_token=" + access_token
-                        postData = requests.get(url).json()
-                        date = dateparser.parse(
-                            postData['created_time']).strftime('%m/%d/%y')
-                        # if ('picture' in postData):
-                        #     image = postData['picture']
-                        message = self.createPostsMessage(
-                            postData, short_id)
-                        self.addMsg(message, interactions)
-
-                    except Exception, e:
-                        print doc['large_name'] + "," + doc['small_name']
-                        print long_id
-                        print str(e)
-                        print postId
-                    self.add_to_link(
-                        doc['large_name'], doc['small_name'], link_number, nodes, links, linkIndex)
-
     def init(self, userid):
         self.userid = userid
         client = MongoClient('127.0.0.1', 27017)
@@ -293,107 +229,107 @@ class GenerateViz():
         image = ""
 
         # PHOTOS
-        add_photo_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'large_likes_small_photo_id_action', 'large_likes_small_action', 2)
+        self.add_photo_message(doc, interactions, nodes, links, linkIndex, access_token, 'large_likes_small_photo_id_action', 'large_likes_small_action', 2)
 
-        add_photo_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'small_likes_large_photo_id_action', 'small_likes_large_action', 2)
+        self.add_photo_message(doc, interactions, nodes, links, linkIndex, access_token, 'small_likes_large_photo_id_action', 'small_likes_large_action', 2)
 
-        add_photo_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'large_likes_small_photo_id_timeline', 'large_likes_small_timeline', 2)
+        self.add_photo_message(doc, interactions, nodes, links, linkIndex, access_token, 'large_likes_small_photo_id_timeline', 'large_likes_small_timeline', 2)
 
-        add_photo_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'small_likes_large_photo_id_timeline', 'small_likes_large_timeline', 2)
+        self.add_photo_message(doc, interactions, nodes, links, linkIndex, access_token, 'small_likes_large_photo_id_timeline', 'small_likes_large_timeline', 2)
 
-        add_photo_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'large_comments_on_small_photo_id_action', 'large_comments_on_small_action', 3)
+        self.add_photo_message(doc, interactions, nodes, links, linkIndex, access_token, 'large_comments_on_small_photo_id_action', 'large_comments_on_small_action', 3)
 
-        add_photo_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'small_comments_on_large_photo_id_action', 'small_comments_on_large_action', 3)
+        self.add_photo_message(doc, interactions, nodes, links, linkIndex, access_token, 'small_comments_on_large_photo_id_action', 'small_comments_on_large_action', 3)
 
-        add_photo_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'large_comments_on_small_photo_id_timeline', 'large_comments_on_small_timeline', 3)
+        self.add_photo_message(doc, interactions, nodes, links, linkIndex, access_token, 'large_comments_on_small_photo_id_timeline', 'large_comments_on_small_timeline', 3)
 
-        add_photo_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'small_comments_on_large_photo_id_timeline', 'small_comments_on_large_timeline', 3)
+        self.add_photo_message(doc, interactions, nodes, links, linkIndex, access_token, 'small_comments_on_large_photo_id_timeline', 'small_comments_on_large_timeline', 3)
 
-        add_photo_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'large_is_tagged_in_small_photo_id_action', 'large_tagged_in_small_action', 4)
+        self.add_photo_message(doc, interactions, nodes, links, linkIndex, access_token, 'large_is_tagged_in_small_photo_id_action', 'large_tagged_in_small_action', 4)
 
-        add_photo_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'small_is_tagged_in_large_photo_id_action', 'small_tagged_in_large_action', 4)
+        self.add_photo_message(doc, interactions, nodes, links, linkIndex, access_token, 'small_is_tagged_in_large_photo_id_action', 'small_tagged_in_large_action', 4)
 
-        add_photo_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'large_is_tagged_in_small_photo_id_timeline', 'large_tagged_in_small_timeline', 4)
+        self.add_photo_message(doc, interactions, nodes, links, linkIndex, access_token, 'large_is_tagged_in_small_photo_id_timeline', 'large_tagged_in_small_timeline', 4)
 
-        add_photo_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'small_is_tagged_in_small_photo_id_timeline', 'small_tagged_in_large_timeline', 4)
+        self.add_photo_message(doc, interactions, nodes, links, linkIndex, access_token, 'small_is_tagged_in_small_photo_id_timeline', 'small_tagged_in_large_timeline', 4)
 
-        add_photo_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'co_like_photo_id', 'CoLike', 1)
+        self.add_photo_message(doc, interactions, nodes, links, linkIndex, access_token, 'co_like_photo_id', 'CoLike', 1)
 
-        add_photo_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'co_comment_photo_id', 'CoCommented', 2)
+        self.add_photo_message(doc, interactions, nodes, links, linkIndex, access_token, 'co_comment_photo_id', 'CoCommented', 2)
 
-        add_photo_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'co_tagged_photo_id', 'CoTagged', 5)
+        self.add_photo_message(doc, interactions, nodes, links, linkIndex, access_token, 'co_tagged_photo_id', 'CoTagged', 5)
 
         # POSTS
-        add_post_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'large_likes_small_post_id_action', 'large_likes_small_action', 2)
+        self.add_post_message(doc, interactions, nodes, links, linkIndex, access_token, 'large_likes_small_post_id_action', 'large_likes_small_action', 2)
 
-        add_post_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'small_likes_large_post_id_action', 'small_likes_large_action', 2)
+        self.add_post_message(doc, interactions, nodes, links, linkIndex, access_token, 'small_likes_large_post_id_action', 'small_likes_large_action', 2)
 
-        add_post_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'large_likes_small_post_id_timeline', 'large_likes_small_timeline', 2)
+        self.add_post_message(doc, interactions, nodes, links, linkIndex, access_token, 'large_likes_small_post_id_timeline', 'large_likes_small_timeline', 2)
 
-        add_post_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'small_likes_large_post_id_timeline', 'small_likes_large_timeline', 2)
+        self.add_post_message(doc, interactions, nodes, links, linkIndex, access_token, 'small_likes_large_post_id_timeline', 'small_likes_large_timeline', 2)
 
-        add_post_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'large_comments_on_small_post_id_action', 'large_comments_on_small_post_id_action', 3)
+        self.add_post_message(doc, interactions, nodes, links, linkIndex, access_token, 'large_comments_on_small_post_id_action', 'large_comments_on_small_post_id_action', 3)
 
-        add_post_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'small_comments_on_large_post_id_action', 'small_comments_on_large_action', 3)
+        self.add_post_message(doc, interactions, nodes, links, linkIndex, access_token, 'small_comments_on_large_post_id_action', 'small_comments_on_large_action', 3)
 
-        add_post_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'large_comments_on_small_post_id_timeline', 'large_comments_on_small_timeline', 3)
+        self.add_post_message(doc, interactions, nodes, links, linkIndex, access_token, 'large_comments_on_small_post_id_timeline', 'large_comments_on_small_timeline', 3)
 
-        add_post_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'small_comments_on_large_post_id_timeline', 'small_comments_on_large_timeline', 3)
+        self.add_post_message(doc, interactions, nodes, links, linkIndex, access_token, 'small_comments_on_large_post_id_timeline', 'small_comments_on_large_timeline', 3)
 
-        add_post_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'large_is_tagged_in_small_post_id_action', 'large_tagged_in_small_action', 4)
+        self.add_post_message(doc, interactions, nodes, links, linkIndex, access_token, 'large_is_tagged_in_small_post_id_action', 'large_tagged_in_small_action', 4)
 
-        add_post_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'small_is_tagged_in_large_post_id_action', 'small_tagged_in_large_action', 4)
+        self.add_post_message(doc, interactions, nodes, links, linkIndex, access_token, 'small_is_tagged_in_large_post_id_action', 'small_tagged_in_large_action', 4)
 
-        add_post_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'large_is_tagged_in_small_post_id_timeline', 'large_tagged_in_small_timeline', 4)
+        self.add_post_message(doc, interactions, nodes, links, linkIndex, access_token, 'large_is_tagged_in_small_post_id_timeline', 'large_tagged_in_small_timeline', 4)
 
-        add_post_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'small_is_tagged_in_large_post_id_timeline', 'small_tagged_in_large_timeline', 4)
+        self.add_post_message(doc, interactions, nodes, links, linkIndex, access_token, 'small_is_tagged_in_large_post_id_timeline', 'small_tagged_in_large_timeline', 4)
 
-        add_post_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'co_like_post_id', 'CoLike', 1)
+        self.add_post_message(doc, interactions, nodes, links, linkIndex, access_token, 'co_like_post_id', 'CoLike', 1)
 
-        add_post_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'co_comment_post_id', 'CoCommented', 2)
+        self.add_post_message(doc, interactions, nodes, links, linkIndex, access_token, 'co_comment_post_id', 'CoCommented', 2)
 
-        add_post_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'co_tagged_post_id', 'CoTagged', 5)
+        self.add_post_message(doc, interactions, nodes, links, linkIndex, access_token, 'co_tagged_post_id', 'CoTagged', 5)
 
-        add_post_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'large_posts_post_to_small_timeline_id', 'large_posts_to_small', 5)
+        self.add_post_message(doc, interactions, nodes, links, linkIndex, access_token, 'large_posts_post_to_small_timeline_id', 'large_posts_to_small', 5)
 
-        add_post_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'small_posts_post_to_large_timeline_id', 'small_posts_to_large', 5)
+        self.add_post_message(doc, interactions, nodes, links, linkIndex, access_token, 'small_posts_post_to_large_timeline_id', 'small_posts_to_large', 5)
 
-        add_post_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'small_posts_photo_video_to_large_timeline_id', 'small_posts_to_large', 5)
+        self.add_post_message(doc, interactions, nodes, links, linkIndex, access_token, 'small_posts_photo_video_to_large_timeline_id', 'small_posts_to_large', 5)
 
-        add_post_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'large_posts_photo_video_to_small_timeline_id', 'large_posts_to_small', 5)
+        self.add_post_message(doc, interactions, nodes, links, linkIndex, access_token, 'large_posts_photo_video_to_small_timeline_id', 'large_posts_to_small', 5)
 
         # [Peter, 6/2/17] I think this is all duplication of posts...
         # It's all the same, but there are more classifications under posts.
         # STATUSES
-        # add_status_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'large_likes_small_status_id_action', 'large_likes_small_action', 2)
+        # add_status_message(doc, interactions, nodes, links, linkIndex, access_token, 'large_likes_small_status_id_action', 'large_likes_small_action', 2)
 
-        # add_status_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'small_likes_large_status_id_action', 'small_likes_large_action', 2)
+        # add_status_message(doc, interactions, nodes, links, linkIndex, access_token, 'small_likes_large_status_id_action', 'small_likes_large_action', 2)
 
-        # add_status_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'large_likes_small_status_id_timeline', 'large_likes_small_timeline', 2)
+        # add_status_message(doc, interactions, nodes, links, linkIndex, access_token, 'large_likes_small_status_id_timeline', 'large_likes_small_timeline', 2)
 
-        # add_status_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'small_likes_large_status_id_timeline', 'small_likes_large_timeline', 2)
+        # add_status_message(doc, interactions, nodes, links, linkIndex, access_token, 'small_likes_large_status_id_timeline', 'small_likes_large_timeline', 2)
 
-        # add_status_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'large_comments_on_small_status_id_action', 'large_comments_on_small_action', 3)
+        # add_status_message(doc, interactions, nodes, links, linkIndex, access_token, 'large_comments_on_small_status_id_action', 'large_comments_on_small_action', 3)
 
-        # add_status_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'small_comments_on_large_status_id_action', 'small_comments_on_large_action', 3)
+        # add_status_message(doc, interactions, nodes, links, linkIndex, access_token, 'small_comments_on_large_status_id_action', 'small_comments_on_large_action', 3)
 
-        # add_status_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'large_comments_on_small_status_id_timeline', 'large_comments_on_small_timeline', 3)
+        # add_status_message(doc, interactions, nodes, links, linkIndex, access_token, 'large_comments_on_small_status_id_timeline', 'large_comments_on_small_timeline', 3)
 
-        # add_status_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'small_comments_on_large_status_id_timeline', 'small_comments_on_large_timeline', 3)
+        # add_status_message(doc, interactions, nodes, links, linkIndex, access_token, 'small_comments_on_large_status_id_timeline', 'small_comments_on_large_timeline', 3)
 
-        # add_status_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'large_is_tagged_in_small_status_id_action', 'large_tagged_in_small_action', 4)
+        # add_status_message(doc, interactions, nodes, links, linkIndex, access_token, 'large_is_tagged_in_small_status_id_action', 'large_tagged_in_small_action', 4)
 
-        # add_status_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'small_is_tagged_in_large_status_id_action', 'small_tagged_in_large_action', 4)
+        # add_status_message(doc, interactions, nodes, links, linkIndex, access_token, 'small_is_tagged_in_large_status_id_action', 'small_tagged_in_large_action', 4)
 
-        # add_status_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'large_is_tagged_in_small_status_id_timeline', 'large_tagged_in_small_timeline', 4)
+        # add_status_message(doc, interactions, nodes, links, linkIndex, access_token, 'large_is_tagged_in_small_status_id_timeline', 'large_tagged_in_small_timeline', 4)
 
-        # add_status_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'small_is_tagged_in_large_status_id_timeline', 'small_tagged_in_large_timeline', 4)
+        # add_status_message(doc, interactions, nodes, links, linkIndex, access_token, 'small_is_tagged_in_large_status_id_timeline', 'small_tagged_in_large_timeline', 4)
 
-        # add_status_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'co_like_status_id', 'CoLike', 1)
+        # add_status_message(doc, interactions, nodes, links, linkIndex, access_token, 'co_like_status_id', 'CoLike', 1)
 
-        # add_status_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'co_comment_status_id', 'CoCommented', 2)                  
+        # add_status_message(doc, interactions, nodes, links, linkIndex, access_token, 'co_comment_status_id', 'CoCommented', 2)                  
 
-        # add_status_message(self, doc, interactions, nodes, links, linkIndex, access_token, 'co_tagged_status_id', 'CoTagged', 5)
+        # add_status_message(doc, interactions, nodes, links, linkIndex, access_token, 'co_tagged_status_id', 'CoTagged', 5)
 
         # events
         if ('co_attended_event_id' in doc):
@@ -416,6 +352,7 @@ class GenerateViz():
                         self.addMsg(message, interactions)
 
                     except Exception, e:
+                        print "** EXCEPTION:"
                         print doc['large_name'] + "," + doc['small_name']
                         print "event"
                         print str(e)
@@ -449,6 +386,7 @@ class GenerateViz():
                         self.addMsg(message, interactions)
 
                     except:
+                        print "** EXCEPTION:"
                         print doc['large_name'] + "," + doc['small_name']
                         print "co-likes"
                         print Id
@@ -460,6 +398,72 @@ class GenerateViz():
             interactions['data'] = list(
                 interactions['data'] for interactions['data'], _ in itertools.groupby(interactions['data']))
 
+    # long_id : long descriptor for interaction
+    # short_id : short descriptor for interaction
+    # link_number : [Peter] Honestly I'm not sure what it is, but it's different for different things
+    def add_photo_message(self, doc, interactions, nodes, links, linkIndex, access_token, long_id, short_id, link_number):
+        fb = "https://graph.facebook.com/v2.4/"
+        # image = ""
+
+        if (long_id in doc):
+            if (doc[long_id] != [] and doc[long_id] != "NA"):
+                for photo in doc[long_id]:
+                    try:
+                        photoId = photo['id']
+                        url = fb + photoId + "?fields=picture,created_time&access_token=" + access_token
+                        photoData = requests.get(url).json()
+                        date = dateparser.parse(
+                            photoData['created_time']).strftime('%m/%d/%y')
+                        if ('picture' in photoData):
+                            image = photoData['picture']
+                        message = [
+                            "photo", short_id, image, date]
+                        self.addMsg(message, interactions)
+
+                    except Exception, e:
+                        print "** EXCEPTION:"
+                        print doc['large_name'] + "," + doc['small_name']
+                        print long_id
+                        print str(e)
+                        print photoId
+                    self.add_to_link(
+                        doc['large_name'], doc['small_name'], 2, nodes, links, linkIndex)
+
+    # long_id : long descriptor for interaction
+    # short_id : short descriptor for interaction
+    # link_number : [Peter] Honestly I'm not sure what it is, but it's different for different things
+    # Note[Peter, 6/2/17]: This is quite similar to add_photo_message,
+    # but there are a few key differences (the url and how messages are constructed)
+    # so I'm keeping them separate for now.
+    def add_post_message(self, doc, interactions, nodes, links, linkIndex, access_token, long_id, short_id, link_number):
+        fb = "https://graph.facebook.com/v2.4/"
+        # image = ""
+
+        if (long_id in doc):
+            if (doc[long_id] != [] and doc[long_id] != "NA"):
+                for post in doc[long_id]:
+                    try:
+                        postId = post['id']
+                        # fields = "fields=created_time,from,images,link,name,name_tags,picture,comments.limit(25){created_time,from},likes.limit(25){name},tags.limit(25){name}"
+                        url = fb + postId + "?fields=created_time,picture,story,message&access_token=" + access_token
+                        postData = requests.get(url).json()
+                        date = dateparser.parse(
+                            postData['created_time']).strftime('%m/%d/%y')
+                        # if ('picture' in postData):
+                        #     image = postData['picture']
+                        message = self.createPostsMessage(
+                            postData, short_id)
+                        self.addMsg(message, interactions)
+
+                    except Exception, e:
+                        print "** EXCEPTION:"
+                        print doc['large_name'] + "," + doc['small_name']
+                        print long_id
+                        print str(e)
+                        print postId
+                    self.add_to_link(
+                        doc['large_name'], doc['small_name'], link_number, nodes, links, linkIndex)
+    
     # [Peter, 6/2/17] This is almost the exact same as add_post_message... and I don't think statuses
     # are necessary.
     # long_id : long descriptor for interaction
