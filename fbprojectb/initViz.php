@@ -3,8 +3,13 @@
 require __DIR__ . '/vendor/autoload.php';
 ini_set('display_errors', 1);
 
+// get MongoDB password from environment variable
+$mongopass = getenv('MONGOPASS');
+
 // access config file
 $config = parse_ini_file('config.ini');
+
+$conn_string = $config['db-conn-string1'] . $mongopass . $config['db-conn-string2'];
 
 //First generate the data array to be plugged into the d3 visualization
 
@@ -41,7 +46,7 @@ function getUserData($accessToken){
 
 function getDBdata(){
     global $config;
-    $client = new MongoDB\Client("mongodb://127.0.0.1:27017");
+    $client = new MongoDB\Client($conn_string);
     $db = $client->selectDatabase($config['facebook-info-db']);
     $collection = $db->selectCollection('user');
     

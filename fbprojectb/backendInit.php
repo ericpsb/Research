@@ -4,11 +4,15 @@ require __DIR__ . '/vendor/autoload.php';
 
 ini_set('display_errors',1);
 
+// get MongoDB password from environment variable
+$mongopass = getenv('MONGOPASS');
+
 // access config file
 $config = parse_ini_file('config.ini');
 
-//connect to MongoClient 
-$m = new MongoDB\Client("mongodb://127.0.0.1:27017");
+//connect to MongoClient
+$conn_string = $config['db-conn-string1'] . $mongopass . $config['db-conn-string2'];
+$m = new MongoDB\Client($conn_string);
 
 //select a database
 $db = $m->selectDatabase($config['user-db']);

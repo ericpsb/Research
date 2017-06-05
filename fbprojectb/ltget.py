@@ -43,7 +43,7 @@ def main():
     appsecret = "c938c071248be2751bbde872cdc56262"
 
     # Connecting to MongoDB
-    client = MongoClient('127.0.0.1', 27017)
+    client = MongoClient(config.get_connection_string())
     # Creating a MongoDB database
     db = client[config.USER_DB]
     # Creating a collection within the database

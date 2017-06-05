@@ -4,11 +4,15 @@ require __DIR__ . '/vendor/autoload.php';
 
 ini_set('display_errors',1);
 
+// get MongoDB password from environment variable
+$mongopass = getenv('MONGOPASS');
+
 // access config file
 $config = parse_ini_file('config.ini');
 
 //connect to MongoClient
-$m = new MongoDB\Client();
+$conn_string = $config['db-conn-string1'] . $mongopass . $config['db-conn-string2'];
+$m = new MongoDB\Client($conn_string);
 
 //select a database
 $db = $m->selectDatabase($config['user-db']);
@@ -26,7 +30,7 @@ $userId = (isset($_GET['user'])? $_GET['user']:null);
 $json = $collection->findOne(array('user id' => $userId));
 
 // Get list of user taggable_friends
-$mongo = new MongoDB\Driver\Manager('mongodb://127.0.0.1:27017');
+$mongo = new MongoDB\Driver\Manager($conn_string);
 $filter = ['friend_of.0.name' => 'Peter Schaedler'];
 $options = ['projection' => ['_id' => 0, 'name' => 1]];
 $query = new MongoDB\Driver\Query($filter, $options);

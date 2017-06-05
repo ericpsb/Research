@@ -1,11 +1,16 @@
 <?php
 ini_set('display_errors',1);
-//connect to MongoClient 
 require __DIR__ . '/vendor/autoload.php';
-$m = new MongoDB\Client("mongodb://127.0.0.1:27017");
+
+// get MongoDB password from environment variable
+$mongopass = getenv('MONGOPASS');
 
 // access config file
 $config = parse_ini_file('config.ini');
+
+//connect to MongoClient
+$conn_string = $config['db-conn-string1'] . $mongopass . $config['db-conn-string2'];
+$m = new MongoDB\Client($conn_string);
 
 //select a database
 $db = $m->selectDatabase($config['user-db']);
@@ -37,7 +42,7 @@ $tagid = $taggable -> findOne(array('name'=>$name2));
 $tag = $tagid["id"];
 
 $query = new MongoDB\Driver\Query($filter, $options);
-$manager = new MongoDB\Driver\Manager('mongodb://localhost:27017');
+$manager = new MongoDB\Driver\Manager($conn_string);
 $readPreference = new MongoDB\Driver\ReadPreference(MongoDB\Driver\ReadPreference::RP_PRIMARY);
 
 $interactions = $manager->executeQuery($config['user-db'] . '.fb-interactions', $query, $readPreference);

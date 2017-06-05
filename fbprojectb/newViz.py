@@ -23,7 +23,7 @@ class GenerateViz():
 
     def init(self, userid):
         self.userid = userid
-        client = MongoClient('127.0.0.1', 27017)
+        client = MongoClient(config.get_connection_string())
         db1 = client[config.FB_INFO_DB]
         collection1 = db1['interactions']
         db2 = client[config.USER_DB]
@@ -403,7 +403,7 @@ class GenerateViz():
     # link_number : [Peter] Honestly I'm not sure what it is, but it's different for different things
     def add_photo_message(self, doc, interactions, nodes, links, linkIndex, access_token, long_id, short_id, link_number):
         fb = "https://graph.facebook.com/v2.4/"
-        # image = ""
+        image = ""
 
         if (long_id in doc):
             if (doc[long_id] != [] and doc[long_id] != "NA"):

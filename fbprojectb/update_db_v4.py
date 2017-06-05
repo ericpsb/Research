@@ -42,7 +42,7 @@ def main():
         runtime = []
 
         # Connecting to MongoDB
-        client = MongoClient('127.0.0.1', 27017)
+        client = MongoClient(config.get_connection_string())
         db = client[config.FB_INFO_DB]
         # Create or use collections
         user = db.user
