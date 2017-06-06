@@ -57,7 +57,7 @@ class GenerateViz():
                         message = []
                         nodes.append({'name': doc['small_name']})
                         interactions['target'] = doc['small_name']
-                        self.createJson(doc, interactions, nodes, links, linkIndex, access_token)
+                        self.createJson(doc, interactions, message, nodes, links, linkIndex, access_token)
                         linkIndex += 1
                         collection3.insert_one(interactions)
             cursor1.close()
@@ -71,7 +71,7 @@ class GenerateViz():
                         message = []
                         nodes.append({'name': doc['large_name']})
                         interactions['target'] = doc['large_name']
-                        self.createJson(doc, interactions, nodes, links, linkIndex, access_token)
+                        self.createJson(doc, interactions, message, nodes, links, linkIndex, access_token)
                         linkIndex += 1
                         collection3.insert_one(interactions)
             cursor3.close()
@@ -112,7 +112,7 @@ class GenerateViz():
                         # collection3.delete_one(collection3.find_one({"source":doc["small_name"],"target":doc["large_name"]}))
 
                         if (doc != {} and doc != None):
-                            self.createJson(doc, interactions, nodes, links, linkIndex, access_token)
+                            self.createJson(doc, interactions, message, nodes, links, linkIndex, access_token)
                         linkIndex += 1
 
                         collection3.insert_one(interactions)
