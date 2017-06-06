@@ -1,6 +1,7 @@
 #Import necessary libraries
 library(dplyr)
 library (rJava)
+.jinit()
 .jinit(parameters="-Xmx12g") #Give rJava enough memory
 library(mallet)
 library(ggplot2)
@@ -13,7 +14,7 @@ n.topics <- 50
 
 
 #Set working directory
-#setwd("/Users/jatinbharwani/Desktop/Summer16/Research/mallet2")
+setwd("C:/Users/a/Desktop/research17/autism-blogs/topicmodeling/mallet2")
 
 
 #Import Json file to a data variable (requires formatting data once imported)
