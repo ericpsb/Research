@@ -29,12 +29,6 @@ class GenerateViz():
         db2 = client[config.USER_DB]
         collection2 = db2['fb-users']
         collection3 = db2['fb-interactions']
-        # /** NEW VIZ TEST
-        # db1 = client['newVizTest']
-        # collection1 = db1['nonuse_interactions']
-        # collection2 = db1['users']
-        # collection3 = db1['app_interactions']
-        # NEW VIZ TEST **/
         admin_token = ""
         if collection2.find_one({"user id": self.userid}) != None:
             #user = collection2.find()[1]
@@ -135,16 +129,6 @@ class GenerateViz():
             except:
                 lol = 1
 
-    # def sendNotification(self):
-    #     template = "Your network visualization is now ready. Click to view it !!"
-    #     href = "https://apps.facebook.com/1582658458614337/viz.php?resp=" + \
-    #         self.actok + "&user=" + self.userid
-    #     data = {"access_token": self.actok, "href": href, "template": template}
-    #     postreq = "https://graph.facebook.com/v2.4/" + self.userid + "/notifications?access_token=" + \
-    #         self.actok + "&amp;href=" + href + "&amp;template=" + template
-    #     posturl = "https://graph.facebook.com/v2.4/" + self.userid + "/notifications"
-    #     requests.post(postreq)
-
     def add_to_link(self, source, target, num, nodes, links, linkIndex):
         try:
             links[linkIndex]['value'] = links[linkIndex]['value'] + num
@@ -152,36 +136,9 @@ class GenerateViz():
             links.append({'source': nodes.index({"name": source}),
                           'target': nodes.index({"name": target}), 'value': num})
 
-    # def getIndex(self, name, nodes):
-    #     i = 0
-    #     for node in nodes:
-    #         if node['name'] == name:
-    #             return i
-
-    #         i = i + 1
-
-    # def contains(self, target, nodes):
-    #     for node in nodes:
-    #         if node['name'] == target:
-    #             return True
-    #     return False
-
     def createVideo(self, link):
         video = '<div class="fb-video" data-href=' + link + ' data-width="50"></div>'
         return video
-
-    # def getPosts(self, graph, posts, user_name, nodes, links, otherLinks):
-    #     data = posts['data']
-    #     dup = posts
-    #     nextData = pagingData(dup, graph)
-    #     data.extend(nextData)
-    #     notReq = ["added_photos", "tagged_in_photo",
-    #               "approved_friend", "created_group", "created_event"]
-    #     for post in data:
-    #         story = description = video = Postmsg = link = picture = ""
-    #         BdayMsg = False
-    #         storyTags = msgTags = {}
-    #         message = []
 
     def createPostsMessage(self, post, interactionType):
         notReq = ["added_photos", "tagged_in_photo",
@@ -300,17 +257,6 @@ class GenerateViz():
                     try:
                         cover = description = date = ""
                         eventId = event['id']
-                        # fields = "?fields=cover,description,start_time,name"
-                        # url = fb + eventId + fields + "&access_token=" + access_token
-                        # eventData = requests.get(url).json()
-                        # if ("cover" in eventData):
-                        #     cover = eventData["cover"]["source"]
-                        # name = eventData['name']
-                        # if ("description" in eventData):
-                        #     description = eventData['description']
-                        # date = dateparser.parse(
-                        #     eventData['start_time']).strftime('%m/%d/%y')
-                        # message = ["event", name, description, cover, date]
 
                         # grab necessary information from database
                         eventData = events.find_one({'id': eventId}, {'_id': False})
@@ -383,12 +329,6 @@ class GenerateViz():
                 for photo in doc[long_id]:
                     try:
                         photoId = photo['id']
-                        # url = fb + photoId + "?fields=picture,created_time&access_token=" + access_token
-                        # photoData = requests.get(url).json()
-                        # date = dateparser.parse(
-                        #     photoData['created_time']).strftime('%m/%d/%y')
-                        # if ('picture' in photoData):
-                        #     image = photoData['picture']
                         
                         # grab necessary information from database
                         date = feeds.find_one({'id': photoId}, {'_id': False, 'created_time': True})
@@ -424,13 +364,6 @@ class GenerateViz():
                 for post in doc[long_id]:
                     try:
                         postId = post['id']
-                        # fields = "fields=created_time,from,images,link,name,name_tags,picture,comments.limit(25){created_time,from},likes.limit(25){name},tags.limit(25){name}"
-                        # url = fb + postId + "?fields=created_time,picture,story,message&access_token=" + access_token
-                        # postData = requests.get(url).json()
-                        # date = dateparser.parse(
-                        #     postData['created_time']).strftime('%m/%d/%y')
-                        # if ('picture' in postData):
-                        #     image = postData['picture']
 
                         # grab necessary information from database
                         postData = feeds.find_one({'id': postId}, {'_id': False})
@@ -462,13 +395,6 @@ class GenerateViz():
                 for status in doc[long_id]:
                     try:
                         statusId = status['id']
-                        # fields = "fields=created_time,from,images,link,name,name_tags,picture,comments.limit(25){created_time,from},likes.limit(25){name},tags.limit(25){name}"
-                        # url = fb + statusId + "?fields=created_time,picture,story,message&access_token=" + access_token
-                        # statusData = requests.get(url).json()
-                        # date = dateparser.parse(
-                        #     statusData['created_time']).strftime('%m/%d/%y')
-                        # if ('picture' in statusData):
-                        #     image = statusData['picture']
 
                         # grab necessary information from database
                         statusData = feeds.find_one({'id': statusId}, {'_id': False})

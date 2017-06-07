@@ -50,13 +50,11 @@ $manager = new MongoDB\Driver\Manager($conn_string);
 $readPreference = new MongoDB\Driver\ReadPreference(MongoDB\Driver\ReadPreference::RP_PRIMARY);
 
 $interactions = $manager->executeQuery($config['user-db'] . '.fb-interactions', $query, $readPreference);
-// $interactions = $manager->executeQuery('newVizTest.app_interactions', $query, $readPreference); // ** NEW VIZ TEST
 $interactions = iterator_to_array($interactions,false);
 
 if (empty($interactions)) {
     $query = new MongoDB\Driver\Query($filterReverse, $options);
     $interactions = $manager->executeQuery($config['user-db'] . '.fb-interactions', $query, $readPreference);
-    // $interactions = $manager->executeQuery('newVizTest.app_interactions', $query, $readPreference); // ** NEW VIZ TEST
     $interactions = iterator_to_array($interactions,false);
 }
 
