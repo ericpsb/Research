@@ -16,12 +16,16 @@ $m = new MongoDB\Client($conn_string);
 $db = $m->selectDatabase($config['user-db']);
 $db2 = $m->selectDatabase($config['facebook-info-db']);
 
+// get user access token
+$access_token = isset($_POST["C"]) ? $_POST["C"] : null;
+
 //get pairwise interactions
 $user_interactions = $db->selectCollection('fb-interactions');
 $taggable = $db2->selectCollection('taggable_friends');
-//get the user's name
-$name1 = $_POST["A"];
-$name2 = $_POST["B"]; 
+
+//get the users' name
+$name1 = isset($_POST["A"]) ? $_POST["A"] : null;
+$name2 = isset($_POST["B"]) ? $_POST["B"] : null; 
 
 //get the interactions of this user
 $filter = [
@@ -46,11 +50,13 @@ $manager = new MongoDB\Driver\Manager($conn_string);
 $readPreference = new MongoDB\Driver\ReadPreference(MongoDB\Driver\ReadPreference::RP_PRIMARY);
 
 $interactions = $manager->executeQuery($config['user-db'] . '.fb-interactions', $query, $readPreference);
+// $interactions = $manager->executeQuery('newVizTest.app_interactions', $query, $readPreference); // ** NEW VIZ TEST
 $interactions = iterator_to_array($interactions,false);
 
 if (empty($interactions)) {
     $query = new MongoDB\Driver\Query($filterReverse, $options);
     $interactions = $manager->executeQuery($config['user-db'] . '.fb-interactions', $query, $readPreference);
+    // $interactions = $manager->executeQuery('newVizTest.app_interactions', $query, $readPreference); // ** NEW VIZ TEST
     $interactions = iterator_to_array($interactions,false);
 }
 
@@ -59,7 +65,10 @@ $result = "null";
 if (!empty($interactions)) {
     foreach ($interactions as $item) {
         $itemAsArray = (array) $item;
-        if (!empty($itemAsArray["data"])) {
+        if (!empty($itemAsArray['data'])) {
+            // Loop through ['data'], grab id in second spot if photo, post, or status, and make request to get "picture"
+            $itemAsArray['data'] = array_map("resolvePicture", $itemAsArray['data']);
+
             $result = $itemAsArray;
             $result["tag"] = $tag;
             $result = json_encode($result);
@@ -69,4 +78,30 @@ if (!empty($interactions)) {
 }
 
 echo $result . "\n";
+
+function resolvePicture(array $post) {
+    if ($post[0] == 'photo') {
+        $post[2] = requestPicture($post[2]);
+    }
+    elseif ($post[0] == 'post' || $post[0] == 'status') {
+        $post[7] = requestPicture($post[7]);
+    }
+    return $post;
+}
+
+function requestPicture($id) {
+    global $access_token;
+    $ch = curl_init("https://graph.facebook.com/v2.9/$id?fields=picture&access_token=$access_token");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HEADER, 0);
+    $data = curl_exec($ch);
+    curl_close($ch);
+    $dataJson = json_decode($data, true);
+    if (isset($dataJson['picture'])) {
+        return $dataJson['picture'];
+    }
+    else {
+        return "";
+    }
+}
 ?>

@@ -16,9 +16,11 @@ $m = new MongoDB\Client($conn_string);
 
 //select a database
 $db = $m->selectDatabase($config['user-db']);
+// $db = $m->selectDatabase('newVizTest'); // ** NEW VIZ TEST
 
 //select a collection
 $collection = $db->selectCollection('fb-users');
+// $collection = $db->selectCollection('users'); // ** NEW VIZ TEST
 
 //get pairwise interactions
 //$user_interactions = new MongoCollection($db,'fb-interactions');
@@ -29,9 +31,12 @@ $userId = (isset($_GET['user'])? $_GET['user']:null);
 //Plug user id to get user's json from the collection
 $json = $collection->findOne(array('user id' => $userId));
 
+// get user name
+$user_name = $json['name'];
+
 // Get list of user taggable_friends
 $mongo = new MongoDB\Driver\Manager($conn_string);
-$filter = ['friend_of.0.name' => 'Peter Schaedler'];
+$filter = ['friend_of.0.name' => $user_name];
 $options = ['projection' => ['_id' => 0, 'name' => 1]];
 $query = new MongoDB\Driver\Query($filter, $options);
 $result = $mongo->executeQuery($config['facebook-info-db'] . '.taggable_friends', $query);
@@ -536,7 +541,7 @@ foreach ($result as $item) {
         var connect = '<div style="background:#191919 ; font-size:14px; padding-left : 10px; padding-top:10px; padding-right:10px; padding-bottom : 10px; border-bottom-left-radius:15px; border-bottom-right-radius:15px; border-top-left-radius:15px ; border-top-right-radius:15px">';
         if (x == 0) {
           if (interaction[3] != "") {
-            connect = connect.concat('<img style="vertical-align:middle" src="' + interaction[4] + '" />');
+            connect = connect.concat('<img style="vertical-align:middle" src="' + interaction[3] + '" />');
           }
         }
         if (x == 1) {
@@ -666,7 +671,8 @@ foreach ($result as $item) {
         console.log($('.popover'));
         $.post('backendData.php', {
           A: main['name'],
-          B: d.name
+          B: d.name,
+          C: json['access_token']
         }, function(result) {
           interactions = JSON.parse(result);
           console.log("This seems right");
@@ -719,7 +725,8 @@ foreach ($result as $item) {
           console.log(d);
           $.post('backendData.php', {
             A: lastClickedNode.name,
-            B: d.name
+            B: d.name,
+            C: json['access_token']
           }, function(result) {
             interactions = JSON.parse(result);
             circ.popover({
