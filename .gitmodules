@@ -1,0 +1,4 @@
+[submodule "fbprojectb/libffi"]
+	path = fbprojectb/libffi
+	url = git://github.com/libffi/libffi
+	ignore = dirty
