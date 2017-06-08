@@ -40,12 +40,8 @@ function getUserData($accessToken){
     return json_encode($array);
 }
 
-
-
-
-
 function getDBdata(){
-    global $config;
+    global $config, $conn_string;
     $client = new MongoDB\Client($conn_string);
     $db = $client->selectDatabase($config['facebook-info-db']);
     $collection = $db->selectCollection('user');
@@ -73,7 +69,6 @@ $user = json_decode($profile,true);
 $firstname = $user["first_name"];
 $friendscount = $user['friends']['summary']['total_count'];
 $age = $user["age"];
-// $percentage = "90%";
 if ($friendscount > 350) {
     $compare = "more than";
 } elseif($friendscount < 350){
@@ -84,20 +79,6 @@ if ($friendscount > 350) {
 
 $email = $user["email"];
 $birthday = $user["birthday"];
-
-
-// $dbarray = getDBdata();
-
-// $func = function($value) {
-//    	return getAge($value["birthday"]);
-// };
-
-
-// $dbage = array_map($func, $getDBdata);
-
-
-
-
 ?>
 
 
@@ -735,138 +716,6 @@ function draw(data) {
         }, 500);
     };
 }
-
-
-
-//  datasetTotal = [
-//      {"age":"12-17", "friends" : 0},{"age":"18-24", "friends" : 420},{"age":"25-34", "friends" : 190},{"age":"35-44", "friends" : 0},{"age":"45-54", "friends" : 0},{"age":"55-64", "friends" : 0},{"age":"65+", "friends" : 0},{"age":"Average", "friends" : 343}
-//  ];
-
-//  datasetOption1 = [
-//       {"age":"12-17", "friends" : 0},{"age":"18-24", "friends" : 490},{"age":"25-34", "friends" : 190},{"age":"35-44", "friends" : 0},{"age":"45-54", "friends" : 0},{"age":"55-64", "friends" : 0},{"age":"65+", "friends" : 0},{"age":"Average", "friends" : 340}
-//  ];
-
-//  datasetOption2 = [
-//         {"age":"12-17", "friends" : 0},{"age":"18-24", "friends" : 350},{"age":"25-34", "friends" : 0},{"age":"35-44", "friends" : 0},{"age":"45-54", "friends" : 0},{"age":"55-64", "friends" : 0},{"age":"65+", "friends" : 0},{"age":"Average", "friends" : 350}
-//  ];
-
-//  d3.selectAll("input").on("change", selectDataset);
-
-//  function selectDataset()
-//  {
-//      var value = this.value;
-//      if (value == "total")
-//      {
-//          change(datasetTotal);
-//      }
-//      else if (value == "option1")
-//      {
-//          change(datasetOption1);
-//      }
-//      else if (value == "option2")
-//      {
-//          change(datasetOption2);
-//      }
-//  }
-
-// var margin3 = {top: 20, right: 20, bottom: 30, left: 50},
-//    width3 = 500 - margin3.left - margin3.right,
-//    height3 =300 - margin3.top - margin3.bottom;
-
-//  var div = d3.select("body").append("div").attr("class", "toolTip");
-
-//  var formatPercent = d3.format("");
-
-//  var y3 = d3.scale.ordinal()
-//          .rangeRoundBands([height3, 0], .2, 0.5);
-
-//  var x3 = d3.scale.linear()
-//          .range([0, width3]);
-
-//  var xAxis3 = d3.svg.axis()
-//          .scale(x3)
-//          .tickSize(-height3)
-//          .orient("bottom");
-
-//  var yAxis3 = d3.svg.axis()
-//          .scale(y3)
-//          .orient("left");
-//  //.tickFormat(formatPercent);
-
-//  var svg3 = d3.select("#graph3").append("svg")
-//          .attr("width", width3 + margin3.left + margin3.right)
-//          .attr("height", height3 + margin3.top + margin3.bottom)
-//          .append("g")
-//          .attr("transform", "translate(" + margin3.left + "," + margin3.top + ")");
-
-//  svg3.append("g")
-//          .attr("class", "x axis")
-//          .attr("transform", "translate(0," + height3 + ")")
-//          .call(xAxis3);
-
-//  d3.select("input[value=\"total\"]").property("checked", true);
-//  change(datasetTotal);
-
-//  function change(dataset) {
-
-//      y3.domain(dataset.map(function(d) { return d.age; }));
-//      x3.domain([0, 490]);
-//      // x3.domain([0, d3.max(dataset, function(d) { return d.friends; })]);
-
-//      svg3.append("g")
-//              .attr("class", "x axis")
-//              .attr("transform", "translate(0," + height3 + ")")
-//              .call(xAxis3);
-
-//      svg3.select(".y.axis").remove();
-//      svg3.select(".x.axis").remove();
-
-//      svg3.append("g")
-//              .attr("class", "y axis")
-//              .call(yAxis3)
-//              .append("text")
-//              .attr("transform", "rotate(0)")
-//              .attr("x", 30)
-//              .attr("dx", ".1em")
-//              .style("text-anchor", "end")
-//              .text("Age");
-
-
-//      var bar = svg3.selectAll(".bar")
-//              .data(dataset, function(d) { return d.age; });
-//      // new data:
-//      bar.enter().append("rect")
-//              .attr("class", "bar")
-//              .attr("x", function(d) { return x3(d.friends); })
-//              .attr("y", function(d) { return y3(d.age); })
-//              .attr("width", function(d) { return width3-x3(d.friends); })
-//              .attr("height", y3.rangeBand());
-
-//      bar
-//              .on("mousemove", function(d){
-//                  div.style("left", d3.event.pageX+10+"px");
-//                  div.style("top", d3.event.pageY-25+"px");
-//                  div.style("display", "inline-block");
-//                  div.html((d.age)+"<br>"+(d.friends)+" Friends");
-//              });
-//      bar
-//              .on("mouseout", function(d){
-//                  div.style("display", "none");
-//              });
-
-
-//      // removed data:
-//      bar.exit().remove();
-
-//      // updated data:
-//      bar.transition()
-//              .duration(750)
-//              .attr("x", function(d) { return 0; })
-//              .attr("y", function(d) { return y3(d.age); })
-//              .attr("width", function(d) { return x3(d.friends); })
-//              .attr("height", y3.rangeBand());
-
-//  };
 
 </script>
 
