@@ -37,8 +37,8 @@ topic.model <- MalletLDA(num.topics=n.topics)
 topic.model$loadDocuments(mallet.instances)
 
 ## Get the vocabulary, and some statistics about word frequencies.
-#vocabulary <- topic.model$getVocabulary()
-#word.freqs <- mallet.word.freqs(topic.model)
+# vocabulary <- topic.model$getVocabulary()
+# word.freqs <- mallet.word.freqs(topic.model)
 
 ## Optimize hyperparameters every 20 iterations, 
 ##  after 50 burn-in iterations.
@@ -61,6 +61,3 @@ doc.topics.frame <- data.frame(doc.topics)
 #names(doc.topics.frame) <- paste("Topic", 1:n.topics, sep="")
 names(doc.topics.frame) <- topics.labels
 docs.and.topics <- cbind(documents, doc.topics.frame)
-
-
-

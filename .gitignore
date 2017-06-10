@@ -9,9 +9,7 @@ autism-blogs/blogscrapers/specificBlogs/merged_file.json
 autism-blogs/topicmodeling/mallet2/merged_file.json
 
 autism-blogs/topicmodeling/mallet2/documents.txt
-
 autism-blogs/topicmodeling/mallet2/topic_frame.csv
-
 autism-blogs/topicmodeling/mallet2/.Rhistory
-
-
+autism-blogs/nodeLDA/documents.txt
+autism-blogs/nodeLDA/topic_frame.csv

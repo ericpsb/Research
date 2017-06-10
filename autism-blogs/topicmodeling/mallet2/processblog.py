@@ -8,7 +8,10 @@ filejson = json.loads(file)
 ofile = open("documents.txt", "w", encoding='utf-8');
 for site in filejson:
 	for post in site:
-		ofile.write(post["link"] + "\t" + post["date"].replace("\n", "") + "\t")
+		ofile.write(post["link"] + "\t")
+		date = post["date"].replace("\n", "")
+		date = re.sub(r'^\s*', "", date)
+		ofile.write(date + "\t")
 		body = post["body"].replace("\t", " ")
 		body = re.sub(r'(\r?\n)', ' ', body)
 		body = re.sub(r'(\s)+', ' ', body)
