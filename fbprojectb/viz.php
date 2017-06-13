@@ -148,6 +148,18 @@ foreach ($result as $item) {
       stroke-width: 0.5px;
       stroke-opacity: 0.5px;
     }
+
+    .svg-area {
+      width: 100vw;
+      height: 100vh;
+      margin-bottom: -9px; /* seems to be necessary for some reason */
+    }
+
+    #hero {
+      position: absolute;
+      top: 0;
+      width: 100vw;
+    }
   </style>
 
   <body>
@@ -157,7 +169,7 @@ foreach ($result as $item) {
     <script language="JavaScript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script language="Javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.15.2/URI.min.js"></script>
     <div id="fb-root"></div>
-    <div id="hero" style="width:2500px;">
+    <div id="hero">
       <h1 style="color:#FFFFFF; display:inline; float:left; margin:0 80px 20px 20px">This is what your <i>TRUE</i> friend network looks like</h1>
       <button id="return" style="display:inline; float:left;">Return to Fun Facts</button>
       <script>
@@ -219,8 +231,8 @@ foreach ($result as $item) {
     <!-- ========================================================================================================================================================== -->
 
     <script>
-      var width = 2000,
-        height = 2000;
+      var width = window.innerWidth,
+        height = window.innerHeight - $("#hero").height();
 
       var force = d3.layout.force()
         .charge(-5000)
@@ -367,10 +379,8 @@ foreach ($result as $item) {
         if (interactions != [] && interactions != null) {
           for (var i = 0; i < interactions.length; i++) {
             var interaction = interactions[i];
-            if (i != 0) {
-              content = content.concat(i);
-              content = content.concat(") ");
-            }
+            content = content.concat(i+1);
+            content = content.concat(") ");
             if (interaction[0] == "photo") {
               var onlyUrl = interaction[2];
               var myImg = '<img src="' + onlyUrl + '" />';
@@ -788,7 +798,9 @@ foreach ($result as $item) {
       }
 
       //Build graph object
-      var svg = d3.select("body").append("svg").attr("width", width).attr("height", height).append('svg:g').classed('node-area', true).call(zoom).on("dblclick.zoom", null).append('svg:g');
+      var svg = d3.select("body").append("svg").classed('svg-area', true).append('svg:g').classed('node-area', true).call(zoom).on("dblclick.zoom", null).append('svg:g');
+      // .attr("width", width).attr("height", height)
+      // $("svg").id = "svg"
       svg.append("svg:rect")
         .attr("width", width)
         .attr("height", height)

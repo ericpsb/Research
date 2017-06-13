@@ -37,9 +37,9 @@ $filterReverse = [
     'target' => $name1
 ];
 $options = [
-    'sort' => [
-        '$natural' => -1
-    ]
+    // 'sort' => [
+    //     '$natural' => -1
+    // ]
 ];
 
 $tagid = $taggable -> findOne(array('name'=>$name2));
@@ -66,6 +66,9 @@ if (!empty($interactions)) {
         if (!empty($itemAsArray['data'])) {
             // Loop through ['data'], grab id in second spot if photo, post, or status, and make request to get "picture"
             $itemAsArray['data'] = array_map("resolvePicture", $itemAsArray['data']);
+
+            // sort by date
+            usort($itemAsArray['data'], 'compare');
 
             $result = $itemAsArray;
             $result["tag"] = $tag;
@@ -101,5 +104,11 @@ function requestPicture($id) {
     else {
         return "";
     }
+}
+
+function compare($a, $b) {
+    $adate = date('Y-m-d', strtotime($a[count($a)-1]));
+    $bdate = date('Y-m-d', strtotime($b[count($b)-1]));
+    return -1 * strcmp($adate, $bdate);
 }
 ?>
