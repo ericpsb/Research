@@ -123,8 +123,8 @@ class GenerateViz():
             try:
                 user['json'] = jsons
                 collection2.update({"user id": self.userid}, user)
-                print collection2.find_one({"user id": self.userid})
-                print jsons
+                # print collection2.find_one({"user id": self.userid})
+                # print jsons
                 print "Updated Collection"
             except:
                 lol = 1
@@ -176,7 +176,7 @@ class GenerateViz():
         else:
             message = ["post", status_type, interactionType, story,
                        Postmsg, description, link, picture, video, date]
-        print message
+        # print message
 
         return message
 
@@ -337,7 +337,7 @@ class GenerateViz():
 
                         message = [
                             "photo", short_id, image, date]
-                        print message
+                        # print message
                         self.addMsg(message, interactions)
 
                     except Exception, e:
