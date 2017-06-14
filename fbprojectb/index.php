@@ -179,7 +179,7 @@
         <p> </p>
         <p>Click below to log in and check it out.</p>
         <p>
-          <fb:login-button scope="public_profile,email,user_friends,user_posts,user_events,user_likes,user_birthday" onlogin="checkLoginState();">
+          <fb:login-button scope="public_profile,email,user_friends,user_posts,user_events,user_likes,user_birthday,publish_actions" onlogin="checkLoginState();">
           </fb:login-button>
         </p>
         <div id="status">
