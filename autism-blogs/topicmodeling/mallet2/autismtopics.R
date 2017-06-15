@@ -11,10 +11,10 @@ library(jsonlite)
 
 #Set number of topics
 n.topics <- 50
-
+long.label.length = 10
 
 #Set working directory
-setwd("C:/Users/a/Desktop/research17/autism-blogs/topicmodeling/mallet2")
+setwd("C:/Users/a/Desktop/research17/das-lab/autism-blogs/topicmodeling/mallet2")
 
 
 #Import Json file to a data variable (requires formatting data once imported)
@@ -37,8 +37,8 @@ topic.model <- MalletLDA(num.topics=n.topics)
 topic.model$loadDocuments(mallet.instances)
 
 ## Get the vocabulary, and some statistics about word frequencies.
-# vocabulary <- topic.model$getVocabulary()
-# word.freqs <- mallet.word.freqs(topic.model)
+#vocabulary <- topic.model$getVocabulary()
+#word.freqs <- mallet.word.freqs(topic.model)
 
 ## Optimize hyperparameters every 20 iterations, 
 ##  after 50 burn-in iterations.
@@ -53,11 +53,16 @@ doc.topics <- mallet.doc.topics(topic.model, smoothed=T, normalized=T)
 topic.words <- mallet.topic.words(topic.model, smoothed=T, normalized=T)
 mallet.top.words(topic.model, topic.words[1,], 30)
 
-topics.labels <- gsub("\\W", "_", mallet.topic.labels(topic.model, topic.words, 3))
-topics.long.labels <- mallet.topic.labels(topic.model, topic.words, num.top.words=50)
+#topics.labels <- gsub("\\W", "_", mallet.topic.labels(topic.model, topic.words, 3))
+topics.long.labels <- vector(length=n.topics)
+for (topic.i in 1:n.topics) 
+{
+  topics.labels[topic.i] <- gsub("\\W", "_", paste(as.vector(mallet.top.words(topic.model, topic.words[topic.i,], long.label.length)[,1]), collapse="_"))
+}
+#topics.long.labels <- mallet.topic.labels(topic.model, topic.words, num.top.words=50)
 
 
 doc.topics.frame <- data.frame(doc.topics)
 #names(doc.topics.frame) <- paste("Topic", 1:n.topics, sep="")
-names(doc.topics.frame) <- topics.labels
+names(doc.topics.frame) <- topics.long.labels
 docs.and.topics <- cbind(documents, doc.topics.frame)

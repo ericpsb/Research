@@ -11,6 +11,8 @@ Some software needed: python, bash (or any linux shell), R + RStudio
 <li>Save the doc.topics.frame variable after the R script is finished with write.csv(doc.topics.frame, file="topic_frame.csv", quote=FALSE), this will produce topic_frame.csv</li>
 <li>run the processblog.py, this will produce the documents.txt file</li>
 <li>then have documents.txt and topic_frame.csv in this folder</li>
+<li>use node to run nodeLDA.js, this will generate a file called nodeLDA.json file</li>
+<li>use node to run server.js to launch the server itself</li>
 </ol>
 
 the webpage and some javascript are modified version of the jsLDA project: https://github.com/mimno/jsLDA
