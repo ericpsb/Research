@@ -9,6 +9,9 @@ ofile = open("documents.txt", "w", encoding='utf-8');
 for site in filejson:
 	for post in site:
 		ofile.write(post["link"] + "\t")
+		if(re.match("http://www.donnathomson.com", post["link"]) != None):
+			print(post)
+			print("\n\n")
 		date = post["date"].replace("\n", "")
 		date = re.sub(r'^\s*', "", date)
 		ofile.write(date + "\t")

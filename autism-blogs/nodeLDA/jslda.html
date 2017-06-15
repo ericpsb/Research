@@ -38,7 +38,7 @@
 	<input class="dest" type="number" data-maxpage="<!-- @echo MAXPAGE -->">
 	<button class="go">Go</button>
 	</div>
-	<div class="help">Documents are sorted by their proportion of the currently selected topic, biased to prefer longer documents.</div>
+	<div class="help">Documents are sorted by their proportion of the currently selected topic. The topics are sorted by their average proportion of all documents.</div>
 	<!-- @echo DOCS -->
 	<div style="text-align:center;">
 	<button class="prev">&lt;</button>
@@ -49,23 +49,14 @@
 	</div>
 </div>
 
-<div id="vocab-page" class="page">
-	<div class="help">Words occurring in only one topic have specificity 1.0, words evenly distributed among all topics have specificity 0.0. <button id="showStops">Show stopwords</button>
-<button id="sortVocabByTopic">Sort by topic</button>
-	</div>
-<table id="vocab-table">
-<thead><th>Word</th><th>Frequency</th><th>Topic Specificity</th><th>Stoplist</th></thead>
-<tbody></tbody>
-</table>
-</div>
-
 <div id="ts-page" class="page">
-	<div class="help">Documents are grouped by their "date" field (the second column in the input file). These plots show the average document proportion of each topic at each date value. Date values are <i>not</i> parsed, but simply sorted in the order they appear in the input file.</div>
-	<div class="help"></div>
+	<div class="help">Documents are grouped by their date. These plots show the average document proportion of each topic at each date value. <!-- @echo TRANGE --></div>
+	<!-- @echo TGRAPH -->
 </div>
 
 <div id="corr-page" class="page">
 	<div class="help">Topics that occur together more than expected are blue, topics that occur together less than expected are red.</div>
+	<!-- @echo CGRAPH -->
 </div>
 
 </div>
