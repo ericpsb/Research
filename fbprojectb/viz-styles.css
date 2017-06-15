@@ -1,0 +1,170 @@
+.popover {
+    max-width: 320px;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    position: relative;
+    border-radius: 50px;
+}
+
+.popover-title {
+    background-color: #FFFFFF;
+    font-size: 16px;
+    color: #000000;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.popover-content {
+    overflow: auto;
+    max-width=300px;
+    max-height: 300px;
+    background-color: #AE2B22;
+    font-size: 17px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    color: #FFFFFF;
+}
+
+.popover.right {
+    margin-left: 25px;
+}
+
+.popover.right:before {
+    content: ' ';
+    height: 0;
+    position: absolute;
+    width: 0;
+    left: -32px;
+    top: 50%;
+    margin-top: -18px;
+    border: 20px solid transparent;
+    border-right-color: #AE2B22;
+}
+
+.link {
+    stroke: #999;
+    stroke-width: 0.5px;
+    stroke-opacity: 0.5px;
+}
+
+.svg-area {
+    width: 100vw;
+    height: 100vh;
+    margin-bottom: -9px; /* seems to be necessary for some reason */
+}
+
+#hero {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    padding: 0;
+}
+
+#top5 {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    margin: 0;
+}
+
+/* ===============
+ *  Top 5 Friends
+ * =============== */
+
+#popUpVeil {
+    background-color: rgba(0, 0, 0, .7);
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    display: none;
+}
+
+#topFiveWindow {
+    position: absolute;
+    top: 10vh;
+    left: 50%;
+    margin-left: -300px;
+    z-index: 2;
+    padding: 10px;
+
+    height: 560px;
+    width: 600px;
+    background-color: #EEE;
+    border-radius: 10px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+
+    display: none;
+}
+
+#closeButton {
+    position: absolute;
+    z-index: 3;
+    top: 10px;
+    right: 10px;
+}
+
+#closeTopFive {
+    padding: 5px 8px 5px 9px; /* pardon the awkward padding */
+}
+
+.center-title {
+    display: block;
+    margin: 5px;
+    text-align: center;
+}
+
+#top-table {
+    max-width: 580px;
+    margin: auto;
+}
+
+tr.top-5-item {
+    height: 60px;
+}
+
+td.name-number {
+    text-align: center;
+    vertical-align: middle;
+    font-weight: bold;
+    line-height: 20px;
+    width: 50px;
+}
+
+td.name-img {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+}
+
+td.name {
+    color: #313131;
+    font-size: 1.5em;
+    padding: 0 15px;
+    vertical-align: middle;
+    word-break: break-all;
+}
+
+#top-post {
+    display: none;
+}
+
+#post-top-5 {
+    display: block;
+    width: 342px;
+    margin: 20px auto;
+}

@@ -64,94 +64,15 @@ foreach ($result as $item) {
     <link rel="stylesheet" type="text/css" href="Woo10/css/layout.css">
     <link rel="stylesheet" type="text/css" href="Woo10/css/media-queries.css">
     <link rel="stylesheet" type="text/css" href="Woo10/css/prettyPhoto.css">
+    <link rel="stylesheet" type="text/css" href="viz-styles.css">
 
     <script language="JavaScript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
     <script language="JavaScript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
     <script language="JavaScript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script language="JavaScript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script language="Javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.15.2/URI.min.js"></script>
+    <script src="https://use.fontawesome.com/d366671606.js"></script>
   </head>
-
-  <style>
-    .popover {
-      max-width: 320px;
-      padding-top: 5px;
-      padding-left: 5px;
-      padding-right: 5px;
-      padding-bottom: 5px;
-      position: relative;
-      border-radius: 50px;
-    }
-    
-    .popover-title {
-      background-color: #FFFFFF;
-      font-size: 16px;
-      color: #000000;
-      padding-left: 10px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-      font-weight: bold;
-      border-top-left-radius: 20px;
-      border-top-right-radius: 20px;
-    }
-    
-    .popover-content {
-      overflow: auto;
-      max-width=300px;
-      max-height: 300px;
-      background-color: #AE2B22;
-      font-size: 17px;
-      padding-left: 10px;
-      padding-top: 10px;
-      padding-right: 10px;
-      padding-bottom: 10px;
-      border-bottom-left-radius: 15px;
-      border-bottom-right-radius: 15px;
-      color: #FFFFFF;
-    }
-    
-    .popover.right {
-      margin-left: 25px;
-    }
-    
-    .popover.right:before {
-      content: ' ';
-      height: 0;
-      position: absolute;
-      width: 0;
-      left: -32px;
-      top: 50%;
-      margin-top: -18px;
-      border: 20px solid transparent;
-      border-right-color: #AE2B22;
-    }
-    
-    .link {
-      stroke: #999;
-      stroke-width: 0.5px;
-      stroke-opacity: 0.5px;
-    }
-
-    .svg-area {
-      width: 100vw;
-      height: 100vh;
-      margin-bottom: -9px; /* seems to be necessary for some reason */
-    }
-
-    #hero {
-      position: absolute;
-      top: 0;
-      width: 100vw;
-      padding: 0;
-    }
-
-    #top5 {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      margin: 0;
-    }
-  </style>
 
   <body>
     <div id="fb-root"></div>
@@ -171,4 +92,60 @@ foreach ($result as $item) {
     <script type="text/javascript" src="viz-d3.js"></script>
     <script type="text/javascript" src="viz-doc.js"></script>
 
+    <div id="popUpVeil"></div>
+    <div id="topFiveWindow">
+      <div id="closeButton">
+        <button id="closeTopFive">
+          <i class="fa fa-times fa-lg" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <h1 class="center-title">Your Top 5 Friends</h1>
+      <hr>
+
+      <div id="panel-1">
+        <table id="top-table">
+          <tr class="top-5-item">
+            <td class="name-number">1</td>
+            <td id="p1-img" class="name-img"></td>
+            <td id="p1-name" class="name">Lumber (wood)</td>
+          </tr>
+
+          <tr class="top-5-item">
+            <td class="name-number">2</td>
+            <td id="p2-img" class="name-img"></td>
+            <td id="p2-name" class="name">Brick (clay)</td>
+          </tr>
+
+          <tr class="top-5-item">
+            <td class="name-number">3</td>
+            <td id="p3-img" class="name-img"></td>
+            <td id="p3-name" class="name">Grain (wheat)</td>
+          </tr>
+
+          <tr class="top-5-item">
+            <td class="name-number">4</td>
+            <td id="p4-img" class="name-img"></td>
+            <td id="p4-name" class="name">Wool (sheep)</td>
+          </tr>
+
+          <tr class="top-5-item">
+            <td class="name-number">5</td>
+            <td id="p5-img" class="name-img"></td>
+            <td id="p5-name" class="name">Ore (stone)</td>
+          </tr>
+
+          <tr class="top-5-item">
+            <td class="name-number">6</td>
+            <td id="p6-img" class="name-img"></td>
+            <td id="p6-name" class="name">Tihmothy Berrill</td>
+          </tr>
+        </table>
+
+        <button id="post-top-5">Post About This on Facebook</button>
+      </div>
+
+      <div id="top-post">
+        This is where a text box for sharing with friends will be, plus a button to post with.
+      </div>
     <body>
