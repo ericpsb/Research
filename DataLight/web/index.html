@@ -1,13 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Facebook Login JavaScript Example</title>
-<meta charset="UTF-8">
-<link rel="stylesheet" href="styles.css">
-<script src="script.js"></script>
+	<title>Facebook Login JavaScript Example</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="styles.css">
+	<script src="script.js"></script>
 </head>
 <body>
-    <h1>Welcome to DataLight</h1>
-    
+	<h1>Welcome to DataLight</h1>
+	<script>
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId      : '453093795064853',
+				cookie     : true,
+				xfbml      : true,
+				version    : 'v2.8'
+			});
+			FB.AppEvents.logPageView();   
+		};
+
+		(function(d, s, id){
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) {return;}
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_US/sdk.js";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
 </body>
 </html>
