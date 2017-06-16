@@ -137,7 +137,7 @@ foreach ($result as $item) {
 
           <tr class="top-5-item">
             <td class="name-number">6</td>
-            <td id="p6-img" class="name-img"></td>
+            <td id="p6-img" class="name-img"><img src="https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/10354686_10150004552801856_220367501106153455_n.jpg?oh=726660dce6ba9660584686ee99a62deb&amp;oe=59D7152F" alt="profile picture"></td>
             <td id="p6-name" class="name">Tihmothy Berrill</td>
           </tr>
         </table>
