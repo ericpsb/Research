@@ -8,7 +8,7 @@ Some software needed: python, bash (or any linux shell), R + RStudio
 <li>Perform blog scraping in the blogscraper/specificBlogs directory, the scrape.sh file should automates the web scraping(not tested), if the script failes, run the scraper.py manually in each subdirectory, this step might takes a few hours, also if the python script throws error, update your python version.</li>
 <li>Run the merge.py to merge the data from each folder, this should generate a file called merged_file.json</li>
 <li>Move to topicmodeling\mallet2 directory, moved the merged_file.json to there, and run autismtopics.R, you'll need to change the setwd() to point to your local directory, if rJava or .jinit gives error, consider remove JAVA_HOME envirenment variable and check if your java directory is in your PATH environemnt variable</li>
-<li>Save the doc.topics.frame variable after the R script is finished with write.csv(doc.topics.frame, file="topic_frame.csv", quote=FALSE), this will produce topic_frame.csv</li>
+<li>when the R script is finished it will produce topic_frame.csv</li>
 <li>run the processblog.py, this will produce the documents.txt file</li>
 <li>then have documents.txt and topic_frame.csv in this folder</li>
 <li>use node to run nodeLDA.js, this will generate a file called nodeLDA.json file</li>

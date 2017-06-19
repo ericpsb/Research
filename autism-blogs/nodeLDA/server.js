@@ -7,7 +7,6 @@ var pagesize;
 var maxpage;
 var homepageHtml;
 var getDocumentsHtml;
-var topic_avg_map;
 var sorted_topic_docid;
 var doc_table;
 var sorted_topic_table;
@@ -40,7 +39,6 @@ function loadData() {
 	pagesize = nodeLDA.pagesize;
 	maxpage = nodeLDA.maxpage;
 	homepageHtml = nodeLDA.homepageHtml;
-	topic_avg_map = nodeLDA.topic_avg_map;
 	sorted_topic_docid = nodeLDA.sorted_topic_docid;
 	doc_table = nodeLDA.doc_table;
 	sorted_topic_table = nodeLDA.sorted_topic_table;
@@ -71,7 +69,7 @@ app.get('/', function(req, res) {
 		var end = page * pagesize;
 		end = end > numdocs ? numdocs : end;
 		res.set('Content-Type', 'text/json');
-		var result = {page: page, html: getDocumentsHtml(topic_avg_map[tid].index, start, end)}
+		var result = {page: page, html: getDocumentsHtml(tid, start, end)}
 		res.write(JSON.stringify(result));
 		res.end();
 	}

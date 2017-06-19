@@ -1,6 +1,6 @@
 body { font-family: Calibri, Verdana; background-color: #fff; }
 
-div.sidebar { float: left; width: 22%; }
+div.sidebar { float: left; max-width: 22%; }
 div.sidebar div.sidebox { margin: 5px; padding: 10px; }
 
 div.top { background-color: #ddd; margin: 5px; padding: 10px; -moz-border-radius: 10px; border-radius: 10px; }
@@ -9,8 +9,6 @@ form { float: right; }
 div#topics div { color: #555; margin-bottom: 10px; padding: 5px; cursor: default; }
 div#topics div.selected { border-right: solid black 2px; font-weight: bold; }
 div#topics div:hover { background-color: #ccc; }
-
-#tabwrapper { margin-left: 22%; }
 
 .tabs{ height: 30px; }
 .tabs > ul { font-size: 1em; list-style: none; }
@@ -27,11 +25,9 @@ div.document { font-family: Alegreya, Georgia, Times; padding: 10px; }
 
 text { font-size: small; fill: #555; dominant-baseline: middle;; }
 
-table { margin-left: 50px; border-collapse: collapse; text-align: left; }
-table th { font-weight: normal; padding: 10px 8px; border-bottom: 2px solid black; }
-table td { text-align: right; padding: 9px 8px 0px 8px; }
-
 #tooltip { border: solid #ddd 2px; margin:0 2px 0 0; padding:7px 10px; color:#333; border-radius: 4px; background: #FFFFFF; position: absolute; z-index: 10; visibility: hidden; }
+
+#ts-page svg { margin-right: 5px; margin-top: 5px; border: 1px solid #ccc!important; border-radius: 8px;}
 
 .curr {margin-left: 10px; margin-right: 10px;}
 .dest {width: 5em; margin-left: 20px;}

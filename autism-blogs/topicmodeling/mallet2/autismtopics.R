@@ -54,15 +54,18 @@ topic.words <- mallet.topic.words(topic.model, smoothed=T, normalized=T)
 mallet.top.words(topic.model, topic.words[1,], 30)
 
 #topics.labels <- gsub("\\W", "_", mallet.topic.labels(topic.model, topic.words, 3))
+#topics.long.labels <- mallet.topic.labels(topic.model, topic.words, num.top.words=50)
 topics.long.labels <- vector(length=n.topics)
 for (topic.i in 1:n.topics) 
 {
-  topics.labels[topic.i] <- gsub("\\W", "_", paste(as.vector(mallet.top.words(topic.model, topic.words[topic.i,], long.label.length)[,1]), collapse="_"))
+  topics.long.labels[topic.i] <- gsub(",", ";", paste(as.vector(mallet.top.words(topic.model, topic.words[topic.i,], long.label.length)[,1]), collapse="_"))
+  topics.long.labels[topic.i] <- gsub("\\s", "_", topics.long.labels[topic.i])
 }
-#topics.long.labels <- mallet.topic.labels(topic.model, topic.words, num.top.words=50)
-
 
 doc.topics.frame <- data.frame(doc.topics)
 #names(doc.topics.frame) <- paste("Topic", 1:n.topics, sep="")
 names(doc.topics.frame) <- topics.long.labels
 docs.and.topics <- cbind(documents, doc.topics.frame)
+
+csv<-file("topic_frame.csv", encoding="UTF-8")
+write.csv(doc.topics.frame, file=csv, quote=FALSE)

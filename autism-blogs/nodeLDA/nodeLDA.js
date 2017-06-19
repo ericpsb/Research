@@ -14,7 +14,7 @@ console.log("processing topics");
 var topiclines = topicfile.split("\n");
 var topics = topiclines[0].split(",");
 topics.splice(0, 1);
-topics.forEach(function(e, i, a){a[i] = e.replace(/_/g, ' ');});
+topics.forEach(function(e, i, a){a[i] = e.replace(/_/g, ', ');});
 var numtopics = topics.length;
 
 // preprocess topic value
@@ -29,6 +29,57 @@ topiclines.forEach(function(element, index, array) {
 	vals.push(vals.splice(0, 1)); // throw the doc_id(first value) to last place
 	topic_table.push(vals);
 });
+
+// process topic values
+
+var sorted_topic_table = new Array(numtopics);
+var sorted_topic_docid = new Array(numtopics);
+var topic_sort_map = new Array(numtopics);
+for(var i=0; i<numtopics; i++) {
+	sorted_topic_table[i] = new Array(numdocs);
+	sorted_topic_docid[i] = new Array(numdocs);
+	topic_sort_map[i] = {avg: 0, index: i, back: -1};
+}
+
+for(var i=0; i<numtopics; i++) {
+	topic_table.sort(function(a, b) {return b[i] - a[i];}); // sort the table on a specific topic
+	for(var j=0; j<numdocs; j++) {
+		var val = parseFloat(topic_table[j][i]);
+		topic_sort_map[i].avg += val;
+		sorted_topic_table[i][j] = val;
+		sorted_topic_docid[i][j] = topic_table[j][numtopics]-1; // docid start with 1
+	}
+}
+
+// the index of the map will the topic order that got displayed on the page
+// while the index attribute in the object is the topic order in the data structure
+topic_sort_map.forEach(function(e){
+	e.avg /= numdocs;
+});
+topic_sort_map.sort(function(a, b) {return b.avg - a.avg;})
+
+for(var i=0; i < topic_sort_map.length; i++) {
+	topic_sort_map[topic_sort_map[i].index].back = i;
+}
+
+function sort_array_with_map(array) {
+	var temp = array.slice(0);
+	for(var i=0; i < topic_sort_map.length; i++) {
+		array[i] = temp[topic_sort_map[i].index]; 
+	}
+}
+
+// sort the other arrays acccording to the map
+sort_array_with_map(sorted_topic_table);
+sort_array_with_map(sorted_topic_docid);
+sort_array_with_map(topics);
+
+// process topics
+function topic_template(topic, avg){ return $('<div></div>').attr("title", "average: " + avg).addClass('topicwords').html(topic); };
+
+var topic_dom = $("<div></div>");
+topics.forEach(function(e, i ,a) {topic_dom.append(topic_template(e, topic_sort_map[i].avg));})
+topic_dom.children('div').first().addClass("selected");
 
 // topic correlation
 
@@ -47,8 +98,8 @@ topic_table.forEach(function(doc) {
 	var doc_topic = new Array();
 	for(var topic = 0; topic < numtopics; topic++) {
 		if(parseFloat(doc[topic]) > 0.05) {
-			doc_topic.push(topic);
-			topic_prob[topic]++; // Count the number of docs with this topic
+			doc_topic.push(topic_sort_map[topic].back);
+			topic_prob[topic_sort_map[topic].back]++; // Count the number of docs with this topic
 		}
 	}
 	// Look at all pairs of topics that occur in the document.
@@ -68,26 +119,35 @@ for(var t1=0; t1 < numtopics-1; t1++) {
 	}
 }
 
+function getShortTopic(topic) {
+	return topic.split(", ", 3).join(", ");
+}
+
 function getCorrelationGraphHtml() {
 	console.log("generating correlation graph");
-	var min = 50;
-	var max = 1050;
-	var graph = $("<svg></svg>").attr("width", max+3*min).attr("height", max+3*min);
-	var topicScale = (max-min) / numtopics;
-	var circleScale = function(val) {return Math.sqrt(val / ((max-min)/(2*numtopics))) * (topicScale/2);};
+	var xmin = 50;
+	var xmax = 950;
+	var ymin = 150;
+	var ymax = 1050;
+	var textPadding = 150;
+	var graph = $("<svg></svg>").attr("width", "78%").attr("height", ymax*2).attr("viewBox", "0 0 " + (xmax+textPadding) + " " + (ymax + 2*textPadding)).attr("preserveAspectRatio", "xMinYMin meet");
+	var topicScale = (ymax-ymin) / numtopics;
+	var circleScale = function(val) {return Math.sqrt(val / ((ymax-ymin)/(2*numtopics))) * (topicScale/2);};
 	
 	for(var i=0; i<numtopics; i++) {
-		var hor = $("<text></text>").addClass("hor").attr("x", max).attr("y", min + i*topicScale).html(topics[i]);
-		var ver = $("<text></text>").addClass("ver").attr("x", min + i*topicScale).attr("y", max).attr("transform", "rotate(90, " + (min + i*topicScale) + ", " + max + ")").html(topics[i]);
+		var hor = $("<text></text>").addClass("hor").attr("x", xmax).attr("y", ymin + i*topicScale).html(getShortTopic(topics[i]));
+		var ver = $("<text></text>").addClass("ver").attr("x", xmin + i*topicScale).attr("y", ymax).attr("transform", "rotate(45, " + (xmin + i*topicScale) + ", " + ymax + ")").html(getShortTopic(topics[i]));
+		var vertop = $("<text></text>").addClass("ver").attr("x", xmin + i*topicScale).attr("y", (ymin-10)).attr("transform", "rotate(-45, " + (xmin + i*topicScale) + ", " + (ymin-10) + ")").html(getShortTopic(topics[i]));
 		graph.append(hor);
 		graph.append(ver);
+		graph.append(vertop);
 	}
 	
 	for(var t1=0; t1 < numtopics-1; t1++) {
 		for(var t2=t1+1; t2 < numtopics; t2++) {
 			var val = corrlation_table[t1][t2];
-			var circle = $("<circle></circle>").attr("cx", min + t1*topicScale).attr("cy", min + t2*topicScale).attr("r", circleScale(Math.abs(val))).attr("title", topics[t1] + ' /<br>' + topics[t2]).css("fill", val > 0 ? "#88f" : "#f88");
-			var circle2 = $("<circle></circle>").attr("cx", min + t2*topicScale).attr("cy", min + t1*topicScale).attr("r", circleScale(Math.abs(val))).attr("title", topics[t2] + ' /<br>' + topics[t1]).css("fill", val > 0 ? "#88f" : "#f88");
+			var circle = $("<circle></circle>").attr("cx", xmin + t1*topicScale).attr("cy", ymin + t2*topicScale).attr("r", circleScale(Math.abs(val))).attr("title", topics[t1] + ' /<br>' + topics[t2]).css("fill", val > 0 ? "#88f" : "#f88");
+			var circle2 = $("<circle></circle>").attr("cx", xmin + t2*topicScale).attr("cy", ymin + t1*topicScale).attr("r", circleScale(Math.abs(val))).attr("title", topics[t2] + ' /<br>' + topics[t1]).css("fill", val > 0 ? "#88f" : "#f88");
 			graph.append(circle);
 			graph.append(circle2);
 		}
@@ -95,41 +155,6 @@ function getCorrelationGraphHtml() {
 
 	return $("<div></div>").append(graph).html();
 }
-
-// process topic values
-
-var sorted_topic_table = new Array(numtopics);
-var sorted_topic_docid = new Array(numtopics);
-var topic_avg_map = new Array(numtopics);
-for(var i=0; i<numtopics; i++) {
-	sorted_topic_table[i] = new Array(numdocs);
-	sorted_topic_docid[i] = new Array(numdocs);
-	topic_avg_map[i] = {avg: 0, index: i};
-}
-
-for(var i=0; i<numtopics; i++) {
-	topic_table.sort(function(a, b) {return b[i] - a[i];}); // sort the table on a specific topic
-	for(var j=0; j<numdocs; j++) {
-		var val = parseFloat(topic_table[j][i]);
-		topic_avg_map[i].avg += val;
-		sorted_topic_table[i][j] = val;
-		sorted_topic_docid[i][j] = topic_table[j][numtopics]-1; // docid start with 1
-	}
-}
-
-// the index of the map will the topic order that got displayed on the page
-// while the index attribut in the object is the topic order in the data structure
-topic_avg_map.forEach(function(e){
-	e.avg /= numdocs;
-});
-topic_avg_map.sort(function(a, b) {return b.avg - a.avg;})
-
-// process topics
-function topic_template(topic, avg){ return $('<div></div>').attr("title", "avg: " + avg).addClass('topicwords').html(topic); };
-
-var topic_dom = $("<div></div>");
-topic_avg_map.forEach(function(e) {topic_dom.append(topic_template(topics[e.index], e.avg));})
-topic_dom.children('div').first().addClass("selected");
 
 console.log("processing documents")
 // preprocess documents
@@ -146,7 +171,7 @@ documents.forEach(function(element, index, array) {
 	if(isNaN(Date.parse(e[1]))) { // no date given from csv
 		// try to find date in url
 		var l = e[0];
-		var m = l.match("20[0-9][0-9]/(0?[0-9]|1[0-2])/(0?[0-9]|[1-2][0-9]|3[0-1]])");
+		var m = l.match("20[0-9][0-9]/(?:0?[0-9]|1[0-2])/(?:0?[0-9]|[1-2][0-9]|3[0-1]])");
 		if( m != null ) {
 			var d = new Date(Date.parse(m[0]));
 			var dn = d.getFullYear()*12+d.getMonth();
@@ -155,7 +180,7 @@ documents.forEach(function(element, index, array) {
 			lastM = dn > lastM ? dn : lastM;
 			return;
 		}
-		m = l.match("20[0-9][0-9]/(0?[0-9]|1[0-2])");
+		m = l.match("20[0-9][0-9]/(?:0?[0-9]|1[0-2])");
 		if( m != null ) {
 			var d = new Date(Date.parse(m[0]));
 			var mon = d.getMonth() + 1;
@@ -205,16 +230,13 @@ function getDocumentsHtml(topic, start, end) {
 // time series graph
 function getTimeSeriesGraphHtml() {
 	console.log("generating time series graph");
-	var h1 = 110;
+	var h = 110;
 	var w = 500;
-	var half1 = Math.floor(numtopics/2);
-	var half2 = numtopics - half1;
 	var months = lastM - firstM + 1;
 	var w1 = w/months;
-	var graph1 = $("<svg></svg>").attr("height", half1 * h1).attr("width", w);
-	var graph2 = $("<svg></svg>").attr("height", half2 * h1).attr("width", w);
-	var toprate = 0.0015; // tweak this value if the y values are too big (increase this) or too small (decrease this)
-	for(var topic=0; topic < half1; topic++) {
+	var result = $("<div></div>");
+	var toprate = 0.0015; // tweak this value if the y axis is too small (increase this) or too large (decrease this)
+	for(var topic=0; topic < numtopics; topic++) {
 		var data = new Array(months);
 		for(var t=0; t<months; t++) {data[t] = 0;}
 		var valrow = sorted_topic_table[topic];
@@ -224,44 +246,22 @@ function getTimeSeriesGraphHtml() {
 			if(doc.datenum < 0) {continue;}
 			data[doc.datenum-firstM] += valrow[i];
 		}
-		var d = "M0,"+h1;
+		var d = "M0,"+h;
 		for(var i=0; i<data.length; i++) {
 			data[i] = data[i]/numdocs;
-			d+="L" + (i*w1) + "," + (h1-h1*data[i]/toprate);
+			d+="L" + (i*w1) + "," + (h-h*data[i]/toprate);
 		}
-		d+="L" + ((data.length-1)*w1) + "," + h1 + "Z";
-		var g = $("<g></g>").attr("transform", "translate(0, " + topic * h1 + ")");
+		d+="L" + ((data.length-1)*w1) + "," + h + "Z";
+		var svg = $("<svg></svg>").attr("width", w).attr("height", h).attr("viewBox", "0 0 " + w + " " + h).attr("preserveAspectRatio", "xMinYMin meet");
+		var g = $("<g></g>");
 		var path = $("<path></path>").attr("d", d).css("fill", "#ccc");
-		var text = $("<text></text>").attr("y", 20).html(topics[topic]);
+		var text = $("<text></text>").attr("x", 5).attr("y", 20).html(topics[topic]);
 		g.append(path)
 		g.append(text);
-		graph1.append(g);
+		svg.append(g);
+		result.append(svg);
 	}
-	for(var topic=half1; topic < numtopics; topic++) {
-		var data = new Array(months);
-		for(var t=0; t<months; t++) {data[t] = 0;}
-		var valrow = sorted_topic_table[topic];
-		var docrow = sorted_topic_docid[topic];
-		for(var i=0; i<valrow.length; i++) {
-			var doc = doc_table[docrow[i]];
-			if(doc.datenum < 0) {continue;}
-			data[doc.datenum-firstM] += valrow[i];
-		}
-		var d = "M0,"+h1;
-		for(var i=0; i<data.length; i++) {
-			data[i] = data[i]/numdocs;
-			d+="L" + (i*w1) + "," + (h1-h1*data[i]/toprate);
-		}
-		d+="L" + ((data.length-1)*w1) + "," + h1 + "Z";
-		var g = $("<g></g>").attr("transform", "translate(0, " + (topic-half1) * h1 + ")");
-		var path = $("<path></path>").attr("d", d).css("fill", "#ccc");
-		var text = $("<text></text>").attr("y", 20).html(topics[topic]);
-		g.append(path)
-		g.append(text);
-		graph2.append(g);
-	}
-
-	return $("<div></div>").append(graph1).append(graph2).html();
+	return result.html();
 }
 
 function getTimeRange() {
@@ -270,22 +270,20 @@ function getTimeRange() {
 	return text = "The time range is from " + Math.floor(firstM/12) + "-" + (first < 10 ? "0" + first : first) + " to " + Math.floor(lastM/12) + "-" + (fin < 10 ? "0" + fin : fin) + ".";
 }
 
-console.log("dumping data to file");
-
 const pagesize = 35;
 const maxpage = Math.floor(numdocs/pagesize+1);
-var homepageHtml = pp.preprocess(html, {TOPICS: topic_dom.html(), DOCS: getDocumentsHtml(topic_avg_map[0].index, 0, pagesize),
-MAXPAGE: maxpage, CGRAPH: getCorrelationGraphHtml(), TGRAPH: getTimeSeriesGraphHtml(), TRANGE: getTimeRange()});
+var homepageHtml = pp.preprocess(html, {TOPICS: topic_dom.html(), DOCS: getDocumentsHtml(0, 0, pagesize),
+MAXPAGE: maxpage, CGRAPH: getCorrelationGraphHtml(), TGRAPH: getTimeSeriesGraphHtml(), MINM: firstM, MAXM: lastM});
 
+console.log("dumping data to file");
 var nodeLDA = {};
 nodeLDA.numtopics = numtopics;
 nodeLDA.numdocs = numdocs;
 nodeLDA.pagesize = pagesize;
 nodeLDA.maxpage = maxpage;
 nodeLDA.homepageHtml = homepageHtml;
-nodeLDA.topic_avg_map = topic_avg_map;
-nodeLDA.sorted_topic_docid = sorted_topic_docid;
 nodeLDA.doc_table = doc_table;
+nodeLDA.sorted_topic_docid = sorted_topic_docid;
 nodeLDA.sorted_topic_table = sorted_topic_table;
 
 fs.writeFileSync("nodeLDA.json", JSON.stringify(nodeLDA), {encoding: 'utf8'});

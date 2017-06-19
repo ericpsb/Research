@@ -166,3 +166,50 @@ $("#corr-page circle").each(function() {
 	
 });
 
+// topic toggle
+$("#hide-topic").click(function(){
+	$("#show-topic").css("display", "");
+	$(this).css("display", "none");
+	$(".sidebar").css("display", "none");
+	$("#corr-page svg").attr("width", "100%");
+});
+
+$("#show-topic").click(function(){
+	$("#hide-topic").css("display", "");
+	$(this).css("display", "none");
+	$(".sidebar").css("display", "");
+	$("#corr-page svg").attr("width", "78%");
+});
+
+// ts tab
+var minMonth = $("#ts-page").data("minmonth");
+var maxMonth = $("#ts-page").data("maxmonth");
+function toMonth(num) {
+	var m = num%12 + 1;
+	return Math.floor(num/12) + "-" + (m < 10? "0" + m : m);
+}
+$("#ts-page .help").append("The time range is from " + toMonth(minMonth) + " to " + toMonth(maxMonth) + ".");
+$("#ts-page svg").each(function() {
+	var graph = $(this);
+	graph.mousemove(function(evt) {
+		var width = $(this).width();
+		var m = minMonth + Math.round(evt.offsetX/width*(maxMonth-minMonth));
+		$("#tooltip").html(toMonth(m)).css("visibility", "visible").css("top", evt.pageY - 65).css("left", evt.pageX - $("#tooltip").width()/2);
+	});
+	graph.mouseout(function() {
+		$("#tooltip").css("visibility", "hidden");
+	});
+});
+var ts_ratio = 1.0;
+var ts_width = $("#ts-page svg").width();
+var ts_height = $("#ts-page svg").height();
+$("#ts-zoom-in").click(function(){
+	ts_ratio += 0.1;
+	$("#ts-page svg").attr("width", ts_width*ts_ratio);
+	$("#ts-page svg").attr("height", ts_height*ts_ratio);
+})
+$("#ts-zoom-out").click(function(){
+	ts_ratio -= 0.1;
+	$("#ts-page svg").attr("width", ts_width*ts_ratio);
+	$("#ts-page svg").attr("height", ts_height*ts_ratio);
+})
