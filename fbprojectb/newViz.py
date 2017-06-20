@@ -187,7 +187,7 @@ class GenerateViz():
             interactions['data'].append(message)
 
     def createJson(self, doc, interactions, message, nodes, links, linkIndex, access_token, db):
-        fb = "https://graph.facebook.com/v2.4/"
+        fb = "https://graph.facebook.com/v2.9/"
         image = ""
         date = ""
 
@@ -320,7 +320,7 @@ class GenerateViz():
     # short_id : short descriptor for interaction
     # link_number : [Peter] Honestly I'm not sure what it is, but it's different for different things
     def add_photo_message(self, doc, interactions, nodes, links, linkIndex, access_token, feeds, long_id, short_id, link_number):
-        fb = "https://graph.facebook.com/v2.4/"
+        fb = "https://graph.facebook.com/v2.9/"
         image = ""
         date = ""
 
@@ -356,7 +356,7 @@ class GenerateViz():
     # but there are a few key differences (the url and how messages are constructed)
     # so I'm keeping them separate for now.
     def add_post_message(self, doc, interactions, nodes, links, linkIndex, access_token, feeds, long_id, short_id, link_number):
-        fb = "https://graph.facebook.com/v2.4/"
+        fb = "https://graph.facebook.com/v2.9/"
         # image = ""
 
         if (long_id in doc):
@@ -387,7 +387,7 @@ class GenerateViz():
     # short_id : short descriptor for interaction
     # link_number : [Peter] Honestly I'm not sure what it is, but it's different for different things
     def add_status_message(self, doc, interactions, nodes, links, linkIndex, access_token, feeds, long_id, short_id, link_number):
-        fb = "https://graph.facebook.com/v2.4/"
+        fb = "https://graph.facebook.com/v2.9/"
         # image = ""
 
         if (long_id in doc):

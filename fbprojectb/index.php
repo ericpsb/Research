@@ -119,7 +119,7 @@
           cookie: true, // enable cookies to allow the server to access
           // the session
           xfbml: true, // parse social plugins on this page
-          version: 'v2.8' // use version 2.8
+          version: 'v2.9' // use version 2.8
         });
         // Now that we've initialized the JavaScript SDK, we call
         // FB.getLoginStatus().  This function gets the state of the

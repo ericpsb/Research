@@ -58,7 +58,7 @@ def main():
 
         i = user.find().count()
 
-        fb = 'https://graph.facebook.com/v2.4/me?fields='
+        fb = 'https://graph.facebook.com/v2.9/me?fields='
         me_field = 'id,name,first_name,last_name,email,gender,link,verified,timezone,updated_time'
         event_field = 'events.limit(100){name,description,start_time,id,rsvp_status,end_time,category,cover,owner,type,attending.limit(100)}'
         friend_field = 'friends.limit(100){name,id,context}'

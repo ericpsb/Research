@@ -26,7 +26,7 @@ function getAge($birthday){
 
 function getUserData($accessToken){
     #Generating FB Graph API request urls
-    $fb = "https://graph.facebook.com/v2.8/me?fields=";
+    $fb = "https://graph.facebook.com/v2.9/me?fields=";
     $me_field = 'id,name,first_name,last_name,birthday,email,gender';
     $friends_field = "friends.limit(1)";
     
