@@ -130,7 +130,7 @@ function getCorrelationGraphHtml() {
 	var ymin = 150;
 	var ymax = 1050;
 	var textPadding = 150;
-	var graph = $("<svg></svg>").attr("width", "78%").attr("height", ymax*2).attr("viewBox", "0 0 " + (xmax+textPadding) + " " + (ymax + 2*textPadding)).attr("preserveAspectRatio", "xMinYMin meet");
+	var graph = $("<svg></svg>").attr("width", "100%").attr("height", ymax*2).attr("viewBox", "0 0 " + (xmax+textPadding) + " " + (ymax + 2*textPadding)).attr("preserveAspectRatio", "xMinYMin meet");
 	var topicScale = (ymax-ymin) / numtopics;
 	var circleScale = function(val) {return Math.sqrt(val / ((ymax-ymin)/(2*numtopics))) * (topicScale/2);};
 	

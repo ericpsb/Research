@@ -1,6 +1,6 @@
 body { font-family: Calibri, Verdana; background-color: #fff; }
 
-div.sidebar { float: left; max-width: 22%; }
+div.sidebar { float: left; width: 22%; }
 div.sidebar div.sidebox { margin: 5px; padding: 10px; }
 
 div.top { background-color: #ddd; margin: 5px; padding: 10px; -moz-border-radius: 10px; border-radius: 10px; }
@@ -10,7 +10,7 @@ div#topics div { color: #555; margin-bottom: 10px; padding: 5px; cursor: default
 div#topics div.selected { border-right: solid black 2px; font-weight: bold; }
 div#topics div:hover { background-color: #ccc; }
 
-.tabs{ height: 30px; }
+.tabs{ height: 40px; }
 .tabs > ul { font-size: 1em; list-style: none; }
 .tabs > ul > li { border: solid #ddd 2px; margin:0 2px 0 0; padding:7px 10px; display:block; float:left; color:#333; -webkit-user-select: none; -moz-user-select: none; user-select: none; -moz-border-radius: 4px; border-radius: 4px; background: #FFFFFF; }
 .tabs > ul > li:hover { background: #ddd; cursor:pointer; }
@@ -19,9 +19,10 @@ div#topics div:hover { background-color: #ccc; }
 
 div.help { padding: 20px 100px 15px 30px; color: #777; }
 
-.page { padding:10px 10px 25px; background-color: #fff; margin-top: 4px; display: none; }
+.page { padding:10px 10px 25px; background-color: #fff; margin-top: 4px; display: none;}
+#pages { margin-left: 22%; }
 div#docs-page { display: block; }
-div.document { font-family: Alegreya, Georgia, Times; padding: 10px; }
+#docs-page .document { font-family: 'Roboto', sans-serif; padding: 10px; }
 
 text { font-size: small; fill: #555; dominant-baseline: middle;; }
 

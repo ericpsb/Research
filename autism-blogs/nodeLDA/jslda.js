@@ -171,14 +171,14 @@ $("#hide-topic").click(function(){
 	$("#show-topic").css("display", "");
 	$(this).css("display", "none");
 	$(".sidebar").css("display", "none");
-	$("#corr-page svg").attr("width", "100%");
+	$("#pages").css("margin-left", "0%");
 });
 
 $("#show-topic").click(function(){
 	$("#hide-topic").css("display", "");
 	$(this).css("display", "none");
 	$(".sidebar").css("display", "");
-	$("#corr-page svg").attr("width", "78%");
+	$("#pages").css("margin-left", "22%");
 });
 
 // ts tab
@@ -205,11 +205,12 @@ var ts_width = $("#ts-page svg").width();
 var ts_height = $("#ts-page svg").height();
 $("#ts-zoom-in").click(function(){
 	ts_ratio += 0.1;
-	$("#ts-page svg").attr("width", ts_width*ts_ratio);
-	$("#ts-page svg").attr("height", ts_height*ts_ratio);
+	$("#ts-page svg").attr("width", (ts_width*ts_ratio).toFixed(2));
+	$("#ts-page svg").attr("height", (ts_height*ts_ratio).toFixed(2));
 })
 $("#ts-zoom-out").click(function(){
+	if(ts_ratio < 0.2) {return;}
 	ts_ratio -= 0.1;
-	$("#ts-page svg").attr("width", ts_width*ts_ratio);
-	$("#ts-page svg").attr("height", ts_height*ts_ratio);
+	$("#ts-page svg").attr("width", (ts_width*ts_ratio).toFixed(2));
+	$("#ts-page svg").attr("height", (ts_height*ts_ratio).toFixed(2));
 })

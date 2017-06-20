@@ -11,6 +11,7 @@ var sorted_topic_docid;
 var doc_table;
 var sorted_topic_table;
 
+// Note: these functions should be in sync with nodeLDA.js
 function getDocumentsHtml(topic, start, end) {
 	var result = $("<div></div>");
 	for(var i=start; i<end; i++) {
@@ -31,6 +32,7 @@ function document_template(rank, link, date, score, content) {
 	' <span style="background: linear-gradient(45deg, rgba(' + r + ', ' + g + ', 0, 0.7) ' + Math.round(score100*0.95+4) + '%, #fff 1%, #fff ' + Math.round((100-score100)*0.95) + '%);">' +
 	'[<span title="' + score + '">' + score100 + '%</span> ' + date + ']</span> <a href="' + link + '">' + link + '</a><br> ' +  content);
 }
+// End note
 
 function loadData() {
 	var nodeLDA = JSON.parse(fs.readFileSync("nodeLDA.json", 'utf8'));
