@@ -84,47 +84,44 @@ if (!empty($access_token) && !empty($uid)) {
         <p> </p>
         <p style="font-weight:bold">Thank you for allowing us access to your Facebook usage data.</p>
         <p style="font-weight:bold">Please help the research by sharing this app with your friends.</p>
-        <form>
-          <button id="Viz Button" type="submit">Proceed to Visualization</button>
-          <script type="text/javascript">
-            function getParamByName(name) {
-              name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-              var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-                results = regex.exec(window.location.search);
-              return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-            }
-            window.fbAsyncInit = function() {
-              FB.init({
-                appId: '1582658458614337',
-                cookie: true, // enable cookies to allow the server to access
-                // the session
-                xfbml: true, // parse social plugins on this page
-                version: 'v2.8' // use version 2.8
-              });
-            };
-
-
-            var uid = getParamByName("user");
-            console.log(uid);
-
-            $.post('backendInit.php', {
-              A: uid
-            }, function(result) {
-              // console.log(result);
-              var domain = "https://das-lab.org/";
-              var userdbdata = JSON.parse(result);
-              if (userdbdata != null && userdbdata["json"]) {
-                document.getElementById("Viz Button").onclick = function() {
-                  window.top.location.href = domain + "fbprojectb/viz.php?resp=" + getParamByName('resp') + "&user=" + getParamByName('user');
-                }
-              } else {
-                document.getElementById("Viz Button").onclick = function() {
-                  window.top.location.href = domain + "fbprojectb/initViz.php?resp=" + getParamByName('resp') + "&user=" + getParamByName('user');
-                };
-              }
+        <button id="viz-button">Proceed to Visualization</button>
+        <script type="text/javascript">
+          function getParamByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+              results = regex.exec(window.location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+          }
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId: '1582658458614337',
+              cookie: true, // enable cookies to allow the server to access
+              // the session
+              xfbml: true, // parse social plugins on this page
+              version: 'v2.8' // use version 2.8
             });
-          </script>
-        </form>
+          };
+
+
+          var uid = getParamByName("user");
+          console.log(uid);
+
+          $.post('backendInit.php', {
+            A: uid
+          }, function(result) {
+            var domain = "https://das-lab.org/";
+            var userdbdata = JSON.parse(result);
+            if (userdbdata != null && userdbdata["json"]) {
+              document.getElementById("viz-button").onclick = function() {
+                window.top.location.href = domain + "fbprojectb/viz.php?resp=" + getParamByName('resp') + "&user=" + getParamByName('user');
+              }
+            } else {
+              document.getElementById("viz-button").onclick = function() {
+                window.top.location.href = domain + "fbprojectb/initViz.php?resp=" + getParamByName('resp') + "&user=" + getParamByName('user');
+              };
+            }
+          });
+        </script>
       </div>
     </div>
     <!-- /container -->
