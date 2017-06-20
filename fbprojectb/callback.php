@@ -8,7 +8,8 @@ $file = 'accesstokens.txt';
 $access_token = !empty($_GET['resp']) ? $_GET['resp'] : NULL;
 
 //Need to capture uid variable from the HTTP GET variable
-$uid = !empty($_GET['uid']) ? $_GET['uid'] : NULL;
+// $uid = !empty($_GET['uid']) ? $_GET['uid'] : NULL;
+$uid = !empty($_GET['user']) ? $_GET['user'] : NULL;
 
 //Let save this access token to the server for the future
 #file_put_contents($file, $access_token.PHP_EOL, FILE_APPEND);

@@ -86,12 +86,12 @@
           //Callback php redirect with accessToken details.
           var user = response.authResponse.userID;
           //Storing get variable 'uid' in a js variable
-          var uid = getQueryVariable('uid');
-          console.log(uid);
+          // var uid = getQueryVariable('uid');
+          // console.log(uid);
           //Storing access token in a js variable
           var resp = response.authResponse.accessToken;
           //Redirecting to web page
-          window.top.location.href = "https://apps.facebook.com/1582658458614337/callback.php?resp=" + resp + "&uid=" + uid + "&user=" + user;
+          window.top.location.href = "https://apps.facebook.com/1582658458614337/callback.php?resp=" + resp + "&user=" + user;
         } else if (response.status === 'not_authorized') {
           // The person is logged into Facebook, but not your app.
           document.getElementById('status').innerHTML = 'Please log ' +
@@ -151,14 +151,14 @@
 
       // Here we run a very simple test of the Graph API after login is
       // successful.  See statusChangeCallback() for when this call is made.
-      function testAPI() {
-        console.log('Welcome!  Fetching your information.... ');
-        FB.api('/me', function(response) {
-          console.log('Successful login for: ' + response.name);
-          document.getElementById('status').innerHTML =
-            'Thanks for logging in, ' + response.name + '!';
-        });
-      }
+      // function testAPI() {
+      //   console.log('Welcome!  Fetching your information.... ');
+      //   FB.api('/me', function(response) {
+      //     console.log('Successful login for: ' + response.name);
+      //     document.getElementById('status').innerHTML =
+      //       'Thanks for logging in, ' + response.name + '!';
+      //   });
+      // }
     </script>
 
     <!--
