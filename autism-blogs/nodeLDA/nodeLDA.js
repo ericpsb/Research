@@ -138,7 +138,7 @@ function getCorrelationGraphHtml() {
 	for(var i=0; i<numtopics; i++) {
 		var hor = $("<text></text>").addClass("hor").attr("x", xmax).attr("y", ymin + i*topicScale).html(getShortTopic(topics[i]));
 		var ver = $("<text></text>").addClass("ver").attr("x", xmin + i*topicScale).attr("y", ymax).attr("transform", "rotate(45, " + (xmin + i*topicScale) + ", " + ymax + ")").html(getShortTopic(topics[i]));
-		var vertop = $("<text></text>").addClass("ver").attr("x", xmin + i*topicScale).attr("y", (ymin-10)).attr("transform", "rotate(-45, " + (xmin + i*topicScale) + ", " + (ymin-10) + ")").html(getShortTopic(topics[i]));
+		var vertop = $("<text></text>").addClass("ver").attr("x", xmin + i*topicScale).attr("y", (ymin-topicScale)).attr("transform", "rotate(-45, " + (xmin + i*topicScale) + ", " + (ymin-topicScale) + ")").html(getShortTopic(topics[i]));
 		graph.append(hor);
 		graph.append(ver);
 		graph.append(vertop);
@@ -272,7 +272,7 @@ function getTimeSeriesGraphHtml() {
 }
 
 process.stdout.write("preprocessing html...");
-const pagesize = 35; // number of documents on one page
+const pagesize = 40; // number of documents on one page
 const maxpage = Math.floor(numdocs/pagesize+1);
 var homepageHtml = pp.preprocess(html, {TOPICS: topic_dom.html(), DOCS: getDocumentsHtml(0, 0, pagesize), MAXPAGE: maxpage, MINM: firstM, MAXM: lastM});
 process.stdout.write("done\n");
