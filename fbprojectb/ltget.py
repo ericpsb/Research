@@ -8,7 +8,7 @@ from pymongo import MongoClient
 import config
 import sys
 import datetime
-
+import update_db_v4
 
 def main():
     if not check_args():
@@ -79,7 +79,9 @@ def main():
     
     # TODO[P]: stop it from moving on if it failed at any point prior,
     #          but otherwise...
-    # TODO[P]: call update_db_v4.py function from here
+    
+    # Do next part of processing
+    update_db_v4.run_update(acltat)
 
 def check_args():
     return len(sys.argv) == 2

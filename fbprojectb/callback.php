@@ -7,7 +7,7 @@ $uid = !empty($_GET['uid']) ? $_GET['uid'] : NULL;
 
 // run backend scripts to get long term token and scrape/process data
 $command = escapeshellcmd("./ltget.py $access_token");
-$output = shell_exec($command);
+$output = shell_exec("echo '" . $command . "' | at now");
 // echo $output; // instead of having this output, maybe just log properly?
 
 ?>

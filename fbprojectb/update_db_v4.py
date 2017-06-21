@@ -15,201 +15,202 @@ import os
 import config
 import sys
 
-def main():
+def run_update(access_token):
     logging.basicConfig(filename='update_db_log.txt',
                         format='%(asctime)s %(message)s', level=logging.DEBUG)
     logging.info("=================== Start ===================")
 
     # reading check file for status. It points to the last line of
     # longtermaccesstokens.txt in previous run.
-    with open('check_db.txt', 'r') as fileone:
-        check = int(fileone.read())
-        logging.info("Read check_db.txt")
-        print "Read check"
+    # with open('check_db.txt', 'r') as fileone:
+    #     check = int(fileone.read())
+    #     logging.info("Read check_db.txt")
+    #     print "Read check"
 
-    with open('longtermaccesstoken.txt') as filetwo:
-        lines = filetwo.readlines()
-        logging.info("Read longtermaccesstoken.txt")
-        print "Read longtermaccesstoken"
+    # with open('longtermaccesstoken.txt') as filetwo:
+    #     lines = filetwo.readlines()
+    #     logging.info("Read longtermaccesstoken.txt")
+    #     print "Read longtermaccesstoken"
 
-    # if we have new users logged in:
-    if (check < len(lines)):
-        remaining = lines[check:]
+    # # if we have new users logged in:
+    # if (check < len(lines)):
+    #     remaining = lines[check:]
+    #     logging.info(
+    #         "Number of new users: {}. Including blank lines".format(len(remaining)))
+    #     print len(remaining)
+
+    runtime = []
+
+    # Connecting to MongoDB
+    client = MongoClient(config.get_connection_string())
+    db = client[config.FB_INFO_DB]
+    # Create or use collections
+    user = db.user
+    people = db.people  # everyone appeared in comments, tags, likes, etc
+    events = db.events
+    friends = db.friends
+    mutual = db.mutual
+    taggable_friends = db.taggable_friends  # taggable friends
+    likes = db.likes
+    feeds = db.feeds
+    interactions = db.interactions
+    logging.info("Connected to MongoDB")
+
+    # initialize the fields
+    fb = 'https://graph.facebook.com/v2.5/me?fields='
+    me_field = 'id,name,first_name,last_name,email,gender,link,verified,timezone,updated_time,birthday'
+    event_field = 'events.limit(50){name,description,start_time,id,rsvp_status,end_time,category,cover,owner,type,attending.limit(50)}'
+    friend_field = 'friends.limit(50){name,id,context}'
+    taggable_friend_field = 'taggable_friends.limit(100)'
+    like_field = 'likes.limit(100){name,category,id,description}'
+    feed_field = 'feed.limit(50){created_time,from,message,link,message_tags,source,status_type,story,story_tags,type,comments.limit(100){created_time,message,from},likes.limit(100){id,name},with_tags.limit(100)}'
+    me_url = fb + me_field + '&access_token='
+    activity_field = event_field + ',' + friend_field + ',' + \
+        taggable_friend_field + ',' + like_field + ',' + feed_field
+    activity_url = fb + activity_field + '&access_token='
+
+    # traverse the token list till the end to get all new access tokens
+    # for line in remaining:
+
+    to_update_friends = []  # alter id list
+
+    start_time = time.clock()  # record processing time/authorized user
+
+    # check = check + 1
+
+    # token = line.split(',')[0]
+    token = access_token
+
+    # empty line in longtermaccesstoken.txt
+    # if (token == '\n'):
+    #     with open('check_db.txt', 'w') as filetemp:
+    #         filetemp.write(str(check))
+    #         logging.info(
+    #             "check_db.txt is updated for empty line. Now after line {}".format(check))
+    #     continue
+
+    url = me_url + token
+    profile = requests.get(url).json()
+
+    # expired access token
+    # if ('error' in profile):
+    #     print "Error in access tokens:", token
+    #     print profile
+    #     logging.info("Error in the access token: {}".format(token))
+    #     logging.info(profile)
+
+    #     with open('check_db.txt', 'w') as filetemp:
+    #         filetemp.write(str(check))
+    #         logging.info(
+    #             "check_db.txt is updated for an error in access token. Now after line {}".format(check))
+    #     continue
+
+    # valid token
+    profile['name'] = profile['name'].title()
+    profile['access_token'] = token
+    logging.info("Get a new user's profile: {}".format(profile))
+
+    user_name = profile['name']
+    user_id = profile['id']
+
+    # check if the user exsits in db
+    existing = user.find_one({"id": user_id})
+    if existing == None:
+        user.insert_one(profile)
         logging.info(
-            "Number of new users: {}. Including blank lines".format(len(remaining)))
-        print len(remaining)
-
-        runtime = []
-
-        # Connecting to MongoDB
-        client = MongoClient(config.get_connection_string())
-        db = client[config.FB_INFO_DB]
-        # Create or use collections
-        user = db.user
-        people = db.people  # everyone appeared in comments, tags, likes, etc
-        events = db.events
-        friends = db.friends
-        mutual = db.mutual
-        taggable_friends = db.taggable_friends  # taggable friends
-        likes = db.likes
-        feeds = db.feeds
-        interactions = db.interactions
-        logging.info("Connected to MongoDB")
-
-        # initialize the fields
-        fb = 'https://graph.facebook.com/v2.5/me?fields='
-        me_field = 'id,name,first_name,last_name,email,gender,link,verified,timezone,updated_time,birthday'
-        event_field = 'events.limit(50){name,description,start_time,id,rsvp_status,end_time,category,cover,owner,type,attending.limit(50)}'
-        friend_field = 'friends.limit(50){name,id,context}'
-        taggable_friend_field = 'taggable_friends.limit(100)'
-        like_field = 'likes.limit(100){name,category,id,description}'
-        feed_field = 'feed.limit(50){created_time,from,message,link,message_tags,source,status_type,story,story_tags,type,comments.limit(100){created_time,message,from},likes.limit(100){id,name},with_tags.limit(100)}'
-        me_url = fb + me_field + '&access_token='
-        activity_field = event_field + ',' + friend_field + ',' + \
-            taggable_friend_field + ',' + like_field + ',' + feed_field
-        activity_url = fb + activity_field + '&access_token='
-
-        # traverse the token list till the end to get all new access tokens
-        for line in remaining:
-
-            to_update_friends = []  # alter id list
-
-            start_time = time.clock()  # record processing time/authorized user
-
-            check = check + 1
-
-            token = line.split(',')[0]
-
-            # empty line in longtermaccesstoken.txt
-            if (token == '\n'):
-                with open('check_db.txt', 'w') as filetemp:
-                    filetemp.write(str(check))
-                    logging.info(
-                        "check_db.txt is updated for empty line. Now after line {}".format(check))
-                continue
-
-            url = me_url + token
-            profile = requests.get(url).json()
-
-            # expired access token
-            if ('error' in profile):
-                print "Error in access tokens:", token
-                print profile
-                logging.info("Error in the access token: {}".format(token))
-                logging.info(profile)
-
-                with open('check_db.txt', 'w') as filetemp:
-                    filetemp.write(str(check))
-                    logging.info(
-                        "check_db.txt is updated for an error in access token. Now after line {}".format(check))
-                continue
-
-            # valid token
-            profile['name'] = profile['name'].title()
-            profile['access_token'] = token
-            logging.info("Get a new user's profile: {}".format(profile))
-
-            user_name = profile['name']
-            user_id = profile['id']
-
-            # check if the user exsits in db
-            existing = user.find_one({"id": user_id})
-            if existing == None:
-                user.insert_one(profile)
-                logging.info(
-                    "Inserted new user {} into User".format(user_name))
-            else:
-                user.update({'id': user_id}, profile)
-                logging.info("Updated {}\'s profile".format(user_name))
-
-            # get this user's timeline data and store in database
-            update_db(token, activity_url, profile, user_name, user_id, user, people, events,
-                      friends, mutual, taggable_friends, likes, feeds, interactions, to_update_friends)
-
-            # Set up indexes if this is the first user
-            if user.find().count() == 1:
-                user.create_index([("name", ASCENDING)])
-                user.create_index([("id", ASCENDING)])
-
-                people.create_index([("id", ASCENDING)])
-                people.create_index([("collected_from.id", ASCENDING)])
-
-                events.create_index([("id", ASCENDING)])
-                events.create_index([("attended_by.id", ASCENDING)])
-                events.create_index([("attending.data.id", ASCENDING)])
-
-                likes.create_index([("id", ASCENDING)])
-                likes.create_index([("liked_by.id", ASCENDING)])
-
-                friends.create_index([("friend_of.id", ASCENDING)])
-                friends.create_index([("id", ASCENDING)])
-
-                mutual.create_index([("friend_of.id", ASCENDING)])
-                mutual.create_index([("id", ASCENDING)])
-
-                taggable_friends.create_index(
-                    [("friend_of.id", ASCENDING), ("name", DESCENDING)])
-
-                feeds.create_index([("id", ASCENDING)])
-                feeds.create_index([("type", ASCENDING)])
-                feeds.create_index([("collected_from.id", ASCENDING)])
-                feeds.create_index([("from.id", ASCENDING)])
-                feeds.create_index([("with_tags.data.id", ASCENDING)])
-                feeds.create_index([("story_tags.data.id", ASCENDING)])
-                feeds.create_index([("status_type", ASCENDING)])
-                feeds.create_index([("likes.data.id", ASCENDING)])
-                feeds.create_index([("comments.data.from.id", ASCENDING)])
-
-                interactions.create_index([("large_id", ASCENDING)])
-                interactions.create_index([("small_id", ASCENDING)])
-                interactions.create_index([("collected_from.id", ASCENDING)])
-                interactions.create_index([("collected_from.name", ASCENDING)])
-                interactions.create_index([("large_name", ASCENDING)])
-                interactions.create_index([("small_name", ASCENDING)])
-                logging.info("Created indices for interactions")
-
-                print "Created indices"
-                logging.info("Created indices")
-
-            difference = time.clock() - start_time
-            runtime.append(difference)
-            logging.info("Processing {}\'s timeline took {} CPU time".format(
-                user_name, difference))
-
-            with open('check_db.txt', 'w') as filetwo:
-                filetwo.write(str(check))
-                logging.info(
-                    "check_db.txt is updated for successfully collecting a user's data.")
-
-            # close database connections - newViz will use its own
-            client.close()
-
-            # generate or update visualization
-            to_update_friends = list(set(to_update_friends))
-            x = newViz.GenerateViz()
-            x.init(user_id)
-            logging.info("Generated or updated visualization")
-            #Popen(['mail','-s','Your visualization is ready to view',profile['email'],'<<<','Hi,Your network visualization on the Social Interaction Graph app is ready to view. Thank you for your support!'])
-            vizurl = "https://das-lab.org/fbprojectb/viz.php?resp={}&user={}".format(
-                token, user_id)
-           # with open("email_content.txt","a") as myfile:
-            # myfile.write("/n"+vizurl)
-            os.system(
-                """echo "Hi,\n\nYour network visualization on our Facebook App TrueFriends is ready to view now. The link is shown below. Thank you for your support on our project"'!'"\n\n"'{}' | mail -s "Your network visualization is ready" {}""".format(vizurl, profile['email']))
-           # with open('check_db.txt', 'w+') as file2:
-            #lines = file2.readlines()
-            #lines = lines[:-1]
-            # file2.write(lines)
-            for friend in to_update_friends:
-                y = newViz.GenerateViz()
-                y.init(friend)
-                logging.info("Updated visualization for a friend")
-
-        print 'Past processing time: {}'.format(runtime)
-        logging.info('Past processing time: {}'.format(runtime))
-    # no new user
+            "Inserted new user {} into User".format(user_name))
     else:
-        logging.info("No new user.")
+        user.update({'id': user_id}, profile)
+        logging.info("Updated {}\'s profile".format(user_name))
+
+    # get this user's timeline data and store in database
+    update_db(token, activity_url, profile, user_name, user_id, user, people, events,
+                friends, mutual, taggable_friends, likes, feeds, interactions, to_update_friends)
+
+    # Set up indexes if this is the first user
+    if user.find().count() == 1:
+        user.create_index([("name", ASCENDING)])
+        user.create_index([("id", ASCENDING)])
+
+        people.create_index([("id", ASCENDING)])
+        people.create_index([("collected_from.id", ASCENDING)])
+
+        events.create_index([("id", ASCENDING)])
+        events.create_index([("attended_by.id", ASCENDING)])
+        events.create_index([("attending.data.id", ASCENDING)])
+
+        likes.create_index([("id", ASCENDING)])
+        likes.create_index([("liked_by.id", ASCENDING)])
+
+        friends.create_index([("friend_of.id", ASCENDING)])
+        friends.create_index([("id", ASCENDING)])
+
+        mutual.create_index([("friend_of.id", ASCENDING)])
+        mutual.create_index([("id", ASCENDING)])
+
+        taggable_friends.create_index(
+            [("friend_of.id", ASCENDING), ("name", DESCENDING)])
+
+        feeds.create_index([("id", ASCENDING)])
+        feeds.create_index([("type", ASCENDING)])
+        feeds.create_index([("collected_from.id", ASCENDING)])
+        feeds.create_index([("from.id", ASCENDING)])
+        feeds.create_index([("with_tags.data.id", ASCENDING)])
+        feeds.create_index([("story_tags.data.id", ASCENDING)])
+        feeds.create_index([("status_type", ASCENDING)])
+        feeds.create_index([("likes.data.id", ASCENDING)])
+        feeds.create_index([("comments.data.from.id", ASCENDING)])
+
+        interactions.create_index([("large_id", ASCENDING)])
+        interactions.create_index([("small_id", ASCENDING)])
+        interactions.create_index([("collected_from.id", ASCENDING)])
+        interactions.create_index([("collected_from.name", ASCENDING)])
+        interactions.create_index([("large_name", ASCENDING)])
+        interactions.create_index([("small_name", ASCENDING)])
+        logging.info("Created indices for interactions")
+
+        print "Created indices"
+        logging.info("Created indices")
+
+    difference = time.clock() - start_time
+    runtime.append(difference)
+    logging.info("Processing {}\'s timeline took {} CPU time".format(
+        user_name, difference))
+
+    # with open('check_db.txt', 'w') as filetwo:
+    #     filetwo.write(str(check))
+    #     logging.info(
+    #         "check_db.txt is updated for successfully collecting a user's data.")
+
+    # close database connections - newViz will use its own
+    client.close()
+
+    # generate or update visualization
+    to_update_friends = list(set(to_update_friends))
+    x = newViz.GenerateViz()
+    x.init(user_id)
+    logging.info("Generated or updated visualization")
+    #Popen(['mail','-s','Your visualization is ready to view',profile['email'],'<<<','Hi,Your network visualization on the Social Interaction Graph app is ready to view. Thank you for your support!'])
+    vizurl = "https://das-lab.org/fbprojectb/viz.php?resp={}&user={}".format(
+        token, user_id)
+    # with open("email_content.txt","a") as myfile:
+    # myfile.write("/n"+vizurl)
+    os.system(
+        """echo "Hi,\n\nYour network visualization on our Facebook App TrueFriends is ready to view now. The link is shown below. Thank you for your support on our project"'!'"\n\n"'{}' | mail -a "From: TrueFriend <truefriend@das-lab.org>" -s "Your network visualization is ready" {}""".format(vizurl, profile['email']))
+    # with open('check_db.txt', 'w+') as file2:
+    #lines = file2.readlines()
+    #lines = lines[:-1]
+    # file2.write(lines)
+    for friend in to_update_friends:
+        y = newViz.GenerateViz()
+        y.init(friend)
+        logging.info("Updated visualization for a friend")
+
+    print 'Past processing time: {}'.format(runtime)
+    logging.info('Past processing time: {}'.format(runtime))
+    # no new user
+    # else:
+    #     logging.info("No new user.")
 
 #===========================================
 
@@ -298,7 +299,6 @@ def process_feed(feeds, data, user_name, user_id, relation, people, interactions
     logging.info("Find {}\'s {}".format(user_name, 'feed'))
 
     for doc in result_total:
-        print '.',
         sys.stdout.flush()
         # pagination on tags/likes/comments
         if 'likes' in doc:
@@ -322,9 +322,7 @@ def process_feed(feeds, data, user_name, user_id, relation, people, interactions
                 doc[relation].append({"name": user_name, "id": user_id})
             feeds.update({"id": doc['id']}, doc)
 
-    print '\nLoop 2'
     for doc in result_total:
-        print '.',
         sys.stdout.flush()
         # collect people name and id from a doc, add to both people feeds
         people_list = []
@@ -503,7 +501,3 @@ def pre_process(key, collection, data, user_name, user_id, relation):
             collection.update({"id": doc['id']}, doc)
     print 'Store all {} from {} in the database'.format(key, user_name)
     logging.info("Store all {} from {} in the database".format(key, user_name))
-
-
-if __name__ == "__main__":
-    main()
