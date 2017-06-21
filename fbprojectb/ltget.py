@@ -17,7 +17,6 @@ def main():
 
     # get short term access token
     short_term_access_token = sys.argv[1]
-    data = {'access_token': 'oooh new stuff'}
 
     # logging.basicConfig(filename='ltget_log.txt',
     #                     format='%(asctime)s %(message)s', level=logging.DEBUG)
@@ -53,11 +52,18 @@ def main():
         # #Storing valuable information from the facebook graph:
         userInfo['access_token'] = acltat
         userInfo['token_date'] = datetime.datetime.utcnow()
+        userInfo['processing'] = True
         graph = facepy.GraphAPI(acltat)
         profile = graph.get('me')
         user_name = profile['name']
         user_id = profile['id']
         existing = collection.find_one({"user id": user_id})
+
+        # check if this user is already processing
+        if 'processing' in existing and existing['processing'] == True:
+            print 'User already processing in other thread'
+            return
+
         if existing is None:
             userInfo['first_name'] = profile['first_name']
             userInfo['last_name'] = profile['last_name']
@@ -72,7 +78,7 @@ def main():
         else:
             print "This user exists in the database."
             collection.update({'user id': user_id}, {
-                "$set": {'access_token': acltat, 'token_date': datetime.datetime.utcnow()}})
+                "$set": {'access_token': acltat, 'token_date': datetime.datetime.utcnow(), 'processing': True}})
     except Exception, e:
         print "EXCEPTION: " + str(e)
         print "User logged out."
@@ -81,7 +87,16 @@ def main():
     #          but otherwise...
     
     # Do next part of processing
-    update_db_v4.run_update(acltat)
+    try:
+        update_db_v4.run_update(acltat)
+    except Exception, e:
+        print 'Failed during update_db'
+        print e
+        return
+    finally:
+        # say they're no longer processing
+        userInfo['processing'] = False
+        collection.update({'user id': user_id}, {"$set": {'processing': False}})
 
 def check_args():
     return len(sys.argv) == 2
