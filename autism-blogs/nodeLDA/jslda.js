@@ -180,7 +180,9 @@ $.ajax({
 			var tooltip = circle.attr("title");
 			circle.removeAttr("title");
 			circle.mouseover(function(evt) {
-				$("#tooltip").html(tooltip).css("visibility", "visible").css("top", evt.pageY - 65).css("left", evt.pageX - $("#tooltip").width()/1.25);
+				$("#tooltip").html(tooltip).css("visibility", "visible").css("top", evt.pageY - 65);
+				var left = evt.pageX - $("#tooltip").width();
+				$("#tooltip").css("left", left < 0 ? 0 : left);
 			});
 			circle.mouseout(function() {
 				$("#tooltip").css("visibility", "hidden");
