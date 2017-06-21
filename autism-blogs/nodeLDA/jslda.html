@@ -4,6 +4,9 @@
 <link href='http://fonts.googleapis.com/css?family=Alegreya' rel='stylesheet' type='text/css'>
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <link href='jslda.css' rel='stylesheet' type='text/css'>
+
+<link rel="icon" href="https://das-lab.org/wp-content/uploads/2017/05/cropped-1-1-32x32.png" sizes="32x32">
+<link rel="icon" href="https://das-lab.org/wp-content/uploads/2017/05/cropped-1-1-192x192.png" sizes="192x192">
 <style>
 </style>
 </head>
@@ -53,18 +56,27 @@
 		
 		<div id="corr-page" class="page">
 			<div class="help">Topics that occur together more than expected are blue, topics that occur together less than expected are red.</div>
+			<div>
+				<button id="corr-zoom-in" title="zoom in">🔍+</button>
+				<button id="corr-zoom-one" title="zoom reset">🔍1</button>
+				<button id="corr-zoom-out" title="zoom out">🔍-</button>
+			</div>
 			<!-- @echo CGRAPH -->
 		</div>
 
 		<div id="ts-page" class="page" data-minmonth=<!-- @echo MINM --> data-maxmonth=<!-- @echo MAXM -->>
 			<div class="help">Documents are grouped by their date. These plots show the average document proportion of each topic at each date value. </div>
-			<div><button id="ts-zoom-in" title="zoom in">🔍+</button><button id="ts-zoom-out" title="zoom out">🔍-</button></div>
+			<div>
+				<button id="ts-zoom-in" title="zoom in">🔍+</button>
+				<button id="ts-zoom-one" title="zoom reset">🔍1</button>
+				<button id="ts-zoom-out" title="zoom out">🔍-</button>
+				<button id="ts-scale-corpus" style="display: none;">Scale by corpus</button>
+				<button id="ts-scale-topic">Scale by topic</button>
+			</div>
 			<!-- @echo TGRAPH -->
 		</div>
 
 	</div>
-			
-	
 
 <script src="jslda.js"></script>
 </div>

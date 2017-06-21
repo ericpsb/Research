@@ -156,7 +156,7 @@ $(".go").click(function(){
 $("#corr-page circle").each(function() {
 	var circle = $(this);
 	var tooltip = circle.attr("title");
-	circle.attr("title", "");
+	circle.removeAttr("title");
 	circle.mouseover(function(evt) {
 		$("#tooltip").html(tooltip).css("visibility", "visible").css("top", evt.pageY - 65).css("left", evt.pageX - $("#tooltip").width()/1.25);
 	});
@@ -164,6 +164,26 @@ $("#corr-page circle").each(function() {
 		$("#tooltip").css("visibility", "hidden");
 	});
 	
+});
+
+var corr_ratio = 1.0;
+var corr_width = $("#corr-page svg").width();
+var corr_height = $("#corr-page svg").height();
+$("#corr-zoom-in").click(function(){
+	corr_ratio += 0.1;
+	$("#corr-page svg").attr("width", (corr_width*corr_ratio).toFixed(0));
+	$("#corr-page svg").attr("height", (corr_height*corr_ratio).toFixed(0));
+});
+$("#corr-zoom-one").click(function(){
+	corr_ratio = 1.0;
+	$("#corr-page svg").attr("width", corr_width);
+	$("#corr-page svg").attr("height", corr_height);
+});
+$("#corr-zoom-out").click(function(){
+	if(corr_ratio < 0.2) {return;}
+	corr_ratio -= 0.1;
+	$("#corr-page svg").attr("width", (corr_width*corr_ratio).toFixed(0));
+	$("#corr-page svg").attr("height", (corr_height*corr_ratio).toFixed(0));
 });
 
 // topic toggle
@@ -184,6 +204,8 @@ $("#show-topic").click(function(){
 // ts tab
 var minMonth = $("#ts-page").data("minmonth");
 var maxMonth = $("#ts-page").data("maxmonth");
+$("#ts-page").removeAttr("data-minmonth");
+$("#ts-page").removeAttr("data-maxmonth");
 function toMonth(num) {
 	var m = num%12 + 1;
 	return Math.floor(num/12) + "-" + (m < 10? "0" + m : m);
@@ -194,23 +216,59 @@ $("#ts-page svg").each(function() {
 	graph.mousemove(function(evt) {
 		var width = $(this).width();
 		var m = minMonth + Math.round(evt.offsetX/width*(maxMonth-minMonth));
-		$("#tooltip").html(toMonth(m)).css("visibility", "visible").css("top", evt.pageY - 65).css("left", evt.pageX - $("#tooltip").width()/2);
+		$("#tooltip").html(toMonth(m)).css("visibility", "visible").css("top", evt.pageY - 45).css("left", evt.pageX - $("#tooltip").width()/2);
 	});
 	graph.mouseout(function() {
 		$("#tooltip").css("visibility", "hidden");
 	});
 });
+
 var ts_ratio = 1.0;
-var ts_width = $("#ts-page svg").width();
-var ts_height = $("#ts-page svg").height();
+var ts_width = $(".ts-div svg").width();
+var ts_height = $(".ts-div svg").height();
+var ts_text_h = parseInt($(".ts-div text").css("top"));
+var ts_text_w = parseInt($(".ts-div text").css("left"));
 $("#ts-zoom-in").click(function(){
 	ts_ratio += 0.1;
-	$("#ts-page svg").attr("width", (ts_width*ts_ratio).toFixed(2));
-	$("#ts-page svg").attr("height", (ts_height*ts_ratio).toFixed(2));
-})
+	$(".ts-div svg").attr("width", (ts_width*ts_ratio).toFixed(0));
+	$(".ts-div svg").attr("height", (ts_height*ts_ratio).toFixed(0));
+	$(".ts-div text").css("left", (ts_text_w*ts_ratio).toFixed(2));
+	$(".ts-div text").css("top", (ts_text_h*ts_ratio).toFixed(2));
+	$(".ts-div text").css("font-size", ts_ratio*100 + "%");
+});
+$("#ts-zoom-one").click(function(){
+	ts_ratio = 1.0;
+	$(".ts-div svg").attr("width", ts_width);
+	$(".ts-div svg").attr("height", ts_height);
+	$(".ts-div text").css("left", ts_text_w);
+	$(".ts-div text").css("top", ts_text_h);
+	$(".ts-div text").css("font-size", "100%");
+});
 $("#ts-zoom-out").click(function(){
 	if(ts_ratio < 0.2) {return;}
 	ts_ratio -= 0.1;
-	$("#ts-page svg").attr("width", (ts_width*ts_ratio).toFixed(2));
-	$("#ts-page svg").attr("height", (ts_height*ts_ratio).toFixed(2));
-})
+	$(".ts-div svg").attr("width", (ts_width*ts_ratio).toFixed(0));
+	$(".ts-div svg").attr("height", (ts_height*ts_ratio).toFixed(0));
+	$(".ts-div text").css("left", (ts_text_w*ts_ratio).toFixed(2));
+	$(".ts-div text").css("top", (ts_text_h*ts_ratio).toFixed(2));
+	$(".ts-div text").css("font-size", ts_ratio*100 + "%");
+});
+
+$(".ts-div svg").each(function(){
+	var minh = $(this).data("minh");
+	$(this).removeAttr("data-minh");
+	$(this).data("minh", minh);
+});
+$("#ts-scale-corpus").click(function(){
+	$("#ts-scale-topic").css("display", "");
+	$(this).css("display", "none");
+	$(".ts-div svg").attr("viewBox", "0 0 " + ts_width +  " " + ts_height);
+});
+$("#ts-scale-topic").click(function(){
+	$("#ts-scale-corpus").css("display", "");
+	$(this).css("display", "none");
+	$(".ts-div svg").each(function(){
+		var minh = $(this).data("minh");
+		$(this).attr("viewBox", "0 " + minh + " " + ts_width +  " " + (ts_height-minh));
+	});
+});

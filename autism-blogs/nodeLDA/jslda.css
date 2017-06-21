@@ -22,7 +22,8 @@ div.help { padding: 20px 100px 15px 30px; color: #777; }
 .page { padding:10px 10px 25px; background-color: #fff; margin-top: 4px; display: none;}
 #pages { margin-left: 22%; }
 div#docs-page { display: block; }
-#docs-page .document { font-family: 'Roboto', sans-serif; padding: 10px; }
+#docs-page .document { font-family: 'Roboto', sans-serif; padding: 10px; color: #555;}
+#docs-page .document span {color: black;}
 
 text { font-size: small; fill: #555; dominant-baseline: middle;; }
 
@@ -30,5 +31,8 @@ text { font-size: small; fill: #555; dominant-baseline: middle;; }
 
 #ts-page svg { margin-right: 5px; margin-top: 5px; border: 1px solid #ccc!important; border-radius: 8px;}
 
-.curr {margin-left: 10px; margin-right: 10px;}
-.dest {width: 5em; margin-left: 20px;}
+.curr { margin-left: 10px; margin-right: 10px; }
+.dest { width: 5em; margin-left: 20px; }
+
+.ts-div { position: relative; font-size: small; display: inline-block; }
+.ts-div text { position: absolute; font-size: 100%; color: #555; }

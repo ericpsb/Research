@@ -1,6 +1,7 @@
 #Import necessary libraries
 library(dplyr)
 library (rJava)
+.jinit()
 .jinit(parameters="-Xmx12g") #Give rJava enough memory
 library(mallet)
 library(ggplot2)
@@ -10,10 +11,10 @@ library(jsonlite)
 
 #Set number of topics
 n.topics <- 50
-
+long.label.length = 10
 
 #Set working directory
-#setwd("/Users/jatinbharwani/Desktop/Summer16/Research/mallet2")
+setwd("C:/Users/a/Desktop/research17/das-lab/autism-blogs/topicmodeling/mallet2")
 
 
 #Import Json file to a data variable (requires formatting data once imported)
@@ -52,14 +53,19 @@ doc.topics <- mallet.doc.topics(topic.model, smoothed=T, normalized=T)
 topic.words <- mallet.topic.words(topic.model, smoothed=T, normalized=T)
 mallet.top.words(topic.model, topic.words[1,], 30)
 
-topics.labels <- gsub("\\W", "_", mallet.topic.labels(topic.model, topic.words, 3))
-topics.long.labels <- mallet.topic.labels(topic.model, topic.words, num.top.words=50)
-
+#topics.labels <- gsub("\\W", "_", mallet.topic.labels(topic.model, topic.words, 3))
+#topics.long.labels <- mallet.topic.labels(topic.model, topic.words, num.top.words=50)
+topics.long.labels <- vector(length=n.topics)
+for (topic.i in 1:n.topics) 
+{
+  topics.long.labels[topic.i] <- gsub(",", ";", paste(as.vector(mallet.top.words(topic.model, topic.words[topic.i,], long.label.length)[,1]), collapse="_"))
+  topics.long.labels[topic.i] <- gsub("\\s", "_", topics.long.labels[topic.i])
+}
 
 doc.topics.frame <- data.frame(doc.topics)
 #names(doc.topics.frame) <- paste("Topic", 1:n.topics, sep="")
-names(doc.topics.frame) <- topics.labels
+names(doc.topics.frame) <- topics.long.labels
 docs.and.topics <- cbind(documents, doc.topics.frame)
 
-
-
+csv<-file("topic_frame.csv", encoding="UTF-8")
+write.csv(doc.topics.frame, file=csv, quote=FALSE)
