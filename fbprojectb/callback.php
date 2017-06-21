@@ -1,32 +1,17 @@
 <?php
 ini_set('display_errors', 1);
 
-//Defining the name of the file
-$file = 'accesstokens.txt';
-
-//Need to capture resp variable from the HTTP Get variable
+// get access token and uid from URL parameters
 $access_token = !empty($_GET['resp']) ? $_GET['resp'] : NULL;
 
 //Need to capture uid variable from the HTTP GET variable
 // $uid = !empty($_GET['uid']) ? $_GET['uid'] : NULL;
 $uid = !empty($_GET['user']) ? $_GET['user'] : NULL;
 
-//Let save this access token to the server for the future
-#file_put_contents($file, $access_token.PHP_EOL, FILE_APPEND);
-
-//saving these 2 variables as a csv
-//first lets declare a dummy array
-$accuid = array('B04','666');
-//now let us set the values of resp and uid into this array
-$accuid[0] = $access_token;
-$accuid[1] = $uid;
-
-//now doing all the nasty file operations
-if (!empty($access_token) && !empty($uid)) {
-    $fp = fopen('accesstokens.txt','a');
-    fputcsv($fp,$accuid);
-    fclose($fp);
-}
+// run backend scripts to get long term token and scrape/process data
+$command = escapeshellcmd("./ltget.py $access_token");
+$output = shell_exec("echo '" . $command . "' | at now");
+// echo $output; // instead of having this output, maybe just log properly?
 
 ?>
   <html>

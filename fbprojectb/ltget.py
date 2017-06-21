@@ -1,42 +1,29 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# import stuff here
 import httplib
-import csv
 import facepy
 import json
-import pymongo
-from pymongo import MongoClient, HASHED, ASCENDING, DESCENDING
-import simplejson as json
-import requests
-import time
-import logging
+from pymongo import MongoClient
+# import logging
 import config
-
+import sys
+import datetime
+import update_db_v4
 
 def main():
-    logging.basicConfig(filename='ltget_log.txt',
-                        format='%(asctime)s %(message)s', level=logging.DEBUG)
-    logging.info("=================== Start ===================")
+    if not check_args():
+        print 'Access token required.'
+        quit()
+
+    # get short term access token
+    short_term_access_token = sys.argv[1]
+
+    # logging.basicConfig(filename='ltget_log.txt',
+    #                     format='%(asctime)s %(message)s', level=logging.DEBUG)
+    # logging.info("=================== Start ===================")
 
     # fixing the Insecure platform issue on Facepy
-    import urllib3.contrib.pyopenssl
-
-    # reading check file for status. It points to the last line of
-    # accesstokens.txt.
-    checkfile = open('check.txt', 'r')
-    check = int(checkfile.read())
-    checkfile.close()
-
-    # need to open accesstokens.txt to read the line denoted by
-    actok = open('accesstokens.txt', 'r')
-    lines = actok.readlines()
-    actok.close()
-
-    # Gets the number of lines from index(from check.txt) to last line in
-    # accesstokes.txt
-    print len(lines)
-    remaining = lines[check:]
-    print len(remaining)
+    # import urllib3.contrib.pyopenssl
 
     # Storing app id and secret
     appid = "1582658458614337"
@@ -44,96 +31,75 @@ def main():
 
     # Connecting to MongoDB
     client = MongoClient(config.get_connection_string())
-    # Creating a MongoDB database
     db = client[config.USER_DB]
-    # Creating a collection within the database
     collection = db['fb-users']
 
-    # If no. of lines in remaining is 0, do nothing. If there are accesstokens
-    # to be converted do the following
-    if len(remaining) != 0:
-        # let us traverse the list till the end to get all new access tokens
-        for line in remaining:
-            check = check + 1
+    try:
+        # build httpconnection object
+        conn = httplib.HTTPSConnection('graph.facebook.com')
 
-            if line != ",\n":
-                try:
-                    # The try block helps ignore any missed cases, eg, cases in
-                    # which people logged out and their access tokens are not
-                    # valid anymore
-                    start_time = time.clock()  # record processing time/authorized user
-                    print line
-                    lsplit = line.split(',')
-                    stat = lsplit[0]
-                    uid = lsplit[1]
+        # setting up GET request
+        conn.request("GET", "/oauth/access_token?grant_type=fb_exchange_token&client_id=" +
+                        appid + "&client_secret=" + appsecret + "&fb_exchange_token=" + short_term_access_token + "")
 
-                    # build httpconnection object
-                    conn = httplib.HTTPSConnection('graph.facebook.com')
+        # getting and storing  the full response
+        ltat = conn.getresponse()
+        data = json.load(ltat)
+        acltat = data['access_token']
 
-                    # setting up GET request
-                    conn.request("GET", "/oauth/access_token?grant_type=fb_exchange_token&client_id=" +
-                                 appid + "&client_secret=" + appsecret + "&fb_exchange_token=" + stat + "")
+        # #Creating a document to store in a mongoDb collection
+        userInfo = {}
+        # #Storing valuable information from the facebook graph:
+        userInfo['access_token'] = acltat
+        userInfo['token_date'] = datetime.datetime.utcnow()
+        userInfo['processing'] = True
+        graph = facepy.GraphAPI(acltat)
+        profile = graph.get('me')
+        user_name = profile['name']
+        user_id = profile['id']
+        existing = collection.find_one({"user id": user_id})
 
-                    # getting and storing  the full response
-                    ltat = conn.getresponse()
-                    data = json.load(ltat)
-                    print data
+        # check if this user is already processing
+        if 'processing' in existing and existing['processing'] == True:
+            print 'User already processing in other thread'
+            return
 
-                    # Parse the long term access token out of JSON response
-                    filelt = open('longtermaccesstoken.txt', 'a')
-                    acltat = data["access_token"]
-                    filelt.write(acltat + ',' + uid + '\n')
-                    filelt.close()
+        if existing is None:
+            userInfo['first_name'] = profile['first_name']
+            userInfo['last_name'] = profile['last_name']
+            userInfo['user id'] = user_id
+            userInfo['gender'] = profile['gender']
+            userInfo['email'] = profile['email']
+            userInfo['birthday'] = profile['birthday']
+            userInfo['name'] = user_name.title()
+            userInfo['vizDone'] = 0
+            print "This user does not exist in the database."
+            collection.insert_one(userInfo)
+        else:
+            print "This user exists in the database."
+            collection.update({'user id': user_id}, {
+                "$set": {'access_token': acltat, 'token_date': datetime.datetime.utcnow(), 'processing': True}})
+    except Exception, e:
+        print "EXCEPTION: " + str(e)
+        print "User logged out."
+    
+    # TODO[P]: stop it from moving on if it failed at any point prior,
+    #          but otherwise...
+    
+    # Do next part of processing
+    try:
+        update_db_v4.run_update(acltat)
+    except Exception, e:
+        print 'Failed during update_db'
+        print e
+        return
+    finally:
+        # say they're no longer processing
+        userInfo['processing'] = False
+        collection.update({'user id': user_id}, {"$set": {'processing': False}})
 
-                    # #Creating a document to store in a mongoDb collection
-                    userInfo = {}
-                    # #Storing valuable information from the facebook graph:
-                    userInfo['access_token'] = acltat
-                    graph = facepy.GraphAPI(acltat)
-                    profile = graph.get('me')
-                    user_name = profile['name']
-                    user_id = profile['id']
-                    existing = collection.find_one({"user id": user_id})
-                    if existing == None:
-                        userInfo['first_name'] = profile['first_name']
-                        userInfo['last_name'] = profile['last_name']
-                        userInfo['user id'] = user_id
-                        userInfo['gender'] = profile['gender']
-                        userInfo['email'] = profile['email']
-                        userInfo['birthday'] = profile['birthday']
-                        userInfo['name'] = user_name.title()
-                        userInfo['vizDone'] = 0
-                        print "This user does not exist in the database."
-#                                        print "new profile",userInfo
-#					print "old profle",existing
-                        collection.insert_one(userInfo)
-                    else:
-                        #					print "current profile",existing
-                        #					print "new profile",userInfo
-                        print "This user exists in the database."
-                        collection.update({'user id': user_id}, {
-                            "$set": {'access_token': acltat}})
-
-                    # need to increment the value of check by 1
-#	                        check = check + 1
-
-                    # open check.txt and store the updated value of check in
-                    # it.
-                    checkfileagain = open('check.txt', 'w')
-                    checkfileagain.write(str(check))
-                    checkfileagain.close()
-                except Exception, e:
-                    print "EXCEPTION: " + str(e)
-                    print "User logged out."
-                    # need to increment the value of check by 1
- #                               check = check + 1
-
-                    # open check.txt and store the updated value of check in
-                    # it.
-                    checkfileagain = open('check.txt', 'w')
-                    checkfileagain.write(str(check))
-                    checkfileagain.close()
-
+def check_args():
+    return len(sys.argv) == 2
 
 if __name__ == "__main__":
     main()
