@@ -271,15 +271,15 @@ function getTimeSeriesGraphHtml() {
 	return result.html();
 }
 
-process.stdout.write("preprocessing html...\n");
+process.stdout.write("preprocessing html...");
 const pagesize = 35; // number of documents on one page
 const maxpage = Math.floor(numdocs/pagesize+1);
-var homepageHtml = pp.preprocess(html, {TOPICS: topic_dom.html(), DOCS: getDocumentsHtml(0, 0, pagesize),
-MAXPAGE: maxpage, CGRAPH: getCorrelationGraphHtml(), TGRAPH: getTimeSeriesGraphHtml(), MINM: firstM, MAXM: lastM});
+var homepageHtml = pp.preprocess(html, {TOPICS: topic_dom.html(), DOCS: getDocumentsHtml(0, 0, pagesize), MAXPAGE: maxpage, MINM: firstM, MAXM: lastM});
+process.stdout.write("done\n");
 
 // package necessary data for server to run
 // Note: function cannot be packaged so needs to be synced manually
-process.stdout.write("dumping data to file...");
+process.stdout.write("dumping data to file...\n");
 var nodeLDA = {};
 nodeLDA.numtopics = numtopics;
 nodeLDA.numdocs = numdocs;
@@ -289,6 +289,7 @@ nodeLDA.homepageHtml = homepageHtml;
 nodeLDA.doc_table = doc_table;
 nodeLDA.sorted_topic_docid = sorted_topic_docid;
 nodeLDA.sorted_topic_table = sorted_topic_table;
+nodeLDA.correlation_graph = getCorrelationGraphHtml();
+nodeLDA.time_series_graph = getTimeSeriesGraphHtml();
 
 fs.writeFileSync("nodeLDA.json", JSON.stringify(nodeLDA), {encoding: 'utf8'});
-process.stdout.write("done\n");

@@ -10,6 +10,8 @@ var getDocumentsHtml;
 var sorted_topic_docid;
 var doc_table;
 var sorted_topic_table;
+var correlation_graph;
+var time_series_graph;
 
 // Note: these functions should be in sync with nodeLDA.js
 function getDocumentsHtml(topic, start, end) {
@@ -44,14 +46,17 @@ function loadData() {
 	sorted_topic_docid = nodeLDA.sorted_topic_docid;
 	doc_table = nodeLDA.doc_table;
 	sorted_topic_table = nodeLDA.sorted_topic_table;
+	correlation_graph = nodeLDA.correlation_graph;
+	time_series_graph = nodeLDA.time_series_graph;
 }
 loadData();
 
 var express = require('express');
 var app = express();
+var baseurl = ""; // e.g. "/nodeLDA"
 app.use(express.static(__dirname));
 
-app.get('/', function(req, res) {
+app.get(baseurl + '/', function(req, res) {
 	
 	var tid = req.query.tid;
 	var page = req.query.page;
@@ -75,6 +80,18 @@ app.get('/', function(req, res) {
 		res.write(JSON.stringify(result));
 		res.end();
 	}
+});
+
+app.get(baseurl + '/cgraph', function(req, res) {
+	res.set('Content-Type', 'text/html');
+	res.write(correlation_graph);
+	res.end();
+});
+
+app.get(baseurl + '/tgraph', function(req, res) {
+	res.set('Content-Type', 'text/html');
+	res.write(time_series_graph);
+	res.end();
 });
 app.listen(8080, '0.0.0.0');
 
