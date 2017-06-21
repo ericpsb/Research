@@ -1,6 +1,7 @@
 .DS_Store
 *log.txt
 *.pyc
+*.Rhistory
 
 autism-blogs/topicmodeling/mallet2/finalRun/run5data.RData
 autism-blogs/blogscrapers/specificBlogs/merged_file.json
