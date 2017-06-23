@@ -57,7 +57,7 @@ def run_update(access_token):
     logging.info("Connected to MongoDB")
 
     # initialize the fields
-    fb = 'https://graph.facebook.com/v2.5/me?fields='
+    fb = 'https://graph.facebook.com/v2.9/me?fields='
     me_field = 'id,name,first_name,last_name,email,gender,link,verified,timezone,updated_time,birthday'
     event_field = 'events.limit(50){name,description,start_time,id,rsvp_status,end_time,category,cover,owner,type,attending.limit(50)}'
     friend_field = 'friends.limit(50){name,id,context}'
