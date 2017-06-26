@@ -234,9 +234,18 @@ function getTimeSeriesGraphHtml() {
 	var months = lastM - firstM + 1;
 	var w1 = 250/months;
 	var result = $("<div></div>");
-	var topavg = 0.25;
+	var topavg = 0;
+	var topdocs = 0;
 	var data = {valavg: [], numdocs: []};
-
+	
+	var totdocs = new Array(months);
+	for(var t=0; t<months; t++) {totdocs[t] = 0;}
+	doc_table.forEach(function(doc) {
+		if(doc.datenum < 0) {return;}
+		var month = doc.datenum-firstM;
+		totdocs[month]++;
+	});
+	
 	for(var topic=0; topic < numtopics; topic++) {
 		var valtotal = new Array(months);
 		var docs1 = new Array(months);
@@ -245,11 +254,9 @@ function getTimeSeriesGraphHtml() {
 		var docs4 = new Array(months);
 		
 		var valavg = new Array(months);
-		var totdocs = new Array(months);
 		
 		for(var t=0; t<months; t++) {
 			valtotal[t] = 0;
-			totdocs[t] = 0;
 			
 			docs1[t] = 0;
 			docs2[t] = 0;
@@ -264,7 +271,6 @@ function getTimeSeriesGraphHtml() {
 			var month = doc.datenum-firstM;
 			var val = valrow[i];
 			valtotal[month] += val;
-			totdocs[month]++;
 			if(val > 0.5) {
 				docs1[month]++;
 			} 
@@ -279,12 +285,14 @@ function getTimeSeriesGraphHtml() {
 			}
 		}
 		var mostdocs = 0;
-		var highestavg = 0;
+		var bestavg = 0;
 		for(var i=0; i<months; i++) {
 			if (totdocs[i] > 0) {
 				valavg[i] = valtotal[i]/totdocs[i];
 				mostdocs = docs4[i] > mostdocs ? docs4[i] : mostdocs;
-				highestavg = valavg[i] > highestavg ? valavg[i] : highestavg;
+				bestavg = valavg[i] > bestavg ? valavg[i] : bestavg;
+				topdocs = mostdocs > topdocs ? mostdocs : topdocs;
+				topavg = bestavg > topavg ? bestavg : topavg;
 			}
 		}
 		data.valavg.push(valavg);
@@ -292,16 +300,16 @@ function getTimeSeriesGraphHtml() {
 		{
 			var d = "M0,100";
 			for(var i=0; i<months; i++) {
-				var h1 = (100-100*valavg[i]/topavg);
+				var h1 = (100-100*valavg[i]/bestavg);
 				d+="L" + (i*w1) + "," + h1;
 			}
 			d+="L" + ((months-1)*w1) + ",100Z";
-			var div = $("<div></div>").addClass("ts-div").addClass("valavg").attr("data-tid", topic).attr("data-h0", topavg).attr("data-h", highestavg).attr("data-w", (months-1)*w1);
+			var div = $("<div></div>").addClass("ts-div").addClass("valavg").attr("data-tid", topic).attr("data-h", bestavg).attr("data-w", (months-1)*w1);
 			var svg = $("<svg></svg>").attr("width", w).attr("height", h).attr("viewBox", "0 0 " + ((months-1)*w1) + " 100").attr("preserveAspectRatio", "none");
 			var g = $("<g></g>");
 			var path = $("<path></path>").attr("d", d).css("fill", "#ccc");
 			var text = $("<text></text>").css("left", 5).css("top", 20).html(topics[topic]);
-			var scale = $("<text></text>").html((topavg*100) + "%").addClass("scale");			
+			var scale = $("<text></text>").html((bestavg*100).toFixed(1) + "%").addClass("avgscale");			
 			g.append(path);
 			svg.append(g);
 			div.append(scale);
@@ -329,7 +337,7 @@ function getTimeSeriesGraphHtml() {
 			d2+=" " + ((months-1)*w1) + ",100";
 			d3+=" " + ((months-1)*w1) + ",100";
 			d4+=" " + ((months-1)*w1) + ",100";
-			var div = $("<div></div>").addClass("ts-div").addClass("numdocs").attr("data-tid", topic);
+			var div = $("<div></div>").addClass("ts-div").addClass("numdocs").attr("data-tid", topic).attr("data-h", mostdocs).attr("data-w", (months-1)*w1);
 			var svg = $("<svg></svg>").attr("width", w).attr("height", h).attr("viewBox", "0 0 " + ((months-1)*w1) + " 100").attr("preserveAspectRatio", "none");
 			var g = $("<g></g>");
 			var path1 = $("<polyline></polyline>").attr("points", d1).css("fill", "#0d47a1");
@@ -337,7 +345,7 @@ function getTimeSeriesGraphHtml() {
 			var path3 = $("<polyline></polyline>").attr("points", d3).css("fill", "#2196f3");
 			var path4 = $("<polyline></polyline>").attr("points", d4).css("fill", "#64b5f6");
 			var text = $("<text></text>").css("left", 5).css("top", 20).html(topics[topic]);
-			var scale = $("<text></text>").html(mostdocs);
+			var scale = $("<text></text>").html(mostdocs).addClass("numscale");
 			g.append(path4).append(path3).append(path2).append(path1);
 			svg.append(g);
 			div.append(scale);
@@ -346,6 +354,8 @@ function getTimeSeriesGraphHtml() {
 			result.append(div);
 		}
 	}
+	result.children(".ts-div.valavg").attr("data-h0", topavg);
+	result.children(".ts-div.numdocs").attr("data-h0", topdocs);
 	process.stdout.write("done\n");
 	return JSON.stringify({data: data, graph: result.html()});
 }

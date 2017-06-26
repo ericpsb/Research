@@ -255,11 +255,12 @@ $.ajax({
 				var width = $(this).width();
 				var index = Math.round(evt.offsetX/width*(maxMonth-minMonth));
 				var m = minMonth + index;
-				$("#tooltip").html(toMonth(m)).append($("<br>")).append($("<span></span>").css("color", "#0d47a1").html(">50% : " + arr.d1[index]))
-				                              .append($("<br>")).append($("<span></span>").css("color", "#1976d2").html(">25% : " + arr.d2[index]))
-											  .append($("<br>")).append($("<span></span>").css("color", "#2196f3").html(">10% : " + arr.d3[index]))
-											  .append($("<br>")).append($("<span></span>").css("color", "#64b5f6").html(">1% : " + arr.d4[index]))
-											  .append($("<br>")).append($("<span></span>").css("color", "#fff").css("text-shadow", "1px 1px 4px #0d47a1").html("all : " + arr.dt[index]))
+				$("#tooltip").html(toMonth(m))
+					.append($("<br>")).append($("<span></span>").css("color", "#0d47a1").html(">50% : " + arr.d1[index]))
+				    .append($("<br>")).append($("<span></span>").css("color", "#1976d2").html(">25% : " + arr.d2[index]))
+					.append($("<br>")).append($("<span></span>").css("color", "#2196f3").html(">10% : " + arr.d3[index]))
+					.append($("<br>")).append($("<span></span>").css("color", "#64b5f6").html(">1% : " + arr.d4[index]))
+					.append($("<br>")).append($("<span></span>").css("color", "#fff").css("text-shadow", "1px 1px 4px #0d47a1").html("all : " + arr.dt[index]));
 				$("#tooltip").css("visibility", "visible").css("top", evt.pageY - 145).css("left", evt.pageX - $("#tooltip").width()/2);
 			});
 			graph.mouseout(function() {
@@ -297,8 +298,8 @@ $.ajax({
 			$(".ts-div text").css("top", (ts_text_h*ts_ratio).toFixed(2));
 			$(".ts-div text").css("font-size", ts_ratio*100 + "%");
 		});
-		// scaling with average value graphs
-		$(".ts-div.valavg").each(function(){
+		// scaling with corpus
+		$(".ts-div").each(function(){
 			var div = $(this);
 			var h0 = div.data("h0");
 			var h = div.data("h");
@@ -313,24 +314,24 @@ $.ajax({
 		$("#ts-scale-corpus").click(function(){
 			$("#ts-scale-topic").css("display", "");
 			$(this).css("display", "none");
-			$(".ts-div.valavg").each(function(){
+			$(".ts-div").each(function(){
 				var div = $(this);
-				var scale = div.children(".scale");
+				div.children(".avgscale").html((div.data("h0")*100).toFixed(1)+"%");
+				div.children(".numscale").html(div.data("h0"));
 				var svg = div.children("svg");
-				scale.html((div.data("h0")*100).toFixed(0)+"%");
-				svg.attr("viewBox", "0 0 " + div.data("w") + " 100");
+				var hmin = ((div.data("h0")-div.data("h"))/div.data("h0")*100);
+				svg.attr("viewBox", "0 " + (-hmin) + " " + div.data("w") + " " + (100+hmin));
 			});
 		});
 		$("#ts-scale-topic").click(function(){
 			$("#ts-scale-corpus").css("display", "");
 			$(this).css("display", "none");
-			$(".ts-div.valavg").each(function(){
+			$(".ts-div").each(function(){
 				var div = $(this);
-				var scale = div.children(".scale");
+				div.children(".avgscale").html((div.data("h")*100).toFixed(1)+"%");
+				div.children(".numscale").html(div.data("h"));
 				var svg = div.children("svg");
-				scale.html((div.data("h")*100).toFixed(1)+"%");
-				var hmin = (div.data("h")/div.data("h0")*100);
-				svg.attr("viewBox", "0 " + (100-hmin) + " " + div.data("w") + " " + hmin);
+				svg.attr("viewBox", "0 0 " + div.data("w") + " 100");
 			});
 		});
 	}
