@@ -12,7 +12,7 @@ The code requires the output from web scraping to start, if haven't done so, do 
 
 Procedure for performing nodeLDA: (Step 1-3 are recommended to run on your local machine)
 <ol>
-<li>run autismtopics.R using RStudio, you'll need to change the setwd() to point to your local directory (this folder), if rJava or .jinit gives error, consider remove JAVA_HOME envirenment variable and check if your java directory is in your PATH environemnt variable. The script will produce topic_frame.csv</li>
+<li>run autismtopics.R using RStudio, you'll need to change the setwd() to point to your local directory (this folder), if rJava or .jinit gives error, consider remove JAVA_HOME envirenment variable and check if your java directory is in your PATH environemnt variable. The script will produce topic_frame.csv and filtered_merged_file.json</li>
 <li>run processblog.py using python, this will produce the documents.txt</li>
 <li>run nodeLDA.js using node, this will generate a file called nodeLDA.json</li>
 <li>move the following files to the server: server.js, nodeLDA.json, jsLDA.css, and jsLDA.js</li>

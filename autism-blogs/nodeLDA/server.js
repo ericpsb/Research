@@ -89,7 +89,7 @@ app.get(baseurl + '/cgraph', function(req, res) {
 });
 
 app.get(baseurl + '/tgraph', function(req, res) {
-	res.set('Content-Type', 'text/html');
+	res.set('Content-Type', 'text/json');
 	res.write(time_series_graph);
 	res.end();
 });

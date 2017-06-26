@@ -29,10 +29,11 @@ text { font-size: small; fill: #555; dominant-baseline: middle;; }
 
 #tooltip { border: solid #ddd 2px; margin:0 2px 0 0; padding:7px 10px; color:#333; border-radius: 4px; background: #FFFFFF; position: absolute; z-index: 10; visibility: hidden; }
 
-#ts-page svg { margin-right: 5px; margin-top: 5px; border: 1px solid #ccc!important; border-radius: 8px;}
+#ts-page svg { border: 1px solid #ccc!important; border-radius: 8px;}
 
 .curr { margin-left: 10px; margin-right: 10px; }
 .dest { width: 5em; margin-left: 20px; }
 
-.ts-div { position: relative; font-size: small; display: inline-block; }
-.ts-div text { position: absolute; font-size: 100%; color: #555; }
+.ts-div { margin-right: 5px; margin-top: 5px; position: relative; font-size: small; display: inline-block; }
+.ts-div text { position: absolute; font-size: 100%; color: #555; font-size: 100%; }
+.ts-div polyline { stroke: #55c; stroke-width: 0.2px; }

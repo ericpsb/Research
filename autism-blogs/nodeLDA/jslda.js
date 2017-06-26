@@ -217,9 +217,9 @@ $.ajax({
 $.ajax({
     type: "GET",
     url: "/tgraph",
-    dataType: "html",
+    dataType: "json",
     success: function(data) {
-		$("#tgraph").after(data).remove();
+		$("#tgraph").after(data.graph).remove();
 
 		var minMonth = $("#ts-page").data("minmonth");
 		var maxMonth = $("#ts-page").data("maxmonth");
@@ -230,18 +230,43 @@ $.ajax({
 			return Math.floor(num/12) + "-" + (m < 10? "0" + m : m);
 		}
 		$("#ts-page .help").append("The time range is from " + toMonth(minMonth) + " to " + toMonth(maxMonth) + ".");
-		$("#ts-page svg").each(function() {
+		// mouseover info display
+		$(".ts-div.valavg").each(function() {
 			var graph = $(this);
+			var tid = graph.data("tid");
+			graph.removeAttr("data-tid");
+			var arr = data.data.valavg[tid];
 			graph.mousemove(function(evt) {
 				var width = $(this).width();
-				var m = minMonth + Math.round(evt.offsetX/width*(maxMonth-minMonth));
-				$("#tooltip").html(toMonth(m)).css("visibility", "visible").css("top", evt.pageY - 45).css("left", evt.pageX - $("#tooltip").width()/2);
+				var index = Math.round(evt.offsetX/width*(maxMonth-minMonth));
+				var m = minMonth + index;
+				$("#tooltip").html(toMonth(m)+"<br>average: " + (arr[index]*100).toFixed(1) + "%").css("visibility", "visible").css("top", evt.pageY - 65).css("left", evt.pageX - $("#tooltip").width()/2);
 			});
 			graph.mouseout(function() {
 				$("#tooltip").css("visibility", "hidden");
 			});
 		});
-
+		$(".ts-div.numdocs").each(function() {
+			var graph = $(this);
+			var tid = graph.data("tid");
+			graph.removeAttr("data-tid");
+			var arr = data.data.numdocs[tid];
+			graph.mousemove(function(evt) {
+				var width = $(this).width();
+				var index = Math.round(evt.offsetX/width*(maxMonth-minMonth));
+				var m = minMonth + index;
+				$("#tooltip").html(toMonth(m)).append($("<br>")).append($("<span></span>").css("color", "#0d47a1").html(">50% : " + arr.d1[index]))
+				                              .append($("<br>")).append($("<span></span>").css("color", "#1976d2").html(">25% : " + arr.d2[index]))
+											  .append($("<br>")).append($("<span></span>").css("color", "#2196f3").html(">10% : " + arr.d3[index]))
+											  .append($("<br>")).append($("<span></span>").css("color", "#64b5f6").html(">1% : " + arr.d4[index]))
+											  .append($("<br>")).append($("<span></span>").css("color", "#fff").css("text-shadow", "1px 1px 4px #0d47a1").html("all : " + arr.dt[index]))
+				$("#tooltip").css("visibility", "visible").css("top", evt.pageY - 145).css("left", evt.pageX - $("#tooltip").width()/2);
+			});
+			graph.mouseout(function() {
+				$("#tooltip").css("visibility", "hidden");
+			});
+		});
+		// zoom feature for svgs
 		var ts_ratio = 1.0;
 		var ts_width = $(".ts-div svg").width();
 		var ts_height = $(".ts-div svg").height();
@@ -272,23 +297,40 @@ $.ajax({
 			$(".ts-div text").css("top", (ts_text_h*ts_ratio).toFixed(2));
 			$(".ts-div text").css("font-size", ts_ratio*100 + "%");
 		});
-
-		$(".ts-div svg").each(function(){
-			var minh = $(this).data("minh");
-			$(this).removeAttr("data-minh");
-			$(this).data("minh", minh);
+		// scaling with average value graphs
+		$(".ts-div.valavg").each(function(){
+			var div = $(this);
+			var h0 = div.data("h0");
+			var h = div.data("h");
+			var w = div.data("w");
+			div.removeAttr("data-h0");
+			div.removeAttr("data-h");
+			div.removeAttr("data-w");
+			div.data("w", w);
+			div.data("h", h);
+			div.data("h0", h0);
 		});
 		$("#ts-scale-corpus").click(function(){
 			$("#ts-scale-topic").css("display", "");
 			$(this).css("display", "none");
-			$(".ts-div svg").attr("viewBox", "0 0 " + ts_width +  " " + ts_height);
+			$(".ts-div.valavg").each(function(){
+				var div = $(this);
+				var scale = div.children(".scale");
+				var svg = div.children("svg");
+				scale.html((div.data("h0")*100).toFixed(0)+"%");
+				svg.attr("viewBox", "0 0 " + div.data("w") + " 100");
+			});
 		});
 		$("#ts-scale-topic").click(function(){
 			$("#ts-scale-corpus").css("display", "");
 			$(this).css("display", "none");
-			$(".ts-div svg").each(function(){
-				var minh = $(this).data("minh");
-				$(this).attr("viewBox", "0 " + minh + " " + ts_width +  " " + (ts_height-minh));
+			$(".ts-div.valavg").each(function(){
+				var div = $(this);
+				var scale = div.children(".scale");
+				var svg = div.children("svg");
+				scale.html((div.data("h")*100).toFixed(1)+"%");
+				var hmin = (div.data("h")/div.data("h0")*100);
+				svg.attr("viewBox", "0 " + (100-hmin) + " " + div.data("w") + " " + hmin);
 			});
 		});
 	}

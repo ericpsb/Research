@@ -14,11 +14,11 @@ n.topics <- 50
 long.label.length = 10
 
 #Set working directory
-setwd("C:/Users/a/Desktop/research17/das-lab/autism-blogs/topicmodeling/mallet2")
+setwd("C:/Users/a/Desktop/research17/das-lab/autism-blogs/nodeLDA")
 
 
 #Import Json file to a data variable (requires formatting data once imported)
-json_file <- "merged_file.json"
+json_file <- "filtered_merged_file.json"
 data <- fromJSON(json_file)
 data <- bind_rows(data, .id = 'blog')
 

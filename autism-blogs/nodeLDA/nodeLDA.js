@@ -227,48 +227,127 @@ function getDocumentsHtml(topic, start, end) {
 	}
 	return result.html();
 }
-
-// time series graph
 function getTimeSeriesGraphHtml() {
 	process.stdout.write("generating time series graph...");
 	var h = 110;
 	var w = 500;
 	var months = lastM - firstM + 1;
-	var w1 = w/months;
+	var w1 = 250/months;
 	var result = $("<div></div>");
-	var toprate = 0.002; // tweak this value if the y axis is too small (increase this) or too large (decrease this)
+	var topavg = 0.25;
+	var data = {valavg: [], numdocs: []};
+
 	for(var topic=0; topic < numtopics; topic++) {
-		var data = new Array(months);
-		for(var t=0; t<months; t++) {data[t] = 0;}
+		var valtotal = new Array(months);
+		var docs1 = new Array(months);
+		var docs2 = new Array(months);
+		var docs3 = new Array(months);
+		var docs4 = new Array(months);
+		
+		var valavg = new Array(months);
+		var totdocs = new Array(months);
+		
+		for(var t=0; t<months; t++) {
+			valtotal[t] = 0;
+			totdocs[t] = 0;
+			
+			docs1[t] = 0;
+			docs2[t] = 0;
+			docs3[t] = 0;
+			docs4[t] = 0;
+		}
 		var valrow = sorted_topic_table[topic];
 		var docrow = sorted_topic_docid[topic];
 		for(var i=0; i<valrow.length; i++) {
 			var doc = doc_table[docrow[i]];
 			if(doc.datenum < 0) {continue;}
-			data[doc.datenum-firstM] += valrow[i];
+			var month = doc.datenum-firstM;
+			var val = valrow[i];
+			valtotal[month] += val;
+			totdocs[month]++;
+			if(val > 0.5) {
+				docs1[month]++;
+			} 
+			if(val > 0.25) {
+				docs2[month]++;
+			}
+			if(val > 0.1) {
+				docs3[month]++;
+			}
+			if(val > 0.01){
+				docs4[month]++;
+			}
 		}
-		var minh = h;
-		var d = "M0,"+h;
-		for(var i=0; i<data.length; i++) {
-			data[i] = data[i]/numdocs;
-			var h1 = (h-h*data[i]/toprate);
-			minh = h1 < minh ? h1 : minh;
-			d+="L" + (i*w1) + "," + h1;
+		var mostdocs = 0;
+		var highestavg = 0;
+		for(var i=0; i<months; i++) {
+			if (totdocs[i] > 0) {
+				valavg[i] = valtotal[i]/totdocs[i];
+				mostdocs = docs4[i] > mostdocs ? docs4[i] : mostdocs;
+				highestavg = valavg[i] > highestavg ? valavg[i] : highestavg;
+			}
 		}
-		d+="L" + ((data.length-1)*w1) + "," + h + "Z";
-		var div = $("<div></div>").addClass("ts-div");
-		var svg = $("<svg></svg>").attr("width", w).attr("height", h).attr("viewBox", "0 0 " + w + " " + h).attr("preserveAspectRatio", "none").attr("data-minh", Math.floor(minh));
-		var g = $("<g></g>");
-		var path = $("<path></path>").attr("d", d).css("fill", "#ccc");
-		var text = $("<text></text>").css("left", 5).css("top", 20).html(topics[topic]);
-		g.append(path);
-		svg.append(g);
-		div.append(text);
-		div.append(svg)
-		result.append(div);
+		data.valavg.push(valavg);
+		data.numdocs.push({dt: totdocs, d1: docs1, d2: docs2, d3: docs3, d4: docs4});
+		{
+			var d = "M0,100";
+			for(var i=0; i<months; i++) {
+				var h1 = (100-100*valavg[i]/topavg);
+				d+="L" + (i*w1) + "," + h1;
+			}
+			d+="L" + ((months-1)*w1) + ",100Z";
+			var div = $("<div></div>").addClass("ts-div").addClass("valavg").attr("data-tid", topic).attr("data-h0", topavg).attr("data-h", highestavg).attr("data-w", (months-1)*w1);
+			var svg = $("<svg></svg>").attr("width", w).attr("height", h).attr("viewBox", "0 0 " + ((months-1)*w1) + " 100").attr("preserveAspectRatio", "none");
+			var g = $("<g></g>");
+			var path = $("<path></path>").attr("d", d).css("fill", "#ccc");
+			var text = $("<text></text>").css("left", 5).css("top", 20).html(topics[topic]);
+			var scale = $("<text></text>").html((topavg*100) + "%").addClass("scale");			
+			g.append(path);
+			svg.append(g);
+			div.append(scale);
+			div.append(text);
+			div.append(svg)
+			result.append(div);
+		}
+		{
+			var d1 = "0,100";
+			var d2 = "0,100";
+			var d3 = "0,100";
+			var d4 = "0,100";
+			for(var i=0; i<months; i++) {
+				var ph;
+				ph = (100-100*docs1[i]/mostdocs);
+				d1+=" " + (i*w1) + "," + ph;
+				ph = (100-100*docs2[i]/mostdocs);
+				d2+=" " + (i*w1) + "," + ph;
+				ph = (100-100*docs3[i]/mostdocs);
+				d3+=" " + (i*w1) + "," + ph;
+				ph = (100-100*docs4[i]/mostdocs);
+				d4+=" " + (i*w1) + "," + ph;
+			}
+			d1+=" " + ((months-1)*w1) + ",100";
+			d2+=" " + ((months-1)*w1) + ",100";
+			d3+=" " + ((months-1)*w1) + ",100";
+			d4+=" " + ((months-1)*w1) + ",100";
+			var div = $("<div></div>").addClass("ts-div").addClass("numdocs").attr("data-tid", topic);
+			var svg = $("<svg></svg>").attr("width", w).attr("height", h).attr("viewBox", "0 0 " + ((months-1)*w1) + " 100").attr("preserveAspectRatio", "none");
+			var g = $("<g></g>");
+			var path1 = $("<polyline></polyline>").attr("points", d1).css("fill", "#0d47a1");
+			var path2 = $("<polyline></polyline>").attr("points", d2).css("fill", "#1976d2");
+			var path3 = $("<polyline></polyline>").attr("points", d3).css("fill", "#2196f3");
+			var path4 = $("<polyline></polyline>").attr("points", d4).css("fill", "#64b5f6");
+			var text = $("<text></text>").css("left", 5).css("top", 20).html(topics[topic]);
+			var scale = $("<text></text>").html(mostdocs);
+			g.append(path4).append(path3).append(path2).append(path1);
+			svg.append(g);
+			div.append(scale);
+			div.append(text);
+			div.append(svg)
+			result.append(div);
+		}
 	}
 	process.stdout.write("done\n");
-	return result.html();
+	return JSON.stringify({data: data, graph: result.html()});
 }
 
 process.stdout.write("preprocessing html...");
