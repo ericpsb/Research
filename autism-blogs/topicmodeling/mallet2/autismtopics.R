@@ -18,7 +18,7 @@ n.topics <- 50
 
 #Import Json file to a data variable (requires formatting data once imported)
 json_file <- "merged_file.json"
-data <- fromJSON(json_file)
+data <- fromJSON("merged_file.json")
 data <- bind_rows(data, .id = 'blog')
 
 

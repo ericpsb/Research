@@ -1,0 +1,101 @@
+1496251788755	geckodriver	INFO	Listening on 127.0.0.1:57120
+1496251790998	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496251797032	Marionette	INFO	Listening on port 57127
+1496251797168	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 13:29:57.724 plugin-container[2343:126991] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 13:29:57.728 plugin-container[2343:126991] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9027, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 13:29:57.728 plugin-container[2343:126991] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1498583042967	geckodriver	INFO	Listening on 127.0.0.1:57993
+1498583044344	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498583047976	Marionette	INFO	Listening on port 58005
+1498583048063	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498583048354	Marionette	DEBUG	loaded listener.js
+2017-06-27 13:04:08.500 plugin-container[2588:360400] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8c3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 13:04:08.504 plugin-container[2588:360400] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5007, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 13:04:08.504 plugin-container[2588:360400] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498583049187	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1498583049253	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498583049253	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498583050142	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://autism-vicky.blogspot.com/"
+1498583050187	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=7578418680158543965&blogName=autism-vicky&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://autism-vicky.blogspot.com/search&blogLocale=en&v=2&homepageUrl=http://autism-vicky.blogspot.com/&vt=-2552337807548138233&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#id=navbar-iframe&parent=http%3A%2F%2Fautism-vicky.blogspot.com&pfname=&rpctoken=12580689"
+1498583050450	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498583050553	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498583050573	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=586998547&forcesecure=1"
+1498583050611	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=586998547&forcesecure=1"
+1498583050615	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=7578418680158543965&blogName=autism-vicky&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://autism-vicky.blogspot.com/search&blogLocale=en&v=2&homepageUrl=http://autism-vicky.blogspot.com/&vt=-2552337807548138233&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#id=navbar-iframe&parent=http%3A%2F%2Fautism-vicky.blogspot.com&pfname=&rpctoken=12580689"
+1498583051157	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/followers.g?blogID=7578418680158543965&colors=Cgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByM5OTk5OTkiByM2Njk5Y2MqByNGRkZGRkYyByNmZjY2MzM6ByM5OTk5OTlCByM2Njk5Y2NKByMwMDAwMDBSByM2Njk5Y2NaC3RyYW5zcGFyZW50&pageSize=21&origin=http%3A%2F%2Fautism-vicky.blogspot.com%2F&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA&bpli=1#id=I0_1498583050002&parent=http%3A%2F%2Fautism-vicky.blogspot.com&pfname=&rpctoken=28995968"
+1498583051537	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/followers.g?blogID=7578418680158543965&colors=Cgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByM5OTk5OTkiByM2Njk5Y2MqByNGRkZGRkYyByNmZjY2MzM6ByM5OTk5OTlCByM2Njk5Y2NKByMwMDAwMDBSByM2Njk5Y2NaC3RyYW5zcGFyZW50&pageSize=21&origin=http%3A%2F%2Fautism-vicky.blogspot.com%2F&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA&bpli=1#id=I0_1498583050002&parent=http%3A%2F%2Fautism-vicky.blogspot.com&pfname=&rpctoken=28995968"
+1498583061985	Marionette	DEBUG	Received DOM event "pageshow" for "http://autism-vicky.blogspot.com/"
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1498584045527	Marionette	INFO	Ceased listening
+1498594083792	geckodriver	INFO	Listening on 127.0.0.1:55222
+1498594086450	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498594090250	Marionette	INFO	Listening on port 55238
+1498594090336	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498594090779	Marionette	DEBUG	loaded listener.js
+2017-06-27 16:08:10.880 plugin-container[3206:440694] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 16:08:10.882 plugin-container[3206:440694] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e43, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 16:08:10.883 plugin-container[3206:440694] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498594091989	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1498594092088	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498594092088	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498594092699	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://autism-vicky.blogspot.co.uk/"
+1498594093139	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=7578418680158543965&blogName=autism-vicky&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://autism-vicky.blogspot.com/search&blogLocale=en&v=2&homepageUrl=http://autism-vicky.blogspot.com/&vt=-2552337807548138233&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#id=navbar-iframe&parent=http%3A%2F%2Fautism-vicky.blogspot.co.uk&pfname=&rpctoken=57346591"
+1498594093390	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498594093455	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498594093461	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=1283890011&forcesecure=1"
+1498594093486	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=1283890011&forcesecure=1"
+1498594093489	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=7578418680158543965&blogName=autism-vicky&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://autism-vicky.blogspot.com/search&blogLocale=en&v=2&homepageUrl=http://autism-vicky.blogspot.com/&vt=-2552337807548138233&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#id=navbar-iframe&parent=http%3A%2F%2Fautism-vicky.blogspot.co.uk&pfname=&rpctoken=57346591"
+1498594093781	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/followers.g?blogID=7578418680158543965&colors=Cgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByM5OTk5OTkiByM2Njk5Y2MqByNGRkZGRkYyByNmZjY2MzM6ByM5OTk5OTlCByM2Njk5Y2NKByMwMDAwMDBSByM2Njk5Y2NaC3RyYW5zcGFyZW50&pageSize=21&origin=http%3A%2F%2Fautism-vicky.blogspot.co.uk%2F&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA&bpli=1#id=I0_1498594093017&parent=http%3A%2F%2Fautism-vicky.blogspot.co.uk&pfname=&rpctoken=21801959"
+1498594093933	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/followers.g?blogID=7578418680158543965&colors=Cgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByM5OTk5OTkiByM2Njk5Y2MqByNGRkZGRkYyByNmZjY2MzM6ByM5OTk5OTlCByM2Njk5Y2NKByMwMDAwMDBSByM2Njk5Y2NaC3RyYW5zcGFyZW50&pageSize=21&origin=http%3A%2F%2Fautism-vicky.blogspot.co.uk%2F&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA&bpli=1#id=I0_1498594093017&parent=http%3A%2F%2Fautism-vicky.blogspot.co.uk&pfname=&rpctoken=21801959"
+1498594104479	Marionette	DEBUG	Received DOM event "pageshow" for "http://autism-vicky.blogspot.co.uk/"
+1498594104980	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498594106237	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498594107499	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498594108785	Marionette	INFO	New connections will no longer be accepted
+1498658216175	geckodriver	INFO	Listening on 127.0.0.1:50983
+1498658217258	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498658219982	Marionette	INFO	Listening on port 50994
+1498658220075	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498658220394	Marionette	DEBUG	loaded listener.js
+2017-06-28 09:57:00.486 plugin-container[3987:550948] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8d3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-28 09:57:00.486 plugin-container[3987:550948] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x4f1f, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-28 09:57:00.486 plugin-container[3987:550948] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498658220880	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1498658221203	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498658221203	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498658222027	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=7578418680158543965&blogName=autism-vicky&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://autism-vicky.blogspot.com/search&blogLocale=en&v=2&homepageUrl=http://autism-vicky.blogspot.com/&vt=-2552337807548138233&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#id=navbar-iframe&parent=http%3A%2F%2Fautism-vicky.blogspot.com&pfname=&rpctoken=30002456"
+1498658222119	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://autism-vicky.blogspot.com/"
+1498658222395	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658222448	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658222538	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=247040108&forcesecure=1"
+1498658222566	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=247040108&forcesecure=1"
+1498658222568	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=7578418680158543965&blogName=autism-vicky&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://autism-vicky.blogspot.com/search&blogLocale=en&v=2&homepageUrl=http://autism-vicky.blogspot.com/&vt=-2552337807548138233&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#id=navbar-iframe&parent=http%3A%2F%2Fautism-vicky.blogspot.com&pfname=&rpctoken=30002456"
+1498658222879	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/followers.g?blogID=7578418680158543965&colors=Cgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByM5OTk5OTkiByM2Njk5Y2MqByNGRkZGRkYyByNmZjY2MzM6ByM5OTk5OTlCByM2Njk5Y2NKByMwMDAwMDBSByM2Njk5Y2NaC3RyYW5zcGFyZW50&pageSize=21&origin=http%3A%2F%2Fautism-vicky.blogspot.com%2F&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg&bpli=1#id=I0_1498658221822&parent=http%3A%2F%2Fautism-vicky.blogspot.com&pfname=&rpctoken=41331595"
+1498658223045	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/followers.g?blogID=7578418680158543965&colors=Cgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByM5OTk5OTkiByM2Njk5Y2MqByNGRkZGRkYyByNmZjY2MzM6ByM5OTk5OTlCByM2Njk5Y2NKByMwMDAwMDBSByM2Njk5Y2NaC3RyYW5zcGFyZW50&pageSize=21&origin=http%3A%2F%2Fautism-vicky.blogspot.com%2F&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg&bpli=1#id=I0_1498658221822&parent=http%3A%2F%2Fautism-vicky.blogspot.com&pfname=&rpctoken=41331595"
+1498658233549	Marionette	DEBUG	Received DOM event "pageshow" for "http://autism-vicky.blogspot.com/"
+1498658234039	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658235293	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658236553	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658237793	Marionette	INFO	New connections will no longer be accepted
+[Child 3987] WARNING: pipe error: Broken pipe: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 702
+[Child 3987] WARNING: pipe error: Broken pipe: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 702

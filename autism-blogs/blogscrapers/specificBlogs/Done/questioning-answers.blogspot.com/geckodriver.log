@@ -1,0 +1,272 @@
+1496256275559	geckodriver	INFO	Listening on 127.0.0.1:64869
+1496256276963	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496256280385	Marionette	INFO	Listening on port 64876
+1496256280531	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 14:44:41.103 plugin-container[3460:233794] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x903f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:44:41.108 plugin-container[3460:233794] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5307, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:44:41.108 plugin-container[3460:233794] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1498584554298	geckodriver	INFO	Listening on 127.0.0.1:49931
+1498584558226	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498584566394	Marionette	INFO	Listening on port 49952
+1498584566548	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498584567179	Marionette	DEBUG	loaded listener.js
+2017-06-27 13:29:27.455 plugin-container[2791:377392] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 13:29:27.459 plugin-container[2791:377392] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5217, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 13:29:27.459 plugin-container[2791:377392] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498584568344	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1498584568430	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498584568430	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498584569786	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=5548560205914833324&blogName=Questioning+Answers&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=LIGHT&layoutType=LAYOUTS&searchRoot=http://questioning-answers.blogspot.com/search&blogLocale=en_GB&v=2&homepageUrl=http://questioning-answers.blogspot.com/&vt=-1062903984203437582&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#id=navbar-iframe&parent=http%3A%2F%2Fquestioning-answers.blogspot.com&pfname=&rpctoken=29821986"
+1498584570059	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/blog-post-reactions.g?options=%5BI+learned+something+new,+I+already+knew+that%5D&textColor=%23575757#http://questioning-answers.blogspot.com/2017/06/moba-does-prenatal-fever-and-autism-risk.html"
+1498584570061	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/blog-post-reactions.g?options=%5BI+learned+something+new,+I+already+knew+that%5D&textColor=%23575757#http://questioning-answers.blogspot.com/2017/06/schizophrenia-and-crp-meta-analysed-again.html"
+1498584570076	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/blog-post-reactions.g?options=%5BI+learned+something+new,+I+already+knew+that%5D&textColor=%23575757#http://questioning-answers.blogspot.com/2017/06/oral-vitamin-d-and-inflammatory-effects-sunburn.html"
+1498584570659	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/blog-post-reactions.g?options=%5BI+learned+something+new,+I+already+knew+that%5D&textColor=%23575757#http://questioning-answers.blogspot.com/2017/06/autism-learning-disability-and-diagnostic-substitution.html"
+1498584570660	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/blog-post-reactions.g?options=%5BI+learned+something+new,+I+already+knew+that%5D&textColor=%23575757#http://questioning-answers.blogspot.com/2017/06/how-helpful-is-geek-index.html"
+1498584570682	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/blog-post-reactions.g?options=%5BI+learned+something+new,+I+already+knew+that%5D&textColor=%23575757#http://questioning-answers.blogspot.com/2017/06/autism-awareness-among-young-is-actually-quite-good.html"
+1498584570729	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/blog-post-reactions.g?options=%5BI+learned+something+new,+I+already+knew+that%5D&textColor=%23575757#http://questioning-answers.blogspot.com/2017/06/autism-awareness-among-young-is-actually-quite-good.html"
+1498584570851	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/blog-post-reactions.g?options=%5BI+learned+something+new,+I+already+knew+that%5D&textColor=%23575757#http://questioning-answers.blogspot.com/2017/06/ariel-pesticide-use-and-neurodevelopmental-patterns.html"
+1498584570914	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/blog-post-reactions.g?options=%5BI+learned+something+new,+I+already+knew+that%5D&textColor=%23575757#http://questioning-answers.blogspot.com/2017/06/schizophrenia-and-crp-meta-analysed-again.html"
+1498584570930	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/blog-post-reactions.g?options=%5BI+learned+something+new,+I+already+knew+that%5D&textColor=%23575757#http://questioning-answers.blogspot.com/2017/06/oral-vitamin-d-and-inflammatory-effects-sunburn.html"
+1498584570944	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/blog-post-reactions.g?options=%5BI+learned+something+new,+I+already+knew+that%5D&textColor=%23575757#http://questioning-answers.blogspot.com/2017/06/moba-does-prenatal-fever-and-autism-risk.html"
+1498584570956	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/blog-post-reactions.g?options=%5BI+learned+something+new,+I+already+knew+that%5D&textColor=%23575757#http://questioning-answers.blogspot.com/2017/06/autism-learning-disability-and-diagnostic-substitution.html"
+1498584570967	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/blog-post-reactions.g?options=%5BI+learned+something+new,+I+already+knew+that%5D&textColor=%23575757#http://questioning-answers.blogspot.com/2017/06/how-helpful-is-geek-index.html"
+1498584571318	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/blog-post-reactions.g?options=%5BI+learned+something+new,+I+already+knew+that%5D&textColor=%23575757#http://questioning-answers.blogspot.com/2017/06/ariel-pesticide-use-and-neurodevelopmental-patterns.html"
+1498584571640	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://questioning-answers.blogspot.com/"
+1498584571789	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498584571816	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498584572925	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/"
+1498584572933	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/"
+1498584572952	Marionette	DEBUG	Received DOM event "pageshow" for "http://questioning-answers.blogspot.com/"
+1498584572963	Marionette	DEBUG	Received DOM event "pageshow" for "http://questioning-answers.blogspot.com/"
+1498584572980	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498584573038	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498584573051	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498584573057	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498584573065	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498584573071	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498584573178	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498584573188	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498584573215	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498584573222	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498584573231	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498584573238	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498584573242	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498584573249	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498584573347	Marionette	DEBUG	Received DOM event "pageshow" for "http://questioning-answers.blogspot.com/"
+1498584573527	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Fquestioning-answers.blogspot.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=585442097&forcesecure=1"
+1498584573562	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://questioning-answers.blogspot.com/"
+1498584573589	Marionette	DEBUG	Received DOM event "pageshow" for "http://questioning-answers.blogspot.com/"
+1498584573675	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f2af1c709f8b01e&origin=http%3A%2F%2Fquestioning-answers.blogspot.com"
+1498584573679	Marionette	DEBUG	Received DOM event "pageshow" for "http://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f2af1c709f8b01e&origin=http%3A%2F%2Fquestioning-answers.blogspot.com"
+1498584573692	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f2af1c709f8b01e&origin=http%3A%2F%2Fquestioning-answers.blogspot.com"
+1498584573695	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f2af1c709f8b01e&origin=http%3A%2F%2Fquestioning-answers.blogspot.com"
+1498584573758	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=1706151935&forcesecure=1"
+1498584573951	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://platform.twitter.com/widgets/tweet_button.7bf2b0e802ada47dae9548b7a1739fed.en.html#dnt=false&id=twitter-widget-0&lang=en&original_referer=http%3A%2F%2Fquestioning-answers.blogspot.com%2F&size=m&text=Questioning%20Answers&time=1498584573332&type=share&url=http%3A%2F%2Fquestioning-answers.blogspot.com%2F&via=QuestAnswers"
+1498584573957	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Fquestioning-answers.blogspot.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=585442097&forcesecure=1"
+1498584574063	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=1706151935&forcesecure=1"
+1498584574065	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=5548560205914833324&blogName=Questioning+Answers&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=LIGHT&layoutType=LAYOUTS&searchRoot=http://questioning-answers.blogspot.com/search&blogLocale=en_GB&v=2&homepageUrl=http://questioning-answers.blogspot.com/&vt=-1062903984203437582&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#id=navbar-iframe&parent=http%3A%2F%2Fquestioning-answers.blogspot.com&pfname=&rpctoken=29821986"
+1498584574382	Marionette	DEBUG	Received DOM event "pageshow" for "http://platform.twitter.com/widgets/tweet_button.7bf2b0e802ada47dae9548b7a1739fed.en.html#dnt=false&id=twitter-widget-0&lang=en&original_referer=http%3A%2F%2Fquestioning-answers.blogspot.com%2F&size=m&text=Questioning%20Answers&time=1498584573332&type=share&url=http%3A%2F%2Fquestioning-answers.blogspot.com%2F&via=QuestAnswers"
+1498584574471	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/followers.g?blogID=5548560205914833324&colors=Cgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByMwMDAwMDAiByMxZTdiYTcqByNmZmZmZmYyByMwMDAwMDA6ByMwMDAwMDBCByMxZTdiYTdKByM5MzkzOTNSByMxZTdiYTdaC3RyYW5zcGFyZW50&pageSize=21&origin=http%3A%2F%2Fquestioning-answers.blogspot.com%2F&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA&bpli=1#id=I0_1498584569797&parent=http%3A%2F%2Fquestioning-answers.blogspot.com&pfname=&rpctoken=29085632"
+1498584574797	Marionette	DEBUG	Received DOM event "pageshow" for "http://questioning-answers.blogspot.com/"
+1498584575886	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/followers.g?blogID=5548560205914833324&colors=Cgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByMwMDAwMDAiByMxZTdiYTcqByNmZmZmZmYyByMwMDAwMDA6ByMwMDAwMDBCByMxZTdiYTdKByM5MzkzOTNSByMxZTdiYTdaC3RyYW5zcGFyZW50&pageSize=21&origin=http%3A%2F%2Fquestioning-answers.blogspot.com%2F&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA&bpli=1#id=I0_1498584569797&parent=http%3A%2F%2Fquestioning-answers.blogspot.com&pfname=&rpctoken=29085632"
+1498584576431	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/"
+1498584576435	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/"
+1498584576569	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/"
+1498584576572	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/"
+1498584576583	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/"
+1498584576586	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/"
+1498584576595	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/"
+1498584576598	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/"
+1498584576792	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/"
+1498584576796	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/"
+1498584576810	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/"
+1498584576859	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/"
+1498584576879	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/"
+1498584576881	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/"
+1498584576903	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/plugins/like_box.php?app_id=&channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df33b9a72912d12%26domain%3Dquestioning-answers.blogspot.com%26origin%3Dhttp%253A%252F%252Fquestioning-answers.blogspot.com%252Ff2af1c709f8b01e%26relation%3Dparent.parent&container_width=0&header=true&href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FQuestioning-Answers-Blog%2F249698075041009&locale=en_US&sdk=joey&show_faces=true&stream=false&width=205"
+1498584577022	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/plugins/like_box.php?app_id=&channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df33b9a72912d12%26domain%3Dquestioning-answers.blogspot.com%26origin%3Dhttp%253A%252F%252Fquestioning-answers.blogspot.com%252Ff2af1c709f8b01e%26relation%3Dparent.parent&container_width=0&header=true&href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FQuestioning-Answers-Blog%2F249698075041009&locale=en_US&sdk=joey&show_faces=true&stream=false&width=205"
+1498584577049	Marionette	DEBUG	Received DOM event "pageshow" for "http://questioning-answers.blogspot.com/"
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1498585383939	Marionette	INFO	Ceased listening
+1498592089266	geckodriver	INFO	Listening on 127.0.0.1:64700
+1498592090423	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498592094909	Marionette	INFO	Listening on port 64707
+1498592095010	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498592095363	Marionette	DEBUG	loaded listener.js
+2017-06-27 15:34:55.522 plugin-container[3136:426453] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8d43, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 15:34:55.526 plugin-container[3136:426453] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x941b, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 15:34:55.526 plugin-container[3136:426453] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498592095773	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1498592095862	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498592095863	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498592097148	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/blog-post-reactions.g?options=%5BI+learned+something+new,+I+already+knew+that%5D&textColor=%23575757#http://questioning-answers.blogspot.com/2017/06/moba-does-prenatal-fever-and-autism-risk.html"
+1498592097149	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/blog-post-reactions.g?options=%5BI+learned+something+new,+I+already+knew+that%5D&textColor=%23575757#http://questioning-answers.blogspot.com/2017/06/autism-awareness-among-young-is-actually-quite-good.html"
+1498592097150	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=5548560205914833324&blogName=Questioning+Answers&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=LIGHT&layoutType=LAYOUTS&searchRoot=http://questioning-answers.blogspot.com/search&blogLocale=en_GB&v=2&homepageUrl=http://questioning-answers.blogspot.com/&vt=-1062903984203437582&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#id=navbar-iframe&parent=http%3A%2F%2Fquestioning-answers.blogspot.com&pfname=&rpctoken=20450078"
+1498592097150	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/blog-post-reactions.g?options=%5BI+learned+something+new,+I+already+knew+that%5D&textColor=%23575757#http://questioning-answers.blogspot.com/2017/06/autism-learning-disability-and-diagnostic-substitution.html"
+1498592097285	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/blog-post-reactions.g?options=%5BI+learned+something+new,+I+already+knew+that%5D&textColor=%23575757#http://questioning-answers.blogspot.com/2017/06/schizophrenia-and-crp-meta-analysed-again.html"
+1498592097287	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/blog-post-reactions.g?options=%5BI+learned+something+new,+I+already+knew+that%5D&textColor=%23575757#http://questioning-answers.blogspot.com/2017/06/oral-vitamin-d-and-inflammatory-effects-sunburn.html"
+1498592097289	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/blog-post-reactions.g?options=%5BI+learned+something+new,+I+already+knew+that%5D&textColor=%23575757#http://questioning-answers.blogspot.com/2017/06/how-helpful-is-geek-index.html"
+1498592097293	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/blog-post-reactions.g?options=%5BI+learned+something+new,+I+already+knew+that%5D&textColor=%23575757#http://questioning-answers.blogspot.com/2017/06/ariel-pesticide-use-and-neurodevelopmental-patterns.html"
+1498592097623	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/blog-post-reactions.g?options=%5BI+learned+something+new,+I+already+knew+that%5D&textColor=%23575757#http://questioning-answers.blogspot.com/2017/06/ariel-pesticide-use-and-neurodevelopmental-patterns.html"
+1498592097633	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/blog-post-reactions.g?options=%5BI+learned+something+new,+I+already+knew+that%5D&textColor=%23575757#http://questioning-answers.blogspot.com/2017/06/schizophrenia-and-crp-meta-analysed-again.html"
+1498592097642	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/blog-post-reactions.g?options=%5BI+learned+something+new,+I+already+knew+that%5D&textColor=%23575757#http://questioning-answers.blogspot.com/2017/06/autism-learning-disability-and-diagnostic-substitution.html"
+1498592097653	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/blog-post-reactions.g?options=%5BI+learned+something+new,+I+already+knew+that%5D&textColor=%23575757#http://questioning-answers.blogspot.com/2017/06/moba-does-prenatal-fever-and-autism-risk.html"
+1498592097665	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/blog-post-reactions.g?options=%5BI+learned+something+new,+I+already+knew+that%5D&textColor=%23575757#http://questioning-answers.blogspot.com/2017/06/oral-vitamin-d-and-inflammatory-effects-sunburn.html"
+1498592097675	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/blog-post-reactions.g?options=%5BI+learned+something+new,+I+already+knew+that%5D&textColor=%23575757#http://questioning-answers.blogspot.com/2017/06/autism-awareness-among-young-is-actually-quite-good.html"
+1498592097686	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/blog-post-reactions.g?options=%5BI+learned+something+new,+I+already+knew+that%5D&textColor=%23575757#http://questioning-answers.blogspot.com/2017/06/how-helpful-is-geek-index.html"
+1498592097870	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://questioning-answers.blogspot.com/"
+1498592098295	Marionette	DEBUG	Received DOM event "pageshow" for "http://questioning-answers.blogspot.com/"
+1498592098305	Marionette	DEBUG	Received DOM event "pageshow" for "http://questioning-answers.blogspot.com/"
+1498592098374	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498592098379	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498592098396	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498592098407	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498592098414	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498592098482	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498592098486	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498592098490	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498592098494	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498592098499	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498592098560	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498592098568	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498592098581	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/"
+1498592098589	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/"
+1498592098600	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498592098605	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498592098693	Marionette	DEBUG	Received DOM event "pageshow" for "http://questioning-answers.blogspot.com/"
+1498592098804	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498592098808	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498592098839	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Fquestioning-answers.blogspot.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=216581882&forcesecure=1"
+1498592098848	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f987d65339e1&origin=http%3A%2F%2Fquestioning-answers.blogspot.com"
+1498592098852	Marionette	DEBUG	Received DOM event "pageshow" for "http://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f987d65339e1&origin=http%3A%2F%2Fquestioning-answers.blogspot.com"
+1498592098856	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f987d65339e1&origin=http%3A%2F%2Fquestioning-answers.blogspot.com"
+1498592098858	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f987d65339e1&origin=http%3A%2F%2Fquestioning-answers.blogspot.com"
+1498592098858	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://questioning-answers.blogspot.com/"
+1498592098861	Marionette	DEBUG	Received DOM event "pageshow" for "http://questioning-answers.blogspot.com/"
+1498592098995	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://platform.twitter.com/widgets/tweet_button.7bf2b0e802ada47dae9548b7a1739fed.en.html#dnt=false&id=twitter-widget-0&lang=en&original_referer=http%3A%2F%2Fquestioning-answers.blogspot.com%2F&size=m&text=Questioning%20Answers&time=1498592098687&type=share&url=http%3A%2F%2Fquestioning-answers.blogspot.com%2F&via=QuestAnswers"
+1498592099032	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=413553288&forcesecure=1"
+1498592099258	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Fquestioning-answers.blogspot.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=216581882&forcesecure=1"
+1498592099420	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=413553288&forcesecure=1"
+1498592099422	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=5548560205914833324&blogName=Questioning+Answers&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=LIGHT&layoutType=LAYOUTS&searchRoot=http://questioning-answers.blogspot.com/search&blogLocale=en_GB&v=2&homepageUrl=http://questioning-answers.blogspot.com/&vt=-1062903984203437582&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#id=navbar-iframe&parent=http%3A%2F%2Fquestioning-answers.blogspot.com&pfname=&rpctoken=20450078"
+1498592099432	Marionette	DEBUG	Received DOM event "pageshow" for "http://platform.twitter.com/widgets/tweet_button.7bf2b0e802ada47dae9548b7a1739fed.en.html#dnt=false&id=twitter-widget-0&lang=en&original_referer=http%3A%2F%2Fquestioning-answers.blogspot.com%2F&size=m&text=Questioning%20Answers&time=1498592098687&type=share&url=http%3A%2F%2Fquestioning-answers.blogspot.com%2F&via=QuestAnswers"
+1498592099728	Marionette	DEBUG	Received DOM event "pageshow" for "http://questioning-answers.blogspot.com/"
+1498592100147	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/followers.g?blogID=5548560205914833324&colors=Cgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByMwMDAwMDAiByMxZTdiYTcqByNmZmZmZmYyByMwMDAwMDA6ByMwMDAwMDBCByMxZTdiYTdKByM5MzkzOTNSByMxZTdiYTdaC3RyYW5zcGFyZW50&pageSize=21&origin=http%3A%2F%2Fquestioning-answers.blogspot.com%2F&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA&bpli=1#id=I0_1498592097039&parent=http%3A%2F%2Fquestioning-answers.blogspot.com&pfname=&rpctoken=23513822"
+1498592100473	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/followers.g?blogID=5548560205914833324&colors=Cgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByMwMDAwMDAiByMxZTdiYTcqByNmZmZmZmYyByMwMDAwMDA6ByMwMDAwMDBCByMxZTdiYTdKByM5MzkzOTNSByMxZTdiYTdaC3RyYW5zcGFyZW50&pageSize=21&origin=http%3A%2F%2Fquestioning-answers.blogspot.com%2F&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA&bpli=1#id=I0_1498592097039&parent=http%3A%2F%2Fquestioning-answers.blogspot.com&pfname=&rpctoken=23513822"
+1498592100807	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/"
+1498592100823	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/"
+1498592100851	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/"
+1498592100853	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/"
+1498592100863	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/"
+1498592100866	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/"
+1498592100872	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/"
+1498592100874	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/"
+1498592100935	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/"
+1498592100937	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/"
+1498592100947	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/"
+1498592100953	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/"
+1498592100958	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/"
+1498592100960	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/"
+1498592101156	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/plugins/like_box.php?app_id=&channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df357982b4ebd05e%26domain%3Dquestioning-answers.blogspot.com%26origin%3Dhttp%253A%252F%252Fquestioning-answers.blogspot.com%252Ff987d65339e1%26relation%3Dparent.parent&container_width=0&header=true&href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FQuestioning-Answers-Blog%2F249698075041009&locale=en_US&sdk=joey&show_faces=true&stream=false&width=205"
+1498592101201	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/plugins/like_box.php?app_id=&channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df357982b4ebd05e%26domain%3Dquestioning-answers.blogspot.com%26origin%3Dhttp%253A%252F%252Fquestioning-answers.blogspot.com%252Ff987d65339e1%26relation%3Dparent.parent&container_width=0&header=true&href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FQuestioning-Answers-Blog%2F249698075041009&locale=en_US&sdk=joey&show_faces=true&stream=false&width=205"
+1498592101216	Marionette	DEBUG	Received DOM event "pageshow" for "http://questioning-answers.blogspot.com/"
+1498592101714	Marionette	DEBUG	Received DOM event "pagehide" for "http://questioning-answers.blogspot.com/"
+1498592101719	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592102975	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592104239	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592105531	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592106835	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592108081	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592109341	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592110595	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592111843	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592113095	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592114345	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592115615	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592116872	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592118127	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592119374	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592120643	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592121896	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592123155	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592124401	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592125649	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592126917	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592128169	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592129416	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592130664	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592131927	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592133183	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592134438	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592135685	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592136930	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592138198	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592139449	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592140696	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592141946	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592143206	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592144481	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592145733	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592146984	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592148242	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592149503	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592150751	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592151996	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592153240	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592154488	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592155768	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592157034	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592158288	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592159540	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592160803	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592162055	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592163302	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592164550	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592165813	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592167062	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592168313	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592169561	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592170806	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592172074	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592173318	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592174568	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592175839	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592177095	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592178351	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592179597	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592180844	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592182099	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592183347	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592184594	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592185839	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592187090	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592188342	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592189580	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592190820	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592192059	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592193313	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592194555	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592195800	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592197039	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592198280	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592199525	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592200772	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592202013	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592203253	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498592279089	Marionette	INFO	New connections will no longer be accepted

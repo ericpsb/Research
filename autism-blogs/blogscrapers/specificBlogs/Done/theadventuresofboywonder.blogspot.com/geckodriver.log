@@ -1,0 +1,151 @@
+1496257580393	geckodriver	INFO	Listening on 127.0.0.1:58047
+1496257583421	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496257590245	Marionette	INFO	Listening on port 58096
+1496257590363	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 15:06:31.843 plugin-container[4136:318283] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 15:06:31.856 plugin-container[4136:318283] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x920b, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 15:06:31.856 plugin-container[4136:318283] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1498584669504	geckodriver	INFO	Listening on 127.0.0.1:51112
+1498584673690	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498584696826	Marionette	INFO	Listening on port 51132
+1498584696955	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498584698018	Marionette	DEBUG	loaded listener.js
+2017-06-27 13:31:38.389 plugin-container[2873:379762] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8c3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 13:31:38.391 plugin-container[2873:379762] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x4f13, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 13:31:38.391 plugin-container[2873:379762] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498584701896	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1498584702069	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498584702069	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498584703040	Marionette	DEBUG	Received DOM event "pageshow" for "http://theadventuresofboywonder.blogspot.com/"
+1498584703609	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://theadventuresofboywonder.blogspot.com/"
+1498584703612	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://theadventuresofboywonder.blogspot.com/"
+1498584703805	Marionette	DEBUG	Received DOM event "pageshow" for "http://theadventuresofboywonder.blogspot.com/"
+1498584704504	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=7021403237012306293&blogName=The+Adventures+of+Boy+Wonder&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://theadventuresofboywonder.blogspot.com/search&blogLocale=en&v=2&homepageUrl=http://theadventuresofboywonder.blogspot.com/&vt=9212723568776901123&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#id=navbar-iframe&parent=http%3A%2F%2Ftheadventuresofboywonder.blogspot.com&pfname=&rpctoken=17935090"
+1498584704787	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://feedjit.com/wa/tf.html?r=959335801"
+1498584705422	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://theadventuresofboywonder.blogspot.com/"
+1498584705981	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498584706008	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498584706181	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498584706187	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498584706194	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498584706199	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498584706204	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498584706209	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498584706383	Marionette	DEBUG	Received DOM event "pageshow" for "http://feedjit.com/wa/tf.html?r=959335801"
+1498584706390	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498584706397	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498584706402	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498584706408	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498584706423	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498584706437	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498584706465	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498584706478	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498584706523	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Ftheadventuresofboywonder.blogspot.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=256526697&forcesecure=1"
+1498584706596	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=732302380&forcesecure=1"
+1498584706606	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Ftheadventuresofboywonder.blogspot.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=256526697&forcesecure=1"
+1498584706817	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=732302380&forcesecure=1"
+1498584706819	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=7021403237012306293&blogName=The+Adventures+of+Boy+Wonder&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://theadventuresofboywonder.blogspot.com/search&blogLocale=en&v=2&homepageUrl=http://theadventuresofboywonder.blogspot.com/&vt=9212723568776901123&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#id=navbar-iframe&parent=http%3A%2F%2Ftheadventuresofboywonder.blogspot.com&pfname=&rpctoken=17935090"
+1498584707497	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/followers.g?blogID=7021403237012306293&colors=Cgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByMzMzMzMzMiByMzMzY2OTkqC3RyYW5zcGFyZW50MgcjODg4ODg4OgcjMzMzMzMzQgcjMzM2Njk5SgcjMDAwMDAwUgcjMzM2Njk5Wgt0cmFuc3BhcmVudA%3D%3D&pageSize=21&origin=http%3A%2F%2Ftheadventuresofboywonder.blogspot.com%2F&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA&bpli=1#id=I0_1498584704328&parent=http%3A%2F%2Ftheadventuresofboywonder.blogspot.com&pfname=&rpctoken=38494393"
+1498584710105	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/followers.g?blogID=7021403237012306293&colors=Cgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByMzMzMzMzMiByMzMzY2OTkqC3RyYW5zcGFyZW50MgcjODg4ODg4OgcjMzMzMzMzQgcjMzM2Njk5SgcjMDAwMDAwUgcjMzM2Njk5Wgt0cmFuc3BhcmVudA%3D%3D&pageSize=21&origin=http%3A%2F%2Ftheadventuresofboywonder.blogspot.com%2F&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA&bpli=1#id=I0_1498584704328&parent=http%3A%2F%2Ftheadventuresofboywonder.blogspot.com&pfname=&rpctoken=38494393"
+1498584710121	Marionette	DEBUG	Received DOM event "pageshow" for "http://theadventuresofboywonder.blogspot.com/"
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1498585379176	Marionette	INFO	Ceased listening
+1498662744719	geckodriver	INFO	Listening on 127.0.0.1:60566
+1498662745813	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498662752889	Marionette	INFO	Listening on port 60573
+1498662754482	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498662755024	Marionette	DEBUG	loaded listener.js
+2017-06-28 11:12:35.169 plugin-container[4234:596488] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-28 11:12:35.176 plugin-container[4234:596488] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x901f, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-28 11:12:35.176 plugin-container[4234:596488] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498662756929	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1498662757009	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498662757010	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498662757509	Marionette	DEBUG	Received DOM event "pageshow" for "http://theadventuresofboywonder.blogspot.com/"
+1498662757643	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://theadventuresofboywonder.blogspot.com/"
+1498662757645	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://theadventuresofboywonder.blogspot.com/"
+1498662757911	Marionette	DEBUG	Received DOM event "pageshow" for "http://theadventuresofboywonder.blogspot.com/"
+1498662758395	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=7021403237012306293&blogName=The+Adventures+of+Boy+Wonder&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://theadventuresofboywonder.blogspot.com/search&blogLocale=en&v=2&homepageUrl=http://theadventuresofboywonder.blogspot.com/&vt=9212723568776901123&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#id=navbar-iframe&parent=http%3A%2F%2Ftheadventuresofboywonder.blogspot.com&pfname=&rpctoken=10166342"
+1498662758644	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://theadventuresofboywonder.blogspot.com/"
+1498662758671	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://feedjit.com/wa/tf.html?r=894206220"
+1498662759136	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498662759196	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498662759206	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498662759228	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498662759237	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498662759246	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498662759254	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498662759271	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498662759276	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498662759282	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498662759287	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498662759293	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498662759299	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498662759304	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498662759365	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498662759378	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498662759460	Marionette	DEBUG	Received DOM event "pageshow" for "http://feedjit.com/wa/tf.html?r=894206220"
+1498662759473	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Ftheadventuresofboywonder.blogspot.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=775759531&forcesecure=1"
+1498662759529	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=659224452&forcesecure=1"
+1498662759543	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Ftheadventuresofboywonder.blogspot.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=775759531&forcesecure=1"
+1498662759570	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=659224452&forcesecure=1"
+1498662759621	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=7021403237012306293&blogName=The+Adventures+of+Boy+Wonder&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://theadventuresofboywonder.blogspot.com/search&blogLocale=en&v=2&homepageUrl=http://theadventuresofboywonder.blogspot.com/&vt=9212723568776901123&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#id=navbar-iframe&parent=http%3A%2F%2Ftheadventuresofboywonder.blogspot.com&pfname=&rpctoken=10166342"
+1498662759779	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/followers.g?blogID=7021403237012306293&colors=Cgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByMzMzMzMzMiByMzMzY2OTkqC3RyYW5zcGFyZW50MgcjODg4ODg4OgcjMzMzMzMzQgcjMzM2Njk5SgcjMDAwMDAwUgcjMzM2Njk5Wgt0cmFuc3BhcmVudA%3D%3D&pageSize=21&origin=http%3A%2F%2Ftheadventuresofboywonder.blogspot.com%2F&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg&bpli=1#id=I0_1498662757823&parent=http%3A%2F%2Ftheadventuresofboywonder.blogspot.com&pfname=&rpctoken=40776887"
+1498662760605	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/followers.g?blogID=7021403237012306293&colors=Cgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByMzMzMzMzMiByMzMzY2OTkqC3RyYW5zcGFyZW50MgcjODg4ODg4OgcjMzMzMzMzQgcjMzM2Njk5SgcjMDAwMDAwUgcjMzM2Njk5Wgt0cmFuc3BhcmVudA%3D%3D&pageSize=21&origin=http%3A%2F%2Ftheadventuresofboywonder.blogspot.com%2F&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg&bpli=1#id=I0_1498662757823&parent=http%3A%2F%2Ftheadventuresofboywonder.blogspot.com&pfname=&rpctoken=40776887"
+1498662760617	Marionette	DEBUG	Received DOM event "pageshow" for "http://theadventuresofboywonder.blogspot.com/"
+1498662761081	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662762349	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662763617	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662764878	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662766154	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662767415	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662768672	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662769926	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662771183	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662772447	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662773709	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662774957	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662776224	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662777477	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662778739	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662779995	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662781263	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662782529	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662783788	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662785048	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662786300	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662787572	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662788831	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662790086	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662791351	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662792607	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662793881	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662795158	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662796415	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662797675	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662798940	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662800213	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662801486	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662802741	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662803996	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662805250	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662806522	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662808062	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498662816650	Marionette	INFO	New connections will no longer be accepted

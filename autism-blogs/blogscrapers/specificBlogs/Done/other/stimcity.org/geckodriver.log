@@ -1,0 +1,914 @@
+1496256737786	geckodriver	INFO	Listening on 127.0.0.1:60708
+1496256743446	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496256754980	Marionette	INFO	Listening on port 60790
+1496256755144	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 14:52:36.465 plugin-container[3723:258942] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:52:36.466 plugin-container[3723:258942] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5007, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:52:36.466 plugin-container[3723:258942] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1496256763619	Marionette	INFO	New connections will no longer be accepted
+1496256765137	geckodriver	INFO	Listening on 127.0.0.1:61736
+1496256769924	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496256783902	Marionette	INFO	Listening on port 61775
+1496256784261	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 14:53:05.768 plugin-container[3738:261055] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x903f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:53:05.769 plugin-container[3738:261055] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x931f, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:53:05.769 plugin-container[3738:261055] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1496256794641	Marionette	INFO	New connections will no longer be accepted
+1496256795415	geckodriver	INFO	Listening on 127.0.0.1:63103
+1496256796537	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496256803437	Marionette	INFO	Listening on port 63123
+1496256803690	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 14:53:25.122 plugin-container[3749:262263] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:53:25.131 plugin-container[3749:262263] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x950b, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:53:25.131 plugin-container[3749:262263] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1496256812379	Marionette	INFO	New connections will no longer be accepted
+1496256815036	geckodriver	INFO	Listening on 127.0.0.1:63849
+1496256821050	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496256829685	Marionette	INFO	Listening on port 63881
+1496256829906	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 14:53:51.163 plugin-container[3759:263646] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8d3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:53:51.180 plugin-container[3759:263646] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f13, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:53:51.180 plugin-container[3759:263646] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1496256837881	Marionette	INFO	New connections will no longer be accepted
+1496256838937	geckodriver	INFO	Listening on 127.0.0.1:64631
+1496256842407	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496256850661	Marionette	INFO	Listening on port 64655
+1496256850926	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 14:54:13.630 plugin-container[3767:265260] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8d3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:54:13.631 plugin-container[3767:265260] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f13, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:54:13.631 plugin-container[3767:265260] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1496256864091	Marionette	INFO	New connections will no longer be accepted
+[GFX1]: [Tiling:Client] Failed to allocate a TextureClient
+[GFX1]: [Tiling:Client] Failed to allocate a TextureClient
+1496256864495	geckodriver	INFO	Listening on 127.0.0.1:65477
+1496256865557	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496256871325	Marionette	INFO	Listening on port 65511
+1496256871515	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 14:54:32.446 plugin-container[3778:266738] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8d3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:54:32.447 plugin-container[3778:266738] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x900f, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:54:32.447 plugin-container[3778:266738] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1496256881481	Marionette	INFO	New connections will no longer be accepted
+1496256881976	geckodriver	INFO	Listening on 127.0.0.1:49795
+1496256883150	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496256890386	Marionette	INFO	Listening on port 49821
+1496256890735	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 14:54:52.081 plugin-container[3788:267742] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x524f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:54:52.083 plugin-container[3788:267742] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x930b, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:54:52.083 plugin-container[3788:267742] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1496256900269	Marionette	INFO	New connections will no longer be accepted
+1496256901411	geckodriver	INFO	Listening on 127.0.0.1:50621
+1496256902701	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496256910251	Marionette	INFO	Listening on port 50674
+1496256910456	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 14:55:11.532 plugin-container[3799:269156] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x4b5f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:55:11.533 plugin-container[3799:269156] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x900b, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:55:11.533 plugin-container[3799:269156] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1496256916333	Marionette	INFO	New connections will no longer be accepted
+1496256918281	geckodriver	INFO	Listening on 127.0.0.1:51375
+1496256919542	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496256924302	Marionette	INFO	Listening on port 51431
+1496256924542	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 14:55:25.941 plugin-container[3808:270517] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x903f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:55:25.967 plugin-container[3808:270517] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5007, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:55:25.967 plugin-container[3808:270517] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1496256933494	Marionette	INFO	New connections will no longer be accepted
+1496256933781	geckodriver	INFO	Listening on 127.0.0.1:51953
+1496256936216	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496256943438	Marionette	INFO	Listening on port 51994
+1496256943752	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 14:55:44.709 plugin-container[3816:271609] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:55:44.710 plugin-container[3816:271609] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5207, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:55:44.710 plugin-container[3816:271609] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1496256950803	Marionette	INFO	New connections will no longer be accepted
+1496256951138	geckodriver	INFO	Listening on 127.0.0.1:52736
+1496256953343	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496256959001	Marionette	INFO	Listening on port 52754
+1496256959125	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 14:56:00.161 plugin-container[3826:272992] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9237, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:56:00.162 plugin-container[3826:272992] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x4a33, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:56:00.162 plugin-container[3826:272992] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1496256965881	Marionette	INFO	New connections will no longer be accepted
+1496256966419	geckodriver	INFO	Listening on 127.0.0.1:53422
+1496256968293	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496256973572	Marionette	INFO	Listening on port 53437
+1496256973735	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 14:56:14.615 plugin-container[3834:274322] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:56:14.617 plugin-container[3834:274322] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5007, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:56:14.617 plugin-container[3834:274322] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1496256979492	Marionette	INFO	New connections will no longer be accepted
+1496256980047	geckodriver	INFO	Listening on 127.0.0.1:54027
+1496256981620	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496256987046	Marionette	INFO	Listening on port 54058
+1496256987255	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 14:56:28.142 plugin-container[3842:275249] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e33, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:56:28.143 plugin-container[3842:275249] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5107, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:56:28.143 plugin-container[3842:275249] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1496256996948	Marionette	INFO	New connections will no longer be accepted
+1496256999370	geckodriver	INFO	Listening on 127.0.0.1:54776
+1496257001108	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496257008874	Marionette	INFO	Listening on port 54818
+1496257009034	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 14:56:50.361 plugin-container[3855:276964] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x4f43, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:56:50.362 plugin-container[3855:276964] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x4e17, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:56:50.362 plugin-container[3855:276964] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1496257014662	Marionette	INFO	New connections will no longer be accepted
+1496257015225	geckodriver	INFO	Listening on 127.0.0.1:55421
+1496257016240	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496257020847	Marionette	INFO	Listening on port 55455
+1496257020995	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 14:57:02.092 plugin-container[3863:278164] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:57:02.094 plugin-container[3863:278164] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x4a13, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:57:02.094 plugin-container[3863:278164] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1496257031184	Marionette	INFO	New connections will no longer be accepted
+1496257031838	geckodriver	INFO	Listening on 127.0.0.1:56043
+1496257035409	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496257042874	Marionette	INFO	Listening on port 56075
+1496257043126	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 14:57:24.471 plugin-container[3874:279674] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:57:24.473 plugin-container[3874:279674] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x510b, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:57:24.473 plugin-container[3874:279674] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1496257052793	Marionette	INFO	New connections will no longer be accepted
+1496257053618	geckodriver	INFO	Listening on 127.0.0.1:56887
+1496257057642	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496257064199	Marionette	INFO	Listening on port 56922
+1496257064259	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 14:57:45.607 plugin-container[3892:281126] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8d3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:57:45.612 plugin-container[3892:281126] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e13, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:57:45.612 plugin-container[3892:281126] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1496257074308	Marionette	INFO	New connections will no longer be accepted
+1496257079806	geckodriver	INFO	Listening on 127.0.0.1:57660
+1496257081034	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496257085990	Marionette	INFO	Listening on port 57707
+1496257087399	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 14:58:09.009 plugin-container[3901:282822] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8d3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:58:09.018 plugin-container[3901:282822] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x930b, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:58:09.019 plugin-container[3901:282822] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1496257093782	Marionette	INFO	New connections will no longer be accepted
+1496257094541	geckodriver	INFO	Listening on 127.0.0.1:58361
+1496257095932	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496257102931	Marionette	INFO	Listening on port 58421
+1496257103078	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 14:58:24.705 plugin-container[3913:283888] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x913b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:58:24.711 plugin-container[3913:283888] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x970b, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:58:24.711 plugin-container[3913:283888] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1496257113712	Marionette	INFO	New connections will no longer be accepted
+[GFX1]: [Tiling:Client] Failed to allocate a TextureClient
+[GFX1]: [Tiling:Client] Failed to allocate a TextureClient
+[Child 3913] WARNING: pipe error: Broken pipe: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 702
+1496257114885	geckodriver	INFO	Listening on 127.0.0.1:59442
+1496257117697	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496257128370	Marionette	INFO	Listening on port 59564
+1496257128955	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 14:58:51.553 plugin-container[3924:285658] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x913f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:58:51.558 plugin-container[3924:285658] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x960b, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:58:51.558 plugin-container[3924:285658] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1496257142860	Marionette	INFO	New connections will no longer be accepted
+1496257143515	geckodriver	INFO	Listening on 127.0.0.1:60746
+1496257144882	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496257153009	Marionette	INFO	Listening on port 60855
+1496257153402	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 14:59:15.227 plugin-container[3935:287385] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f33, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:59:15.230 plugin-container[3935:287385] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5107, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:59:15.230 plugin-container[3935:287385] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1496257158760	Marionette	INFO	New connections will no longer be accepted
+1496257159875	geckodriver	INFO	Listening on 127.0.0.1:61328
+1496257161762	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496257170386	Marionette	INFO	Listening on port 61416
+1496257170686	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 14:59:31.535 plugin-container[3941:288784] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8c3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:59:31.536 plugin-container[3941:288784] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x4f07, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:59:31.536 plugin-container[3941:288784] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1496257179208	Marionette	INFO	New connections will no longer be accepted
+1496257180180	geckodriver	INFO	Listening on 127.0.0.1:62283
+1496257182483	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496257195186	Marionette	INFO	Listening on port 62357
+1496257195283	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 14:59:56.972 plugin-container[3953:290134] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8d3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:59:56.977 plugin-container[3953:290134] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f13, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:59:56.977 plugin-container[3953:290134] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1496257204698	Marionette	INFO	New connections will no longer be accepted
+[Child 3953] WARNING: pipe error: Broken pipe: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 702
+1496257205345	geckodriver	INFO	Listening on 127.0.0.1:63389
+1496257209604	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496257216006	Marionette	INFO	Listening on port 63466
+1496257216114	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 15:00:17.932 plugin-container[3965:291769] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 15:00:17.934 plugin-container[3965:291769] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x940b, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 15:00:17.934 plugin-container[3965:291769] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1496257224493	Marionette	INFO	New connections will no longer be accepted
+1496257224829	geckodriver	INFO	Listening on 127.0.0.1:64243
+1496257226104	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496257235614	Marionette	INFO	Listening on port 64266
+1496257236020	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 15:00:38.422 plugin-container[3974:292946] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 15:00:38.423 plugin-container[3974:292946] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5007, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 15:00:38.423 plugin-container[3974:292946] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1496257246964	Marionette	INFO	New connections will no longer be accepted
+1496257247368	geckodriver	INFO	Listening on 127.0.0.1:65003
+1496257249577	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496257254570	Marionette	INFO	Listening on port 65018
+1496257254864	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 15:00:55.883 plugin-container[3981:294176] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x903b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 15:00:55.886 plugin-container[3981:294176] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5107, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 15:00:55.886 plugin-container[3981:294176] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1496257263447	Marionette	INFO	New connections will no longer be accepted
+1498581038576	geckodriver	INFO	Listening on 127.0.0.1:62412
+1498581041721	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498581047908	Marionette	INFO	Listening on port 62432
+1498581048001	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498581048441	Marionette	DEBUG	loaded listener.js
+1498581048498	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+2017-06-27 12:30:48.635 plugin-container[2089:264055] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x913f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:30:48.636 plugin-container[2089:264055] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x530b, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:30:48.636 plugin-container[2089:264055] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498581048941	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498581048942	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498581051205	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://stimcity.org/2013/06/"
+1498581051680	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581051819	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2013/06/"
+1498581051884	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2013/06/"
+1498581052032	Marionette	DEBUG	Received DOM event "pageshow" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581052111	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f177e1eb1e7f02&origin=https%3A%2F%2Fstimcity.org"
+1498581052115	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f177e1eb1e7f02&origin=https%3A%2F%2Fstimcity.org"
+1498581052265	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df7e28a7901bcce%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff177e1eb1e7f02%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581052278	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df7e28a7901bcce%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff177e1eb1e7f02%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581052285	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2013/06/"
+1498581052515	Marionette	INFO	New connections will no longer be accepted
+1498581053734	geckodriver	INFO	Listening on 127.0.0.1:62893
+1498581057101	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498581061792	Marionette	INFO	Listening on port 62912
+1498581061869	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498581062281	Marionette	DEBUG	loaded listener.js
+1498581062334	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+2017-06-27 12:31:02.409 plugin-container[2095:265233] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:31:02.410 plugin-container[2095:265233] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9013, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:31:02.410 plugin-container[2095:265233] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498581062623	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498581062623	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498581064516	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://stimcity.org/2014/11/"
+1498581064637	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581064910	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2014/11/"
+1498581064956	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2014/11/"
+1498581065031	Marionette	DEBUG	Received DOM event "pageshow" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581065102	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f131fe87e038e4&origin=https%3A%2F%2Fstimcity.org"
+1498581065106	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f131fe87e038e4&origin=https%3A%2F%2Fstimcity.org"
+1498581065396	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df3082c892e35592%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff131fe87e038e4%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581065409	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df3082c892e35592%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff131fe87e038e4%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581065419	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2014/11/"
+1498581065587	Marionette	INFO	New connections will no longer be accepted
+1498581066111	geckodriver	INFO	Listening on 127.0.0.1:63249
+1498581067801	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498581072069	Marionette	INFO	Listening on port 63260
+1498581072144	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498581072519	Marionette	DEBUG	loaded listener.js
+1498581072560	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+2017-06-27 12:31:12.634 plugin-container[2099:266197] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:31:12.635 plugin-container[2099:266197] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5107, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:31:12.635 plugin-container[2099:266197] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498581072858	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498581072859	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498581074051	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://stimcity.org/2014/10/"
+1498581074591	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581074770	Marionette	DEBUG	Received DOM event "pageshow" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581074917	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2014/10/"
+1498581074962	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2014/10/"
+1498581075374	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f42c0e6b4c0bcc&origin=https%3A%2F%2Fstimcity.org"
+1498581075382	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f42c0e6b4c0bcc&origin=https%3A%2F%2Fstimcity.org"
+1498581075722	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://public-api.wordpress.com/wp-admin/rest-proxy/#https://widgets.wp.com"
+1498581075729	Marionette	DEBUG	Received DOM event "pageshow" for "https://public-api.wordpress.com/wp-admin/rest-proxy/#https://widgets.wp.com"
+1498581075752	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df3e226e84af4a28%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff42c0e6b4c0bcc%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581075762	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df3e226e84af4a28%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff42c0e6b4c0bcc%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581075771	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2014/10/"
+1498581075904	Marionette	INFO	New connections will no longer be accepted
+[Child 2099] WARNING: pipe error: Broken pipe: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 702
+1498581076325	geckodriver	INFO	Listening on 127.0.0.1:63595
+1498581077938	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498581082533	Marionette	INFO	Listening on port 63629
+1498581082628	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498581082996	Marionette	DEBUG	loaded listener.js
+1498581083039	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+2017-06-27 12:31:23.127 plugin-container[2104:266884] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:31:23.130 plugin-container[2104:266884] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x4c23, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:31:23.130 plugin-container[2104:266884] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498581083501	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498581083561	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498581085429	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://stimcity.org/2011/08/"
+1498581085464	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581085734	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2011/08/"
+1498581085797	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2011/08/"
+1498581085861	Marionette	DEBUG	Received DOM event "pageshow" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581085899	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f3036e4e0108026&origin=https%3A%2F%2Fstimcity.org"
+1498581085902	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f3036e4e0108026&origin=https%3A%2F%2Fstimcity.org"
+1498581086040	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Dfed75bbe09a4dc%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff3036e4e0108026%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581086046	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Dfed75bbe09a4dc%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff3036e4e0108026%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581086053	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2011/08/"
+1498581086149	Marionette	INFO	New connections will no longer be accepted
+1498581086604	geckodriver	INFO	Listening on 127.0.0.1:63891
+1498581087788	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498581091136	Marionette	INFO	Listening on port 63937
+1498581091239	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498581091763	Marionette	DEBUG	loaded listener.js
+1498581091867	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+2017-06-27 12:31:31.975 plugin-container[2111:267933] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x903f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:31:31.977 plugin-container[2111:267933] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x941b, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:31:31.978 plugin-container[2111:267933] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498581092326	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498581092326	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498581094554	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://stimcity.org/2011/04/"
+1498581095022	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581095091	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://stimcity.org/2011/04/"
+1498581095095	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2011/04/"
+1498581095265	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2011/04/"
+1498581095410	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2011/04/"
+1498581095494	Marionette	DEBUG	Received DOM event "pageshow" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581095659	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f86ebf424230d&origin=https%3A%2F%2Fstimcity.org"
+1498581095665	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f86ebf424230d&origin=https%3A%2F%2Fstimcity.org"
+1498581095800	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df312f71bbb7642%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff86ebf424230d%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581095804	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df312f71bbb7642%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff86ebf424230d%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581095812	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2011/04/"
+1498581096124	Marionette	INFO	New connections will no longer be accepted
+1498581096663	geckodriver	INFO	Listening on 127.0.0.1:64232
+1498581098222	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498581102921	Marionette	INFO	Listening on port 64262
+1498581103038	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498581103471	Marionette	DEBUG	loaded listener.js
+1498581103537	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+2017-06-27 12:31:43.612 plugin-container[2116:268965] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:31:43.612 plugin-container[2116:268965] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x4f27, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:31:43.612 plugin-container[2116:268965] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498581103928	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498581103928	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498581106797	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://stimcity.org/2011/07/"
+1498581106943	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581107252	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://stimcity.org/2011/07/"
+1498581107256	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2011/07/"
+1498581107353	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2011/07/"
+1498581107436	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2011/07/"
+1498581107519	Marionette	DEBUG	Received DOM event "pageshow" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581107694	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f2c682a7f18b93&origin=https%3A%2F%2Fstimcity.org"
+1498581107700	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f2c682a7f18b93&origin=https%3A%2F%2Fstimcity.org"
+1498581107870	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df36e239bdff14d%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff2c682a7f18b93%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581107880	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df36e239bdff14d%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff2c682a7f18b93%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581107888	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2011/07/"
+1498581108272	Marionette	INFO	New connections will no longer be accepted
+1498581109063	geckodriver	INFO	Listening on 127.0.0.1:64658
+1498581111414	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498581116893	Marionette	INFO	Listening on port 64675
+1498581116978	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498581117340	Marionette	DEBUG	loaded listener.js
+1498581117400	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+2017-06-27 12:31:57.502 plugin-container[2122:270054] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x913f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:31:57.503 plugin-container[2122:270054] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5107, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:31:57.503 plugin-container[2122:270054] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498581117726	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498581117727	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498581119850	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://stimcity.org/2011/09/"
+1498581120893	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/uTrUrHFMd9M?version=3&rel=1&fs=1&autohide=2&showsearch=0&showinfo=1&iv_load_policy=1&wmode=transparent"
+1498581120909	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581121105	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/FfsDPyDxOPY?version=3&rel=1&fs=1&autohide=2&showsearch=0&showinfo=1&iv_load_policy=1&wmode=transparent"
+1498581121172	Marionette	DEBUG	Received DOM event "pageshow" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581121187	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/uTrUrHFMd9M?version=3&rel=1&fs=1&autohide=2&showsearch=0&showinfo=1&iv_load_policy=1&wmode=transparent"
+1498581121228	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/FfsDPyDxOPY?version=3&rel=1&fs=1&autohide=2&showsearch=0&showinfo=1&iv_load_policy=1&wmode=transparent"
+1498581121241	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2011/09/"
+1498581121745	Marionette	INFO	New connections will no longer be accepted
+1498581122564	geckodriver	INFO	Listening on 127.0.0.1:65065
+1498581124228	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498581128925	Marionette	INFO	Listening on port 65080
+1498581129052	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498581129352	Marionette	DEBUG	loaded listener.js
+1498581129404	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+2017-06-27 12:32:09.474 plugin-container[2126:271054] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:32:09.475 plugin-container[2126:271054] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9027, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:32:09.475 plugin-container[2126:271054] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498581130103	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498581130103	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498581131363	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://stimcity.org/2011/10/"
+1498581131610	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581131863	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2011/10/"
+1498581131932	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2011/10/"
+1498581132071	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f2a7dae7c2ada9c&origin=https%3A%2F%2Fstimcity.org"
+1498581132075	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f2a7dae7c2ada9c&origin=https%3A%2F%2Fstimcity.org"
+1498581132083	Marionette	DEBUG	Received DOM event "pageshow" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581132200	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df592019072a3ea%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff2a7dae7c2ada9c%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581132208	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df592019072a3ea%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff2a7dae7c2ada9c%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581132216	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2011/10/"
+1498581132346	Marionette	INFO	New connections will no longer be accepted
+1498581132919	geckodriver	INFO	Listening on 127.0.0.1:65299
+1498581133974	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498581137090	Marionette	INFO	Listening on port 65312
+1498581137211	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498581137494	Marionette	DEBUG	loaded listener.js
+1498581137541	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+2017-06-27 12:32:17.615 plugin-container[2129:271569] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:32:17.616 plugin-container[2129:271569] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x4b37, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:32:17.616 plugin-container[2129:271569] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498581137855	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498581137856	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498581139827	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://stimcity.org/2011/03/"
+1498581140093	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581140239	Marionette	DEBUG	Received DOM event "pageshow" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581140277	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://stimcity.org/2011/03/"
+1498581140279	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2011/03/"
+1498581140288	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2011/03/"
+1498581140745	Marionette	INFO	New connections will no longer be accepted
+1498581141212	geckodriver	INFO	Listening on 127.0.0.1:65471
+1498581142573	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498581146491	Marionette	INFO	Listening on port 65484
+1498581146574	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498581146905	Marionette	DEBUG	loaded listener.js
+1498581146994	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+2017-06-27 12:32:27.105 plugin-container[2134:272180] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:32:27.110 plugin-container[2134:272180] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9127, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:32:27.110 plugin-container[2134:272180] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498581147307	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498581147307	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498581149336	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://stimcity.org/2011/06/"
+1498581149660	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581149884	Marionette	DEBUG	Received DOM event "pageshow" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581149918	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2011/06/"
+1498581150039	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2011/06/"
+1498581150313	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f1c6aa74a569042&origin=https%3A%2F%2Fstimcity.org"
+1498581150318	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f1c6aa74a569042&origin=https%3A%2F%2Fstimcity.org"
+1498581150541	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df135279df6f0048%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff1c6aa74a569042%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581150552	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df135279df6f0048%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff1c6aa74a569042%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581150561	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2011/06/"
+1498581150772	Marionette	INFO	New connections will no longer be accepted
+1498581151398	geckodriver	INFO	Listening on 127.0.0.1:49444
+1498581152440	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498581157832	Marionette	INFO	Listening on port 49462
+1498581157909	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498581158276	Marionette	DEBUG	loaded listener.js
+1498581158389	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+2017-06-27 12:32:38.440 plugin-container[2139:272893] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e37, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:32:38.441 plugin-container[2139:272893] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5107, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:32:38.441 plugin-container[2139:272893] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498581158674	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498581158674	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498581159969	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://stimcity.org/2011/05/"
+1498581160192	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581160473	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2011/05/"
+1498581160539	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2011/05/"
+1498581160657	Marionette	DEBUG	Received DOM event "pageshow" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581160735	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f6771a3cdd0898&origin=https%3A%2F%2Fstimcity.org"
+1498581160738	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f6771a3cdd0898&origin=https%3A%2F%2Fstimcity.org"
+1498581160934	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://public-api.wordpress.com/wp-admin/rest-proxy/#https://widgets.wp.com"
+1498581160936	Marionette	DEBUG	Received DOM event "pageshow" for "https://public-api.wordpress.com/wp-admin/rest-proxy/#https://widgets.wp.com"
+1498581160951	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df24a866f71879aa%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff6771a3cdd0898%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581160959	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df24a866f71879aa%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff6771a3cdd0898%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581160965	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2011/05/"
+1498581161059	Marionette	INFO	New connections will no longer be accepted
+1498581161441	geckodriver	INFO	Listening on 127.0.0.1:49739
+1498581162526	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498581165750	Marionette	INFO	Listening on port 49783
+1498581165952	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498581166325	Marionette	DEBUG	loaded listener.js
+1498581166392	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+2017-06-27 12:32:46.491 plugin-container[2145:273926] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8d3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:32:46.493 plugin-container[2145:273926] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8d3f, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:32:46.493 plugin-container[2145:273926] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498581166703	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498581166703	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498581168335	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://stimcity.org/2011/11/"
+1498581168621	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581168706	Marionette	DEBUG	Received DOM event "pageshow" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581169202	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/DUkIKIkglLE?version=3&rel=0&fs=1&autohide=2&showsearch=0&showinfo=1&iv_load_policy=1&wmode=transparent"
+1498581169437	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2011/11/"
+1498581169488	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2011/11/"
+1498581169662	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f2b6e896888a49e&origin=https%3A%2F%2Fstimcity.org"
+1498581169665	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f2b6e896888a49e&origin=https%3A%2F%2Fstimcity.org"
+1498581169712	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/DUkIKIkglLE?version=3&rel=0&fs=1&autohide=2&showsearch=0&showinfo=1&iv_load_policy=1&wmode=transparent"
+1498581169715	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://public-api.wordpress.com/wp-admin/rest-proxy/#https://widgets.wp.com"
+1498581169719	Marionette	DEBUG	Received DOM event "pageshow" for "https://public-api.wordpress.com/wp-admin/rest-proxy/#https://widgets.wp.com"
+1498581169759	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df18991bc186f856%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff2b6e896888a49e%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581169765	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df18991bc186f856%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff2b6e896888a49e%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581169774	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2011/11/"
+1498581169946	Marionette	INFO	New connections will no longer be accepted
+1498581170664	geckodriver	INFO	Listening on 127.0.0.1:50047
+1498581172234	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498581176857	Marionette	INFO	Listening on port 50066
+1498581176923	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498581177319	Marionette	DEBUG	loaded listener.js
+1498581177380	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+2017-06-27 12:32:57.463 plugin-container[2151:274942] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x903f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:32:57.465 plugin-container[2151:274942] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5207, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:32:57.465 plugin-container[2151:274942] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498581177753	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498581177753	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498581179771	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://stimcity.org/2011/12/"
+1498581179965	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581180350	Marionette	DEBUG	Received DOM event "pageshow" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581180546	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2011/12/"
+1498581180612	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2011/12/"
+1498581180879	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f3056a56bb7b21a&origin=https%3A%2F%2Fstimcity.org"
+1498581180883	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f3056a56bb7b21a&origin=https%3A%2F%2Fstimcity.org"
+1498581180982	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df14cd6dbe85ca9c%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff3056a56bb7b21a%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581180998	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df14cd6dbe85ca9c%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff3056a56bb7b21a%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581181335	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/H-eYBZFEzf8?version=3&rel=1&fs=1&autohide=2&showsearch=0&showinfo=1&iv_load_policy=1&wmode=transparent"
+1498581181419	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://public-api.wordpress.com/wp-admin/rest-proxy/#https://widgets.wp.com"
+1498581181422	Marionette	DEBUG	Received DOM event "pageshow" for "https://public-api.wordpress.com/wp-admin/rest-proxy/#https://widgets.wp.com"
+1498581181449	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/H-eYBZFEzf8?version=3&rel=1&fs=1&autohide=2&showsearch=0&showinfo=1&iv_load_policy=1&wmode=transparent"
+1498581181454	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2011/12/"
+1498581181579	Marionette	INFO	New connections will no longer be accepted
+[Child 2151] WARNING: pipe error: Broken pipe: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 702
+1498581182298	geckodriver	INFO	Listening on 127.0.0.1:50446
+1498581183659	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498581187888	Marionette	INFO	Listening on port 50468
+1498581187995	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498581188359	Marionette	DEBUG	loaded listener.js
+1498581188417	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+2017-06-27 12:33:08.530 plugin-container[2156:275830] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:33:08.531 plugin-container[2156:275830] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5207, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:33:08.531 plugin-container[2156:275830] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498581188737	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498581188738	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498581190384	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://stimcity.org/2012/01/"
+1498581190924	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581191256	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2012/01/"
+1498581191330	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2012/01/"
+1498581191439	Marionette	DEBUG	Received DOM event "pageshow" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581191620	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f2fe7acf93a5c8&origin=https%3A%2F%2Fstimcity.org"
+1498581191623	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f2fe7acf93a5c8&origin=https%3A%2F%2Fstimcity.org"
+1498581191804	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df12558be6ca0948%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff2fe7acf93a5c8%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581191813	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df12558be6ca0948%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff2fe7acf93a5c8%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581191821	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2012/01/"
+1498581192086	Marionette	INFO	New connections will no longer be accepted
+1498581192594	geckodriver	INFO	Listening on 127.0.0.1:50834
+1498581194123	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498581198695	Marionette	INFO	Listening on port 50851
+1498581198815	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498581199274	Marionette	DEBUG	loaded listener.js
+1498581199322	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+2017-06-27 12:33:19.398 plugin-container[2161:276706] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:33:19.400 plugin-container[2161:276706] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x510f, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:33:19.400 plugin-container[2161:276706] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498581199621	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498581199622	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498581201269	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://stimcity.org/2012/02/"
+1498581201485	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581201677	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2012/02/"
+1498581201748	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2012/02/"
+1498581202022	Marionette	DEBUG	Received DOM event "pageshow" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581202213	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f34cd12f5d3a6be&origin=https%3A%2F%2Fstimcity.org"
+1498581202222	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f34cd12f5d3a6be&origin=https%3A%2F%2Fstimcity.org"
+1498581202300	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df1c8f60e8507aac%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff34cd12f5d3a6be%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581202305	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df1c8f60e8507aac%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff34cd12f5d3a6be%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581202312	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2012/02/"
+1498581202523	Marionette	INFO	New connections will no longer be accepted
+1498581203016	geckodriver	INFO	Listening on 127.0.0.1:51184
+1498581204562	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498581208715	Marionette	INFO	Listening on port 51228
+1498581208820	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498581209159	Marionette	DEBUG	loaded listener.js
+1498581209233	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+2017-06-27 12:33:29.311 plugin-container[2166:277510] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:33:29.315 plugin-container[2166:277510] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x4b23, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:33:29.315 plugin-container[2166:277510] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498581209513	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498581209514	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498581210875	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://stimcity.org/2012/03/"
+1498581211039	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581211116	Marionette	DEBUG	Received DOM event "pageshow" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581211247	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2012/03/"
+1498581211281	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2012/03/"
+1498581211438	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f3c8ec535d8040e&origin=https%3A%2F%2Fstimcity.org"
+1498581211446	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f3c8ec535d8040e&origin=https%3A%2F%2Fstimcity.org"
+1498581211511	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df3ad3bdac367a7a%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff3c8ec535d8040e%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581211515	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df3ad3bdac367a7a%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff3c8ec535d8040e%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581211523	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2012/03/"
+1498581211725	Marionette	INFO	New connections will no longer be accepted
+1498581212177	geckodriver	INFO	Listening on 127.0.0.1:51447
+1498581213289	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498581216852	Marionette	INFO	Listening on port 51490
+1498581217024	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498581217503	Marionette	DEBUG	loaded listener.js
+1498581217591	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+2017-06-27 12:33:37.698 plugin-container[2173:278556] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8d3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:33:37.699 plugin-container[2173:278556] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5207, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:33:37.699 plugin-container[2173:278556] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498581217883	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498581217884	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498581219402	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://stimcity.org/2012/04/"
+1498581219583	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581220148	Marionette	DEBUG	Received DOM event "pageshow" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581220543	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2012/04/"
+1498581220612	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2012/04/"
+1498581220656	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/77tN5_fhkH8?version=3&rel=1&fs=1&autohide=2&showsearch=0&showinfo=1&iv_load_policy=1&wmode=transparent"
+1498581221029	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f32f771131d0ae6&origin=https%3A%2F%2Fstimcity.org"
+1498581221032	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f32f771131d0ae6&origin=https%3A%2F%2Fstimcity.org"
+1498581221210	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/AhSEYoMOIOg?version=3&rel=0&fs=1&autohide=2&showsearch=0&showinfo=1&iv_load_policy=1&wmode=transparent"
+1498581221221	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://public-api.wordpress.com/wp-admin/rest-proxy/#https://widgets.wp.com"
+1498581221226	Marionette	DEBUG	Received DOM event "pageshow" for "https://public-api.wordpress.com/wp-admin/rest-proxy/#https://widgets.wp.com"
+1498581221262	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/77tN5_fhkH8?version=3&rel=1&fs=1&autohide=2&showsearch=0&showinfo=1&iv_load_policy=1&wmode=transparent"
+1498581221283	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/AhSEYoMOIOg?version=3&rel=0&fs=1&autohide=2&showsearch=0&showinfo=1&iv_load_policy=1&wmode=transparent"
+1498581221300	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Dfc840e5c3bd3b2%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff32f771131d0ae6%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581221306	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Dfc840e5c3bd3b2%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff32f771131d0ae6%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581221313	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2012/04/"
+1498581221446	Marionette	INFO	New connections will no longer be accepted
+1498581222170	geckodriver	INFO	Listening on 127.0.0.1:51760
+1498581223468	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498581227345	Marionette	INFO	Listening on port 51769
+1498581227420	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498581227862	Marionette	DEBUG	loaded listener.js
+1498581227989	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+2017-06-27 12:33:48.060 plugin-container[2178:279541] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:33:48.061 plugin-container[2178:279541] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x920b, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:33:48.061 plugin-container[2178:279541] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498581228288	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498581228289	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498581229969	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://stimcity.org/2012/05/"
+1498581230465	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581230610	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2012/05/"
+1498581230750	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2012/05/"
+1498581230914	Marionette	DEBUG	Received DOM event "pageshow" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581230994	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f3ff46d26a7d2b2&origin=https%3A%2F%2Fstimcity.org"
+1498581231006	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f3ff46d26a7d2b2&origin=https%3A%2F%2Fstimcity.org"
+1498581231246	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df1cd9ed32f86f12%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff3ff46d26a7d2b2%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581231259	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df1cd9ed32f86f12%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff3ff46d26a7d2b2%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581231266	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2012/05/"
+1498581231598	Marionette	INFO	New connections will no longer be accepted
+1498581232162	geckodriver	INFO	Listening on 127.0.0.1:52086
+1498581233531	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498581239146	Marionette	INFO	Listening on port 52097
+1498581239231	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498581239521	Marionette	DEBUG	loaded listener.js
+1498581239564	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+2017-06-27 12:33:59.629 plugin-container[2182:280246] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8d33, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:33:59.629 plugin-container[2182:280246] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f1b, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:33:59.630 plugin-container[2182:280246] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498581239848	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498581239848	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498581241049	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://stimcity.org/2012/07/"
+1498581241208	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581241645	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2012/07/"
+1498581241705	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2012/07/"
+1498581241931	Marionette	DEBUG	Received DOM event "pageshow" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581241942	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f1e1f7cbc029e0a&origin=https%3A%2F%2Fstimcity.org"
+1498581241945	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f1e1f7cbc029e0a&origin=https%3A%2F%2Fstimcity.org"
+1498581241950	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/_9WA9YVJS1w?version=3&rel=1&fs=1&autohide=2&showsearch=0&showinfo=1&iv_load_policy=1&wmode=transparent"
+1498581242350	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df24a99c9dc8f27e%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff1e1f7cbc029e0a%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581242366	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df24a99c9dc8f27e%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff1e1f7cbc029e0a%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581242378	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/_9WA9YVJS1w?version=3&rel=1&fs=1&autohide=2&showsearch=0&showinfo=1&iv_load_policy=1&wmode=transparent"
+1498581242382	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2012/07/"
+1498581242495	Marionette	INFO	New connections will no longer be accepted
+1498581244148	geckodriver	INFO	Listening on 127.0.0.1:52398
+1498581245277	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498581248544	Marionette	INFO	Listening on port 52439
+1498581248670	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498581249086	Marionette	DEBUG	loaded listener.js
+1498581249166	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+2017-06-27 12:34:09.274 plugin-container[2188:281299] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:34:09.278 plugin-container[2188:281299] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5207, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:34:09.278 plugin-container[2188:281299] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498581249503	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498581249503	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498581250812	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://stimcity.org/2013/03/"
+1498581250905	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581251242	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2013/03/"
+1498581251287	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2013/03/"
+1498581251381	Marionette	DEBUG	Received DOM event "pageshow" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581251455	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f1f5f2d02c84ad&origin=https%3A%2F%2Fstimcity.org"
+1498581251458	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f1f5f2d02c84ad&origin=https%3A%2F%2Fstimcity.org"
+1498581251748	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df33c471fac2de%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff1f5f2d02c84ad%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581251760	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df33c471fac2de%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff1f5f2d02c84ad%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581251769	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2013/03/"
+1498581252065	Marionette	INFO	New connections will no longer be accepted
+1498581253138	geckodriver	INFO	Listening on 127.0.0.1:52684
+1498581254530	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498581258135	Marionette	INFO	Listening on port 52693
+1498581258213	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498581258519	Marionette	DEBUG	loaded listener.js
+1498581258583	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+2017-06-27 12:34:18.669 plugin-container[2191:281829] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:34:18.670 plugin-container[2191:281829] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5307, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:34:18.670 plugin-container[2191:281829] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498581258964	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498581258964	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498581260562	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://stimcity.org/2013/01/"
+1498581260646	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581260904	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://videopress.com/embed/5kDmkgE2?hd=0&autoPlay=0&permalink=0&loop=0"
+1498581260976	Marionette	DEBUG	Received DOM event "pageshow" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581261110	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2013/01/"
+1498581261161	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2013/01/"
+1498581261282	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f26af891c25ed36&origin=https%3A%2F%2Fstimcity.org"
+1498581261287	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f26af891c25ed36&origin=https%3A%2F%2Fstimcity.org"
+1498581261551	Marionette	DEBUG	Received DOM event "pageshow" for "https://videopress.com/embed/5kDmkgE2?hd=0&autoPlay=0&permalink=0&loop=0"
+1498581261572	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df1a8d0b280b396e%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff26af891c25ed36%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581261577	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df1a8d0b280b396e%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff26af891c25ed36%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581261583	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2013/01/"
+1498581261683	Marionette	INFO	New connections will no longer be accepted
+1498581262003	geckodriver	INFO	Listening on 127.0.0.1:52922
+1498581263097	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498581266751	Marionette	INFO	Listening on port 52965
+1498581266873	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498581267262	Marionette	DEBUG	loaded listener.js
+1498581267322	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+2017-06-27 12:34:27.416 plugin-container[2197:282882] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:34:27.428 plugin-container[2197:282882] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5207, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:34:27.428 plugin-container[2197:282882] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498581267702	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498581267703	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498581269280	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://stimcity.org/2012/12/"
+1498581269377	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581269580	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2012/12/"
+1498581269629	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2012/12/"
+1498581269720	Marionette	DEBUG	Received DOM event "pageshow" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581269900	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f18384a2bf436ba&origin=https%3A%2F%2Fstimcity.org"
+1498581269903	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f18384a2bf436ba&origin=https%3A%2F%2Fstimcity.org"
+1498581270368	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df35b9cb99b37cc2%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff18384a2bf436ba%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581270374	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df35b9cb99b37cc2%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff18384a2bf436ba%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581270382	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2012/12/"
+1498581270538	Marionette	INFO	New connections will no longer be accepted
+1498581271069	geckodriver	INFO	Listening on 127.0.0.1:53211
+1498581272313	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498581275974	Marionette	INFO	Listening on port 53222
+1498581276111	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498581276438	Marionette	DEBUG	loaded listener.js
+1498581276489	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+2017-06-27 12:34:36.578 plugin-container[2201:283414] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8d3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:34:36.582 plugin-container[2201:283414] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5007, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:34:36.582 plugin-container[2201:283414] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498581276780	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498581276781	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498581277971	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://stimcity.org/2012/08/"
+1498581278217	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581278330	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2012/08/"
+1498581278367	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2012/08/"
+1498581278481	Marionette	DEBUG	Received DOM event "pageshow" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581278525	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f3b8fe62f149d4e&origin=https%3A%2F%2Fstimcity.org"
+1498581278528	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f3b8fe62f149d4e&origin=https%3A%2F%2Fstimcity.org"
+1498581278670	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df887e09578088a%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff3b8fe62f149d4e%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581278683	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df887e09578088a%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff3b8fe62f149d4e%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581278694	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2012/08/"
+1498581278844	Marionette	INFO	New connections will no longer be accepted
+1498581279392	geckodriver	INFO	Listening on 127.0.0.1:53474
+1498581280499	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498581284500	Marionette	INFO	Listening on port 53520
+1498581284611	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498581285026	Marionette	DEBUG	loaded listener.js
+1498581285115	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+2017-06-27 12:34:45.220 plugin-container[2210:284490] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:34:45.221 plugin-container[2210:284490] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5007, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:34:45.221 plugin-container[2210:284490] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498581285431	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498581285431	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498581287769	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://stimcity.org/2012/10/"
+1498581288165	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581288365	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2012/10/"
+1498581288463	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2012/10/"
+1498581288663	Marionette	DEBUG	Received DOM event "pageshow" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581288768	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f2ff1787fed775&origin=https%3A%2F%2Fstimcity.org"
+1498581288771	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f2ff1787fed775&origin=https%3A%2F%2Fstimcity.org"
+1498581288906	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df4489640f090c2%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff2ff1787fed775%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581288914	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df4489640f090c2%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff2ff1787fed775%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581288922	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2012/10/"
+1498581289074	Marionette	INFO	New connections will no longer be accepted
+1498581290052	geckodriver	INFO	Listening on 127.0.0.1:53773
+1498581291377	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498581296095	Marionette	INFO	Listening on port 53784
+1498581296228	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498581296607	Marionette	DEBUG	loaded listener.js
+1498581296668	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+2017-06-27 12:34:56.753 plugin-container[2215:285497] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x903f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:34:56.754 plugin-container[2215:285497] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9223, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:34:56.754 plugin-container[2215:285497] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498581296969	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498581296969	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498581298199	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://stimcity.org/2013/04/"
+1498581298761	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581298890	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2013/04/"
+1498581298957	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2013/04/"
+1498581299081	Marionette	DEBUG	Received DOM event "pageshow" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581299318	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f1dfbbb7e8fdae&origin=https%3A%2F%2Fstimcity.org"
+1498581299321	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f1dfbbb7e8fdae&origin=https%3A%2F%2Fstimcity.org"
+1498581299752	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://widgets.wp.com/likes/#blog_id=20459188&post_id=1760&origin=stimcity.wordpress.com&obj_id=20459188-1760-59528930c9447"
+1498581299762	Marionette	DEBUG	Received DOM event "pageshow" for "https://widgets.wp.com/likes/#blog_id=20459188&post_id=1760&origin=stimcity.wordpress.com&obj_id=20459188-1760-59528930c9447"
+1498581299790	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df2b80d4e3c82576%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff1dfbbb7e8fdae%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581299797	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df2b80d4e3c82576%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff1dfbbb7e8fdae%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581299805	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2013/04/"
+1498581300028	Marionette	INFO	New connections will no longer be accepted
+1498581304433	geckodriver	INFO	Listening on 127.0.0.1:54155
+1498581305555	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498581308661	Marionette	INFO	Listening on port 54198
+1498581308734	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498581309107	Marionette	DEBUG	loaded listener.js
+1498581309166	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+2017-06-27 12:35:09.254 plugin-container[2222:286574] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:35:09.255 plugin-container[2222:286574] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x4e07, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:35:09.255 plugin-container[2222:286574] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498581309493	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498581309494	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498581311141	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://stimcity.org/2012/11/"
+1498581311386	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581311636	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2012/11/"
+1498581311690	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2012/11/"
+1498581311843	Marionette	DEBUG	Received DOM event "pageshow" for "https://widgets.wp.com/likes/master.html?ver=20170206#ver=20170206"
+1498581311904	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f13e39cda121c76&origin=https%3A%2F%2Fstimcity.org"
+1498581311910	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f13e39cda121c76&origin=https%3A%2F%2Fstimcity.org"
+1498581312153	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df842df398b3e8%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff13e39cda121c76%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581312161	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/v2.3/plugins/page.php?app_id=249643311490&channel=https%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df842df398b3e8%26domain%3Dstimcity.org%26origin%3Dhttps%253A%252F%252Fstimcity.org%252Ff13e39cda121c76%26relation%3Dparent.parent&container_width=181&height=130&hide_cover=false&href=https%3A%2F%2Fwww.facebook.com%2Fstimcity&locale=en_US&sdk=joey&show_facepile=true&show_posts=true&width=180"
+1498581312173	Marionette	DEBUG	Received DOM event "pageshow" for "https://stimcity.org/2012/11/"
+1498581312344	Marionette	INFO	New connections will no longer be accepted

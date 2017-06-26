@@ -1,0 +1,203 @@
+1496252724808	geckodriver	INFO	Listening on 127.0.0.1:60452
+1496252726806	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496252730857	Marionette	INFO	Listening on port 60459
+1496252730975	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 13:45:31.439 plugin-container[2520:136905] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8d3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 13:45:31.442 plugin-container[2520:136905] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x501b, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 13:45:31.442 plugin-container[2520:136905] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+JavaScript error: http://tracker.icerocket.com/services/collector.js, line 1: SyntaxError: expected expression, got '<'
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1498583571352	geckodriver	INFO	Listening on 127.0.0.1:61997
+1498583576164	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498583586924	Marionette	INFO	Listening on port 62018
+1498583587029	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498583588009	Marionette	DEBUG	loaded listener.js
+2017-06-27 13:13:08.260 plugin-container[2701:368408] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 13:13:08.263 plugin-container[2701:368408] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x902f, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 13:13:08.263 plugin-container[2701:368408] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498583590641	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1498583590720	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498583590720	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498583591833	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=5821799658844915805&blogName=Club+166&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://club166.blogspot.com/search&blogLocale=en_US&v=2&homepageUrl=http://club166.blogspot.com/&vt=8575557201147000123&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#id=navbar-iframe&parent=http%3A%2F%2Fclub166.blogspot.com&pfname=&rpctoken=13434714"
+1498583592493	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/tfkscHt96R0?version=3&hl=en_US&rel=0"
+JavaScript error: http://tracker.icerocket.com/services/collector.js, line 1: SyntaxError: expected expression, got '<'
+1498583592888	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483659"
+1498583593120	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/tfkscHt96R0?version=3&hl=en_US&rel=0"
+1498583593255	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498583593263	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498583593284	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://club166.blogspot.com/"
+1498583593607	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=881792831&forcesecure=1"
+1498583593647	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=881792831&forcesecure=1"
+1498583593651	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=5821799658844915805&blogName=Club+166&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://club166.blogspot.com/search&blogLocale=en_US&v=2&homepageUrl=http://club166.blogspot.com/&vt=8575557201147000123&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#id=navbar-iframe&parent=http%3A%2F%2Fclub166.blogspot.com&pfname=&rpctoken=13434714"
+1498583593684	Marionette	DEBUG	Received DOM event "pageshow" for "http://club166.blogspot.com/"
+1498584090959	Marionette	INFO	Ceased listening
+1498597331611	geckodriver	INFO	Listening on 127.0.0.1:55352
+1498597332812	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498597338407	Marionette	INFO	Listening on port 55375
+1498597338488	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498597338837	Marionette	DEBUG	loaded listener.js
+2017-06-27 17:02:19.073 plugin-container[3554:487772] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 17:02:19.077 plugin-container[3554:487772] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x901f, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 17:02:19.077 plugin-container[3554:487772] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498597340231	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1498597340321	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498597340322	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498597341261	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=5821799658844915805&blogName=Club+166&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://club166.blogspot.com/search&blogLocale=en_US&v=2&homepageUrl=http://club166.blogspot.com/&vt=8575557201147000123&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#id=navbar-iframe&parent=http%3A%2F%2Fclub166.blogspot.co.uk&pfname=&rpctoken=31420378"
+1498597341939	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/tfkscHt96R0?version=3&hl=en_US&rel=0"
+JavaScript error: http://tracker.icerocket.com/services/collector.js, line 1: SyntaxError: expected expression, got '<'
+1498597342860	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597342872	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597342892	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://club166.blogspot.co.uk/"
+1498597342937	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/tfkscHt96R0?version=3&hl=en_US&rel=0"
+1498597343113	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=317885809&forcesecure=1"
+1498597343167	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=317885809&forcesecure=1"
+1498597343169	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=5821799658844915805&blogName=Club+166&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://club166.blogspot.com/search&blogLocale=en_US&v=2&homepageUrl=http://club166.blogspot.com/&vt=8575557201147000123&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#id=navbar-iframe&parent=http%3A%2F%2Fclub166.blogspot.co.uk&pfname=&rpctoken=31420378"
+1498597343224	Marionette	DEBUG	Received DOM event "pageshow" for "http://club166.blogspot.co.uk/"
+1498597345345	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597346868	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597348134	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597349438	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597350709	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597351966	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597353261	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597354523	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597355785	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597357061	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597358340	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597359629	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597360909	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597362179	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597363434	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597364696	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597365970	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597367318	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597368593	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597369845	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597371094	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597372366	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597373654	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597374926	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597376188	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597377445	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597378735	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597379991	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597381271	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597382521	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597383784	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597385044	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597386293	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597387548	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597388815	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597390116	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597391425	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597392707	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597393961	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597395221	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597396498	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597397756	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597399000	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597400301	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597401564	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597402847	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597404107	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597405363	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597406643	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597407889	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597409162	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597410417	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597411664	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597412944	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597414204	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597428789	Marionette	INFO	New connections will no longer be accepted
+1498658924932	geckodriver	INFO	Listening on 127.0.0.1:56877
+1498658928388	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498658933872	Marionette	INFO	Listening on port 56907
+1498658933961	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498658934366	Marionette	DEBUG	loaded listener.js
+2017-06-28 10:08:54.503 plugin-container[4048:558676] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-28 10:08:54.507 plugin-container[4048:558676] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9023, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-28 10:08:54.507 plugin-container[4048:558676] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498658935479	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1498658935562	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498658935563	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498658936285	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=5821799658844915805&blogName=Club+166&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://club166.blogspot.com/search&blogLocale=en_US&v=2&homepageUrl=http://club166.blogspot.com/&vt=8575557201147000123&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DEQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMzAPKkk563KJa44hVm2hkiPHRLrw#id=navbar-iframe&parent=http%3A%2F%2Fclub166.blogspot.com&pfname=&rpctoken=12758360"
+1498658936619	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658936628	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658936802	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/tfkscHt96R0?version=3&hl=en_US&rel=0"
+1498658937068	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DEQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMzAPKkk563KJa44hVm2hkiPHRLrw#rpctoken=388329832&forcesecure=1"
+1498658937100	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/tfkscHt96R0?version=3&hl=en_US&rel=0"
+1498658937122	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DEQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMzAPKkk563KJa44hVm2hkiPHRLrw#rpctoken=388329832&forcesecure=1"
+1498658937123	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=5821799658844915805&blogName=Club+166&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://club166.blogspot.com/search&blogLocale=en_US&v=2&homepageUrl=http://club166.blogspot.com/&vt=8575557201147000123&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DEQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMzAPKkk563KJa44hVm2hkiPHRLrw#id=navbar-iframe&parent=http%3A%2F%2Fclub166.blogspot.com&pfname=&rpctoken=12758360"
+1498658937275	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483664"
+JavaScript error: http://tracker.icerocket.com/services/collector.js, line 1: SyntaxError: expected expression, got '<'
+1498658937605	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://club166.blogspot.com/"
+1498658937758	Marionette	DEBUG	Received DOM event "pageshow" for "http://club166.blogspot.com/"
+1498658938321	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658939674	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658940938	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658942220	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658943466	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658944747	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658946010	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658947252	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658948508	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658949761	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658951024	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658952273	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658953521	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658954789	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658956041	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658957292	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658958540	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658959787	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658961072	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658962354	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658963612	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658964864	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658966132	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658967425	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658968715	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658969973	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658971227	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658972533	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658973825	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658975072	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658976436	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658977693	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658978952	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658980252	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658981508	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658982757	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658984006	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658985250	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658986531	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658987787	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658989043	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658990287	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658991527	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658992813	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658994098	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658995418	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658996670	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658997936	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658999217	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498659000489	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498659001743	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498659002992	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498659004238	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498659005496	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498659006748	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498659019191	Marionette	INFO	New connections will no longer be accepted
