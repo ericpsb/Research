@@ -97,7 +97,7 @@ topic_table.forEach(function(doc) {
 	var doc_topic = new Array();
 	for(var topic = 0; topic < numtopics; topic++) {
 		if(parseFloat(doc[topic]) > 0.05) { // only include topic that are "relavent" to the document
-			doc_topic.push(topic_sort_map[topic].back);
+			doc_topic.push(topic_sort_map[topic].back); // topic_table does not have the index sorted
 			topic_prob[topic_sort_map[topic].back]++; // Count the number of docs with this topic
 		}
 	}
@@ -116,7 +116,7 @@ for(var t1=0; t1 < numtopics-1; t1++) {
 		var denom = topic_prob[t1] * topic_prob[t2];
 		// Since the graph is semetric, only one half needs to be computed
 		// corrlation_table[t1][t2] could produce 0, but Math.log(0) produces Infinity, however we want it to be -Inf instead
-		corrlation_table[t1][t2] = corrlation_table[t1][t2] == 0 ? -1/0 : Math.log((numdocs * corrlation_table[t1][t2]) / denom);
+		corrlation_table[t1][t2] = corrlation_table[t1][t2] == 0 ? -1/0 : Math.log(numdocs * corrlation_table[t1][t2] / denom);
 	}
 }
 
@@ -245,6 +245,9 @@ function getTimeSeriesGraphHtml() {
 		var month = doc.datenum-firstM;
 		totdocs[month]++;
 	});
+	totdocs.forEach(function(n){
+		topdocs = n > topdocs ? n : topdocs;
+	});
 	
 	for(var topic=0; topic < numtopics; topic++) {
 		var valtotal = new Array(months);
@@ -291,19 +294,18 @@ function getTimeSeriesGraphHtml() {
 				valavg[i] = valtotal[i]/totdocs[i];
 				mostdocs = docs4[i] > mostdocs ? docs4[i] : mostdocs;
 				bestavg = valavg[i] > bestavg ? valavg[i] : bestavg;
-				topdocs = mostdocs > topdocs ? mostdocs : topdocs;
 				topavg = bestavg > topavg ? bestavg : topavg;
 			}
 		}
 		data.valavg.push(valavg);
 		data.numdocs.push({dt: totdocs, d1: docs1, d2: docs2, d3: docs3, d4: docs4});
 		{
-			var d = "M0,100";
+			var d = "M0,0";
 			for(var i=0; i<months; i++) {
-				var h1 = (100-100*valavg[i]/bestavg);
+				var h1 = (100*valavg[i]/bestavg);
 				d+="L" + (i*w1) + "," + h1;
 			}
-			d+="L" + ((months-1)*w1) + ",100Z";
+			d+="L" + ((months-1)*w1) + ",0Z";
 			var div = $("<div></div>").addClass("ts-div").addClass("valavg").attr("data-tid", topic).attr("data-h", bestavg).attr("data-w", (months-1)*w1);
 			var svg = $("<svg></svg>").attr("width", w).attr("height", h).attr("viewBox", "0 0 " + ((months-1)*w1) + " 100").attr("preserveAspectRatio", "none");
 			var g = $("<g></g>");
@@ -318,25 +320,29 @@ function getTimeSeriesGraphHtml() {
 			result.append(div);
 		}
 		{
-			var d1 = "0,100";
-			var d2 = "0,100";
-			var d3 = "0,100";
-			var d4 = "0,100";
+			var d1 = "0,0";
+			var d2 = "0,0";
+			var d3 = "0,0";
+			var d4 = "0,0";
+			var dz = "0,0";
 			for(var i=0; i<months; i++) {
 				var ph;
-				ph = (100-100*docs1[i]/mostdocs);
+				ph = (100*docs1[i]/mostdocs);
 				d1+=" " + (i*w1) + "," + ph;
-				ph = (100-100*docs2[i]/mostdocs);
+				ph = (100*docs2[i]/mostdocs);
 				d2+=" " + (i*w1) + "," + ph;
-				ph = (100-100*docs3[i]/mostdocs);
+				ph = (100*docs3[i]/mostdocs);
 				d3+=" " + (i*w1) + "," + ph;
-				ph = (100-100*docs4[i]/mostdocs);
+				ph = (100*docs4[i]/mostdocs);
 				d4+=" " + (i*w1) + "," + ph;
+				ph = (100*totdocs[i]/mostdocs);
+				dz+=" " + (i*w1) + "," + ph;
 			}
-			d1+=" " + ((months-1)*w1) + ",100";
-			d2+=" " + ((months-1)*w1) + ",100";
-			d3+=" " + ((months-1)*w1) + ",100";
-			d4+=" " + ((months-1)*w1) + ",100";
+			d1+=" " + ((months-1)*w1) + ",0";
+			d2+=" " + ((months-1)*w1) + ",0";
+			d3+=" " + ((months-1)*w1) + ",0";
+			d4+=" " + ((months-1)*w1) + ",0";
+			dz+=" " + ((months-1)*w1) + ",0";
 			var div = $("<div></div>").addClass("ts-div").addClass("numdocs").attr("data-tid", topic).attr("data-h", mostdocs).attr("data-w", (months-1)*w1);
 			var svg = $("<svg></svg>").attr("width", w).attr("height", h).attr("viewBox", "0 0 " + ((months-1)*w1) + " 100").attr("preserveAspectRatio", "none");
 			var g = $("<g></g>");
@@ -344,9 +350,10 @@ function getTimeSeriesGraphHtml() {
 			var path2 = $("<polyline></polyline>").attr("points", d2).css("fill", "#1976d2");
 			var path3 = $("<polyline></polyline>").attr("points", d3).css("fill", "#2196f3");
 			var path4 = $("<polyline></polyline>").attr("points", d4).css("fill", "#64b5f6");
+			var pathz = $("<polyline></polyline>").attr("points", dz).css("fill", "#e3f2fd");
 			var text = $("<text></text>").css("left", 5).css("top", 20).html(topics[topic]);
 			var scale = $("<text></text>").html(mostdocs).addClass("numscale");
-			g.append(path4).append(path3).append(path2).append(path1);
+			g.append(pathz).append(path4).append(path3).append(path2).append(path1);
 			svg.append(g);
 			div.append(scale);
 			div.append(text);

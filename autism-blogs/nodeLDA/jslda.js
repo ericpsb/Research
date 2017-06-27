@@ -259,8 +259,8 @@ $.ajax({
 					.append($("<br>")).append($("<span></span>").css("color", "#0d47a1").html(">50% : " + arr.d1[index]))
 				    .append($("<br>")).append($("<span></span>").css("color", "#1976d2").html(">25% : " + arr.d2[index]))
 					.append($("<br>")).append($("<span></span>").css("color", "#2196f3").html(">10% : " + arr.d3[index]))
-					.append($("<br>")).append($("<span></span>").css("color", "#64b5f6").html(">1% : " + arr.d4[index]))
-					.append($("<br>")).append($("<span></span>").css("color", "#fff").css("text-shadow", "1px 1px 4px #0d47a1").html("all : " + arr.dt[index]));
+					.append($("<br>")).append($("<span></span>").css("color", "#64b5f6").html(">01% : " + arr.d4[index]))
+					.append($("<br>")).append($("<span></span>").css("color", "#e3f2fd").css("background", "#0d47a1").html("&emsp;all&nbsp;&nbsp;: " + arr.dt[index]));
 				$("#tooltip").css("visibility", "visible").css("top", evt.pageY - 145).css("left", evt.pageX - $("#tooltip").width()/2);
 			});
 			graph.mouseout(function() {
@@ -319,8 +319,8 @@ $.ajax({
 				div.children(".avgscale").html((div.data("h0")*100).toFixed(1)+"%");
 				div.children(".numscale").html(div.data("h0"));
 				var svg = div.children("svg");
-				var hmin = ((div.data("h0")-div.data("h"))/div.data("h0")*100);
-				svg.attr("viewBox", "0 " + (-hmin) + " " + div.data("w") + " " + (100+hmin));
+				var hmin = (div.data("h0")/div.data("h")*100);
+				svg.attr("viewBox", "0 0 " + div.data("w") + " " + hmin);
 			});
 		});
 		$("#ts-scale-topic").click(function(){
@@ -333,6 +333,21 @@ $.ajax({
 				var svg = div.children("svg");
 				svg.attr("viewBox", "0 0 " + div.data("w") + " 100");
 			});
+		});
+		// checkbox
+		$("#cbox-valavg").click(function(){
+			if($(this).prop("checked")) {
+				$(".ts-div.valavg").css("display", "");
+			} else {
+				$(".ts-div.valavg").css("display", "none");
+			}
+		});
+		$("#cbox-numdocs").click(function(){
+			if($(this).prop("checked")) {
+				$(".ts-div.numdocs").css("display", "");
+			} else {
+				$(".ts-div.numdocs").css("display", "none");
+			}
 		});
 	}
 });
