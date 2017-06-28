@@ -161,10 +161,27 @@ td.name {
 
 #top-post {
     display: none;
+    padding: 0 20px 20px 20px;
 }
 
 #post-top-5 {
     display: block;
     width: 342px;
     margin: 20px auto;
+}
+
+#post-text {
+    width: 540px;
+    margin: 0;
+    padding: 10px 15px;
+}
+
+#post-text:focus {
+    background-color: #D3D9D9;
+    color: #647373;
+}
+
+#post-to-fb {
+    margin: 10px 0;
+    float: right;
 }

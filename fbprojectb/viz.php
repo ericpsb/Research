@@ -137,7 +137,7 @@ foreach ($result as $item) {
 
           <tr class="top-5-item">
             <td class="name-number">6</td>
-            <td id="p6-img" class="name-img"><img src="https://scontent.xx.fbcdn.net/v/t1.0-1/c15.0.50.50/p50x50/10354686_10150004552801856_220367501106153455_n.jpg?oh=726660dce6ba9660584686ee99a62deb&amp;oe=59D7152F" alt="profile picture"></td>
+            <td id="p6-img" class="name-img"><img src="https://scontent.xx.fbcdn.net/v/t1.0-1/p200x200/18268505_10209519828372685_5151042587600937853_n.jpg?oh=aab109503c4090721e62e2934f4baa06&oe=59D2DACE" alt="profile picture"></td>
             <td id="p6-name" class="name">Tihmothy Berrill</td>
           </tr>
         </table>
@@ -146,6 +146,9 @@ foreach ($result as $item) {
       </div>
 
       <div id="top-post">
-        This is where a text box for sharing with friends will be, plus a button to post with.
+        <span style="text-align: center;">Click "Post" to share this on your timeline with your Top 5 Friends tagged!</span><br>
+        <textarea id="post-text"></textarea>
+        <button id="post-to-fb">Post</button>
       </div>
-    <body>
+    </div>
+  <body>

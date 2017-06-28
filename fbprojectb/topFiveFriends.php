@@ -37,7 +37,14 @@ usort($myFriendLinks, 'cmpLink');
 // return names of top 5 friends
 $nodes = $interactions[0]->json->nodes;
 foreach (array_slice($myFriendLinks, 0, 5) as $link) {
-    echo $nodes[$link->target]->name . "\n";
+    if ($link->source == 0) {
+        echo $nodes[$link->target]->name . "\t";
+        echo getID($nodes[$link->target]->name) . "\n";
+    }
+    else {
+        echo $nodes[$link->source]->name . "\t";
+        echo getID($nodes[$link->source]->name) . "\n";
+    }
 }
 
 return;
@@ -46,10 +53,26 @@ return;
 
 // functions
 function isMyFriend($link) {
-    return $link->source == 0;
+    return $link->source == 0 || $link->target == 0;
 }
 
 function cmpLink($a, $b) {
     return $b->value - $a->value;
+}
+
+function getID($username) {
+    global $config, $manager, $readPreference;
+
+    $filter = [
+        'name' => $username
+    ];
+    $options = [];
+
+    $query = new MongoDB\Driver\Query($filter, $options);
+
+    $id = $manager->executeQuery($config['facebook-info-db'] . '.people', $query, $readPreference);
+    $id = iterator_to_array($id, false);
+    $id = $id[0]->id;
+    return $id;
 }
 ?>

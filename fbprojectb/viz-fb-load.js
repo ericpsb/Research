@@ -6,7 +6,7 @@ window.fbAsyncInit = function() {
     // server to access the session
     xfbml: true, // parse page for xfbml or html5
     // social plugins like login button below
-    version: 'v2.8', // Specify an API version
+    version: 'v2.9', // Specify an API version
     });
 
     // Put additional init code here
