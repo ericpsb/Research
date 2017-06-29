@@ -251,7 +251,7 @@ def update_db(token, activity_url, profile, user_name, user_id, user, people, ev
             else:
                 friends.update({"id": person['id']}, {"$addToSet": {
                                "friend_of": {"name": user_name, "id": user_id}}})
-                person['mutual_friends'] = friend['context']['mutual_friends']['summary']['total_count']
+                person['mutual_friends'] = friend['context']['mutual_friends']['summary']['total_count'] if 'mutual_friends' in friend['context'] else 0
                 person['mutual_likes'] = friend['context']['mutual_likes']['summary']['total_count']
 
                 if mutual.find_one({"$and": [{"id": person['id']}, {"friend_of.id": user_id}]}) == None:

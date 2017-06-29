@@ -1,6 +1,5 @@
 #!/usr/bin/env python
-# do all imports here
-import facepy
+
 import requests
 import urllib2
 import json
@@ -12,8 +11,6 @@ import time
 import urllib3.contrib.pyopenssl
 import dateutil.parser as dateparser
 import gridfs
-from facepy.exceptions import OAuthError
-from facepy.exceptions import FacebookError
 from itertools import combinations
 import itertools
 import config
@@ -29,21 +26,16 @@ class GenerateViz():
         db2 = client[config.USER_DB]
         collection2 = db2['fb-users']
         collection3 = db2['fb-interactions']
-        admin_token = ""
         if collection2.find_one({"user id": self.userid}) != None:
             #user = collection2.find()[1]
             user = collection2.find_one({"user id": self.userid})
-            name = user['name']
+            user_name = user['name']
             Id = user['user id']
             access_token = user['access_token']
             self.actok = user['access_token']
-            graph = facepy.GraphAPI(access_token)
-            admin = facepy.GraphAPI(admin_token)
             nodes = []
             friends = []
             links = []
-            # get profile object
-            user_name = graph.get('me')['name'].title()
             nodes.append({'name': user_name})
             linkIndex = 0
             nodeIndex = 1

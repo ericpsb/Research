@@ -9,6 +9,7 @@ import config
 import sys
 import datetime
 import update_db_v4
+import os
 
 def main():
     if not check_args():
@@ -59,11 +60,6 @@ def main():
         user_id = profile['id']
         existing = collection.find_one({"user id": user_id})
 
-        # check if this user is already processing
-        if 'processing' in existing and existing['processing'] == True:
-            print 'User already processing in other thread'
-            return
-
         if existing is None:
             userInfo['first_name'] = profile['first_name']
             userInfo['last_name'] = profile['last_name']
@@ -76,12 +72,20 @@ def main():
             print "This user does not exist in the database."
             collection.insert_one(userInfo)
         else:
+            # check if this user is already processing
+            if 'processing' in existing and existing['processing'] == True:
+                print 'User already processing in other thread'
+                return
+
             print "This user exists in the database."
             collection.update({'user id': user_id}, {
                 "$set": {'access_token': acltat, 'token_date': datetime.datetime.utcnow(), 'processing': True}})
     except Exception, e:
         print "EXCEPTION: " + str(e)
         print "User logged out."
+        # TODO[P]: Don't let the end user see the error message!!!!
+        os.system("""echo "Hi,\n\nWe're sorry, but something went wrong with your visualization. Please try logging in again at https://das-lab.org/fbprojectb or contact pwschaedler@gmail.com. Thank you.\n\nError Message:\n{}" | mail -a "From: TrueFriend <truefriend@das-lab.org>" -s "TrueFriend - Error" {}""".format(e, profile['email']))
+        return
     
     # TODO[P]: stop it from moving on if it failed at any point prior,
     #          but otherwise...
@@ -89,9 +93,13 @@ def main():
     # Do next part of processing
     try:
         update_db_v4.run_update(acltat)
-    except Exception, e:
+    except Exception as exc:
         print 'Failed during update_db'
-        print e
+        print type(exc).__name__
+        print exc.args
+        import traceback
+        print traceback.format_exc()
+        os.system("""echo "Hi,\n\nWe're sorry, but something went wrong with your visualization. Please try logging in again at https://das-lab.org/fbprojectb or contact pwschaedler@gmail.com. Thank you.\n\nError Message:\n{}" | mail -a "From: TrueFriend <truefriend@das-lab.org>" -s "TrueFriend - Error" {}""".format(type(exc).__name__, profile['email']))
         return
     finally:
         # say they're no longer processing
