@@ -84,7 +84,7 @@ $output = shell_exec("echo '" . $command . "' | at now");
               cookie: true, // enable cookies to allow the server to access
               // the session
               xfbml: true, // parse social plugins on this page
-              version: 'v2.9' // use version 2.8
+              version: 'v2.9' // use version 2.9
             });
           };
 

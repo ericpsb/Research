@@ -9,6 +9,15 @@ $(document).ready(function(){
     $.post("topFiveFriends.php", {"name" : main["name"]}, populateTopFive);
 });
 
+function showStatus() {
+    $("#status").css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1.0});
+    window.setTimeout(hideStatus, 3000);
+}
+
+function hideStatus() {
+    $("#status").css({opacity: 1.0, visibility: "visible"}).animate({opacity: 0.0});
+}
+
 /* Show Top 5 Friends panel */
 function showTopFive() {
     $("#popUpVeil").fadeIn();
@@ -33,24 +42,37 @@ function setUpPost() {
 function postToFB() {
     // post stuff in text area to Facebook with tagged friends
     // check if they are in taggable friends to see if they're actually friends
-    // only tag people who are actually friends
-    // TODO[P] - make PHP script to check that
-    var taggableIDs = ["AaLrmdnr6oqUc3goefxsjeTWCZtMKDYY7kttWL3Wxn9lNFDywG-j_joscDKrTmazFoPjPkkT2CGYpOGnHv5uYMjx1d4E-OCi9RqcCqD0TouAxA"]; // temporary
+    $("#post-to-fb").prop("disabled", true);
+    $.post("https://das-lab.org/fbprojectb/IDsFromTaggableFriends.php", {
+        "username": main["name"],
+        "name1": $("#p1-name").text(),
+        "name2": $("#p2-name").text(),
+        "name3": $("#p3-name").text(),
+        "name4": $("#p4-name").text(),
+        "name5": $("#p5-name").text()
+    }, function(resp) {
+        var postURL = "https://graph.facebook.com/v2.9/me/feed";
+        var data = {
+            "message": $("#post-text").val(),
+            "tags": JSON.parse(resp).join(",")
+        };
 
-    var postURL = "https://graph.facebook.com/v2.9/me/feed";
-    var data = {
-        "message": $("#post-text").text(),
-        "tags": taggableIDs.join(",")
-    };
-
-    FB.api(
-        "/me/feed",
-        "POST",
-        data,
-        function(resp) {
-            console.log(resp); // for now, maybe check error 
-        }
-    );
+        FB.api(
+            "/me/feed",
+            "POST",
+            data,
+            function(resp) {
+                $("#post-to-fb").prop("disabled", false);
+                if (!resp || resp.error) {
+                    console.log(resp); // TODO[P]: better error handling
+                }
+                else {
+                    closeTopFive();
+                    showStatus();
+                }
+            }
+        );
+    });
 }
 
 /* Request and place information for the Top 5 Friends panel */
@@ -72,7 +94,7 @@ function populateTopFive(data) {
 }
 
 function populateTextArea(names) {
-    $("#post-text").text(getTop5Message(names));
+    $("#post-text").val(getTop5Message(names));
 }
 
 function getTop5Message(names) {

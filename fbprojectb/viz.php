@@ -83,6 +83,12 @@ foreach ($result as $item) {
       <script type="text/javascript" src="viz-fb-load.js"></script>
     </div>
 
+    <div id="status-container">
+      <div id="status">
+        Posted successfully to Facebook!
+      </div>
+    </div>
+
     <button id="top5">My Top 5 Friends</button>
 
     <script>
