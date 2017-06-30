@@ -99,7 +99,7 @@ function populateTextArea(names) {
 
 function getTop5Message(names) {
     // Note: this makes the assumption that a person has at least five people in the graph
-    return "These are my top 5 friends according to TrueFriend!\n" +
+    return "These are my top 5 friends according to TrueFriend (https://das-lab.org/truefriend)!\n" +
            "1. " + names[0] + "\n" +
            "2. " + names[1] + "\n" +
            "3. " + names[2] + "\n" +
