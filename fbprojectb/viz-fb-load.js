@@ -32,7 +32,7 @@ function getParamByName(name) {
 }
 document.getElementById("return").onclick = function() {
     domain = "https://das-lab.org/";
-    window.top.location.href = domain + "fbprojectb/initViz.php?resp=" + getParamByName('resp') + "&user=" + getParamByName('user');
+    window.top.location.href = domain + "truefriend/initViz.php?resp=" + getParamByName('resp') + "&user=" + getParamByName('user');
 };
 
 var ac = getParamByName("resp");
@@ -43,7 +43,7 @@ var sharefun = function(t) {
     method: 'share_open_graph',
     action_type: 'pages.saves',
     action_properties: JSON.stringify({
-        object: 'https://das-lab.org/fbprojectb/',
+        object: 'https://das-lab.org/truefriend/',
         tags: t,
         access_token: ac
     })

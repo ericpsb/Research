@@ -170,7 +170,7 @@
 
       <!-- Main information here -->
       <div class="hero-unit">
-        <h1 style="color:black">Facebook Project</h1>
+        <h1 style="color:black">TrueFriend</h1>
         <p> </p>
         <p> </p>
         <p style="color:#999966">You know you're friends with lots of people on Facebook. But how many of them are
@@ -186,8 +186,8 @@
         </div>
 
         <hr>
-        <p>This app is part of a research project to analyze how people do and do not use social media. It's led by researchers in the <a href="https://www.das-lab.org/">DAS Lab</a> at <a href="http://www.lehigh.edu/">Lehigh University</a> in collaboration
-          with the <a href="http://idl.cornell.edu/">Interaction Design Lab</a> at <a href="http://cornell.edu">Cornell University</a>.</p>
+        <p>This app is part of a research project to analyze how people do and do not use social media. It's led by researchers in the <a href="https://www.das-lab.org/">DAS Lab</a> at <a href="http://www.lehigh.edu/">Lehigh University</a> in collaboration with the <a href="http://idl.cornell.edu/">Interaction Design Lab</a> at <a href="http://cornell.edu">Cornell University</a>.</p>
+        <p>This material is based upon work supported by the National Science Foundation under Grant No. IIS-1421498. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.</p>
       </div>
       <!-- /container -->
 

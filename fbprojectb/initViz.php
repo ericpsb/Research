@@ -744,7 +744,7 @@ $.post('backendInit.php', { A : uid},function(result){
     if (userdbdata["json"]) {
         document.getElementById("viz_button").disabled = false;
         document.getElementById("viz_button").onclick = function(){
-            window.top.location.href = domain + "fbprojectb/viz.php?resp=" + getParamByName('resp') + "&user=" + getParamByName('user');
+            window.top.location.href = domain + "truefriend/viz.php?resp=" + getParamByName('resp') + "&user=" + getParamByName('user');
         }
     }
 });

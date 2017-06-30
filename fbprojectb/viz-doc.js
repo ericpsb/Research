@@ -43,7 +43,7 @@ function postToFB() {
     // post stuff in text area to Facebook with tagged friends
     // check if they are in taggable friends to see if they're actually friends
     $("#post-to-fb").prop("disabled", true);
-    $.post("https://das-lab.org/fbprojectb/IDsFromTaggableFriends.php", {
+    $.post("https://das-lab.org/truefriend/IDsFromTaggableFriends.php", {
         "username": main["name"],
         "name1": $("#p1-name").text(),
         "name2": $("#p2-name").text(),
@@ -105,7 +105,7 @@ function getTop5Message(names) {
            "3. " + names[2] + "\n" +
            "4. " + names[3] + "\n" +
            "5. " + names[4] + "\n" +
-           "Help the Lehigh University DAS Lab, find out your top 5 friends, and see your Social Interaction Graph at https://das-lab.org/fbprojectb !";
+           "Help the Lehigh University DAS Lab, find out your top 5 friends, and see your Social Interaction Graph at https://das-lab.org/truefriend !";
 }
 
 /* Returns 2d array with first column being names and second column being IDs */

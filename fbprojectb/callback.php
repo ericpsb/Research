@@ -99,11 +99,11 @@ $output = shell_exec("echo '" . $command . "' | at now");
             var userdbdata = JSON.parse(result);
             if (userdbdata != null && userdbdata["json"]) {
               document.getElementById("viz-button").onclick = function() {
-                window.top.location.href = domain + "fbprojectb/viz.php?resp=" + getParamByName('resp') + "&user=" + getParamByName('user');
+                window.top.location.href = domain + "truefriend/viz.php?resp=" + getParamByName('resp') + "&user=" + getParamByName('user');
               }
             } else {
               document.getElementById("viz-button").onclick = function() {
-                window.top.location.href = domain + "fbprojectb/initViz.php?resp=" + getParamByName('resp') + "&user=" + getParamByName('user');
+                window.top.location.href = domain + "truefriend/initViz.php?resp=" + getParamByName('resp') + "&user=" + getParamByName('user');
               };
             }
           });

@@ -191,7 +191,7 @@ def run_update(access_token):
     x.init(user_id)
     logging.info("Generated or updated visualization")
     #Popen(['mail','-s','Your visualization is ready to view',profile['email'],'<<<','Hi,Your network visualization on the Social Interaction Graph app is ready to view. Thank you for your support!'])
-    vizurl = "https://das-lab.org/fbprojectb/viz.php?resp={}&user={}".format(
+    vizurl = "https://das-lab.org/truefriend/viz.php?resp={}&user={}".format(
         token, user_id)
     # with open("email_content.txt","a") as myfile:
     # myfile.write("/n"+vizurl)
