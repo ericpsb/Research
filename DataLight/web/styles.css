@@ -1,4 +1,40 @@
-/*
-h1 {
-    color: red;
+body {
+  padding-top: 10px;
+}
+
+/*.starter-template {
+  padding: 40px 15px;
+  text-align: center;
 }*/
+
+#logout {
+    font-size: 15px;
+    text-align: center;
+    line-height: 3px;
+}
+
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 200px;
+    height: 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5%;
+}
+
+#status {
+    margin-left: 45px;
+    color: #3B5998;
+}
+
+h1 {
+    background-color: ;
+    color: ; 
+
+}
