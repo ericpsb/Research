@@ -22,7 +22,7 @@ var numtopics = topics.length;
 topiclines.splice(0, 1); // delete topic lineHeight
 topiclines.splice(topiclines.length-1, 1); // delete empty line added by write.csv
 var numdocs = topiclines.length;
-process.stdout.write("[INFO] " + numdocs + " documents found\n");
+process.stdout.write("[INFO] " + numdocs + " documents x " + numtopics + " topics found\n");
 var topic_table = []; // 2d table of the topic values
 
 topiclines.forEach(function(element, index, array) {
@@ -83,6 +83,7 @@ topic_dom.children('div').first().addClass("selected");
 
 // topic correlation
 var corrlation_table = new Array(numtopics);
+var corrlation_value_table = new Array(numtopics);
 var topic_prob = new Array(numtopics);
 for(var i=0; i<numtopics; i++) {
 	var temp = new Array(numtopics);
@@ -90,6 +91,7 @@ for(var i=0; i<numtopics; i++) {
 		temp[j] = 0;
 	}
 	corrlation_table[i] = temp;
+	corrlation_value_table[i] = new Array(numtopics);
 	topic_prob[i] = 0;
 }
 
@@ -116,7 +118,7 @@ for(var t1=0; t1 < numtopics-1; t1++) {
 		var denom = topic_prob[t1] * topic_prob[t2];
 		// Since the graph is semetric, only one half needs to be computed
 		// corrlation_table[t1][t2] could produce 0, but Math.log(0) produces Infinity, however we want it to be -Inf instead
-		corrlation_table[t1][t2] = corrlation_table[t1][t2] == 0 ? -1/0 : Math.log(numdocs * corrlation_table[t1][t2] / denom);
+		corrlation_value_table[t1][t2] = corrlation_table[t1][t2] == 0 ? -1/0 : Math.log(numdocs * corrlation_table[t1][t2] / denom);
 	}
 }
 
@@ -129,7 +131,7 @@ function getCorrelationGraphHtml() {
 	var xmin = 30;
 	var xmax = 930;
 	var ymin = 150;
-	var ymax = 1050;
+	var ymax = ymin + (xmax-xmin);
 	var textPadding = 170;
 	var graph = $("<svg></svg>").attr("width", xmax+textPadding).attr("height", ymax + 2*textPadding).attr("viewBox", "0 0 " + (xmax+textPadding) + " " + (ymax + 2*textPadding)).attr("preserveAspectRatio", "xMinYMin meet");
 	var topicScale = (ymax-ymin) / numtopics;
@@ -146,15 +148,15 @@ function getCorrelationGraphHtml() {
 	
 	for(var t1=0; t1 < numtopics-1; t1++) {
 		for(var t2=t1+1; t2 < numtopics; t2++) {
-			var val = corrlation_table[t1][t2];
-			var circle = $("<circle></circle>").attr("cx", xmin + t1*topicScale).attr("cy", ymin + t2*topicScale).attr("r", circleScale(Math.abs(val))).attr("title", topics[t1] + ' /<br>' + topics[t2]).css("fill", val > 0 ? "#88f" : "#f88");
-			var circle2 = $("<circle></circle>").attr("cx", xmin + t2*topicScale).attr("cy", ymin + t1*topicScale).attr("r", circleScale(Math.abs(val))).attr("title", topics[t2] + ' /<br>' + topics[t1]).css("fill", val > 0 ? "#88f" : "#f88");
+			var val = corrlation_value_table[t1][t2];
+			var circle = $("<circle></circle>").attr("cx", xmin + t1*topicScale).attr("cy", ymin + t2*topicScale).attr("r", circleScale(Math.abs(val))).attr("title", topics[t1] + ' /<br>' + topics[t2]).css("fill", val > 0 ? "#88f" : "#f88").attr("data-t1", t1).attr("data-t2", t2);
+			var circle2 = $("<circle></circle>").attr("cx", xmin + t2*topicScale).attr("cy", ymin + t1*topicScale).attr("r", circleScale(Math.abs(val))).attr("title", topics[t2] + ' /<br>' + topics[t1]).css("fill", val > 0 ? "#88f" : "#f88").attr("data-t1", t2).attr("data-t2", t1);
 			graph.append(circle);
 			graph.append(circle2);
 		}
 	}
 	process.stdout.write("done\n");
-	return $("<div></div>").append(graph).html();
+	return JSON.stringify({graph: $("<div></div>").append(graph).html(), topic: topic_prob, table: corrlation_table});
 }
 
 // preprocess documents
@@ -169,6 +171,7 @@ var lastM = 0;
 
 documents.forEach(function(element, index, array) {
 	var e = element.split("\t");
+	var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 	if(isNaN(Date.parse(e[1]))) { // no date given from csv
 		// try to find date in url instead
 		var l = e[0];
@@ -176,7 +179,7 @@ documents.forEach(function(element, index, array) {
 		if( m != null ) { // year, month, and day
 			var d = new Date(Date.parse(m[0]));
 			var dn = d.getFullYear()*12+d.getMonth();
-			doc_table[index] = {link: e[0], date: d.toLocaleDateString(), content: e[2], datenum: dn};
+			doc_table[index] = {link: e[0], date: months[d.getMonth()] + " " +  d.getDate() + ", " + d.getFullYear(), content: e[2], datenum: dn};
 			firstM = dn < firstM ? dn : firstM;
 			lastM = dn > lastM ? dn : lastM;
 			return;
@@ -186,7 +189,7 @@ documents.forEach(function(element, index, array) {
 			var d = new Date(Date.parse(m[0]));
 			var mon = d.getMonth() + 1;
 			var dn = d.getFullYear()*12+d.getMonth();
-			doc_table[index] = {link: e[0], date: d.getFullYear() + "-" + (mon < 10 ? "0" + mon : mon) + "-??", content: e[2], datenum: dn};
+			doc_table[index] = {link: e[0], date: months[d.getMonth()] + " ??, " + d.getFullYear(), content: e[2], datenum: dn};
 			firstM = dn < firstM ? dn : firstM;
 			lastM = dn > lastM ? dn : lastM;
 			return;
@@ -194,14 +197,14 @@ documents.forEach(function(element, index, array) {
 		m = l.match("20[0-9][0-9]");
 		if( m != null ) { // year only
 			var d = new Date(Date.parse(m[0]));
-			doc_table[index] = {link: e[0], date: d.getFullYear() + "-??-??", content: e[2], datenum: -1};
+			doc_table[index] = {link: e[0], date: "??? ??, " + d.getFullYear(), content: e[2], datenum: -1};
 			return;
 		}
-		doc_table[index] = {link: e[0], date: "????-??-??", content: e[2], datenum: -1};
+		doc_table[index] = {link: e[0], date: "??? ??, ????", content: e[2], datenum: -1};
 	} else { // use date given
 		var d = new Date(Date.parse(e[1]));
 		var dn = d.getFullYear()*12+d.getMonth();
-		doc_table[index] = {link: e[0], date: d.toLocaleDateString(), content: e[2], datenum: dn};
+		doc_table[index] = {link: e[0], date: months[d.getMonth()] + " " +  d.getDate() + ", " + d.getFullYear(), content: e[2], datenum: dn};
 		firstM = dn < firstM ? dn : firstM;
 		lastM = dn > lastM ? dn : lastM;
 	}
@@ -212,7 +215,7 @@ function document_template(rank, link, date, score, content) {
 	var score100 = (score*100).toFixed(1);
 	var r = score < 0.5 ? 255 : Math.round(255-255*(score-0.5)*2);
 	var g = score > 0.5 ? 255 : Math.round(255-255*(0.5-score)*2);
-	return $("<div></div>").addClass("document").html('#' + rank +                           // ↓ this ensures very low score still visible
+	return $("<div></div>").addClass("document").html((rank > 0 ? '#' + rank : '') + 
 	' <span style="background: linear-gradient(45deg, rgba(' + r + ', ' + g + ', 0, 0.7) ' + Math.round(score100*0.95+4) + '%, #fff 1%, #fff ' + Math.round((100-score100)*0.95) + '%);">' +
 	'[<span title="' + score + '">' + score100 + '%</span> ' + date + ']</span> <a href="' + link + '">' + link + '</a><br> ' +  content);
 }
@@ -251,15 +254,18 @@ function getTimeSeriesGraphHtml() {
 	
 	for(var topic=0; topic < numtopics; topic++) {
 		var valtotal = new Array(months);
+		var valtotal1 = new Array(months);
 		var docs1 = new Array(months);
 		var docs2 = new Array(months);
 		var docs3 = new Array(months);
 		var docs4 = new Array(months);
 		
 		var valavg = new Array(months);
+		var valavg1 = new Array(months);
 		
 		for(var t=0; t<months; t++) {
 			valtotal[t] = 0;
+			valtotal1[t] = 0;
 			
 			docs1[t] = 0;
 			docs2[t] = 0;
@@ -284,6 +290,7 @@ function getTimeSeriesGraphHtml() {
 				docs3[month]++;
 			}
 			if(val > 0.01){
+				valtotal1[month] += val;
 				docs4[month]++;
 			}
 		}
@@ -291,28 +298,35 @@ function getTimeSeriesGraphHtml() {
 		var bestavg = 0;
 		for(var i=0; i<months; i++) {
 			if (totdocs[i] > 0) {
-				valavg[i] = valtotal[i]/totdocs[i];
+				valavg[i] = totdocs[i] == 0 ? 0: valtotal[i]/totdocs[i];
+				valavg1[i] = docs4[i] == 0 ? 0 : valtotal1[i]/docs4[i];
 				mostdocs = docs4[i] > mostdocs ? docs4[i] : mostdocs;
 				bestavg = valavg[i] > bestavg ? valavg[i] : bestavg;
+				bestavg = valavg1[i] > bestavg ? valavg1[i] : bestavg;
 				topavg = bestavg > topavg ? bestavg : topavg;
 			}
 		}
-		data.valavg.push(valavg);
+		data.valavg.push({all: valavg, one: valavg1});
 		data.numdocs.push({dt: totdocs, d1: docs1, d2: docs2, d3: docs3, d4: docs4});
 		{
-			var d = "M0,0";
+			var d = "0,0";
+			var d0 = "0,0"
 			for(var i=0; i<months; i++) {
 				var h1 = (100*valavg[i]/bestavg);
-				d+="L" + (i*w1) + "," + h1;
+				d+=" " + (i*w1) + "," + h1;
+				h1 = (100*valavg1[i]/bestavg);
+				d0+=" " + (i*w1) + "," + h1;
 			}
-			d+="L" + ((months-1)*w1) + ",0Z";
+			d+=" " + ((months-1)*w1) + ",0";
+			d0+=" " + ((months-1)*w1) + ",0";
 			var div = $("<div></div>").addClass("ts-div").addClass("valavg").attr("data-tid", topic).attr("data-h", bestavg).attr("data-w", (months-1)*w1);
 			var svg = $("<svg></svg>").attr("width", w).attr("height", h).attr("viewBox", "0 0 " + ((months-1)*w1) + " 100").attr("preserveAspectRatio", "none");
 			var g = $("<g></g>");
-			var path = $("<path></path>").attr("d", d).css("fill", "#ccc");
-			var text = $("<text></text>").css("left", 5).css("top", 20).html(topics[topic]);
+			var path = $("<polyline></polyline>").attr("points", d).addClass("avgall");
+			var path0 = $("<polyline></polyline>").attr("points", d0).addClass("avgone");
+			var text = $("<text></text>").html("<br>&nbsp;"+topics[topic]);
 			var scale = $("<text></text>").html((bestavg*100).toFixed(1) + "%").addClass("avgscale");			
-			g.append(path);
+			g.append(path0).append(path);
 			svg.append(g);
 			div.append(scale);
 			div.append(text);
@@ -346,12 +360,12 @@ function getTimeSeriesGraphHtml() {
 			var div = $("<div></div>").addClass("ts-div").addClass("numdocs").attr("data-tid", topic).attr("data-h", mostdocs).attr("data-w", (months-1)*w1);
 			var svg = $("<svg></svg>").attr("width", w).attr("height", h).attr("viewBox", "0 0 " + ((months-1)*w1) + " 100").attr("preserveAspectRatio", "none");
 			var g = $("<g></g>");
-			var path1 = $("<polyline></polyline>").attr("points", d1).css("fill", "#0d47a1");
-			var path2 = $("<polyline></polyline>").attr("points", d2).css("fill", "#1976d2");
-			var path3 = $("<polyline></polyline>").attr("points", d3).css("fill", "#2196f3");
-			var path4 = $("<polyline></polyline>").attr("points", d4).css("fill", "#64b5f6");
-			var pathz = $("<polyline></polyline>").attr("points", dz).css("fill", "#e3f2fd");
-			var text = $("<text></text>").css("left", 5).css("top", 20).html(topics[topic]);
+			var path1 = $("<polyline></polyline>").attr("points", d1).addClass("p1");
+			var path2 = $("<polyline></polyline>").attr("points", d2).addClass("p2");
+			var path3 = $("<polyline></polyline>").attr("points", d3).addClass("p3");
+			var path4 = $("<polyline></polyline>").attr("points", d4).addClass("p4");
+			var pathz = $("<polyline></polyline>").attr("points", dz).addClass("pz");
+			var text = $("<text></text>").html("<br>&nbsp;"+topics[topic]);
 			var scale = $("<text></text>").html(mostdocs).addClass("numscale");
 			g.append(pathz).append(path4).append(path3).append(path2).append(path1);
 			svg.append(g);

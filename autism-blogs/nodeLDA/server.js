@@ -30,7 +30,7 @@ function document_template(rank, link, date, score, content) {
 	var score100 = (score*100).toFixed(1);
 	var r = score < 0.5 ? 255 : Math.round(255-255*(score-0.5)*2);
 	var g = score > 0.5 ? 255 : Math.round(255-255*(0.5-score)*2);
-	return $("<div></div>").addClass("document").html('#' + rank + 
+	return $("<div></div>").addClass("document").html((rank > 0 ? '#' + rank : '') + 
 	' <span style="background: linear-gradient(45deg, rgba(' + r + ', ' + g + ', 0, 0.7) ' + Math.round(score100*0.95+4) + '%, #fff 1%, #fff ' + Math.round((100-score100)*0.95) + '%);">' +
 	'[<span title="' + score + '">' + score100 + '%</span> ' + date + ']</span> <a href="' + link + '">' + link + '</a><br> ' +  content);
 }
@@ -52,6 +52,7 @@ function loadData() {
 loadData();
 
 var express = require('express');
+var https = require('https');
 var app = express();
 var baseurl = ""; // e.g. "/nodeLDA"
 app.use(express.static(__dirname));
@@ -83,16 +84,42 @@ app.get(baseurl + '/', function(req, res) {
 });
 
 app.get(baseurl + '/cgraph', function(req, res) {
-	res.set('Content-Type', 'text/html');
+	res.set('Content-Type', 'text/json');
 	res.write(correlation_graph);
 	res.end();
 });
 
 app.get(baseurl + '/tgraph', function(req, res) {
 	res.set('Content-Type', 'text/json');
-	res.write(time_series_graph);
-	res.end();
+	var tid = req.query.tid;
+	var month = req.query.month;
+	if(typeof tid === 'undefined' || typeof month === 'undefined') {
+		res.write(time_series_graph);
+		res.end();
+		return;
+	} else {
+		var result = [];
+		var topic_array = sorted_topic_table[tid];
+		var doc_array = sorted_topic_docid[tid];
+		for(var i=0; i<topic_array.length; i++) {
+			var doc = doc_table[doc_array[i]];
+			if(doc.datenum == month) {
+				var d = new Date(Date.parse(doc.date)).getDate();
+				result.push({x: d, y: topic_array[i], html: $("<div></div>").append(document_template(-1, doc.link, doc.date, topic_array[i], doc.content)).html()});
+			}
+		}
+		res.write(JSON.stringify(result));
+		res.end();
+	}
 });
-app.listen(8080, '0.0.0.0');
+
+var privateKey  = fs.readFileSync('privkey.pem', 'utf8');
+var certificate = fs.readFileSync('cert.pem', 'utf8');
+var credentials = {key: privateKey, cert: certificate};
+var httpsServer = https.createServer(credentials, app);
+
+httpsServer.listen(8080, '0.0.0.0');
+
+//app.listen(8080, '0.0.0.0');
 
 console.log("Server running");

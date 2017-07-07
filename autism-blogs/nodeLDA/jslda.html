@@ -1,7 +1,7 @@
 ﻿<html>
 <head>
-<script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
-<link href='http://fonts.googleapis.com/css?family=Alegreya' rel='stylesheet' type='text/css'>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Alegreya' rel='stylesheet' type='text/css'>
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <link href='jslda.css' rel='stylesheet' type='text/css'>
 
@@ -14,7 +14,6 @@
 <div id="tooltip"></div>
 
 <div id="main">
-	<table>
 	<div class="sidebar">
 
 		<div id="topics" class="sidebox">
@@ -65,13 +64,26 @@
 		</div>
 
 		<div id="ts-page" class="page" data-minmonth=<!-- @echo MINM --> data-maxmonth=<!-- @echo MAXM -->>
+			<div id="ts-zoom-div">
+				<div class="ts-zoom-graph" oncontextmenu="return false;" style="position: relative; display: inline-block; margin-bottom: 10px; margin-left: 15px;">
+				<div class="control"><button class="prev-month"><</button><span style="margin-left: 10px; margin-right: 10px;"></span><button class="next-month">></button>&emsp;&emsp;<button class="close">X</button></div>
+				<div class="scales"><text class="topic"></text><text class="top-scale" style="left: -20px;">100%</text><text class="bot-scale" style="left: -20px; bottom: -0px;">0%</text></div>
+				<svg viewBox="5 -0.5 310 101" preserveAspectRatio="none">
+				</svg>
+				</div>
+			</div>
 			<div class="help">Documents are grouped by their date. These plots show the average document proportion of each topic at each date value. </div>
-			<div>
+			<div style="position: fixed; right: 1%; top: 4%; z-index: 15;">
 				<button id="ts-zoom-in" title="zoom in">🔍+10%</button>
 				<button id="ts-zoom-out" title="zoom out">🔍-10%</button>
 				<button id="ts-zoom-one" title="zoom reset">🔍100%</button>
-				<button id="ts-scale-corpus">Scale by corpus</button>
-				<button id="ts-scale-topic" style="display: none;">Scale by topic</button>
+			</div>
+			<div>
+				Scale by: 
+				<input type="radio" name="scale" id="ts-scale-topic" checked>topic</input>
+				<input type="radio" name="scale" id="ts-scale-corpus">corpus</input>
+				&emsp;&emsp;
+				Show: 
 				<input type="checkbox" id="cbox-valavg" checked>
 				<label for="cbox-valavg">Average Value per Document</label>
 				<input type="checkbox" id="cbox-numdocs" checked>

@@ -6,9 +6,9 @@ div.sidebar div.sidebox { margin: 5px; padding: 10px; }
 div.top { background-color: #ddd; margin: 5px; padding: 10px; -moz-border-radius: 10px; border-radius: 10px; }
 form { float: right; }
 
-div#topics div { color: #555; margin-bottom: 10px; padding: 5px; cursor: default; }
-div#topics div.selected { border-right: solid black 2px; font-weight: bold; }
-div#topics div:hover { background-color: #ccc; }
+#topics div { color: #555; margin-bottom: 10px; padding: 5px; cursor: default; }
+#topics div.selected { border-right: solid black 2px; font-weight: bold; }
+#topics div:hover { background-color: #ccc; }
 
 .tabs{ height: 40px; }
 .tabs > ul { font-size: 1em; list-style: none; }
@@ -21,13 +21,13 @@ div.help { padding: 20px 100px 15px 30px; color: #777; }
 
 .page { padding:10px 10px 25px; background-color: #fff; margin-top: 4px; display: none;}
 #pages { margin-left: 22%; }
-div#docs-page { display: block; }
+#docs-page { display: block; }
 #docs-page .document { font-family: 'Roboto', sans-serif; padding: 10px; color: #555;}
 #docs-page .document span {color: black;}
 
 text { font-size: small; fill: #555; dominant-baseline: middle;; }
 
-#tooltip { border: solid #ddd 2px; margin:0 2px 0 0; padding:7px 10px; color:#333; border-radius: 4px; background: #FFFFFF; position: absolute; z-index: 10; visibility: hidden; }
+#tooltip { border: solid #ddd 2px; margin:0 2px 0 0; padding:7px 10px; color:#333; border-radius: 4px; background: #FFFFFF; position: absolute; z-index: 10; visibility: hidden; max-width: 20%; }
 
 #ts-page svg { border: 1px solid #ccc!important; border-radius: 8px;}
 
@@ -36,5 +36,17 @@ text { font-size: small; fill: #555; dominant-baseline: middle;; }
 
 .ts-div { margin-right: 5px; margin-top: 5px; position: relative; font-size: small; display: inline-block; }
 .ts-div text { position: absolute; font-size: 100%; color: #555; font-size: 100%; text-shadow: 0px 0px 0px #fff; z-index: 1}
-.ts-div svg { transform: scaleY(-1); }
-.ts-div polyline { stroke: #55c; stroke-width: 0.2px; }
+.ts-div svg, .ts-zoom-graph svg { transform: scaleY(-1); }
+.ts-div.numdocs polyline { stroke: #55c; stroke-width: 0.2px; }
+.ts-div.valavg polyline { stroke: #fff; stroke-width: 0.2px; }
+
+.scales text {position: absolute;}
+.display-none {display: none;}
+
+polyline.p1 { fill: #0d47a1; }
+polyline.p2 { fill: #1976d2; }
+polyline.p3 { fill: #2196f3; }
+polyline.p4 { fill: #64b5f6; }
+polyline.pz { fill: #ccc; }
+polyline.avgall { fill: #ffb600; }
+polyline.avgone { fill: #ff8f00; }
