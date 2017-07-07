@@ -51,17 +51,18 @@ function getAllLikes(response) {
     // likes is an arry of size 100 objects
     var likes = response.data;
     for (i in likes) {
-        allLikes.push(likes[i].name);
+        allLikes.push(likes[i].id);
     }
     
-    var nextPage = response.paging.next;
-	console.log('Printing before getJSON: ' + nextPage);
-
-    if (nextPage) {
+    try { 
+        var nextPage = response.paging.next;
+	//console.log('Printing before getJSON: ' + nextPage);
         $.getJSON(nextPage, function(response) {
-			console.log('Printing after getJSON: ' + nextPage);
-            getAllLikes(response);
+			//console.log('Printing after getJSON: ' + nextPage);
+             getAllLikes(response);
         });
+    } catch (e) {
+        console.log('exception thrown');
     }
 }
 
@@ -74,26 +75,28 @@ function getAllPosts(response) {
             allPosts.push(posts[i].message);
         } 
     }
-    
-    var nextPage = response.paging.next;
-	console.log('Post Printing before getJSON: ' + nextPage);
-    if (nextPage != undefined) {
+    try {    
+        var nextPage = response.paging.next;
         $.getJSON(nextPage, function(response) {
 			console.log('Posts Printing after getJSON: ' + nextPage);
             getAllPosts(response);
         });
+    } catch (e) {
+        if (e instanceof TypeError) {
+            console.log('no more pages');
+        }
     }
 }
 
 function getLikesPostsAPI(userId) {
-    FB.api('/'+userId+'/likes', 'get', function(response) {
-        //getAllLikes(response);
-        //console.log(allLikes);
+    FB.api('/'+userId+'/likes?limit=100', 'get', function(response) {
+        getAllLikes(response);
+        console.log(allLikes);
     }); 
 
-    FB.api('/'+userId+'/posts', 'get', function(response) {
-        //getAllPosts(response);
-        //console.log(allPosts);
+    FB.api('/'+userId+'/posts?limit=100', 'get', function(response) {
+        getAllPosts(response);
+        console.log(allPosts);
     });
 
 }
@@ -106,3 +109,15 @@ function logout() {
 	});
 }
 
+/*function getToken() {
+    $.ajax(
+        '/token',
+        {
+            type: 'GET',
+            processData: 'false',
+            dataType: 'json',
+            success: function (result) {
+                console.log('token successful');
+            }
+        });
+}*/
