@@ -1,5 +1,3 @@
-<!--- Making flexible for different windows -->
-
 <!DOCTYPE html>
 <html style = "height: 100%; width: 100%">
     <head>
@@ -121,6 +119,7 @@
 
             // GLOBAL VARIABLES
 
+			// Links for all blogs
             var blogs = ["ablogonthespectrum.blogspot.com", "adiaryofamom.com", "adventuresinautism.blogspot.co.uk", "alyric.blogspot.com", "aspergersquare8.blogspot.com",
                 "autism-vicky.blogspot.com", "autism.typepad.com", "autismandoughtisms.wordpress.com", "autismblogsdirectory.blogspot.com", "autismcrisis.blogspot.com:", // id = 10
                 "autismgadfly.blogspot.com", "autisminnb.blogspot.com", "autismjabberwocky.blogspot.com", "autismnaturalvariation.blogspot.com", "autismschmatism.blogspot.com",
@@ -135,7 +134,7 @@
                 "stimeyland.com", "susanetlinger.typepad.com", "susansenator.com:blog", "teenautism.com", "theadventuresofboywonder.blogspot.com", // id = 60
                 "thefamilyvoyage.blogspot.com", "therocchronicles.wordpress.com", "thismom.blogs.com", "tinygracenotes.blogspot.com", "trydefyinggravity.wordpress.com/autism",
                 "unstrangemind.com"];
-            //Blogs used in analysis (as of Dec 2016)
+            // Selected blogs (as of Dec 2016)
             var blogids = [1, 2, 3, 4, 7,
                 8, 12, 13, 14, 15,
                 16, 19, 21, 22, 23,
@@ -146,25 +145,31 @@
                 54, 55, 56, 57, 58,
                 59, 60, 61, 62, 63,
                 65];
+        	// The blog in the center of the visualization
             var primaryblog = null;
+            // The blog being compared with the primary blog
             var secondaryblog = null;
+            // The year being viewed
             var year = " All ";
+            // Data for the year being viewed
             var singleyeardata = null;
             
             // INITIAL SETUP
 
+            // Creating the checkboxes for the various topics
             var checkboxes = document.getElementsByClassName("filter_button");
-            // by default, we want to start with All Topics selected
+            // By default, we want to start with All Topics selected
             checkboxes[0].defaultChecked = true;
-            // assign the topic names to the check boxes
+            // Assign the topic names to the check boxes
             for (var i = 1; i < checkboxes.length; i++) {
                 checkboxes[i].outerHTML = "<input class=\"filter_button\" id=\"" + i + "\" value=" + i + " type=\"checkbox\" onchange = 'updatetopics(false)'>" + topics[parseInt(checkboxes[i].value)] + "</input>";
             }
-            //Width and Height of the frame
+            d3.select(".filters").style("display", "inline-block");
+            //Width and Height of the visualization's frame
             var width = 650,
                     height = 700;
             // https://stackoverflow.com/questions/18822756/mouse-events-on-overlapping-svg-elements
-            //Make an SVG Container
+            // Make multiple SVG Containers on top of each other ("layers" for the visualization)
             var svgContainerA = d3.select("body").append("svg")
                     .attr("width", width)
                     .attr("height", height)
@@ -175,13 +180,11 @@
                     .attr("height", height)
                     .style("position", "absolute")
                     .attr("pointer-events", "none");
-            d3.select(".filters").style("display", "inline-block");
             var svgContainerC = d3.select("body").append("svg")
                     .attr("width", width)
                     .attr("height", height)
                     .style("position", "absolute")
                     .attr("pointer-events", "none");
-            //Make the blog nodes
             var i = 0,
                     cx = width / 2,
                     cy = height / 2,
@@ -206,6 +209,7 @@
                         .style("fill-opacity", 0)
                         .attr("r", i * (bigradius / 8.0));
             }
+            // Set up various dots that will be in the visualization
             for (var i = 0; i < blogids.length; i++) {
                 id = blogids[i]; // id encodes the index in the list of blogs (or rather, the index + 1)
                 var angle = slice * i;
@@ -241,7 +245,7 @@
                         }
                     }
                 }
-                // Second layer of dots so prominent ones can be shown as such
+                // Second set of dots so that prominent ones can be shown as such later on
                 for (j = parseInt($(".year")[1].value); j >= (parseInt($(".year")[$(".year").length - 1].value)); j -= 1) {
                     for (k = 0; k < yearlydata.length; k += 1) {
                         if (yearlydata[k][0] === id) {
@@ -288,6 +292,7 @@
                         .style("position", "absolute")
                         .style("top", "0.5%")
                         .style("right", "1%");
+            // Event Listeners
             var blogCircles = document.getElementsByClassName("blogCircle");
             for (var i = 0; i < blogCircles.length; i++) {
                 blogCircles[i].addEventListener("mouseover", mouseoverA);
@@ -354,7 +359,7 @@
 
             // HELPER METHODS AND EVENT HANDLERS
 
-            //Display blog name in div
+            //Display blog name/number of posts in div when "blog circle" is hovered over
             function mouseoverA() {
                 if (year === " All ") {
                     var blogid = $(this).attr("id");
@@ -391,7 +396,7 @@
                     }
                 }
             }
-            //Hide blog name from div
+            //Hide information from div when the mouse is moved away from the "blog circle"
             function mouseoutA() {
                 div.style("display", "none");
                 var otherid = $(this).attr("id");
@@ -456,6 +461,7 @@
                     }
                 }
             }
+            // Display relevant information when one of the "path dots" is hovered over
             function mouseoverB() {
                 var dotid = $(this).attr("id");
                 var blogyear = "";
@@ -498,6 +504,7 @@
                     }
                 }
             }
+            // Hide information from the div when the mouse is moved away from the "path dot"
             function mouseoutB() {
                 var dotid = $(this).attr("id");
                 var blogid = "";
@@ -556,6 +563,7 @@
                 // Return the array if it is non-empty, or null
                 return checkboxesChecked.length > 0 ? checkboxesChecked : null;
             }
+            // Converts a color in rgb to a color in hex
             function RGB2Color(r, g, b)
             {
                 return '#' + byte2Hex(r) + byte2Hex(g) + byte2Hex(b);
@@ -590,7 +598,7 @@
                     return numerator / (denominator);
                 }
             }
-            // Displays to the user how similar the center blog and the selected blog are with respect to the defined topic(s)
+            // Displays to the user how similar the center blog and the selected blog are with respect to the defined topic(s) (along with the shortened link for the selected blog)
             function displaySimScores(simScores, link, rgb) {
                 var box = $("#simScores");
                 $("#simScoresTitle").append("<p> <div style = 'text-align: center; font-size: 18pt; font-weight: bold'> Similarity Scores </div> <div style = 'text-align: center'>" + link + " </div> </p>");
@@ -607,8 +615,8 @@
 
             // METHODS THAT CALL FOR A CHANGE IN DATA DISPLAY  
 
+            // Makes things happen when "blog circles" are clicked on
             function click() {
-                // whenever dropdown is re-created, correct year is not displayed
                 // Primary blog de-selected
                 if (parseInt($(this).attr("cx")) === parseInt(width / 2) && parseInt($(this).attr("cy")) === parseInt(height / 2)) {
                     primaryblog = null;
@@ -704,7 +712,7 @@
                     }
                 }
             }
-            // React to a checkbox being either checked or unchecked
+            // Reacts to a checkbox being either checked or unchecked
             function updatetopics(all) {
                 var topicchecked = false;
                 for (var i = 1; i < checkboxes.length; i++) {
@@ -728,6 +736,7 @@
                 }
                 updateDisplay(true, true, true, true, false, false);
             }
+            // Reacts to a change in the year being displayed via the drop-down menu
             function changeYear() {
                 year = $("#year :selected").text();
                 if (year === " All ") {
@@ -809,6 +818,7 @@
                 }
                 updateDisplay(true, true, true, true, false, true);
             }
+            // Reacts to a change in the year being viewed via the "-" button
             function decrementyear() {
                 $("#plus").attr("disabled", false);
                 $("#plus").css("background-color", "#FFFFFF");
@@ -859,6 +869,7 @@
                 }
                 updateDisplay(true, true, true, true, false, false);
             }
+            // Reacts to a change in the year being viewed via the "-" button
             function incrementyear() {
                 $("#minus").attr("disabled", false);
                 $("#minus").css("background-color", "#FFFFFF");
@@ -912,8 +923,10 @@
 
             // RESPOND TO CHANGES IN REQUESTS
 
+            // Massive function that re-generates parts of the display when necessary (called by functions in the section above)
             function updateDisplay(graph, paths, outlines, scores, blog, legend) {
                 var checkedBoxes = getCheckedBoxes("filter_button");
+                // Updates the positions, radii, and opacities of the "blog circles"
                 if (graph) {
                     var blogCircles = svgContainerC.selectAll(".blogCircle");
                     blogCircles
@@ -1105,6 +1118,7 @@
                             })
                             .duration(1500);
                 }
+                // Updates the positions, radii, and opacities of the "path dots"
                 if (paths) {
                     var pathdots = svgContainerA.selectAll(".pathDot");
                     pathdots
@@ -1456,6 +1470,8 @@
                             })
                             .duration(1500);
                 }
+                // Updates the positions, radii, and outlines of the secondary "path dots" (created only for outlining purposes)
+                // Also outlines the "blog circles" when necessary
                 if (outlines) {
                     var pathdotsB = svgContainerB.selectAll(".pathDotB");
                     pathdotsB
@@ -1842,6 +1858,7 @@
                             return 0;
                         })
                 }
+                // Removes Sim Scores currently being displayed and manipulates data to be sent to the "displaySimScores" method when necessary
                 if (scores) {
                     $("#simScores").empty();
                     $("#simScoresTitle").empty();
@@ -1918,6 +1935,7 @@
                         }
                     }
                 }
+                // Displays the name of the "primary blog" when applicable
                 if (blog) {
                     $("#selected").empty();
                     if (primaryblog !== null) {
@@ -1929,6 +1947,7 @@
                         secondaryblog = null;
                     }
                 }
+                // Updates the legend if the year being viewed is changed from a specific year to " All " or vice versa
                 if (legend) {
                     if (year === " All ") {
                         $("#small").attr("r", Math.log10(10) * 3);
