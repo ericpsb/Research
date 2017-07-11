@@ -78,7 +78,7 @@ function getAllPosts(response) {
     try {    
         var nextPage = response.paging.next;
         $.getJSON(nextPage, function(response) {
-			console.log('Posts Printing after getJSON: ' + nextPage);
+			//console.log('Posts Printing after getJSON: ' + nextPage);
             getAllPosts(response);
         });
     } catch (e) {
@@ -109,15 +109,40 @@ function logout() {
 	});
 }
 
-/*function getToken() {
+function printOut(print) {
+    console.log(print);
+}
+
+function sendAllLikes() {
     $.ajax(
-        '/token',
+        '/likes',
         {
-            type: 'GET',
-            processData: 'false',
+            type: 'POST',
+            data: JSON.stringify({
+                allLikes: allLikes 
+            }),                 
+            processData: 'true',
+            contentType: 'application/json',
             dataType: 'json',
             success: function (result) {
-                console.log('token successful');
+                console.log(result);
             }
         });
-}*/
+}
+
+function sendAllPosts() {
+    $.ajax(
+        '/posts',
+        {
+            type: 'POST',
+            data: JSON.stringify({
+                allPosts: allPosts
+            }),
+            processData: 'true',
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function(result) {
+                console.log(result);
+            }   
+        });
+}
