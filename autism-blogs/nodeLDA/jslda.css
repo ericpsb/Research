@@ -27,7 +27,7 @@ div.help { padding: 20px 100px 15px 30px; color: #777; }
 
 text { font-size: small; fill: #555; dominant-baseline: middle;; }
 
-#tooltip { border: solid #ddd 2px; margin:0 2px 0 0; padding:7px 10px; color:#333; border-radius: 4px; background: #FFFFFF; position: absolute; z-index: 10; visibility: hidden; max-width: 20%; }
+#tooltip { border: solid #ddd 2px; margin:0 2px 0 0; padding:7px 10px; color:#333; border-radius: 4px; background: #FFFFFF; position: absolute; z-index: 10; visibility: hidden; max-width: 30%; }
 
 #ts-page svg { border: 1px solid #ccc!important; border-radius: 8px;}
 
@@ -43,10 +43,10 @@ text { font-size: small; fill: #555; dominant-baseline: middle;; }
 .scales text {position: absolute;}
 .display-none {display: none;}
 
-polyline.p1 { fill: #0d47a1; }
-polyline.p2 { fill: #1976d2; }
-polyline.p3 { fill: #2196f3; }
-polyline.p4 { fill: #64b5f6; }
-polyline.pz { fill: #ccc; }
-polyline.avgall { fill: #ffb600; }
-polyline.avgone { fill: #ff8f00; }
+.p1 { fill: #0d47a1; }
+.p2 { fill: #1976d2; }
+.p3 { fill: #2196f3; }
+.p4 { fill: #64b5f6; }
+.pz { fill: #ccc; }
+.avgall { fill: #ffb600; }
+.avgone { fill: #ff8f00; }

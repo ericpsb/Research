@@ -1,5 +1,5 @@
-var fs = require('fs');
-var $ = require('cheerio');
+const fs = require('fs');
+const $ = require('cheerio');
 
 var numtopics;
 var numdocs;
@@ -51,8 +51,8 @@ function loadData() {
 }
 loadData();
 
-var express = require('express');
-var https = require('https');
+const express = require('express');
+const https = require('https');
 var app = express();
 var baseurl = ""; // e.g. "/nodeLDA"
 app.use(express.static(__dirname));
@@ -108,6 +108,7 @@ app.get(baseurl + '/tgraph', function(req, res) {
 				result.push({x: d, y: topic_array[i], html: $("<div></div>").append(document_template(-1, doc.link, doc.date, topic_array[i], doc.content)).html()});
 			}
 		}
+		result.sort(function(a, b) {return a.x == b.x ? a.y - b.y : a.x - b.x;});
 		res.write(JSON.stringify(result));
 		res.end();
 	}
