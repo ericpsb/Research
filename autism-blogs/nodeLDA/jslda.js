@@ -192,7 +192,7 @@ $.ajax({
 			circle.mouseover(function(evt) {
 				$("#tooltip").html($("<span></span>").css("font-size", "small").html(tooltip)).append($("<br>"));
 				var svg = $('<svg viewBox="-100 -100 400 200" preserveAspectRatio="none"></svg>').attr("width", 100).attr("height", 50);
-				//console.log(obj.topic[t1] + " " + obj.topic[t2] + " " + intercept);
+				console.log(obj.topic[t1] + " " + obj.topic[t2] + " " + intercept + " " + big + " " + small);
 				svg.append($("<circle></circle>").attr("cx", 0).attr("cy", 0).attr("r", Math.round(obj.topic[t1]/big*100)).css("fill", "#f00").css("fill-opacity", 0.5));
 				svg.append($("<circle></circle>").attr("cx", ((1+small/big)*100)).attr("cy", 0).attr("r", Math.round(obj.topic[t2]/big*100)).css("fill", "#00f").css("fill-opacity", 0.5));
 				$("#tooltip").append(svg);
@@ -245,12 +245,18 @@ $.ajax({
 		var ts_text_w = parseInt($(".ts-div text").css("left"));
 		
 		const viewWidth = 310;
-		const viewHeight = 101;
+		var viewHeight = 101;
+		const viewHeight2 = 101;
 		var viewRatio = 1.0;
-		var viewX = 160;
-		var viewY = 50;
+		var viewRatio2 = 1.0;
 		const viewXmin = 5;
-		const viewYmin = -0.5;
+		var viewYmin = -0.5;
+		const viewYmin2 = -0.5;
+		var viewX = viewXmin;
+		var viewY = viewYmin;
+		var viewX2 = viewXmin;
+		var viewY2 = viewYmin2;
+
 		
 		var temp = [-0.25, 0, 0.25];
 		var offset = [0, -0.25, 0.25];
@@ -269,29 +275,68 @@ $.ajax({
 			temp.sort(function(a, b) {return a-b;});
 		}
 		
-		var addZoomGraphListeners = function(max, arr) {
-			$(".ts-zoom-graph svg").off("mousedown");
-			$(".ts-zoom-graph svg").mousedown(function(evt){
-				evt.preventDefault();
-				if(evt.which == 1) { // left click zoom in
-					viewX += (evt.offsetX-$(this).width()/2)*viewRatio;
-					viewY += (evt.offsetY-$(this).height()/2)*viewRatio;
-					viewRatio = viewRatio.toFixed(1) <= 0.1 ? 0.1 : viewRatio - 0.15;
-				}else if(evt.which == 3) { // right click zoom out
-					viewRatio = viewRatio.toFixed(1) >= 1 ? 1 : viewRatio + 0.15;
-				}
+		var addZoomGraphListeners = function(arr) {
+			var shiftgraph = function(svg, ptx, pty, relx, rely, scaleshift) {
 				var w = viewWidth * viewRatio;
 				var h = viewHeight * viewRatio;
-				viewX = viewX - w/2 < viewXmin ? w/2 + viewXmin : viewX;
-				viewX = viewX + w/2 > viewWidth + viewXmin ? viewWidth + viewXmin - w/2 : viewX;
-				viewY = viewY - h/2 < viewYmin ? viewYmin + h/2 : viewY;
-				viewY = viewY + h/2 > viewHeight + viewYmin ? viewHeight + viewYmin - h/2 : viewY;
-				$(".ts-zoom-graph svg ellipse").attr("rx", viewWidth/tsWidth*(1-(1-viewRatio)/1.2)).attr("ry" , viewHeight/tsHeight*(1-(1-viewRatio)/1.2));
-				this.setAttribute("viewBox", (viewX - w/2) + " "+ (viewY - h/2) + " " + w + " " + h);
-				$(".ts-zoom-graph .scales .top-scale").html((Math.floor(viewY + h/2 - 50)*2/100*max).toFixed(1) + "σ");
-				$(".ts-zoom-graph .scales .mid-scale").html((Math.round(viewY - 50)*2/100*max).toFixed(1) + "σ");
-				$(".ts-zoom-graph .scales .bot-scale").html((Math.ceil(viewY - h/2 - 50)*2/100*max).toFixed(1) + "σ");
+
+				viewX = ptx-relx*w;
+				viewY = pty-rely*h;
+
+				viewX = viewX < viewXmin ? viewXmin : viewX;
+				viewX = viewX + w > viewWidth + viewXmin ? viewWidth + viewXmin - w : viewX;
+				viewY = viewY < viewYmin ? viewYmin: viewY;
+				viewY = viewY + h > viewHeight + viewYmin ? viewHeight + viewYmin - h : viewY;
+				if(scaleshift) {
+					$(".ts-zoom-graph svg ellipse").attr("rx", viewWidth/tsWidth*(1-(1-viewRatio)/1.2)).attr("ry" , viewHeight/tsHeight*(1-(1-viewRatio)/1.2));
+				}
+				svg.setAttribute("viewBox", viewX + " "+ viewY + " " + w + " " + h);
+				$(".ts-zoom-graph .scales .top-scale").html((viewY + viewHeight*viewRatio).toFixed(1) + "σ");
+				if(viewY > 0 || viewY + viewHeight*viewRatio < 0) {
+					$(".ts-zoom-graph .scales .mid-scale").html("");
+				} else {
+					$(".ts-zoom-graph .scales .mid-scale").html("avg");
+					$(".ts-zoom-graph .scales .mid-scale").css("top", (1+(viewY/viewHeight/viewRatio))*100 + "%");
+				}
+				$(".ts-zoom-graph .scales .bot-scale").html((viewY).toFixed(1) + "σ");
 				addDayScale();
+			}
+			
+			$(".ts-zoom-graph svg").off("mousedown");
+			$(".ts-zoom-graph svg").mousedown(function(evt){
+				$(this).data("drag", true);
+				$(this).data("ptx", viewX + evt.offsetX*viewRatio*viewWidth/$(this).width());
+				$(this).data("pty", viewY + evt.offsetY*viewRatio*viewHeight/$(this).height());
+			});
+			$(".ts-zoom-graph svg").off("mousemove");
+			$(".ts-zoom-graph svg").mousemove(function(evt){
+				if($(this).data("drag")) {
+					var ptx = $(this).data("ptx");
+					var pty = $(this).data("pty");
+					var relx = evt.offsetX/$(this).width();
+					var rely = evt.offsetY/$(this).height();
+					shiftgraph(this, ptx, pty, relx, rely, false);
+				}
+			});
+			$(".ts-zoom-graph svg").off("mouseup");
+			$(".ts-zoom-graph svg").mouseup(function(){
+				$(this).data("drag", false);
+			});
+			
+			$(".ts-zoom-graph svg").off("mousewheel");
+			$(".ts-zoom-graph svg").off("DOMMouseScroll");
+			$(".ts-zoom-graph svg").bind('mousewheel DOMMouseScroll', function(evt){
+				evt.preventDefault();
+				var ptx = viewX + evt.offsetX*viewRatio*viewWidth/$(this).width();
+				var pty = viewY + evt.offsetY*viewRatio*viewHeight/$(this).height();
+				var relx = evt.offsetX/$(this).width();
+				var rely = evt.offsetY/$(this).height();
+				if (evt.originalEvent.wheelDelta > 0 || evt.originalEvent.detail < 0) { // zoom in
+					viewRatio = viewRatio.toFixed(1) <= 0.1 ? 0.1 : viewRatio - 0.05;
+				} else { //  zoom out
+					viewRatio = viewRatio.toFixed(1) >= 1 ? 1 : viewRatio + 0.05;
+				}
+				shiftgraph(this, ptx, pty, relx, rely, true);
 			});
 			$(".ts-zoom-graph .prev-month, .ts-zoom-graph .next-month").off("click");
 			$(".ts-zoom-graph .prev-month, .ts-zoom-graph .next-month").click(function() {
@@ -301,68 +346,113 @@ $.ajax({
 			$(".ts-zoom-graph .close").off("click");
 			$(".ts-zoom-graph .close").click(function(){
 				$(".ts-zoom-graph").not("#ts-zoom-div .ts-zoom-graph").remove();
-				$(".ts-div.display-none").removeClass("display-none");
+				$(".ts-div.valavg.display-none").removeClass("display-none");
 			});
 			
 		}
 		var addZoomGraphListeners2 = function() {
-			$(".ts-zoom-graph svg").off("mousedown");
-			$(".ts-zoom-graph svg").mousedown(function(evt){
-				evt.preventDefault();
-				if(evt.which == 1) { // left click zoom in
-					viewX += (evt.offsetX-$(this).width()/2)*viewRatio;
-					viewY += (evt.offsetY-$(this).height()/2)*viewRatio;
-					viewRatio = viewRatio.toFixed(1) <= 0.1 ? 0.1 : viewRatio - 0.15;
-				}else if(evt.which == 3) { // right click zoom out
-					viewRatio = viewRatio.toFixed(1) >= 1 ? 1 : viewRatio + 0.15;
+			var shiftgraph2 = function(svg, ptx, pty, relx, rely, scaleshift) {
+				var w = viewWidth * viewRatio2;
+				var h = viewHeight2 * viewRatio2;
+				
+				viewX2 = ptx-relx*w;
+				viewY2 = pty-rely*h;
+
+				viewX2 = viewX2 < viewXmin ? viewXmin : viewX2;
+				viewX2 = viewX2 + w > viewWidth + viewXmin ? viewWidth + viewXmin - w : viewX2;
+				viewY2 = viewY2< viewYmin2 ? viewYmin2 : viewY2;
+				viewY2 = viewY2 + h > viewHeight2 + viewYmin2 ? viewHeight2 + viewYmin2 - h : viewY2;
+				if(scaleshift) {
+					$(".ts-zoom-graph2 svg ellipse").attr("rx", viewWidth/tsWidth*(1-(1-viewRatio2)/1.2)).attr("ry" , viewHeight2/tsHeight*(1-(1-viewRatio2)/1.2));
 				}
-				var w = viewWidth * viewRatio;
-				var h = viewHeight * viewRatio;
-				viewX = viewX - w/2 < viewXmin ? w/2 + viewXmin : viewX;
-				viewX = viewX + w/2 > viewWidth + viewXmin ? viewWidth + viewXmin - w/2 : viewX;
-				viewY = viewY - h/2 < viewYmin ? viewYmin + h/2 : viewY;
-				viewY = viewY + h/2 > viewHeight + viewYmin ? viewHeight + viewYmin - h/2 : viewY;
-				$(".ts-zoom-graph svg ellipse").attr("rx", viewWidth/tsWidth*(1-(1-viewRatio)/1.2)).attr("ry" , viewHeight/tsHeight*(1-(1-viewRatio)/1.2));
-				this.setAttribute("viewBox", (viewX - w/2) + " "+ (viewY - h/2) + " " + w + " " + h);
-				$(".ts-zoom-graph .scales .top-scale").html((Math.floor(viewY + h/2)) + "%");
-				$(".ts-zoom-graph .scales .mid-scale").html((Math.round(viewY)) + "%");
-				$(".ts-zoom-graph .scales .bot-scale").html((Math.ceil(viewY - h/2)) + "%");
-				addDayScale();
+				svg.setAttribute("viewBox", viewX2 + " " + viewY2 + " " + w + " " + h);
+				$(".ts-zoom-graph2 .scales .top-scale").html(Math.floor(viewY2 + h) + "%");
+				$(".ts-zoom-graph2 .scales .mid-scale").html(Math.round(viewY2 + h/2) + "%");
+				$(".ts-zoom-graph2 .scales .bot-scale").html(Math.ceil(viewY2) + "%");
+				addDayScale2();
+			}
+			
+			$(".ts-zoom-graph2 svg").off("mousedown");
+			$(".ts-zoom-graph2 svg").mousedown(function(evt){
+				$(this).data("drag", true);
+				$(this).data("ptx", viewX2 + (evt.offsetX*viewRatio2*viewWidth/$(this).width()));
+				$(this).data("pty", viewY2 + (evt.offsetY*viewRatio2*viewHeight2/$(this).height()));
 			});
-			$(".ts-zoom-graph .prev-month, .ts-zoom-graph .next-month").off("click");
-			$(".ts-zoom-graph .prev-month, .ts-zoom-graph .next-month").click(function() {
+			$(".ts-zoom-graph2 svg").off("mousemove");
+			$(".ts-zoom-graph2 svg").mousemove(function(evt){
+				if($(this).data("drag")) {
+					var ptx = $(this).data("ptx");
+					var pty = $(this).data("pty");
+					var relx = evt.offsetX/$(this).width();
+					var rely = evt.offsetY/$(this).height();
+					shiftgraph2(this, ptx, pty, relx, rely, false);
+				}
+			});
+			$(".ts-zoom-graph2 svg").off("mouseup");
+			$(".ts-zoom-graph2 svg").mouseup(function(){
+				$(this).data("drag", false);
+			});
+			
+			$(".ts-zoom-graph2 svg").off("mousewheel");
+			$(".ts-zoom-graph2 svg").off("DOMMouseScroll");
+			$(".ts-zoom-graph2 svg").bind('mousewheel DOMMouseScroll', function(evt){
+				evt.preventDefault();
+				var ptx = viewX2 + (evt.offsetX*viewRatio2*viewWidth/$(this).width());
+				var pty = viewY2 + (evt.offsetY*viewRatio2*viewHeight2/$(this).height());
+				var relx = evt.offsetX/$(this).width();
+				var rely = evt.offsetY/$(this).height();
+				
+				if (evt.originalEvent.wheelDelta > 0 || evt.originalEvent.detail < 0) { // zoom in
+					viewRatio2 = viewRatio2.toFixed(1) <= 0.1 ? 0.1 : viewRatio2 - 0.05;
+				} else { // zoom out
+					viewRatio2 = viewRatio2.toFixed(1) >= 1 ? 1 : viewRatio2 + 0.05;
+				}
+				
+				shiftgraph2(this, ptx, pty, relx, rely, true);
+			});
+			$(".ts-zoom-graph2 .prev-month, .ts-zoom-graph2 .next-month").off("click");
+			$(".ts-zoom-graph2 .prev-month, .ts-zoom-graph2 .next-month").click(function() {
 				var m = $(this).data("m");
 				getZoomGraph2($(this).data("tid"), m);
 			});
-			$(".ts-zoom-graph .close").off("click");
-			$(".ts-zoom-graph .close").click(function(){
-				$(".ts-zoom-graph").not("#ts-zoom-div .ts-zoom-graph").remove();
-				$(".ts-div.display-none").removeClass("display-none");
+			$(".ts-zoom-graph2 .close").off("click");
+			$(".ts-zoom-graph2 .close").click(function(){
+				$(".ts-zoom-graph2").not("#ts-zoom-div2 .ts-zoom-graph2").remove();
+				$(".ts-div.numdocs.display-none").removeClass("display-none");
 			});
 			
 		}
+		
 		var addTSGraphListener = function(graph, tid, topic, arr){
 			graph.click(function(evt){
 				var width = $(this).width();
 				var index = Math.round(evt.offsetX/width*(maxMonth-minMonth));
 				var m = minMonth + index;
-				$(".ts-div.display-none").removeClass("display-none");
+				$(".ts-div.valavg.display-none").removeClass("display-none");
 				$(".ts-zoom-graph").not("#ts-zoom-div .ts-zoom-graph").remove();
 				$(".ts-zoom-graph .scales .topic").html(topic);
 				graph.after($("#ts-zoom-div").html());
 				graph.addClass("display-none");
-				if(typeof arr == "undefined") {
-					viewRatio = 1.0;
-					$(".ts-zoom-graph svg").each(function(){this.setAttribute("viewBox", viewXmin + " " + viewYmin + " " + viewWidth + " " +viewHeight)});
-					$(".ts-zoom-graph .scales .top-scale").html("100%");
-					$(".ts-zoom-graph .scales .mid-scale").html("50%");
-					$(".ts-zoom-graph .scales .bot-scale").html("0%");
-					getZoomGraph2(tid, m);
-					addZoomGraphListeners2();
-				} else {
-					getZoomGraph(tid, m, arr);
-				}
-				
+				getZoomGraph(tid, m, arr);
+			});
+		}
+		var addTSGraphListener2 = function(graph, tid, topic){
+			graph.click(function(evt){
+				var width = $(this).width();
+				var index = Math.round(evt.offsetX/width*(maxMonth-minMonth));
+				var m = minMonth + index;
+				$(".ts-div.numdocs.display-none").removeClass("display-none");
+				$(".ts-zoom-graph2").not("#ts-zoom-div2 .ts-zoom-graph2").remove();
+				$(".ts-zoom-graph2 .scales .topic").html(topic);
+				graph.after($("#ts-zoom-div2").html());
+				graph.addClass("display-none");
+				viewRatio2 = 1.0;
+				$(".ts-zoom-graph2 svg").each(function(){this.setAttribute("viewBox", viewXmin + " " + viewYmin2 + " " + viewWidth + " " +viewHeight2)});
+				$(".ts-zoom-graph2 .scales .top-scale").html("100%");
+				$(".ts-zoom-graph2 .scales .mid-scale").html("50%");
+				$(".ts-zoom-graph2 .scales .bot-scale").html("0%");
+				getZoomGraph2(tid, m);
+				addZoomGraphListeners2();
 			});
 		}
 		
@@ -384,12 +474,12 @@ $.ajax({
 				dataType: "json",
 				success: function(obj) {
 					viewRatio = 1.0;
-					$(".ts-zoom-graph svg").each(function(){this.setAttribute("viewBox", viewXmin + " " + viewYmin + " " + viewWidth + " " +viewHeight)});
 					var lastY = -10;
-					const nudgeLimit = viewHeight/tsHeight/1.2;
+					const nudgeLimit = viewHeight2/tsHeight/1.2;
 					var day = 1;
 					var idx = 0;
 					var max = 0;
+					var min = 0;
 					
 					var sameday = [];
 					var normalize = function(){
@@ -405,9 +495,10 @@ $.ajax({
 							for(var j=0; j<sameday.length; j++) {
 								var e = sameday[j];
 								var cy = parseFloat(e.attr("cy"));
-								cy = ((cy - dayavg) / daystd).toFixed(3);
+								cy = parseFloat(((cy - dayavg) / daystd).toFixed(3));
 								
-								max = Math.abs(cy) > max ? Math.abs(cy) : max;
+								max = cy > max ? cy : max;
+								min = cy < min ? cy : min;
 								$(".ts-zoom-graph svg").append(e.attr("cy", cy));
 							}
 							sameday = [];
@@ -425,55 +516,60 @@ $.ajax({
 							lastY = p.y;
 							idx = 0;
 						}
-						var temp = $("<ellipse></ellipse>").attr("rx", viewWidth/tsWidth*(1-(1-viewRatio)/1.2)).attr("ry", viewHeight/tsHeight*(1-(1-viewRatio)/1.2)).attr("cx", ((p.x+offset[idx])*10).toFixed(3)).attr("cy", (p.y*100)).attr("data-tooltip", p.html);
+						var temp = $("<ellipse></ellipse>").attr("cx", ((p.x+offset[idx])*10).toFixed(3)).attr("cy", (p.y*100)).attr("data-tooltip", p.html);
 						temp.addClass("avgall");
 						sameday.push(temp);
 						idx = (idx+1)%offset.length;
 					}
 					normalize();
-
-					for(var i=1; i<31; i++) {
-						$(".ts-zoom-graph svg").append($("<line></line>").attr("stroke-dasharray", "1, 1").attr("x1", (i+0.5)*10).attr("x2", (i+0.5)*10).attr("y1", -5).attr("y2", 105).css("stroke-width", 0.1).css("stroke", "#555"));
-					}
-					var stdheight = viewHeight/2/max;
-					$(".ts-zoom-graph svg").append($("<line></line>").attr("stroke-dasharray", "1, 1").attr("x1", -1).attr("x2", 321).attr("y1", 50).attr("y2", 50).css("stroke-width", 0.1).css("stroke", "#f00"));
-					for(var i=1; i<=max; i++) {
-						var h = viewHeight/2+viewYmin;
-						$(".ts-zoom-graph svg").append($("<line></line>").attr("stroke-dasharray", "1, 1").attr("x1", -1).attr("x2", 321).attr("y1", h+stdheight*i).attr("y2", h+stdheight*i).css("stroke-width", 0.1).css("stroke", "#555"));
-						$(".ts-zoom-graph svg").append($("<line></line>").attr("stroke-dasharray", "1, 1").attr("x1", -1).attr("x2", 321).attr("y1", h-stdheight*i).attr("y2", h-stdheight*i).css("stroke-width", 0.1).css("stroke", "#555"));
-					}
 					
-					var scale = max == 0 ? 1 : max/50;
-					$(".ts-zoom-graph svg ellipse").each(function(){$(this).attr("cy", $(this).attr("cy")/scale + 50)});
-					$(".ts-zoom-graph .scales .top-scale").html((max).toFixed(1) + "σ");
-					$(".ts-zoom-graph .scales .mid-scale").html("0σ");
-					$(".ts-zoom-graph .scales .bot-scale").html((-1*max).toFixed(1) + "σ");
+					max += 0.1;
+					min -= 0.1;
+					viewYmin = min;
+					viewHeight = max - min;
+					
+					for(var i=1; i<31; i++) {
+						$(".ts-zoom-graph svg").append($("<line></line>").attr("stroke-dasharray", "0.1, 0.1").attr("x1", (i+0.5)*10).attr("x2", (i+0.5)*10).attr("y1", (viewYmin-1)).attr("y2", (viewYmin+viewHeight+1)).css("stroke-width", 0.2).css("stroke", "#555"));
+					}
+					$(".ts-zoom-graph svg").append($("<line></line>").attr("stroke-dasharray", "1, 1").attr("x1", (viewXmin-1)).attr("x2", (viewXmin+viewWidth+1)).attr("y1", 0).attr("y2", 0).css("stroke-width", 0.4*viewHeight/viewHeight2).css("stroke", "#f00"));
+					for(var i=Math.floor(min); i<=Math.ceil(max); i++) {
+						if(i == 0) {continue;}
+						$(".ts-zoom-graph svg").append($("<line></line>").attr("stroke-dasharray", "1, 1").attr("x1", (viewXmin-1)).attr("x2", (viewXmin+viewWidth+1)).attr("y1", i).attr("y2", i).css("stroke-width", 0.4*viewHeight/viewHeight2).css("stroke", "#555"));
+					}
+
+					$(".ts-zoom-graph svg").each(function(){this.setAttribute("viewBox", viewXmin + " " + viewYmin + " " + viewWidth + " " + viewHeight);});
+					$(".ts-zoom-graph svg ellipse").attr("rx", viewWidth/tsWidth*(1-(1-viewRatio)/1.2)).attr("ry" , viewHeight/tsHeight*(1-(1-viewRatio)/1.2));
+					
+					$(".ts-zoom-graph .scales .top-scale").html(max.toFixed(1) + "σ");
+					$(".ts-zoom-graph .scales .mid-scale").html("avg");
+					$(".ts-zoom-graph .scales .mid-scale").css("top", (1+(min/(max-min)))*100 + "%");
+					$(".ts-zoom-graph .scales .bot-scale").html(min.toFixed(1) + "σ");
 					
 					$(".ts-zoom-graph svg").html($(".ts-zoom-graph svg").html());
 					$(".ts-zoom-graph svg ellipse").mouseover(function(evt){
 						$("#tooltip").html($(this).data("tooltip"));
-						$("#tooltip").css("visibility", "visible").css("top", evt.pageY + 10).css("left", evt.pageX + (evt.pageX > $(window).width()/2 ? - $("#tooltip").width()-40 : 20));
+						$("#tooltip").css("visibility", "visible").css("top", evt.pageY + 10).css("left", evt.pageX + (evt.pageX > $(window).width()/2 ? - $("#tooltip").width()-20 : 20));
 					}).mouseout(function() {
 						$("#tooltip").css("visibility", "hidden");
-					}).dblclick(function() {
+					}).click(function() {
 						window.open($("#tooltip a").attr("href"));
-					}).mousedown(function(evt) {evt.stopPropagation();});
+					});
 					
-					addZoomGraphListeners(max, arr);
+					addZoomGraphListeners(arr);
 				}
 			});
 		}
 		
 		var getZoomGraph2 = function(tid, m) {
-			$(".ts-zoom-graph span").html(toMonth(m));
-			$(".ts-zoom-graph svg").html("");
-			addDayScale();
-			$(".ts-zoom-graph .prev-month").data("tid", tid);
-			$(".ts-zoom-graph .next-month").data("tid", tid);
-			$(".ts-zoom-graph .prev-month").data("m", m-1);
-			$(".ts-zoom-graph .next-month").data("m", m+1);
-			$(".ts-zoom-graph .prev-month").css("visibility", $(".ts-zoom-graph .prev-month").data("m") < minMonth ? "hidden" : "");
-			$(".ts-zoom-graph .next-month").css("visibility", $(".ts-zoom-graph .next-month").data("m") > maxMonth ? "hidden" : "");
+			$(".ts-zoom-graph2 span").html(toMonth(m));
+			$(".ts-zoom-graph2 svg").html("");
+			addDayScale2();
+			$(".ts-zoom-graph2 .prev-month").data("tid", tid);
+			$(".ts-zoom-graph2 .next-month").data("tid", tid);
+			$(".ts-zoom-graph2 .prev-month").data("m", m-1);
+			$(".ts-zoom-graph2 .next-month").data("m", m+1);
+			$(".ts-zoom-graph2 .prev-month").css("visibility", $(".ts-zoom-graph2 .prev-month").data("m") < minMonth ? "hidden" : "");
+			$(".ts-zoom-graph2 .next-month").css("visibility", $(".ts-zoom-graph2 .next-month").data("m") > maxMonth ? "hidden" : "");
 			$.ajax({
 				type: "GET",
 				url: "/tgraph",
@@ -481,13 +577,13 @@ $.ajax({
 				dataType: "json",
 				success: function(obj) {
 					for(var i=1; i<31; i++) {
-						$(".ts-zoom-graph svg").append($("<line></line>").attr("stroke-dasharray", "1, 1").attr("x1", (i+0.5)*10).attr("x2", (i+0.5)*10).attr("y1", -5).attr("y2", 105).css("stroke-width", 0.1).css("stroke", "#555"));
+						$(".ts-zoom-graph2 svg").append($("<line></line>").attr("stroke-dasharray", "1, 1").attr("x1", (i+0.5)*10).attr("x2", (i+0.5)*10).attr("y1", (viewYmin2-1)).attr("y2", (viewYmin2+viewHeight2+1)).css("stroke-width", 0.1).css("stroke", "#555"));
 					}
 					for(var i=1; i<10; i++) {
-						$(".ts-zoom-graph svg").append($("<line></line>").attr("stroke-dasharray", "1, 1").attr("x1", -1).attr("x2", 321).attr("y1", i*10).attr("y2", i*10).css("stroke-width", 0.1).css("stroke", "#555"));
+						$(".ts-zoom-graph2 svg").append($("<line></line>").attr("stroke-dasharray", "1, 1").attr("x1", (viewXmin-1)).attr("x2", (viewXmin+viewWidth-1)).attr("y1", i*10).attr("y2", i*10).css("stroke-width", 0.1).css("stroke", "#555"));
 					}
 					var lastY = -10;
-					const nudgeLimit = viewHeight/tsHeight/1.2;
+					const nudgeLimit = viewHeight2/tsHeight/1.2;
 					var day = 1;
 					var idx = 0;
 					for(var i=0; i<obj.length; i++) {
@@ -501,7 +597,7 @@ $.ajax({
 							lastY = p.y;
 							idx = 0;
 						}
-						var temp = $("<ellipse></ellipse>").attr("rx", viewWidth/tsWidth*(1-(1-viewRatio)/1.2)).attr("ry", viewHeight/tsHeight*(1-(1-viewRatio)/1.2)).attr("cx", ((p.x+offset[idx])*10).toFixed(3)).attr("cy", (p.y*100).toFixed(3)).attr("data-tooltip", p.html);
+						var temp = $("<ellipse></ellipse>").attr("rx", viewWidth/tsWidth*(1-(1-viewRatio2)/1.2)).attr("ry", viewHeight2/tsHeight*(1-(1-viewRatio2)/1.2)).attr("cx", ((p.x+offset[idx])*10).toFixed(3)).attr("cy", (p.y*100).toFixed(3)).attr("data-tooltip", p.html);
 						if(p.y > 0.5) {
 							temp.addClass("p1");
 						} else if(p.y > 0.25) {
@@ -513,32 +609,43 @@ $.ajax({
 						} else {
 							temp.addClass("pz");
 						}
-						$(".ts-zoom-graph svg").append(temp);
+						$(".ts-zoom-graph2 svg").append(temp);
 						idx = (idx+1)%offset.length;
 					}
-					$(".ts-zoom-graph svg").html($(".ts-zoom-graph svg").html());
-					$(".ts-zoom-graph svg ellipse").mouseover(function(evt){
+					$(".ts-zoom-graph2 svg").html($(".ts-zoom-graph2 svg").html());
+					$(".ts-zoom-graph2 svg ellipse").mouseover(function(evt){
 						$("#tooltip").html($(this).data("tooltip"));
 						$("#tooltip").css("visibility", "visible").css("top", evt.pageY + 10).css("left", evt.pageX + (evt.pageX > $(window).width()/2 ? -$("#tooltip").width()-40 : 20));
 						$("#tooltip").css("min-width", "30%");
 					}).mouseout(function() {
 						$("#tooltip").css("visibility", "hidden");
 						$("#tooltip").css("min-width", "");
-					}).dblclick(function() {
+					}).click(function() {
 						window.open($("#tooltip a").attr("href"));
-					}).mousedown(function(evt) {evt.stopPropagation();});
+					});
 				}
 			});
 		}
 		
 		var addDayScale = function() {
 			$(".ts-zoom-graph .scales .day").remove();
-			var Xmin = Math.ceil((viewX - viewWidth*viewRatio/2)/10);
-			var Xmax = Math.floor((viewX + viewWidth*viewRatio/2)/10);
+			var Xmin = Math.ceil(viewX /10);
+			var Xmax = Math.floor((viewX + viewWidth*viewRatio)/10);
 			for(var i = Xmin; i <= Xmax; i++) {
-				$(".ts-zoom-graph .scales").append($("<text></text>").addClass("day").html(i).css("left", ($(".ts-zoom-graph svg").width()/2-(viewX-i*10)*($(".ts-zoom-graph svg").width()/viewWidth/viewRatio))).css("bottom", -13));
+				$(".ts-zoom-graph .scales").append($("<text></text>").addClass("day").html(i).css("left", (-(viewX-i*10)*($(".ts-zoom-graph svg").width()/viewWidth/viewRatio))).css("bottom", -13));
 			}
 			$(".ts-zoom-graph .scales .day").each(function(){
+				$(this).css("left", parseFloat($(this).css("left"))-$(this).width()/2);
+			});
+		}
+		var addDayScale2 = function() {
+			$(".ts-zoom-graph2 .scales .day").remove();
+			var Xmin = Math.ceil(viewX2/10);
+			var Xmax = Math.floor((viewX2 + viewWidth*viewRatio2)/10);
+			for(var i = Xmin; i <= Xmax; i++) {
+				$(".ts-zoom-graph2 .scales").append($("<text></text>").addClass("day").html(i).css("left", (-(viewX2-i*10)*($(".ts-zoom-graph2 svg").width()/viewWidth/viewRatio2))).css("bottom", -13));
+			}
+			$(".ts-zoom-graph2 .scales .day").each(function(){
 				$(this).css("left", parseFloat($(this).css("left"))-$(this).width()/2);
 			});
 		}
@@ -593,11 +700,14 @@ $.ajax({
 			graph.mouseout(function() {
 				$("#tooltip").css("visibility", "hidden");
 			});
-			addTSGraphListener(graph, tid, graph.children("text").not(".numscale").html());
+			addTSGraphListener2(graph, tid, graph.children("text").not(".numscale").html());
 		});
 		
 		// zoom feature for svgs
 		$(".ts-zoom-graph svg").attr("width", tsWidth).attr("height", tsHeight);
+		$(".ts-zoom-graph2 svg").attr("width", tsWidth).attr("height", tsHeight);
+		$(".ts-zoom-graph svg")[0].setAttribute("viewBox", viewXmin + " " + viewYmin2 + " " + viewWidth + " " + viewHeight2);
+		$(".ts-zoom-graph2 svg")[0].setAttribute("viewBox", viewXmin + " " + viewYmin2 + " " + viewWidth + " " + viewHeight2);
 		$("#ts-zoom-in").click(function(){
 			tsRatio += 0.1;
 			$(".ts-div svg").attr("width", (tsWidth*tsRatio).toFixed(0));
@@ -606,7 +716,9 @@ $.ajax({
 			$(".ts-div text").css("top", (ts_text_h*tsRatio).toFixed(2));
 			$(".ts-div text").css("font-size", tsRatio*100 + "%");
 			$(".ts-zoom-graph svg").attr("width", (tsWidth*tsRatio).toFixed(0)).attr("height", (tsHeight*tsRatio).toFixed(0));
+			$(".ts-zoom-graph2 svg").attr("width", (tsWidth*tsRatio).toFixed(0)).attr("height", (tsHeight*tsRatio).toFixed(0));
 			addDayScale();
+			addDayScale2();
 		});
 		$("#ts-zoom-one").click(function(){
 			tsRatio = 1.0;
@@ -616,7 +728,9 @@ $.ajax({
 			$(".ts-div text").css("top", ts_text_h);
 			$(".ts-div text").css("font-size", "100%");
 			$(".ts-zoom-graph svg").attr("width", tsWidth).attr("height", tsHeight);
+			$(".ts-zoom-graph2 svg").attr("width", tsWidth).attr("height", tsHeight);
 			addDayScale();
+			addDayScale2();
 		});
 		$("#ts-zoom-out").click(function(){
 			if(tsRatio < 0.2) {return;}
@@ -627,7 +741,9 @@ $.ajax({
 			$(".ts-div text").css("top", (ts_text_h*tsRatio).toFixed(2));
 			$(".ts-div text").css("font-size", tsRatio*100 + "%");
 			$(".ts-zoom-graph svg").attr("width", (tsWidth*tsRatio).toFixed(0)).attr("height", (tsHeight*tsRatio).toFixed(0));
+			$(".ts-zoom-graph2 svg").attr("width", (tsWidth*tsRatio).toFixed(0)).attr("height", (tsHeight*tsRatio).toFixed(0));
 			addDayScale();
+			addDayScale2();
 		});
 		// scaling with corpus
 		$(".ts-div").each(function(){

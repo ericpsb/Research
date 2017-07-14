@@ -65,10 +65,18 @@
 
 		<div id="ts-page" class="page" data-minmonth=<!-- @echo MINM --> data-maxmonth=<!-- @echo MAXM -->>
 			<div id="ts-zoom-div" class="display-none">
-				<div class="ts-zoom-graph" oncontextmenu="return false;" style="position: relative; display: inline-block; margin-bottom: 10px; margin-left: 20px;">
+				<div class="ts-zoom-graph" style="position: relative; display: inline-block; margin-bottom: 10px; margin-left: 20px;">
 				<div class="control"><button class="prev-month"><</button><span style="margin-left: 10px; margin-right: 10px;"></span><button class="next-month">></button>&emsp;&emsp;<button class="close">X</button></div>
 				<div class="scales"><text class="topic"></text><text class="top-scale" style="left: -25px;"></text><text class="mid-scale" style="left: -25px; top: 50%;"></text><text class="bot-scale" style="left: -25px; bottom: -0px;"></text></div>
-				<svg viewBox="5 -0.5 310 101" preserveAspectRatio="none">
+				<svg preserveAspectRatio="none">
+				</svg>
+				</div>
+			</div>
+			<div id="ts-zoom-div2" class="display-none">
+				<div class="ts-zoom-graph2" style="position: relative; display: inline-block; margin-bottom: 10px; margin-left: 20px;">
+				<div class="control"><button class="prev-month"><</button><span style="margin-left: 10px; margin-right: 10px;"></span><button class="next-month">></button>&emsp;&emsp;<button class="close">X</button></div>
+				<div class="scales"><text class="topic"></text><text class="top-scale" style="left: -25px;"></text><text class="mid-scale" style="left: -25px; top: 50%;"></text><text class="bot-scale" style="left: -25px; bottom: -0px;"></text></div>
+				<svg preserveAspectRatio="none">
 				</svg>
 				</div>
 			</div>
