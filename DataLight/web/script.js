@@ -12,6 +12,7 @@ $(document).ready(function() {
             	statusChangeCallback(response);
             });
 	    });
+        addSliderBars();
     });
 			
   // This is called with the results from from FB.getLoginStatus().
@@ -25,6 +26,44 @@ function statusChangeCallback(response) {
       	document.getElementById('status').innerHTML = 'Please log ' +
         'into this app.';
     }
+}
+
+function collectValues() {
+    var values = [];
+    for (i = 0; i < 10; i++) {
+        var s = '#range-slider-' + i;
+        values.push($(s).val());
+    }
+    
+    disableSliderBars();
+    console.log(values);
+}
+
+function disableSliderBars() {
+    for (i = 0; i < 10; i++) {
+        var s = '#range-slider-' + i;
+        $(s).prop('disabled', true);
+        $(s).css('cursor', 'not-allowed');
+    }
+}
+
+// add 10 slider bars to UI
+function addSliderBars() {
+    const keywords = ['Extraverted, enthusiastic', 'Crtical, quarrelsome', 'Dependable, self-disciplined', 'Anxious, easily upset',
+                      'Open to new experiences, complex', 'Reserved, quiet', 'Sympathetic, warm', 'Disorganized, careless', 
+                      'Calm, emotionally stable', 'Conventional, uncreative'];
+
+    for (i = 0; i < keywords.length; i++) {
+        const s = 
+                '<div class="range-slider">' +
+                    '<input id="range-slider-' + i + '"' + 'type="range" value="50" min="0" max="100"/>' +
+                    '<span class="range-slider-label">' + keywords[i] + '</span>' +
+                '</div>' 
+        $('#quiz').append(s);
+    }
+    const submit = '<button type="button" class="btn btn-success" onclick=collectValues()>Submit</button>'
+    $('#quiz').append(submit);
+
 }
 
 function checkLoginState() {
@@ -91,12 +130,10 @@ function getAllPosts(response) {
 function getLikesPostsAPI(userId) {
     FB.api('/'+userId+'/likes?limit=100', 'get', function(response) {
         getAllLikes(response);
-        console.log(allLikes);
     }); 
 
     FB.api('/'+userId+'/posts?limit=100', 'get', function(response) {
         getAllPosts(response);
-        console.log(allPosts);
     });
 
 }
@@ -107,10 +144,6 @@ function logout() {
 		console.log("You successfully logout");
 		checkLoginState();
 	});
-}
-
-function printOut(print) {
-    console.log(print);
 }
 
 function sendAllLikes() {

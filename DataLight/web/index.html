@@ -5,11 +5,15 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://das-lab.org/datalight/script.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css"  href="https://das-lab.org/datalight/styles.css">
+<!-- add jquery UI -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </head>
 <body>
 
@@ -42,27 +46,73 @@
       </div>
     </div> -->
 
-    <div class="container">
-      <div class="starter-template">
-		<br></br>
+<div class="container">
+    <div class="starter-template">
+        <br></br>
 		<h1>Welcome to DataLight</h1>
         <p class="lead">Please login to discover what your's personality based on your facebook data!</p>
-      </div>
-<div class="fb-login-button" 
-	data-max-rows="1" 
-	data-size="large" 
-	data-button-type="login_with" 
-	data-show-faces="false" 
-	data-auto-logout-link="false" 
-	data-use-continue-as="false" 
-	data-scope = "public_profile, email, user_posts, user_likes" 
-	onlogin="checkLoginState()"></div>
-<div>
-    <button onclick=sendAllLikes()>Predict from Likes</button>
-    <button onclick=sendAllPosts()>Predict from Posts</button>
+    </div>
+    <div class="fb-login-button" 
+        data-max-rows="1" 
+	    data-size="large" 
+	    data-button-type="login_with" 
+	    data-show-faces="false" 
+	    data-auto-logout-link="false" 
+	    data-use-continue-as="false" 
+	    data-scope = "public_profile, email, user_posts, user_likes" 
+	    onlogin="checkLoginState()"></div>
+    <div>
+    <button type="button" class="btn btn-secondary" onclick=sendAllLikes()>Predict from Likes</button>
+    <button type="button" class="btn btn-secondary" onclick=sendAllPosts()>Predict from Posts</button>
+    <div id="status"></div>
+    <br></br>
+    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#quiz">How do You See Yourself</button>
+    <div id="quiz" class="collapse">I see myself as...
+<!--
+        <div class="range-slider">
+            <input id="range-slider-1" type="range" value="50" min="0" max="100"/>
+            <span class="range-slider-label">Extraverted, enthusiastic</span>
+        </div>
+        <div class="range-slider">
+            <input id="range-slider-2" type="range" value="50" min="0" max="100"/>
+            <span class="range-slider-label">Critical, quarrelsome</span>
+        </div>
+        <div class="range-slider">
+            <input id="range-slider-3" type="range" value="50" min="0" max="100"/>
+            <span class="range-slider-label">Dependable, self-disciplined</span>
+        </div>
+        <div class="range-slider"> 
+            <input id="range-slider-4" type="range" value="50" min="0" max="100"/>
+            <span class="range-slider-label">Anxious, easily upset</span>
+        </div>
+        <div class="range-slider"> 
+            <input id="range-slider-5" type="range" value="50" min="0" max="100"/>
+            <span class="range-slider-label">Open to new experiences, complex</span>
+        </div>
+        <div class="range-slider">
+            <input id="range-slider-6" type="range" value="50" min="0" max="100"/>
+            <span class="range-slider-label">Reserved, quiet</span>
+        </div>
+        <div class="range-slider">
+            <input id="range-slider-7" type="range" value="50" min="0" max="100"/>
+            <span class="range-slider-label">Sympathetic, warm</span>
+        </div>
+        <div class="range-slider">
+            <input id="range-slider-8" type="range" value="50" min="0" max="100"/>
+            <span class="range-slider-label">Disorganized, careless</span>
+        </div>
+        <div class="range-slider"> 
+            <input id="range-slider-9" type="range" value="50" min="0" max="100"/>
+            <span class="range-slider-label">Calm, emotionally stable</span>
+        </div>
+        <div class="range-slider"> 
+            <input id="range-slider-10" type="range" value="50" min="0" max="100"/>
+            <span class="range-slider-label">Conventional, uncreative</span>
+        </div>
+-->
+    </div>
 </div>
-<div id="status"> 
-</div>
+
 <!-- <div class="fa fa-facebook">
 	<button type="button" onclick="logout()">Log out</button>
 </div> --> 

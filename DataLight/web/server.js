@@ -1,4 +1,4 @@
-var fs = require('fs');
+const fs = require('fs');
 const express = require('express');
 const app = express();
 const https = require('https');
@@ -78,6 +78,11 @@ function postsPrediction(req, callback) {
         body: JSON.stringify(req.body.allPosts)
     }
     request.post(options, function(err, res, body) {
+        console.log(err);
+        if ((JSON.parse(body)).status == 403) {
+            console.log('error in posts prediction');
+        }
+        console.log(JSON.parse(body));
         callback(JSON.parse(body).predictions);
     });
 }

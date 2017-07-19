@@ -33,8 +33,48 @@ body {
     color: #3B5998;
 }
 
-h1 {
-    background-color: ;
-    color: ; 
+/*
+input[type=range]:hover {
+    cursor: pointer;
+}
+*/
 
+input[type=range] {
+    -webkit-appearance: none;
+    border: 1px solid white;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    height: 10px;
+    background: #F2F3ED;
+    border: none;
+    border-radius: 5px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    background: #FFC153;
+    margin-top: -4px;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #CACEAD;
+} 
+
+input[type=range]:hover::-webkit-slider-thumb {
+    background: #F0A830; 
+    cursor: pointer;
+}
+
+.range-slider {
+    margin-top: 30px;
+    margin-bottom: 25px;
 }
