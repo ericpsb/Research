@@ -107,7 +107,6 @@ for (i in 1:nrow(working)){
   # figure out the offsets for this blog
   working$tenureOffset[i] <- startDates[as.numeric(working$blogid[i])] - dataSetBegin
   working$birthOffset[i] <- birthYears[as.numeric(working$blogid[i])] - dataSetBegin
-  
   working$actualdate[i] <- d
 }
 
@@ -147,6 +146,9 @@ df$posts <- df$blogid
 
 df2 <- df
 df2 <- df2[, -c(2:52)]
+
+# Replace underscores in column names with commas and spaces
+
 
 # ag will provide week-by-week aggregates (for temporal visualization)
 # agTotal will provide overall aggregates (for cosine visualization)

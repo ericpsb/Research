@@ -1,0 +1,4 @@
+The issue is that there is an older posts button on the bottom of the page, the solution seems to be to use a callback instead of selenium. 
+
+^^^
+That Won't work because it is a javascript click function so you will need to use selenium
