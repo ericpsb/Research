@@ -59,180 +59,67 @@ class VisualizationGenerator(object):
 
     def explode_document(self, document, username):
         """Take individual feed document and turn into many pair interactions."""
-        # Check the following:
-        # - if from id is person
-        # - if in with_tags
-        # - if in story_tags
-        # - if in comments
-        # - if in likes
-        #
-        # TODO[P]: Also, only grab person once per feed item. So maybe have a hierarchy of
-        # what's important... though have all interactions count towards visualization
-        # weights.
-
-        # If from.id == me, then I posted it. Therefore, I have a connection with everyone
-        # who commented, liked, or was tagged in this.
-        # NOTE: But if I didn't post it... it doesn't mean a whole lot... it means I have a
-        # connection that will be covered elsewhere.
-
-        # All possible "status_type"s:
-        # null, "added_photos", "added_video", "created_note",
-        # "mobile_status_update", "published_story", "shared_story", "wall_post"
-
-        # And all "type"s:
-        # "event", "link", "music", "photo", "status", "video"
 
         ########################################################################
-        # TODO[P] x 2!                                                         #
-        #   1. Figure out how to make this all shorter and more generalized.   #
-        #   2. Apply these concepts to the rest of the document types.         #
-        # If that happens, this should be pretty dandy.                        #
+        # TODO[P]: Try to only grab person once per feed item. So maybe have a #
+        # hierarchy of what's important... though have all interactions count  #
+        # towards visualization weights.                                       #
         # NOTE: story_tags also tag the person who posted it (I think), so we  #
         #       may have to account for that.                                  #
         # NOTE: Also need to do something about events and page likes...       #
         ########################################################################
-        if document['type'] == 'status':
-            if document['from']['id'] == self.uid:
-                if 'comments' in document:
-                    interactions = self.process_status(document, 'comment')
-                    self.generate_pairs(username, 'target', document['comments']['data'], interactions)
-                if 'likes' in document:
-                    interactions = self.process_status(document, 'like')
-                    self.generate_pairs(username, 'target', document['likes']['data'], interactions)
-                if 'with_tags' in document:
-                    interactions = self.process_status(document, 'tag')
-                    self.generate_pairs(username, 'source', document['with_tags']['data'], interactions)
-                if 'story_tags' in document:
-                    interactions = self.process_status(document, 'tag')
-                    self.generate_pairs(username, 'source', document['story_tags'], interactions)
-            else:
-                if self.is_in_comments(document):
-                    interactions = self.process_status(document, 'comment')
-                    self.generate_single_pair(username, 'source', document['from']['name'], interactions)
-                    interactions = self.process_status(document, 'co-comment')
-                    self.generate_pairs(username, 'source', document['comments']['data'], interactions)
-                if self.is_in_likes(document):
-                    interactions = self.process_status(document, 'like')
-                    self.generate_single_pair(username, 'source', document['from']['name'], interactions)
-                    interactions = self.process_status(document, 'co-like')
-                    self.generate_pairs(username, 'source', document['likes']['data'], interactions)
-                if self.is_in_with_tags(document):
-                    interactions = self.process_status(document, 'tag')
-                    self.generate_single_pair(username, 'target', document['from']['name'], interactions)
-                    interactions = self.process_status(document, 'co-tag')
-                    self.generate_pairs(username, 'target', document['with_tags']['data'], interactions)
-                if self.is_in_story_tags(document):
-                    interactions = self.process_status(document, 'tag')
-                    self.generate_single_pair(username, 'target', document['from']['name'], interactions)
-                    interactions = self.process_status(document, 'co-tag')
-                    self.generate_pairs(username, 'target', document['story_tags'], interactions)
-        elif document['type'] == 'photo':
-            pass
-        elif document['type'] == 'link':
-            pass
-        elif document['type'] == 'video':
-            pass
-        elif document['type'] == 'event':
-            pass
-        elif document['type'] == 'music':
-            pass
+
+        # Format: (key in feed, given type (kind of arbitrary), direction when
+        #          user is the poster, direction when not poster, data source)
+        options = [
+            ('comments', 'comment', 'target', 'source', document['comments']['data'] if 'comments' in document else None),
+            ('likes', 'like', 'target', 'source', document['likes']['data'] if 'likes' in document else None),
+            ('with_tags', 'tag', 'source', 'target', document['with_tags']['data'] if 'with_tags' in document else None),
+            ('story_tags', 'tag', 'source', 'target', document['story_tags'] if 'story_tags' in document else None)
+        ]
+        if document['from']['id'] == self.uid:
+            for option in options:
+                if option[4] is not None: # if option is in document
+                    interactions = self.process_status(document, option[1])
+                    self.generate_pairs(username, option[2], option[4], interactions)
         else:
-            print 'Error: unknown feed type'
-
-
-
-
-
-        # if document['from']['id'] == self.uid:
-        #     # TODO[P]: This can totally be condensed.
-        #     if 'with_tags' in document:
-        #         for tag in document['with_tags']['data']:
-        #             print 'todo' # TODO[P]
-
-        #     if 'story_tags' in document:
-        #         for tag in document['story_tags']:
-        #             if tag['id'] != self.uid:
-        #                 print 'todo'
-
-        #     if 'comments' in document:
-        #         for tag in document['comments']['data']:
-        #             if tag['from']['id'] != self.uid:
-        #                 print 'todo'
-
-        #     if 'likes' in document:
-        #         for tag in document['likes']['data']:
-        #             if tag['id'] != self.uid:
-        #                 # NOTE: liker is source because they liked my thing
-        #                 #       I was the target of their like
-        #                 pair = self.get_user_pair(tag['name'], username)
-        #                 interaction = self.process_status(document, "like")
-        #                 pair['data'].append(interaction)
-        #                 self.pairs.append(pair)
-
-        # # If I'm in with_tags...
-
-
-        # # etc.
-
-        # # Co-comment
-        # if 'comments' in document and self.is_in_comments(document, self.uid):
-        #     pair = self.get_user_pair(username, document['from']['name'])
-        #     interaction = self.process_status(document, "comment")
-        #     pair['data'].append(interaction)
-        #     self.pairs.append(pair)
-
-        #     for tag in document['comments']['data']:
-        #         if tag['from']['id'] != self.uid:
-        #             pair = self.get_user_pair(tag['from']['name'], username)
-        #             interaction = self.process_status(document, "co-comment")
-        #             pair['data'].append(interaction)
-        #             self.pairs.append(pair)
-
-        # # Co-like
-        # if 'likes' in document and self.is_in_likes(document, self.uid):
-        #     pair = self.get_user_pair(username, document['from']['name'])
-        #     interaction = self.process_status(document, "like")
-        #     pair['data'].append(interaction)
-        #     self.pairs.append(pair)
-
-        #     for tag in document['likes']['data']:
-        #         if tag['id'] != self.uid:
-        #             pair = self.get_user_pair(tag['name'], username)
-        #             interaction = self.process_status(document, "co-like")
-        #             pair['data'].append(interaction)
-        #             self.pairs.append(pair)
+            for option in options:
+                if self.is_in_list(option):
+                    interactions = self.process_status(document, option[1])
+                    self.generate_single_pair(username, option[3], document['from']['name'], interactions)
+                    interactions = self.process_status(document, 'co-' + option[1])
+                    self.generate_pairs(username, option[3], option[4], interactions)
 
         return
 
-# ===========================================================================================
-# ===========================================================================================
-
     def generate_pairs(self, username, direction, other_users, interactions):
+        """Generates all pairs for given list of users and appends to object list."""
         if direction == 'source':
             for user in other_users:
                 if user['id'] == self.uid:
                     continue
                 pair = self.get_user_pair(username, user['name'])
-                pair['data'] = interactions
+                pair['data'].append(interactions)
                 self.pairs.append(pair)
         else:
             for user in other_users:
                 if user['id'] == self.uid:
                     continue
                 pair = self.get_user_pair(user['name'], username)
-                pair['data'] = interactions
+                pair['data'].append(interactions)
                 self.pairs.append(pair)
 
     def generate_single_pair(self, username, direction, other_user, interactions):
+        """Generates single pair and appends to object list."""
         if direction == 'source':
             pair = self.get_user_pair(username, other_user)
-            pair['data'] = interactions
+            pair['data'].append(interactions)
             self.pairs.append(pair)
         else:
             pair = self.get_user_pair(other_user, username)
-            pair['data'] = interactions
+            pair['data'].append(interactions)
             self.pairs.append(pair)
-    
+
     def get_user_pair(self, source, target):
         """Get a user pair from existing list or create new one."""
         pair = self.find_pair_in_list(source, target)
@@ -248,50 +135,28 @@ class VisualizationGenerator(object):
                 return self.pairs.pop(index)
         return None
 
-    def is_in_comments(self, document):
-        """Determine if a user is in comments."""
-        if 'comments' not in document:
+    def is_in_list(self, option_tuple):
+        """Determine if a user is in a given list.
+
+        Assumes format of "options" list in explode_document.
+        """
+        if option_tuple[4] is None: # given item not in document
             return False
 
-        for comment in document['comments']['data']:
-            if comment['from']['id'] == self.uid:
-                return True
-        return False
+        for item in option_tuple[4]:
+            if option_tuple[0] == 'comments':
+                if item['from']['id'] == self.uid:
+                    return True
+            else:
+                if item['id'] == self.uid:
+                    return True
 
-    def is_in_likes(self, document):
-        """Determine if a user is in likes."""
-        if 'likes' not in document:
-            return False
-
-        for like in document['likes']['data']:
-            if like['id'] == self.uid:
-                return True
-        return False
-
-    def is_in_with_tags(self, document):
-        """Determine if a user is in with_tags."""
-        if 'with_tags' not in document:
-            return False
-
-        for tag in document['with_tags']['data']:
-            if tag['id'] == self.uid:
-                return True
-        return False
-
-    def is_in_story_tags(self, document):
-        """Determine if a user is in story_tags."""
-        if 'story_tags' not in document:
-            return False
-
-        for tag in document['story_tags']:
-            if tag['id'] == self.uid:
-                return True
         return False
 
     def process_status(self, document, given_type):
         """Create an interaction array for a user's post."""
         doc_type = document['type']
-        status_type = document['status_type']
+        status_type = document['status_type'] if 'status_type' in document else ""
         interaction_type = given_type
         story = document['story'] if 'story' in document else ""
         message = document['message'] if 'message' in document else ""
@@ -302,8 +167,11 @@ class VisualizationGenerator(object):
         created_date = datetime.datetime.strptime(document['created_time'][:-5],
                                                   '%Y-%m-%dT%H:%M:%S').strftime('%m/%d/%y')
 
-        return [doc_type, status_type, interaction_type, story, message,
-                description, link, doc_id, video, created_date]
+        if doc_type == 'photo':
+            return [doc_type, interaction_type, doc_id, created_date]
+        else:
+            return [doc_type, status_type, interaction_type, story, message,
+                    description, link, doc_id, video, created_date]
 
     def get_pairs(self):
         """Return pairs variable"""
