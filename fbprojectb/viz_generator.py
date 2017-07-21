@@ -18,6 +18,7 @@ class VisualizationGenerator(object):
         self.mongo = mongo_access.MongoAccess()
         self.nodes = []
         self.links = []
+        self.link_index = 0
         self.pairs = []
 
     def generate_viz(self):
@@ -35,9 +36,7 @@ class VisualizationGenerator(object):
 
     def generate_viz_json(self, username):
         """Generate JSON."""
-        node_index = 1
-        link_index = 0
-
+        # Feed documents
         feed_query = {
             '$or' : [
                 {'from.id' : self.uid},
@@ -48,14 +47,19 @@ class VisualizationGenerator(object):
             ]
         }
         feed = self.mongo.query_feed(feed_query)
-
         for document in feed:
             self.explode_document(document, username)
 
-        return ""
+        # Event documents
+        event_query = {
+            'attended_by.0.id' : self.uid,
+            'rsvp_status' : 'attending'
+        }
+        events = self.mongo.query_events(event_query)
+        for document in events:
+            self.explode_event(document, username)
 
-# ===========================================================================================
-# ===========================================================================================
+        return ""
 
     def explode_document(self, document, username):
         """Take individual feed document and turn into many pair interactions."""
@@ -92,33 +96,58 @@ class VisualizationGenerator(object):
 
         return
 
+    def explode_event(self, document, username):
+        interactions = self.process_event(document)
+        self.generate_pairs(username, 'source', document['attending']['data'], interactions)
+        return
+
     def generate_pairs(self, username, direction, other_users, interactions):
         """Generates all pairs for given list of users and appends to object list."""
         if direction == 'source':
             for user in other_users:
-                if user['id'] == self.uid:
-                    continue
-                pair = self.get_user_pair(username, user['name'])
+                if 'from' in user:
+                    if user['from']['id'] == self.uid:
+                        continue
+                    pair = self.get_user_pair(username, user['from']['name'])
+                else:
+                    if user['id'] == self.uid:
+                        continue
+                    pair = self.get_user_pair(username, user['name'])
+
                 pair['data'].append(interactions)
+                if {'name': user['from']['name']} not in self.nodes:
+                    self.nodes.append({'name': user['from']['name']})
+                    self.link_index += 1
                 self.pairs.append(pair)
         else:
             for user in other_users:
-                if user['id'] == self.uid:
-                    continue
-                pair = self.get_user_pair(user['name'], username)
+                if 'from' in user:
+                    if user['from']['id'] == self.uid:
+                        continue
+                    pair = self.get_user_pair(user['from']['name'], username)
+                else:
+                    if user['id'] == self.uid:
+                        continue
+                    pair = self.get_user_pair(user['name'], username)
+
                 pair['data'].append(interactions)
+                if {'name': user['from']['name']} not in self.nodes:
+                    self.nodes.append({'name': user['from']['name']})
+                    self.link_index += 1
                 self.pairs.append(pair)
 
     def generate_single_pair(self, username, direction, other_user, interactions):
         """Generates single pair and appends to object list."""
         if direction == 'source':
             pair = self.get_user_pair(username, other_user)
-            pair['data'].append(interactions)
-            self.pairs.append(pair)
         else:
             pair = self.get_user_pair(other_user, username)
-            pair['data'].append(interactions)
-            self.pairs.append(pair)
+
+        pair['data'].append(interactions)
+        if {'name': other_user} not in self.nodes:
+            self.nodes.append({'name': other_user})
+            self.link_index += 1
+        self.pairs.append(pair)
 
     def get_user_pair(self, source, target):
         """Get a user pair from existing list or create new one."""
@@ -172,6 +201,17 @@ class VisualizationGenerator(object):
         else:
             return [doc_type, status_type, interaction_type, story, message,
                     description, link, doc_id, video, created_date]
+
+    def process_event(self, document):
+        """Create an interaction array for an event."""
+        interaction_type = "event"
+        name = document['name']
+        description = document['description'] if 'description' in document else ""
+        cover = document['cover']['source'] if 'cover' in document else ""
+        start_date = datetime.datetime.strptime(document['start_time'][:-5],
+                                                  '%Y-%m-%dT%H:%M:%S').strftime('%m/%d/%y')
+        
+        return [interaction_type, name, description, cover, start_date]
 
     def get_pairs(self):
         """Return pairs variable"""
