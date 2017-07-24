@@ -1,0 +1,457 @@
+1496257807317	geckodriver	INFO	Listening on 127.0.0.1:64851
+1496257812262	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496257824889	Marionette	INFO	Listening on port 64881
+1496257825372	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 15:10:29.411 plugin-container[4283:331523] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8c3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 15:10:29.413 plugin-container[4283:331523] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x4e07, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 15:10:29.413 plugin-container[4283:331523] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1498584784732	geckodriver	INFO	Listening on 127.0.0.1:52735
+1498584790567	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498584798976	Marionette	INFO	Listening on port 52753
+1498584799082	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498584799531	Marionette	DEBUG	loaded listener.js
+2017-06-27 13:33:19.681 plugin-container[2926:381957] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 13:33:19.685 plugin-container[2926:381957] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5117, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 13:33:19.685 plugin-container[2926:381957] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498584800696	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1498584800776	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498584800776	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498584802263	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://tinygracenotes.blogspot.com/"
+1498584802494	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=1725958813857579465&blogName=Tiny+Grace+Notes+(Ask+an+Autistic)&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=LIGHT&layoutType=LAYOUTS&searchRoot=http://tinygracenotes.blogspot.com/search&blogLocale=en&v=2&homepageUrl=http://tinygracenotes.blogspot.com/&vt=-1867098749424475194&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#id=navbar-iframe&parent=http%3A%2F%2Ftinygracenotes.blogspot.com&pfname=&rpctoken=41200533"
+1498584802942	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498584802971	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498584802990	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498584803006	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498584803114	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498584803127	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498584803135	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498584803234	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498584803239	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498584803244	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498584803254	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498584803260	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498584803265	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498584803271	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498584803344	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498584803350	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498584803420	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Ftinygracenotes.blogspot.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=429466362&forcesecure=1"
+1498584803448	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=1624546012&forcesecure=1"
+1498584803583	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Ftinygracenotes.blogspot.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=429466362&forcesecure=1"
+1498584803768	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=1624546012&forcesecure=1"
+1498584803771	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=1725958813857579465&blogName=Tiny+Grace+Notes+(Ask+an+Autistic)&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=LIGHT&layoutType=LAYOUTS&searchRoot=http://tinygracenotes.blogspot.com/search&blogLocale=en&v=2&homepageUrl=http://tinygracenotes.blogspot.com/&vt=-1867098749424475194&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#id=navbar-iframe&parent=http%3A%2F%2Ftinygracenotes.blogspot.com&pfname=&rpctoken=41200533"
+1498585373243	Marionette	INFO	Ceased listening
+1498662562872	geckodriver	INFO	Listening on 127.0.0.1:59629
+1498662564030	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498662568463	Marionette	INFO	Listening on port 59636
+1498662568535	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498662568914	Marionette	DEBUG	loaded listener.js
+2017-06-28 11:09:29.030 plugin-container[4202:594638] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x903f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-28 11:09:29.034 plugin-container[4202:594638] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9127, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-28 11:09:29.034 plugin-container[4202:594638] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498662569721	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1498662569806	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498662569807	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498662570614	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://tinygracenotes.blogspot.com/"
+1498662570922	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=1725958813857579465&blogName=Tiny+Grace+Notes+(Ask+an+Autistic)&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=LIGHT&layoutType=LAYOUTS&searchRoot=http://tinygracenotes.blogspot.com/search&blogLocale=en&v=2&homepageUrl=http://tinygracenotes.blogspot.com/&vt=-1867098749424475194&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#id=navbar-iframe&parent=http%3A%2F%2Ftinygracenotes.blogspot.com&pfname=&rpctoken=36053659"
+1498662571249	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498662571261	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498662571276	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498662571285	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498662571322	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498662571331	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498662571356	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498662571361	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498662571366	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498662571370	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498662571376	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498662571382	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498662571399	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498662571436	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498662571639	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Ftinygracenotes.blogspot.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=712705784&forcesecure=1"
+1498662571672	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498662571677	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498662571714	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Ftinygracenotes.blogspot.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=712705784&forcesecure=1"
+1498662571739	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=599370264&forcesecure=1"
+1498662571766	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=599370264&forcesecure=1"
+1498662571768	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=1725958813857579465&blogName=Tiny+Grace+Notes+(Ask+an+Autistic)&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=LIGHT&layoutType=LAYOUTS&searchRoot=http://tinygracenotes.blogspot.com/search&blogLocale=en&v=2&homepageUrl=http://tinygracenotes.blogspot.com/&vt=-1867098749424475194&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#id=navbar-iframe&parent=http%3A%2F%2Ftinygracenotes.blogspot.com&pfname=&rpctoken=36053659"
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1498664103852	Marionette	INFO	Ceased listening
+1498671481053	geckodriver	INFO	Listening on 127.0.0.1:64910
+1498671482137	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498671486660	Marionette	INFO	Listening on port 64917
+1498671486723	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498671487042	Marionette	DEBUG	loaded listener.js
+2017-06-28 13:38:07.146 plugin-container[5180:672546] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8d3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-28 13:38:07.149 plugin-container[5180:672546] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f23, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-28 13:38:07.149 plugin-container[5180:672546] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498671487692	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1498671487762	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498671487762	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498671488576	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://tinygracenotes.blogspot.com/"
+1498671488830	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=1725958813857579465&blogName=Tiny+Grace+Notes+(Ask+an+Autistic)&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=LIGHT&layoutType=LAYOUTS&searchRoot=http://tinygracenotes.blogspot.com/search&blogLocale=en&v=2&homepageUrl=http://tinygracenotes.blogspot.com/&vt=-1867098749424475194&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#id=navbar-iframe&parent=http%3A%2F%2Ftinygracenotes.blogspot.com&pfname=&rpctoken=19424022"
+1498671489026	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498671489035	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498671489106	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498671489117	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498671489124	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498671489132	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498671489173	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498671489205	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498671489209	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498671489212	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498671489215	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498671489219	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498671489223	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498671489226	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498671489363	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Ftinygracenotes.blogspot.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=300123963&forcesecure=1"
+1498671489376	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498671489380	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498671489417	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Ftinygracenotes.blogspot.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=300123963&forcesecure=1"
+1498671489439	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=821014994&forcesecure=1"
+1498671489469	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=821014994&forcesecure=1"
+1498671489471	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=1725958813857579465&blogName=Tiny+Grace+Notes+(Ask+an+Autistic)&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=LIGHT&layoutType=LAYOUTS&searchRoot=http://tinygracenotes.blogspot.com/search&blogLocale=en&v=2&homepageUrl=http://tinygracenotes.blogspot.com/&vt=-1867098749424475194&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#id=navbar-iframe&parent=http%3A%2F%2Ftinygracenotes.blogspot.com&pfname=&rpctoken=19424022"
+2017-07-01 07:37:17.326 geckodriver[2924:944879] Metadata.framework [Error]: server port invalidated for uid 501
+2017-07-01 07:37:17.326 geckodriver[4199:944888] Metadata.framework [Error]: server port invalidated for uid 501
+2017-07-01 07:37:17.402 geckodriver[2924:945370] Metadata.framework [Error]: client check-in failed: (-308) (ipc/mig) server died
+2017-07-01 07:37:17.402 geckodriver[4199:944887] Metadata.framework [Error]: client check-in failed: (-308) (ipc/mig) server died
+2017-07-01 07:37:17.443 geckodriver[2924:944881] Metadata.framework [Error]: couldn't get the client port
+2017-07-01 07:37:17.443 geckodriver[4199:944831] Metadata.framework [Error]: couldn't get the client port
+1500650136796	geckodriver	INFO	Listening on 127.0.0.1:57486
+1500650141003	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500650145380	Marionette	INFO	Listening on port 57493
+1500650145476	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500650145710	Marionette	DEBUG	loaded listener.js
+2017-07-21 11:15:45.808 plugin-container[4970:838286] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8d3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-21 11:15:45.811 plugin-container[4970:838286] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e27, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-21 11:15:45.811 plugin-container[4970:838286] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500650146568	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500650146640	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500650146640	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500650147383	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://tinygracenotes.blogspot.com/"
+1500650147770	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=1725958813857579465&blogName=Tiny+Grace+Notes+(Ask+an+Autistic)&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=LIGHT&layoutType=LAYOUTS&searchRoot=http://tinygracenotes.blogspot.com/search&blogLocale=en&v=2&homepageUrl=http://tinygracenotes.blogspot.com/&vt=-1867098749424475194&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.hm0TBMgoat8.O%2Fm%3D__features__%2Fam%3DEQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCNkwjXLIvH4zg1E3zs48sbvvWte_Q#id=navbar-iframe&parent=http%3A%2F%2Ftinygracenotes.blogspot.com&pfname=&rpctoken=94241238"
+1500650147977	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500650147982	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500650148036	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500650148041	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500650148057	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500650148060	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500650148071	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500650148076	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500650148086	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500650148088	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500650148094	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500650148096	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500650148114	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500650148116	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500650148271	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Ftinygracenotes.blogspot.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.hm0TBMgoat8.O%2Fm%3D__features__%2Fam%3DEQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCNkwjXLIvH4zg1E3zs48sbvvWte_Q#rpctoken=355223555&forcesecure=1"
+1500650148345	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Ftinygracenotes.blogspot.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.hm0TBMgoat8.O%2Fm%3D__features__%2Fam%3DEQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCNkwjXLIvH4zg1E3zs48sbvvWte_Q#rpctoken=355223555&forcesecure=1"
+1500650148389	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500650148391	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500650148413	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.hm0TBMgoat8.O%2Fm%3D__features__%2Fam%3DEQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCNkwjXLIvH4zg1E3zs48sbvvWte_Q#rpctoken=767911597&forcesecure=1"
+1500650148441	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.hm0TBMgoat8.O%2Fm%3D__features__%2Fam%3DEQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCNkwjXLIvH4zg1E3zs48sbvvWte_Q#rpctoken=767911597&forcesecure=1"
+1500650148443	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=1725958813857579465&blogName=Tiny+Grace+Notes+(Ask+an+Autistic)&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=LIGHT&layoutType=LAYOUTS&searchRoot=http://tinygracenotes.blogspot.com/search&blogLocale=en&v=2&homepageUrl=http://tinygracenotes.blogspot.com/&vt=-1867098749424475194&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.hm0TBMgoat8.O%2Fm%3D__features__%2Fam%3DEQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCNkwjXLIvH4zg1E3zs48sbvvWte_Q#id=navbar-iframe&parent=http%3A%2F%2Ftinygracenotes.blogspot.com&pfname=&rpctoken=94241238"
+1500650148448	Marionette	DEBUG	Received DOM event "pageshow" for "http://tinygracenotes.blogspot.com/"
+1500650148863	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500650150133	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500650151398	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500650152654	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500650153911	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500650155179	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500650156446	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500650157700	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500650158945	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500650160194	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500650161438	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500650162682	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500650163934	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500650165182	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500650166442	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500650167695	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500650168949	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500650170197	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500650171443	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500650172706	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500650173961	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500650175208	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500650176452	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500650177702	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500650178966	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500650180213	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500650183768	Marionette	INFO	New connections will no longer be accepted
+1500671541957	geckodriver	INFO	Listening on 127.0.0.1:62486
+1500671544423	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500671549806	Marionette	INFO	Listening on port 62493
+1500671549935	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500671550220	Marionette	DEBUG	loaded listener.js
+2017-07-21 17:12:30.314 plugin-container[7917:1030841] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8d3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-21 17:12:30.315 plugin-container[7917:1030841] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f23, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-21 17:12:30.315 plugin-container[7917:1030841] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500671551197	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500671551269	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500671551270	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500671552225	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://tinygracenotes.blogspot.com/"
+1500671552580	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=1725958813857579465&blogName=Tiny+Grace+Notes+(Ask+an+Autistic)&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=LIGHT&layoutType=LAYOUTS&searchRoot=http://tinygracenotes.blogspot.com/search&blogLocale=en&v=2&homepageUrl=http://tinygracenotes.blogspot.com/&vt=-1867098749424475194&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.hm0TBMgoat8.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOkjDE4062RrjN-8bdvrhBStEdHbg#id=navbar-iframe&parent=http%3A%2F%2Ftinygracenotes.blogspot.com&pfname=&rpctoken=32355447"
+1500671552843	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671552851	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671552893	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671552895	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671552918	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671552920	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671552936	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671552941	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671552959	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671552961	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671552971	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671552976	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671553031	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671553032	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671553134	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Ftinygracenotes.blogspot.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.hm0TBMgoat8.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOkjDE4062RrjN-8bdvrhBStEdHbg#rpctoken=559054267&forcesecure=1"
+1500671553240	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Ftinygracenotes.blogspot.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.hm0TBMgoat8.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOkjDE4062RrjN-8bdvrhBStEdHbg#rpctoken=559054267&forcesecure=1"
+1500671553248	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671553250	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671553282	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.hm0TBMgoat8.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOkjDE4062RrjN-8bdvrhBStEdHbg#rpctoken=286963757&forcesecure=1"
+1500671553307	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.hm0TBMgoat8.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOkjDE4062RrjN-8bdvrhBStEdHbg#rpctoken=286963757&forcesecure=1"
+1500671553309	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=1725958813857579465&blogName=Tiny+Grace+Notes+(Ask+an+Autistic)&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=LIGHT&layoutType=LAYOUTS&searchRoot=http://tinygracenotes.blogspot.com/search&blogLocale=en&v=2&homepageUrl=http://tinygracenotes.blogspot.com/&vt=-1867098749424475194&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.hm0TBMgoat8.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOkjDE4062RrjN-8bdvrhBStEdHbg#id=navbar-iframe&parent=http%3A%2F%2Ftinygracenotes.blogspot.com&pfname=&rpctoken=32355447"
+1500671553315	Marionette	DEBUG	Received DOM event "pageshow" for "http://tinygracenotes.blogspot.com/"
+1500671553755	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671555024	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671556289	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671557546	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671558804	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671560075	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671561346	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671562606	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671563866	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671565127	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671566391	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671567639	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671568897	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671570149	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671571420	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671572675	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671573926	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671575186	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671576444	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671577728	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671578985	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671580234	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671581488	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671582737	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671584004	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671585256	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671589138	Marionette	INFO	New connections will no longer be accepted
+1500671693745	geckodriver	INFO	Listening on 127.0.0.1:62784
+1500671694900	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500671698205	Marionette	INFO	Listening on port 62791
+1500671698272	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500671698539	Marionette	DEBUG	loaded listener.js
+2017-07-21 17:14:58.714 plugin-container[7928:1032832] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x903f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-21 17:14:58.717 plugin-container[7928:1032832] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9213, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-21 17:14:58.717 plugin-container[7928:1032832] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500671698856	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500671698931	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500671698931	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500671699744	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://tinygracenotes.blogspot.com/"
+1500671700091	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=1725958813857579465&blogName=Tiny+Grace+Notes+(Ask+an+Autistic)&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=LIGHT&layoutType=LAYOUTS&searchRoot=http://tinygracenotes.blogspot.com/search&blogLocale=en&v=2&homepageUrl=http://tinygracenotes.blogspot.com/&vt=-1867098749424475194&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.hm0TBMgoat8.O%2Fm%3D__features__%2Fam%3DEQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCNkwjXLIvH4zg1E3zs48sbvvWte_Q#id=navbar-iframe&parent=http%3A%2F%2Ftinygracenotes.blogspot.com&pfname=&rpctoken=17004805"
+1500671700389	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671700401	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671700450	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671700452	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671700479	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671700482	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671700494	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671700500	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671700505	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671700507	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671700539	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671700543	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671700643	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671700645	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671700675	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Ftinygracenotes.blogspot.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.hm0TBMgoat8.O%2Fm%3D__features__%2Fam%3DEQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCNkwjXLIvH4zg1E3zs48sbvvWte_Q#rpctoken=690774272&forcesecure=1"
+1500671700797	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Ftinygracenotes.blogspot.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.hm0TBMgoat8.O%2Fm%3D__features__%2Fam%3DEQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCNkwjXLIvH4zg1E3zs48sbvvWte_Q#rpctoken=690774272&forcesecure=1"
+1500671700809	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671700811	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671700844	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.hm0TBMgoat8.O%2Fm%3D__features__%2Fam%3DEQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCNkwjXLIvH4zg1E3zs48sbvvWte_Q#rpctoken=307951161&forcesecure=1"
+1500671700873	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.hm0TBMgoat8.O%2Fm%3D__features__%2Fam%3DEQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCNkwjXLIvH4zg1E3zs48sbvvWte_Q#rpctoken=307951161&forcesecure=1"
+1500671700877	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=1725958813857579465&blogName=Tiny+Grace+Notes+(Ask+an+Autistic)&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=LIGHT&layoutType=LAYOUTS&searchRoot=http://tinygracenotes.blogspot.com/search&blogLocale=en&v=2&homepageUrl=http://tinygracenotes.blogspot.com/&vt=-1867098749424475194&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.hm0TBMgoat8.O%2Fm%3D__features__%2Fam%3DEQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCNkwjXLIvH4zg1E3zs48sbvvWte_Q#id=navbar-iframe&parent=http%3A%2F%2Ftinygracenotes.blogspot.com&pfname=&rpctoken=17004805"
+1500671700883	Marionette	DEBUG	Received DOM event "pageshow" for "http://tinygracenotes.blogspot.com/"
+1500671701372	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671702637	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671703896	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671705158	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671706410	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671707667	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671708934	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671710188	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671711435	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671712683	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671713935	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671715186	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671716438	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671717686	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671718949	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671720207	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671721467	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671722718	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671723968	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671725235	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671726492	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671727745	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671728997	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671730250	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671731513	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671732770	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671736786	Marionette	INFO	New connections will no longer be accepted
+1500671749648	geckodriver	INFO	Listening on 127.0.0.1:63022
+1500671750781	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500671753713	Marionette	INFO	Listening on port 63029
+1500671753806	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500671754044	Marionette	DEBUG	loaded listener.js
+2017-07-21 17:15:54.149 plugin-container[7939:1033844] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x913f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-21 17:15:54.150 plugin-container[7939:1033844] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9443, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-21 17:15:54.150 plugin-container[7939:1033844] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500671754388	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500671754465	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500671754466	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500671755171	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://tinygracenotes.blogspot.com/"
+1500671755550	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=1725958813857579465&blogName=Tiny+Grace+Notes+(Ask+an+Autistic)&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=LIGHT&layoutType=LAYOUTS&searchRoot=http://tinygracenotes.blogspot.com/search&blogLocale=en&v=2&homepageUrl=http://tinygracenotes.blogspot.com/&vt=-1867098749424475194&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.hm0TBMgoat8.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOkjDE4062RrjN-8bdvrhBStEdHbg#id=navbar-iframe&parent=http%3A%2F%2Ftinygracenotes.blogspot.com&pfname=&rpctoken=81545272"
+1500671755731	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671755737	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671755782	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671755784	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671755846	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671755851	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671755868	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671755872	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671755886	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671755892	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671755910	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671755913	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671755927	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671755929	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671756035	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Ftinygracenotes.blogspot.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.hm0TBMgoat8.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOkjDE4062RrjN-8bdvrhBStEdHbg#rpctoken=492322700&forcesecure=1"
+1500671756162	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Ftinygracenotes.blogspot.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.hm0TBMgoat8.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOkjDE4062RrjN-8bdvrhBStEdHbg#rpctoken=492322700&forcesecure=1"
+1500671756210	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671756212	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671756234	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.hm0TBMgoat8.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOkjDE4062RrjN-8bdvrhBStEdHbg#rpctoken=356917919&forcesecure=1"
+1500671756261	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.hm0TBMgoat8.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOkjDE4062RrjN-8bdvrhBStEdHbg#rpctoken=356917919&forcesecure=1"
+1500671756264	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=1725958813857579465&blogName=Tiny+Grace+Notes+(Ask+an+Autistic)&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=LIGHT&layoutType=LAYOUTS&searchRoot=http://tinygracenotes.blogspot.com/search&blogLocale=en&v=2&homepageUrl=http://tinygracenotes.blogspot.com/&vt=-1867098749424475194&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.hm0TBMgoat8.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOkjDE4062RrjN-8bdvrhBStEdHbg#id=navbar-iframe&parent=http%3A%2F%2Ftinygracenotes.blogspot.com&pfname=&rpctoken=81545272"
+1500671756270	Marionette	DEBUG	Received DOM event "pageshow" for "http://tinygracenotes.blogspot.com/"
+1500671756676	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671757938	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671759203	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671760463	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671761713	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671762970	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671764251	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671765508	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671766750	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671768001	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671769253	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671770502	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671771750	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671772997	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671774244	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671775515	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671776769	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671778019	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671779290	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671780553	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671781817	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671783064	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671784320	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671785568	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671786822	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671788088	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671792429	Marionette	INFO	New connections will no longer be accepted
+1500671812347	geckodriver	INFO	Listening on 127.0.0.1:63252
+1500671814681	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500671819249	Marionette	INFO	Listening on port 63259
+1500671819366	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500671819830	Marionette	DEBUG	loaded listener.js
+2017-07-21 17:16:59.981 plugin-container[7948:1035528] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x903f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-21 17:16:59.987 plugin-container[7948:1035528] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x4d2f, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-21 17:16:59.987 plugin-container[7948:1035528] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500671820876	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500671820949	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500671820949	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500671821842	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://tinygracenotes.blogspot.com/"
+1500671822267	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=1725958813857579465&blogName=Tiny+Grace+Notes+(Ask+an+Autistic)&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=LIGHT&layoutType=LAYOUTS&searchRoot=http://tinygracenotes.blogspot.com/search&blogLocale=en&v=2&homepageUrl=http://tinygracenotes.blogspot.com/&vt=-1867098749424475194&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.hm0TBMgoat8.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOkjDE4062RrjN-8bdvrhBStEdHbg#id=navbar-iframe&parent=http%3A%2F%2Ftinygracenotes.blogspot.com&pfname=&rpctoken=24821018"
+1500671822506	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671822521	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671822723	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671822728	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671822932	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671822938	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671823038	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671823043	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671823050	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671823054	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671823064	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671823066	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671823091	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671823093	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671823102	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Ftinygracenotes.blogspot.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.hm0TBMgoat8.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOkjDE4062RrjN-8bdvrhBStEdHbg#rpctoken=409503289&forcesecure=1"
+1500671823251	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Ftinygracenotes.blogspot.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.hm0TBMgoat8.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOkjDE4062RrjN-8bdvrhBStEdHbg#rpctoken=409503289&forcesecure=1"
+1500671823258	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500671823261	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500671823298	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.hm0TBMgoat8.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOkjDE4062RrjN-8bdvrhBStEdHbg#rpctoken=904224627&forcesecure=1"
+1500671823338	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.hm0TBMgoat8.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOkjDE4062RrjN-8bdvrhBStEdHbg#rpctoken=904224627&forcesecure=1"
+1500671823341	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=1725958813857579465&blogName=Tiny+Grace+Notes+(Ask+an+Autistic)&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=LIGHT&layoutType=LAYOUTS&searchRoot=http://tinygracenotes.blogspot.com/search&blogLocale=en&v=2&homepageUrl=http://tinygracenotes.blogspot.com/&vt=-1867098749424475194&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.hm0TBMgoat8.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOkjDE4062RrjN-8bdvrhBStEdHbg#id=navbar-iframe&parent=http%3A%2F%2Ftinygracenotes.blogspot.com&pfname=&rpctoken=24821018"
+1500671823348	Marionette	DEBUG	Received DOM event "pageshow" for "http://tinygracenotes.blogspot.com/"
+1500671823846	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671825127	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671826410	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671827695	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671828958	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671830234	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671831623	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671832876	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671834131	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671835384	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671836639	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671837911	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671839168	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671840437	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671841699	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671842980	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671844235	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671845482	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671846730	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671848002	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671849255	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671850500	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671851751	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671853013	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671854277	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671855533	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500671859284	Marionette	INFO	New connections will no longer be accepted

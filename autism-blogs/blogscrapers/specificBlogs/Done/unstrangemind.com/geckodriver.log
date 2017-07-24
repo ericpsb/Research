@@ -1,0 +1,1419 @@
+1496258041958	geckodriver	INFO	Listening on 127.0.0.1:56026
+1496258047413	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496258075218	Marionette	INFO	Listening on port 56351
+1496258076150	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 15:14:38.090 plugin-container[4406:340128] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 15:14:38.102 plugin-container[4406:340128] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5007, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 15:14:38.102 plugin-container[4406:340128] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1496258082858	Marionette	INFO	New connections will no longer be accepted
+1498579265089	geckodriver	INFO	Listening on 127.0.0.1:58591
+1498579266181	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498579269123	Marionette	INFO	Listening on port 58606
+1498579269235	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498579269562	Marionette	DEBUG	loaded listener.js
+1498579269601	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+2017-06-27 12:01:09.663 plugin-container[1645:184425] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:01:09.664 plugin-container[1645:184425] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5217, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:01:09.664 plugin-container[1645:184425] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498579269723	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498579269723	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498579270390	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://unstrangemind.wordpress.com/"
+1498579270555	Marionette	DEBUG	Received DOM event "pageshow" for "https://unstrangemind.wordpress.com/"
+1498579272658	Marionette	INFO	New connections will no longer be accepted
+1500579910150	geckodriver	INFO	Listening on 127.0.0.1:57339
+1500579911129	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500579915830	Marionette	INFO	Listening on port 57346
+1500579915961	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500579916167	Marionette	DEBUG	loaded listener.js
+2017-07-20 15:45:16.297 plugin-container[4322:762537] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 15:45:16.302 plugin-container[4322:762537] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x521b, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 15:45:16.302 plugin-container[4322:762537] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500579958458	geckodriver	INFO	Listening on 127.0.0.1:57693
+1500579959936	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500579962642	Marionette	INFO	Listening on port 57708
+1500579962770	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500579963173	Marionette	DEBUG	loaded listener.js
+2017-07-20 15:46:03.269 plugin-container[4328:762926] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8d3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 15:46:03.270 plugin-container[4328:762926] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x4f17, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 15:46:03.270 plugin-container[4328:762926] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500580175049	geckodriver	INFO	Listening on 127.0.0.1:58802
+1500580179424	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500580187016	Marionette	INFO	Listening on port 58829
+1500580187099	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500580187397	Marionette	DEBUG	loaded listener.js
+2017-07-20 15:49:47.655 plugin-container[4341:764776] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x923f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 15:49:47.658 plugin-container[4341:764776] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9423, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 15:49:47.658 plugin-container[4341:764776] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500580188524	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500580188584	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500580188584	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500580189927	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500580190442	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500580190487	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500580190619	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483655"
+1500580190929	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500580265601	geckodriver	INFO	Listening on 127.0.0.1:59467
+1500580268530	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500580274775	Marionette	INFO	Listening on port 59486
+1500580274883	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500580275311	Marionette	DEBUG	loaded listener.js
+2017-07-20 15:51:15.487 plugin-container[4347:765419] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f33, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 15:51:15.491 plugin-container[4347:765419] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9017, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 15:51:15.491 plugin-container[4347:765419] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500580276531	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500580276593	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500580276593	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500580277685	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500580278156	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500580278201	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500580278359	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483655"
+1500580278768	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500580462046	geckodriver	INFO	Listening on 127.0.0.1:60353
+1500580466197	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500580472870	Marionette	INFO	Listening on port 60380
+1500580472984	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500580473306	Marionette	DEBUG	loaded listener.js
+2017-07-20 15:54:33.524 plugin-container[4388:767532] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 15:54:33.527 plugin-container[4388:767532] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x511f, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 15:54:33.527 plugin-container[4388:767532] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500580474597	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500580474671	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500580474671	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500580475757	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500580476392	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500580476442	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500580476614	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483655"
+1500580476962	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500580546753	geckodriver	INFO	Listening on 127.0.0.1:60882
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1500580550824	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500580556655	Marionette	INFO	Listening on port 60907
+1500580556771	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500580557057	Marionette	DEBUG	loaded listener.js
+2017-07-20 15:55:57.255 plugin-container[4396:768254] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 15:55:57.258 plugin-container[4396:768254] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x901f, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 15:55:57.258 plugin-container[4396:768254] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500580558293	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500580558415	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500580558415	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500580559491	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500580559972	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500580560025	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500580560207	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483655"
+1500580560673	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1500580803678	geckodriver	INFO	Listening on 127.0.0.1:61802
+1500580807182	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500580814118	Marionette	INFO	Listening on port 61825
+1500580814203	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500580814614	Marionette	DEBUG	loaded listener.js
+2017-07-20 16:00:14.837 plugin-container[4411:769480] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e37, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:00:14.840 plugin-container[4411:769480] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x4b17, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:00:14.840 plugin-container[4411:769480] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500580815963	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500580816027	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500580816027	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500580817092	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500580817590	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500580817661	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500580817805	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483655"
+1500580818264	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1500580908284	geckodriver	INFO	Listening on 127.0.0.1:62362
+1500580912045	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500580918380	Marionette	INFO	Listening on port 62385
+1500580918515	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500580918949	Marionette	DEBUG	loaded listener.js
+2017-07-20 16:01:59.166 plugin-container[4417:770140] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:01:59.169 plugin-container[4417:770140] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9023, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:01:59.169 plugin-container[4417:770140] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500580920051	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500580920116	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500580920116	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500580921296	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500580921780	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500580921831	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500580921987	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483655"
+1500580922375	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1500581106183	geckodriver	INFO	Listening on 127.0.0.1:63418
+1500581109401	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1500581119204	Marionette	INFO	Listening on port 63437
+1500581119283	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500581119580	Marionette	DEBUG	loaded listener.js
+2017-07-20 16:05:19.744 plugin-container[4430:772422] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:05:19.747 plugin-container[4430:772422] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9023, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:05:19.747 plugin-container[4430:772422] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500581121034	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500581121094	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500581121095	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500581122398	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500581122989	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500581123036	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500581123039	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1500581270046	Marionette	INFO	Ceased listening
+1500581271606	Marionette	INFO	Ceased listening
+1500581273457	Marionette	INFO	Ceased listening
+1500581275129	Marionette	INFO	Ceased listening
+1500581276631	Marionette	INFO	Ceased listening
+1500581278209	Marionette	INFO	Ceased listening
+1500581279683	Marionette	INFO	Ceased listening
+1500581284042	Marionette	INFO	Ceased listening
+1500581285963	Marionette	INFO	Ceased listening
+1500581349013	geckodriver	INFO	Listening on 127.0.0.1:64719
+1500581353293	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500581358805	Marionette	INFO	Listening on port 64742
+1500581358923	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500581359191	Marionette	DEBUG	loaded listener.js
+2017-07-20 16:09:19.314 plugin-container[4437:775095] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:09:19.317 plugin-container[4437:775095] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9023, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:09:19.317 plugin-container[4437:775095] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500581360278	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500581360339	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500581360339	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500581361371	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500581361827	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500581361873	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500581362000	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483655"
+1500581362600	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500581429444	geckodriver	INFO	Listening on 127.0.0.1:65283
+1500581430508	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500581432774	Marionette	INFO	Listening on port 65294
+1500581432842	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500581433105	Marionette	DEBUG	loaded listener.js
+2017-07-20 16:10:33.229 plugin-container[4446:776072] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e43, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:10:33.232 plugin-container[4446:776072] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9227, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:10:33.232 plugin-container[4446:776072] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500581433461	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500581433522	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500581433522	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500581434307	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500581434743	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500581434787	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500581434922	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483655"
+1500581435586	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500581512975	geckodriver	INFO	Listening on 127.0.0.1:49384
+1500581514046	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500581516321	Marionette	INFO	Listening on port 49395
+1500581516406	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500581516712	Marionette	DEBUG	loaded listener.js
+2017-07-20 16:11:56.838 plugin-container[4454:776850] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9037, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:11:56.845 plugin-container[4454:776850] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x930f, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:11:56.845 plugin-container[4454:776850] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500581517066	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500581517125	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500581517126	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500581517949	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500581518423	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500581518462	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500581518465	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500581552956	geckodriver	INFO	Listening on 127.0.0.1:49682
+1500581554497	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500581560703	Marionette	INFO	Listening on port 49697
+1500581560802	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500581561091	Marionette	DEBUG	loaded listener.js
+2017-07-20 16:12:41.262 plugin-container[4462:777403] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8d3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:12:41.263 plugin-container[4462:777403] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e27, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:12:41.263 plugin-container[4462:777403] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500581561961	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500581562025	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500581562026	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500581563136	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500581563825	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500581563863	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500581563866	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500581635972	geckodriver	INFO	Listening on 127.0.0.1:50264
+1500581639788	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500581645701	Marionette	INFO	Listening on port 50288
+1500581645793	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500581646067	Marionette	DEBUG	loaded listener.js
+2017-07-20 16:14:06.285 plugin-container[4469:778050] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:14:06.288 plugin-container[4469:778050] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x511b, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:14:06.288 plugin-container[4469:778050] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500581647308	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500581647369	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500581647370	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500581648550	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500581649034	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500581649084	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500581649244	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483655"
+1500581649956	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500581724948	geckodriver	INFO	Listening on 127.0.0.1:50874
+1500581728449	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500581734303	Marionette	INFO	Listening on port 50897
+1500581734390	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500581734664	Marionette	DEBUG	loaded listener.js
+2017-07-20 16:15:34.834 plugin-container[4479:778907] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8d3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:15:34.838 plugin-container[4479:778907] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x4933, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:15:34.838 plugin-container[4479:778907] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500581735737	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500581735820	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500581735820	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500581736978	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500581737447	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500581737492	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500581737495	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500581739644	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/"
+1500581739683	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/"
+1500581739685	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/"
+1500581740091	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483653"
+1500581740437	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/2/"
+1500581741034	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500581741072	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500581741074	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/2/"
+1500581742348	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/2/"
+1500581742382	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/2/"
+1500581742382	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/2/"
+1500581742812	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/3/"
+1500581742843	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483658"
+1500581743270	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500581743314	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500581743316	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/3/"
+1500581744603	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/3/"
+1500581744647	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/3/"
+1500581744648	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/3/"
+1500581745022	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/4/"
+1500581745073	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483663"
+1500581745469	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500581745526	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500581745531	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/4/"
+1500581746651	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/4/"
+1500581746688	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/4/"
+1500581746689	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/4/"
+1500581746878	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/5/"
+1500581746891	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1500581747309	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/5/"
+1500581797747	Marionette	INFO	Ceased listening
+1500581799360	Marionette	INFO	Ceased listening
+1500581801317	Marionette	INFO	Ceased listening
+1500581803207	Marionette	INFO	Ceased listening
+1500581804897	Marionette	INFO	Ceased listening
+1500581806919	Marionette	INFO	Ceased listening
+1500581971624	geckodriver	INFO	Listening on 127.0.0.1:52191
+1500581975223	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500581980572	Marionette	INFO	Listening on port 52214
+1500581980678	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500581980910	Marionette	DEBUG	loaded listener.js
+2017-07-20 16:19:41.050 plugin-container[4488:781182] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:19:41.053 plugin-container[4488:781182] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f1f, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:19:41.053 plugin-container[4488:781182] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500581981784	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500581981845	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500581981845	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500581982897	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500581983321	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500581983362	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500581983492	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483655"
+1500581984091	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500581985142	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/"
+1500581985183	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/"
+1500581985184	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/"
+1500581985491	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/2/"
+1500581985502	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483653"
+1500581985929	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500581985969	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500581985977	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/2/"
+1500581987067	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/2/"
+1500581987104	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/2/"
+1500581987104	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/2/"
+1500581987428	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/3/"
+1500581987448	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483658"
+1500581987851	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500581987892	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500581987894	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/3/"
+1500581989042	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/3/"
+1500581989077	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/3/"
+1500581989078	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/3/"
+1500581989398	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/4/"
+1500581989420	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483663"
+1500581989801	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500581989834	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500581989837	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/4/"
+1500581990824	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/4/"
+1500581990884	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/4/"
+1500581990884	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/4/"
+1500581991113	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/5/"
+1500581991196	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1500581991307	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/5/"
+1500582175546	geckodriver	INFO	Listening on 127.0.0.1:53292
+1500582176615	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500582178940	Marionette	INFO	Listening on port 53303
+1500582179028	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500582179278	Marionette	DEBUG	loaded listener.js
+2017-07-20 16:22:59.410 plugin-container[4496:783054] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8c3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:22:59.414 plugin-container[4496:783054] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8d17, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:22:59.414 plugin-container[4496:783054] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500582179660	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500582179719	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500582179719	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500582180454	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500582180982	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500582181020	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500582181173	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483655"
+1500582183037	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500582184079	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/"
+1500582184120	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/"
+1500582184121	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/"
+1500582184446	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/2/"
+1500582184474	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483653"
+1500582184885	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500582184925	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500582184932	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/2/"
+1500582186043	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/2/"
+1500582186077	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/2/"
+1500582186078	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/2/"
+1500582186401	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/3/"
+1500582186422	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483658"
+1500582186824	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500582186859	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500582186861	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/3/"
+1500582188260	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/3/"
+1500582188295	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/3/"
+1500582188296	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/3/"
+1500582188581	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/4/"
+1500582188590	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483663"
+1500582188970	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500582189002	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500582189004	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/4/"
+1500582190303	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/4/"
+1500582190337	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/4/"
+1500582190337	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/4/"
+1500582190546	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/5/"
+1500582190560	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1500582190768	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/5/"
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1500583250301	geckodriver	INFO	Listening on 127.0.0.1:57857
+1500583253963	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500583259773	Marionette	INFO	Listening on port 57880
+1500583259844	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500583260132	Marionette	DEBUG	loaded listener.js
+2017-07-20 16:41:00.261 plugin-container[4511:790298] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:41:00.264 plugin-container[4511:790298] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9717, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:41:00.264 plugin-container[4511:790298] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500583261232	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500583261291	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500583261291	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500583262285	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500583262786	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500583262832	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500583262982	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483655"
+1500583263881	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500583264935	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/"
+1500583264978	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/"
+1500583264979	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/"
+1500583265317	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/2/"
+1500583265347	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483653"
+1500583265773	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500583265973	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483660"
+1500583266004	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500583266006	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/2/"
+1500583266951	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/2/"
+1500583266987	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/2/"
+1500583266988	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/2/"
+1500583267365	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/3/"
+1500583267394	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483658"
+1500583267812	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500583267847	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500583267849	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/3/"
+1500583269145	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/3/"
+1500583269197	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/3/"
+1500583269197	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/3/"
+1500583269471	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/4/"
+1500583269495	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483663"
+1500583269882	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500583269919	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500583269922	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/4/"
+1500583271188	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/4/"
+1500583271225	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/4/"
+1500583271225	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/4/"
+1500583271443	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/5/"
+1500583271456	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1500583271917	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/5/"
+1500583351899	geckodriver	INFO	Listening on 127.0.0.1:58549
+1500583354680	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500583361645	Marionette	INFO	Listening on port 58568
+1500583361781	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500583362239	Marionette	DEBUG	loaded listener.js
+2017-07-20 16:42:42.411 plugin-container[4518:791308] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x904f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:42:42.415 plugin-container[4518:791308] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8d23, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:42:42.415 plugin-container[4518:791308] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500583363401	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500583363463	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500583363463	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500583364546	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500583365031	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500583365074	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500583365237	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483655"
+1500583365695	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500583366905	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/"
+1500583366943	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/"
+1500583366944	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/"
+1500583367235	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483653"
+1500583367310	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/2/"
+1500583367731	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500583367818	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500583367827	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/2/"
+1500583369100	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/2/"
+1500583369133	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/2/"
+1500583369134	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/2/"
+1500583369472	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/3/"
+1500583369475	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483658"
+1500583369860	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500583369903	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500583369905	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/3/"
+1500583371114	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/3/"
+1500583371147	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/3/"
+1500583371147	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/3/"
+1500583371414	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/4/"
+1500583371441	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483663"
+1500583371846	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500583371885	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500583371887	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/4/"
+1500583373131	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/4/"
+1500583373167	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/4/"
+1500583373168	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/4/"
+1500583373326	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/5/"
+1500583373389	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1500583373543	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/5/"
+1500583492749	geckodriver	INFO	Listening on 127.0.0.1:59428
+1500583496292	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500583502422	Marionette	INFO	Listening on port 59451
+1500583502514	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500583502897	Marionette	DEBUG	loaded listener.js
+2017-07-20 16:45:03.119 plugin-container[4527:792287] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x913f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:45:03.122 plugin-container[4527:792287] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9227, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:45:03.122 plugin-container[4527:792287] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500583504172	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500583504238	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500583504239	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500583505671	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500583506130	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500583506178	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500583506308	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483655"
+1500583506712	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500583507551	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/"
+1500583507590	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/"
+1500583507591	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/"
+1500583507928	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/2/"
+1500583507957	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483653"
+1500583508389	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500583508433	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500583508441	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/2/"
+1500583509320	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/2/"
+1500583509358	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/2/"
+1500583509359	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/2/"
+1500583509751	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/3/"
+1500583509758	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483658"
+1500583510201	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500583510243	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500583510245	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/3/"
+1500583511172	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/3/"
+1500583511208	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/3/"
+1500583511209	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/3/"
+1500583511532	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/4/"
+1500583511557	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483663"
+1500583511961	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500583511998	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500583511999	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/4/"
+1500583512796	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/4/"
+1500583512834	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/4/"
+1500583512835	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/4/"
+1500583513071	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/5/"
+1500583513166	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1500583513357	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/5/"
+1500583662760	geckodriver	INFO	Listening on 127.0.0.1:60364
+1500583667254	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500583673376	Marionette	INFO	Listening on port 60395
+1500583673494	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500583673737	Marionette	DEBUG	loaded listener.js
+2017-07-20 16:47:53.897 plugin-container[4535:793308] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x903f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:47:53.901 plugin-container[4535:793308] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x521f, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:47:53.901 plugin-container[4535:793308] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500583675399	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500583675464	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500583675464	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500583677017	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500583677516	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500583677561	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500583677723	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483655"
+1500583678071	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500583679250	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/"
+1500583679341	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/"
+1500583679343	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/"
+1500583679641	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/2/"
+1500583679675	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483653"
+1500583680121	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500583680167	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500583680173	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/2/"
+1500583681075	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/2/"
+1500583681188	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/2/"
+1500583681188	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/2/"
+1500583681518	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/3/"
+1500583681533	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483658"
+1500583682034	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500583682078	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500583682080	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/3/"
+1500583682950	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/3/"
+1500583682983	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/3/"
+1500583682984	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/3/"
+1500583683275	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/4/"
+1500583683298	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483663"
+1500583683707	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500583683924	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500583683926	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/4/"
+1500583684682	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/4/"
+1500583684718	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/4/"
+1500583684718	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/4/"
+1500583684929	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/5/"
+1500583684934	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1500583685181	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/5/"
+1500583789093	geckodriver	INFO	Listening on 127.0.0.1:61081
+1500583792833	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500583798885	Marionette	INFO	Listening on port 61104
+1500583798975	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500583799369	Marionette	DEBUG	loaded listener.js
+2017-07-20 16:49:59.529 plugin-container[4589:795782] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:49:59.530 plugin-container[4589:795782] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x501b, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:49:59.530 plugin-container[4589:795782] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500583800572	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500583800645	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500583800645	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500583802222	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500583802630	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500583802679	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500583802819	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483655"
+1500583803384	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500583804630	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/"
+1500583804671	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/"
+1500583804672	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/"
+1500583805032	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/2/"
+1500583805040	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483653"
+1500583805483	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500583805529	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500583805537	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/2/"
+1500583806540	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/2/"
+1500583806582	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/2/"
+1500583806583	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/2/"
+1500583806905	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/3/"
+1500583806930	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483658"
+1500583807383	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500583807435	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500583807437	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/3/"
+1500583808458	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/3/"
+1500583808496	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/3/"
+1500583808497	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/3/"
+1500583808774	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/4/"
+1500583808798	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483663"
+1500583809191	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500583809416	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500583809423	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/4/"
+1500583810232	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/4/"
+1500583810346	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/4/"
+1500583810346	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/4/"
+1500583810559	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/5/"
+1500583810571	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1500583810853	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/5/"
+1500583857016	Marionette	INFO	Ceased listening
+1500583859186	Marionette	INFO	Ceased listening
+1500583860742	Marionette	INFO	Ceased listening
+1500583862552	Marionette	INFO	Ceased listening
+1500583864382	Marionette	INFO	Ceased listening
+1500583866832	Marionette	INFO	Ceased listening
+1500583868652	Marionette	INFO	Ceased listening
+1500583906305	geckodriver	INFO	Listening on 127.0.0.1:61782
+1500583908772	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500583913776	Marionette	INFO	Listening on port 61789
+1500583913887	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500583914110	Marionette	DEBUG	loaded listener.js
+2017-07-20 16:51:54.244 plugin-container[4600:797530] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:51:54.247 plugin-container[4600:797530] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9123, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:51:54.247 plugin-container[4600:797530] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500583915089	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500583915148	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500583915148	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500583916259	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500583916713	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500583916756	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500583916758	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500583917573	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/"
+1500583917617	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/"
+1500583917618	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/"
+1500583917915	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/2/"
+1500583917941	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483653"
+1500583918356	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500583918391	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500583918393	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/2/"
+1500583919152	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/2/"
+1500583919186	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/2/"
+1500583919187	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/2/"
+1500583919491	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/3/"
+1500583919518	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483658"
+1500583919909	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500583919944	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500583919945	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/3/"
+1500583920745	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/3/"
+1500583920779	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/3/"
+1500583920779	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/3/"
+1500583921053	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/4/"
+1500583921076	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483663"
+1500583921469	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500583921511	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500583921513	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/4/"
+1500583922471	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/4/"
+1500583922507	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/4/"
+1500583922507	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/4/"
+1500583922665	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/5/"
+1500583922726	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1500583923085	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/5/"
+1500583951112	Marionette	INFO	Ceased listening
+1500584004733	geckodriver	INFO	Listening on 127.0.0.1:62380
+1500584005796	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500584008252	Marionette	INFO	Listening on port 62391
+1500584008320	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500584008590	Marionette	DEBUG	loaded listener.js
+2017-07-20 16:53:28.710 plugin-container[4608:798340] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:53:28.715 plugin-container[4608:798340] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e33, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:53:28.715 plugin-container[4608:798340] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500584008972	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500584009032	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500584009033	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500584009831	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500584010261	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500584010307	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500584010310	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500584011031	Marionette	INFO	New connections will no longer be accepted
+1500584084218	geckodriver	INFO	Listening on 127.0.0.1:62623
+1500584085288	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500584087560	Marionette	INFO	Listening on port 62630
+1500584087627	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500584087897	Marionette	DEBUG	loaded listener.js
+2017-07-20 16:54:48.013 plugin-container[4619:799400] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:54:48.019 plugin-container[4619:799400] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5217, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:54:48.019 plugin-container[4619:799400] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500584088718	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500584088777	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500584088777	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500584089569	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500584090006	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500584090051	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500584090179	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483655"
+1500584090188	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500584090909	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/"
+1500584090964	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/"
+1500584090965	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/"
+1500584091275	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/2/"
+1500584091286	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483653"
+1500584091713	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500584091750	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500584091752	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/2/"
+1500584092466	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/2/"
+1500584092500	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/2/"
+1500584092501	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/2/"
+1500584092824	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/3/"
+1500584092839	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483658"
+1500584093238	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500584093269	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500584093271	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/3/"
+1500584094052	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/3/"
+1500584094084	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/3/"
+1500584094084	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/3/"
+1500584094410	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/4/"
+1500584094420	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483663"
+1500584094822	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500584094858	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500584094859	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/4/"
+1500584095600	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/4/"
+1500584095634	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/4/"
+1500584095634	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/4/"
+1500584095867	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/5/"
+1500584095871	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1500584096142	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/5/"
+1500584184391	geckodriver	INFO	Listening on 127.0.0.1:63071
+1500584185454	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500584187806	Marionette	INFO	Listening on port 63082
+1500584187922	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500584188147	Marionette	DEBUG	loaded listener.js
+2017-07-20 16:56:28.265 plugin-container[4626:800080] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f4b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:56:28.270 plugin-container[4626:800080] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e1f, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:56:28.270 plugin-container[4626:800080] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500584188502	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500584188561	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500584188561	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500584189305	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500584189788	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500584189837	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500584189840	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500584190720	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/"
+1500584190759	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/"
+1500584190760	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/"
+1500584191048	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/2/"
+1500584191083	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483653"
+1500584191508	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500584191546	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500584191549	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/2/"
+1500584192309	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/2/"
+1500584192343	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/2/"
+1500584192343	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/2/"
+1500584192648	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/3/"
+1500584192676	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483658"
+1500584193055	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500584193089	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500584193091	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/3/"
+1500584193819	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/3/"
+1500584193851	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/3/"
+1500584193851	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/3/"
+1500584194116	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/4/"
+1500584194143	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483663"
+1500584194534	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500584194569	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500584194570	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/4/"
+1500584195346	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/4/"
+1500584195381	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/4/"
+1500584195381	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/4/"
+1500584195532	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/5/"
+1500584195590	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1500584195880	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/5/"
+1500584196058	Marionette	INFO	New connections will no longer be accepted
+1500584243798	geckodriver	INFO	Listening on 127.0.0.1:63498
+1500584244886	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500584248350	Marionette	INFO	Listening on port 63513
+1500584248439	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500584248690	Marionette	DEBUG	loaded listener.js
+2017-07-20 16:57:28.804 plugin-container[4635:801080] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x904b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:57:28.809 plugin-container[4635:801080] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f27, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:57:28.809 plugin-container[4635:801080] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500584249063	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500584249123	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500584249123	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500584249943	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500584250392	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500584250433	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500584250436	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500584251421	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/"
+1500584251459	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/"
+1500584251460	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/"
+1500584251757	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/2/"
+1500584251789	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483653"
+1500584252209	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500584252249	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500584252256	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/2/"
+1500584253014	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/2/"
+1500584253052	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/2/"
+1500584253052	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/2/"
+1500584253373	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/3/"
+1500584253390	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483658"
+1500584253785	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500584253819	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500584253820	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/3/"
+1500584254563	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/3/"
+1500584254596	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/3/"
+1500584254596	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/3/"
+1500584254881	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/4/"
+1500584254892	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483663"
+1500584255280	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500584255311	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500584255313	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/4/"
+1500584256128	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/4/"
+1500584256163	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/4/"
+1500584256163	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/4/"
+1500584256355	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/5/"
+1500584256364	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1500584256409	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/5/"
+1500584256596	Marionette	INFO	New connections will no longer be accepted
+1500584289258	geckodriver	INFO	Listening on 127.0.0.1:63904
+1500584290567	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500584294707	Marionette	INFO	Listening on port 63915
+1500584294798	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500584295070	Marionette	DEBUG	loaded listener.js
+2017-07-20 16:58:15.167 plugin-container[4643:801987] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8d3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:58:15.168 plugin-container[4643:801987] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x4f1b, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:58:15.168 plugin-container[4643:801987] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500584295456	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500584295518	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500584295518	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500584296347	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500584296772	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500584296821	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500584296945	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483655"
+1500584297008	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500584297740	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/"
+1500584297779	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/"
+1500584297781	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/"
+1500584298070	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/2/"
+1500584298096	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483653"
+1500584298508	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500584298550	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500584298556	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/2/"
+1500584299307	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/2/"
+1500584299340	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/2/"
+1500584299341	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/2/"
+1500584299643	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/3/"
+1500584299673	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483658"
+1500584300068	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500584300101	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500584300102	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/3/"
+1500584300870	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/3/"
+1500584300906	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/3/"
+1500584300906	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/3/"
+1500584301182	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/4/"
+1500584301207	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483663"
+1500584301588	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500584301624	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500584301626	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/4/"
+1500584302401	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/4/"
+1500584302451	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/4/"
+1500584302451	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/4/"
+1500584302648	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/5/"
+1500584302661	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1500584302786	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/5/"
+1500584303050	Marionette	INFO	New connections will no longer be accepted
+1500584362926	geckodriver	INFO	Listening on 127.0.0.1:64435
+1500584365196	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500584368945	Marionette	INFO	Listening on port 64454
+1500584369013	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500584369288	Marionette	DEBUG	loaded listener.js
+2017-07-20 16:59:29.404 plugin-container[4650:803076] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:59:29.408 plugin-container[4650:803076] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x911f, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 16:59:29.408 plugin-container[4650:803076] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500584369649	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500584369711	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500584369711	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500584370594	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500584371038	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500584371089	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500584371219	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483655"
+1500584371757	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500584372446	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/"
+1500584372482	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/"
+1500584372483	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/"
+1500584372777	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/2/"
+1500584372803	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483653"
+1500584373231	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500584373265	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500584373267	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/2/"
+1500584374009	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/2/"
+1500584374048	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/2/"
+1500584374049	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/2/"
+1500584374380	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/3/"
+1500584374389	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483658"
+1500584374773	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500584374807	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500584374811	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/3/"
+1500584375679	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/3/"
+1500584375712	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/3/"
+1500584375712	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/3/"
+1500584375990	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/4/"
+1500584376012	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483663"
+1500584376388	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500584376419	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500584376421	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/4/"
+1500584377164	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/4/"
+1500584377198	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/4/"
+1500584377198	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/4/"
+1500584377421	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/5/"
+1500584377504	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1500584377626	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/5/"
+1500584377823	Marionette	INFO	New connections will no longer be accepted
+1500584433636	geckodriver	INFO	Listening on 127.0.0.1:64938
+1500584434703	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500584437048	Marionette	INFO	Listening on port 64953
+1500584437119	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500584437385	Marionette	DEBUG	loaded listener.js
+2017-07-20 17:00:37.506 plugin-container[4659:804058] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 17:00:37.511 plugin-container[4659:804058] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x931b, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 17:00:37.512 plugin-container[4659:804058] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500584437732	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500584437793	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500584437793	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500584438528	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500584439041	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500584439080	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500584439083	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500584440466	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/"
+1500584440507	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/"
+1500584440508	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/"
+1500584440823	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/2/"
+1500584440833	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483653"
+1500584441256	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500584441290	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500584441291	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/2/"
+1500584442046	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/2/"
+1500584442081	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/2/"
+1500584442082	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/2/"
+1500584442401	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/3/"
+1500584442411	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483658"
+1500584442813	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500584442845	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500584442847	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/3/"
+1500584443618	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/3/"
+1500584443650	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/3/"
+1500584443651	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/3/"
+1500584443970	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/4/"
+1500584443996	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483663"
+1500584444377	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500584444410	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500584444411	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/4/"
+1500584445330	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/4/"
+1500584445379	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/4/"
+1500584445380	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/4/"
+1500584445567	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/5/"
+1500584445641	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1500584445762	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/5/"
+1500584445942	Marionette	INFO	New connections will no longer be accepted
+1500584487326	geckodriver	INFO	Listening on 127.0.0.1:65345
+1500584488432	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500584491284	Marionette	INFO	Listening on port 65356
+1500584491356	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500584491621	Marionette	DEBUG	loaded listener.js
+2017-07-20 17:01:31.717 plugin-container[4667:805034] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 17:01:31.718 plugin-container[4667:805034] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x903f, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 17:01:31.718 plugin-container[4667:805034] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500584491963	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500584492023	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500584492023	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500584492859	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500584493309	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500584493353	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500584493497	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483655"
+1500584494038	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500584494761	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/"
+1500584494803	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/"
+1500584494804	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/"
+1500584495110	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/2/"
+1500584495126	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483653"
+1500584495546	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500584495586	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500584495591	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/2/"
+1500584496335	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/2/"
+1500584496371	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/2/"
+1500584496371	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/2/"
+1500584496688	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/3/"
+1500584496703	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483658"
+1500584497096	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500584497128	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500584497130	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/3/"
+1500584497898	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/3/"
+1500584497933	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/3/"
+1500584497933	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/3/"
+1500584498199	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/4/"
+1500584498227	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483663"
+1500584498610	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500584498653	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500584498658	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/4/"
+1500584499429	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/4/"
+1500584499483	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/4/"
+1500584499484	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/4/"
+1500584499758	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/5/"
+1500584499765	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1500584500011	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/5/"
+1500584500190	Marionette	INFO	New connections will no longer be accepted
+1500584611920	geckodriver	INFO	Listening on 127.0.0.1:49598
+1500584614191	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500584617833	Marionette	INFO	Listening on port 49613
+1500584617939	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500584618242	Marionette	DEBUG	loaded listener.js
+2017-07-20 17:03:38.354 plugin-container[4676:806303] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 17:03:38.359 plugin-container[4676:806303] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x521b, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 17:03:38.359 plugin-container[4676:806303] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500584618650	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500584618710	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500584618710	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500584619570	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500584620020	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500584620065	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500584620198	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483655"
+1500584620860	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500584621645	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/"
+1500584621684	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/"
+1500584621686	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/"
+1500584622012	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/2/"
+1500584622021	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483653"
+1500584622430	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500584622464	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500584622466	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/2/"
+1500584623239	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/2/"
+1500584623275	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/2/"
+1500584623275	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/2/"
+1500584623609	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/3/"
+1500584623616	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483658"
+1500584624008	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500584624051	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500584624053	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/3/"
+1500584624917	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/3/"
+1500584624948	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/3/"
+1500584624948	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/3/"
+1500584625216	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/4/"
+1500584625243	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483663"
+1500584625618	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500584625650	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500584625652	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/4/"
+1500584626556	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/4/"
+1500584626589	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/4/"
+1500584626590	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/4/"
+1500584626808	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/5/"
+1500584626816	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1500584626928	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/5/"
+1500584627095	Marionette	INFO	New connections will no longer be accepted
+1500584674923	geckodriver	INFO	Listening on 127.0.0.1:50079
+1500584675989	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500584678239	Marionette	INFO	Listening on port 50090
+1500584678307	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500584678575	Marionette	DEBUG	loaded listener.js
+2017-07-20 17:04:38.691 plugin-container[4684:807374] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 17:04:38.694 plugin-container[4684:807374] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x501f, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 17:04:38.694 plugin-container[4684:807374] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500584678925	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500584678989	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500584678990	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500584679764	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500584680252	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500584680294	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500584680441	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483655"
+1500584680943	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500584681646	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/"
+1500584681686	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/"
+1500584681687	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/"
+1500584681996	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/2/"
+1500584682009	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483653"
+1500584682431	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500584682468	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500584682474	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/2/"
+1500584683245	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/2/"
+1500584683278	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/2/"
+1500584683279	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/2/"
+1500584683585	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/3/"
+1500584683606	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483658"
+1500584683998	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500584684030	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500584684031	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/3/"
+1500584684818	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/3/"
+1500584684852	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/3/"
+1500584684853	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/3/"
+1500584685139	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/4/"
+1500584685148	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483663"
+1500584685535	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500584685570	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500584685572	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/4/"
+1500584686370	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/4/"
+1500584686445	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/4/"
+1500584686445	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/4/"
+1500584686711	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/5/"
+1500584686716	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1500584686893	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/5/"
+1500584687152	Marionette	INFO	New connections will no longer be accepted
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1500584725253	geckodriver	INFO	Listening on 127.0.0.1:50467
+1500584726391	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500584730082	Marionette	INFO	Listening on port 50478
+1500584730156	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500584730421	Marionette	DEBUG	loaded listener.js
+2017-07-20 17:05:30.518 plugin-container[4692:808385] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 17:05:30.518 plugin-container[4692:808385] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x501f, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 17:05:30.519 plugin-container[4692:808385] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500584730789	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500584730852	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500584730852	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500584731692	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500584732135	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500584732183	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500584732321	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483655"
+1500584732931	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500584733621	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/"
+1500584733659	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/"
+1500584733660	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/"
+1500584733949	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/2/"
+1500584733974	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483653"
+1500584734396	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500584734432	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500584734439	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/2/"
+1500584735188	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/2/"
+1500584735219	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/2/"
+1500584735220	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/2/"
+1500584735542	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/3/"
+1500584735558	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483658"
+1500584735938	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500584735974	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500584735975	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/3/"
+1500584736758	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/3/"
+1500584736792	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/3/"
+1500584736793	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/3/"
+1500584737065	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/4/"
+1500584737089	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483663"
+1500584737478	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500584737514	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500584737516	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/4/"
+1500584738284	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/4/"
+1500584738339	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/4/"
+1500584738339	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/4/"
+1500584738608	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/5/"
+1500584738626	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1500584739016	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/5/"
+1500584739198	Marionette	INFO	New connections will no longer be accepted
+1500584793115	geckodriver	INFO	Listening on 127.0.0.1:50966
+1500584795398	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500584798998	Marionette	INFO	Listening on port 50981
+1500584799067	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500584799408	Marionette	DEBUG	loaded listener.js
+2017-07-20 17:06:39.525 plugin-container[4699:809373] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f33, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 17:06:39.529 plugin-container[4699:809373] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x911f, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 17:06:39.529 plugin-container[4699:809373] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500584799791	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500584799862	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500584799862	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500584800806	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500584801250	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500584801296	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500584801443	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483655"
+1500584802039	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500584802729	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/"
+1500584802769	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/"
+1500584802771	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/"
+1500584803059	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/2/"
+1500584803087	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483653"
+1500584803514	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500584803545	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500584803547	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/2/"
+1500584804309	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/2/"
+1500584804349	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/2/"
+1500584804350	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/2/"
+1500584804674	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/3/"
+1500584804680	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483658"
+1500584805060	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500584805096	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500584805099	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/3/"
+1500584805999	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/3/"
+1500584806032	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/3/"
+1500584806032	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/3/"
+1500584806296	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/4/"
+1500584806318	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483663"
+1500584806693	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500584806726	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500584806728	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/4/"
+1500584807563	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/4/"
+1500584807601	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/4/"
+1500584807601	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/4/"
+1500584807773	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/5/"
+1500584807836	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1500584807975	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/5/"
+1500584808147	Marionette	INFO	New connections will no longer be accepted
+1500585628858	geckodriver	INFO	Listening on 127.0.0.1:54204
+1500585631429	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500585637160	Marionette	INFO	Listening on port 54211
+1500585637276	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500585637546	Marionette	DEBUG	loaded listener.js
+2017-07-20 17:20:37.710 plugin-container[4718:815893] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 17:20:37.713 plugin-container[4718:815893] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5027, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 17:20:37.713 plugin-container[4718:815893] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500585638664	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500585638722	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500585638722	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500585639958	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500585640445	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500585640484	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500585640605	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483655"
+1500585641546	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500585642302	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/"
+1500585642341	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/"
+1500585642343	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/"
+1500585642659	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/2/"
+1500585642698	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483653"
+1500585643121	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500585643157	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500585643167	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/2/"
+1500585643972	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/2/"
+1500585644006	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/2/"
+1500585644006	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/2/"
+1500585644324	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/3/"
+1500585644351	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483658"
+1500585644789	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500585644826	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500585644828	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/3/"
+1500585645721	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/3/"
+1500585645755	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/3/"
+1500585645756	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/3/"
+1500585646070	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/4/"
+1500585646093	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483663"
+1500585646483	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500585646518	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500585646520	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/4/"
+1500585647257	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/4/"
+1500585647291	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/4/"
+1500585647292	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/4/"
+1500585647599	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/5/"
+1500585647659	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1500585647927	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/5/"
+1500585648111	Marionette	INFO	New connections will no longer be accepted
+1500586310842	geckodriver	INFO	Listening on 127.0.0.1:56762
+1500586311927	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500586315454	Marionette	INFO	Listening on port 56773
+1500586315519	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500586315789	Marionette	DEBUG	loaded listener.js
+2017-07-20 17:31:55.906 plugin-container[4730:821046] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8d3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 17:31:55.909 plugin-container[4730:821046] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f27, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-20 17:31:55.909 plugin-container[4730:821046] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500586316996	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500586317058	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500586317059	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500586318155	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/"
+1500586318595	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500586318648	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/xcuPqnzeP6o?feature=oembed"
+1500586318788	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483655"
+1500586319289	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/"
+1500586320012	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/"
+1500586320050	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/"
+1500586320052	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/"
+1500586320374	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/2/"
+1500586320391	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483653"
+1500586320832	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500586320866	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/3srWlNHZbqU?feature=oembed"
+1500586320867	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/2/"
+1500586321625	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/2/"
+1500586321657	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/2/"
+1500586321658	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/2/"
+1500586321998	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/3/"
+1500586322026	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483658"
+1500586322441	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500586322479	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wXXFeKwVQeQ?feature=oembed"
+1500586322480	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/3/"
+1500586323374	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/3/"
+1500586323409	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/3/"
+1500586323409	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/3/"
+1500586323801	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/4/"
+1500586323812	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483663"
+1500586324402	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500586324448	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/wjsZqvhGzIA?feature=oembed"
+1500586324450	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/4/"
+1500586325279	Marionette	DEBUG	Received DOM event "beforeunload" for "http://unstrangemind.com/page/4/"
+1500586325312	Marionette	DEBUG	Received DOM event "pagehide" for "http://unstrangemind.com/page/4/"
+1500586325313	Marionette	DEBUG	Received DOM event "unload" for "http://unstrangemind.com/page/4/"
+1500586325520	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://unstrangemind.com/page/5/"
+1500586325534	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483668"
+1500586325940	Marionette	DEBUG	Received DOM event "pageshow" for "http://unstrangemind.com/page/5/"
+1500586326200	Marionette	INFO	New connections will no longer be accepted
+1500586442338	Marionette	INFO	Ceased listening

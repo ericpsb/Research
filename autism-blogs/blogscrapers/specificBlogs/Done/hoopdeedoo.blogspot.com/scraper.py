@@ -6,7 +6,7 @@ class test_spider(scrapy.Spider):
 	name = "scraper"
 	start_urls = ['http://hoopdeedoo.blogspot.com/']
 	custom_settings = {
-		'RETRY_TIMES': 10000,
+		'RETRY_TIMES': 100,
 	}
 
 	def __init__(self):
@@ -24,11 +24,11 @@ class test_spider(scrapy.Spider):
 					time.sleep(.2)
 			toclick = self.driver.find_elements_by_xpath('//span[@class="zippy"]')
 		for month in self.driver.find_elements_by_xpath('//ul[@class = "hierarchy"]/li/ul/li/a'): 
-			yield scrapy.Request(month.get_attribute("href"), callback=self.parseb)
+			yield scrapy.Request(month.get_attribute("href"), callback=self.parse_month)
 		self.driver.quit()
         	
 		  
-	def parseb(self, response):
+	def parse_month(self, response):
 		for href in response.xpath('//a[@class = "timestamp-link"]/@href'):
 			yield scrapy.Request(href.extract(), callback=self.parse_link)
 	

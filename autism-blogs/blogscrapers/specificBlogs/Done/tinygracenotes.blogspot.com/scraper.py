@@ -18,7 +18,6 @@ class test_spider(scrapy.Spider):
       while toclick != []:
         for x in toclick:
           try: 
-            #webdriver.common.action_chains.ActionChains(self.driver).move_to_element(x).click(x).perform()
             x.click()
             time.sleep(1)
           except:
@@ -26,8 +25,7 @@ class test_spider(scrapy.Spider):
         toclick = self.driver.find_elements_by_xpath('//span[@class="zippy"]')
       
       for href in self.driver.find_elements_by_xpath('//ul[@class="posts"]/li/a'):
-            full_url = response.urljoin(href.get_attribute("href"))
-            yield scrapy.Request(full_url, callback=self.parse_link)
+            yield scrapy.Request(href.get_attribute("href"), callback=self.parse_link)
       self.driver.quit()
     
     def parse_link(self, response):
