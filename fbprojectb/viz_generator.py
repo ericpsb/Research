@@ -18,7 +18,6 @@ class VisualizationGenerator(object):
         self.mongo = mongo_access.MongoAccess()
         self.nodes = []
         self.links = []
-        self.link_index = 0
         self.pairs = []
 
     def generate_viz(self):
@@ -33,6 +32,7 @@ class VisualizationGenerator(object):
         json = self.generate_viz_json(user['name'])
         user['json'] = json
         self.mongo.update_user_db(self.uid, user)
+        self.mongo.insert_many_interactions(self.pairs)
 
     def generate_viz_json(self, username):
         """Generate JSON."""
@@ -59,7 +59,47 @@ class VisualizationGenerator(object):
         for document in events:
             self.explode_event(document, username)
 
-        return ""
+        self.generate_links()
+
+        return {
+            'nodes': self.nodes,
+            'links': self.links
+        }
+
+    def generate_links(self):
+        """Generate links between all nodes and assign values."""
+
+        #######################################################################
+        # TODO[P]: Still need to add functionality for book/music links and   #
+        # a check for when someone posts to your timeline, because that's an  #
+        # automatic 5 for the value.                                          #
+        #######################################################################
+
+        link_values = {
+            'like': 2,
+            'comment': 3,
+            'tag': 4,
+            'co-like': 1,
+            'co-comment': 2,
+            'co-tag': 5
+        }
+
+        for pair in self.pairs:
+            source_node = self.nodes.index({'name': pair['source']})
+            target_node = self.nodes.index({'name': pair['target']})
+            value = 0
+
+            for interaction in pair['data']:
+                if interaction[0] == 'photo':
+                    value += link_values[interaction[1]]
+                elif interaction[0] == 'event':
+                    value += 2
+                else:
+                    value += link_values[interaction[2]]
+
+            self.links.append({'source': source_node, 'target': target_node, 'value': value})
+
+        return
 
     def explode_document(self, document, username):
         """Take individual feed document and turn into many pair interactions."""
@@ -70,7 +110,7 @@ class VisualizationGenerator(object):
         # towards visualization weights.                                       #
         # NOTE: story_tags also tag the person who posted it (I think), so we  #
         #       may have to account for that.                                  #
-        # NOTE: Also need to do something about events and page likes...       #
+        # NOTE: Also need to do something about page likes...                  #
         ########################################################################
 
         # Format: (key in feed, given type (kind of arbitrary), direction when
@@ -97,6 +137,7 @@ class VisualizationGenerator(object):
         return
 
     def explode_event(self, document, username):
+        """Take individual event document and turn into many pair interactions."""
         interactions = self.process_event(document)
         self.generate_pairs(username, 'source', document['attending']['data'], interactions)
         return
@@ -109,15 +150,16 @@ class VisualizationGenerator(object):
                     if user['from']['id'] == self.uid:
                         continue
                     pair = self.get_user_pair(username, user['from']['name'])
+                    if {'name': user['from']['name']} not in self.nodes:
+                        self.nodes.append({'name': user['from']['name']})
                 else:
                     if user['id'] == self.uid:
                         continue
                     pair = self.get_user_pair(username, user['name'])
+                    if {'name': user['name']} not in self.nodes:
+                        self.nodes.append({'name': user['name']})
 
                 pair['data'].append(interactions)
-                if {'name': user['from']['name']} not in self.nodes:
-                    self.nodes.append({'name': user['from']['name']})
-                    self.link_index += 1
                 self.pairs.append(pair)
         else:
             for user in other_users:
@@ -125,15 +167,16 @@ class VisualizationGenerator(object):
                     if user['from']['id'] == self.uid:
                         continue
                     pair = self.get_user_pair(user['from']['name'], username)
+                    if {'name': user['from']['name']} not in self.nodes:
+                        self.nodes.append({'name': user['from']['name']})
                 else:
                     if user['id'] == self.uid:
                         continue
                     pair = self.get_user_pair(user['name'], username)
+                    if {'name': user['name']} not in self.nodes:
+                        self.nodes.append({'name': user['name']})
 
                 pair['data'].append(interactions)
-                if {'name': user['from']['name']} not in self.nodes:
-                    self.nodes.append({'name': user['from']['name']})
-                    self.link_index += 1
                 self.pairs.append(pair)
 
     def generate_single_pair(self, username, direction, other_user, interactions):
@@ -146,7 +189,6 @@ class VisualizationGenerator(object):
         pair['data'].append(interactions)
         if {'name': other_user} not in self.nodes:
             self.nodes.append({'name': other_user})
-            self.link_index += 1
         self.pairs.append(pair)
 
     def get_user_pair(self, source, target):

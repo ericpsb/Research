@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import httplib
-import facepy
 import json
 from pymongo import MongoClient
 # import logging
@@ -22,9 +21,6 @@ def main():
     # logging.basicConfig(filename='ltget_log.txt',
     #                     format='%(asctime)s %(message)s', level=logging.DEBUG)
     # logging.info("=================== Start ===================")
-
-    # fixing the Insecure platform issue on Facepy
-    # import urllib3.contrib.pyopenssl
 
     # Storing app id and secret
     appid = "1582658458614337"
@@ -54,8 +50,13 @@ def main():
         userInfo['access_token'] = acltat
         userInfo['token_date'] = datetime.datetime.utcnow()
         userInfo['processing'] = True
-        graph = facepy.GraphAPI(acltat)
-        profile = graph.get('me')
+        
+        conn.request("GET", "/v2.10/me?fields=name,id,first_name,last_name,gender,email,birthday&access_token=" + acltat)
+        resp = conn.getresponse()
+        profile = json.load(resp)
+        print profile
+
+        # profile = graph.get('me')
         user_name = profile['name']
         user_id = profile['id']
         existing = collection.find_one({"user id": user_id})

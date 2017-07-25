@@ -14,30 +14,12 @@ import newViz
 import os
 import config
 import sys
+import viz_generator
 
 def run_update(access_token):
     logging.basicConfig(filename='update_db_log.txt',
                         format='%(asctime)s %(message)s', level=logging.DEBUG)
     logging.info("=================== Start ===================")
-
-    # reading check file for status. It points to the last line of
-    # longtermaccesstokens.txt in previous run.
-    # with open('check_db.txt', 'r') as fileone:
-    #     check = int(fileone.read())
-    #     logging.info("Read check_db.txt")
-    #     print "Read check"
-
-    # with open('longtermaccesstoken.txt') as filetwo:
-    #     lines = filetwo.readlines()
-    #     logging.info("Read longtermaccesstoken.txt")
-    #     print "Read longtermaccesstoken"
-
-    # # if we have new users logged in:
-    # if (check < len(lines)):
-    #     remaining = lines[check:]
-    #     logging.info(
-    #         "Number of new users: {}. Including blank lines".format(len(remaining)))
-    #     print len(remaining)
 
     runtime = []
 
@@ -69,41 +51,13 @@ def run_update(access_token):
         taggable_friend_field + ',' + like_field + ',' + feed_field
     activity_url = fb + activity_field + '&access_token='
 
-    # traverse the token list till the end to get all new access tokens
-    # for line in remaining:
-
     to_update_friends = []  # alter id list
 
     start_time = time.clock()  # record processing time/authorized user
-
-    # check = check + 1
-
-    # token = line.split(',')[0]
     token = access_token
-
-    # empty line in longtermaccesstoken.txt
-    # if (token == '\n'):
-    #     with open('check_db.txt', 'w') as filetemp:
-    #         filetemp.write(str(check))
-    #         logging.info(
-    #             "check_db.txt is updated for empty line. Now after line {}".format(check))
-    #     continue
 
     url = me_url + token
     profile = requests.get(url).json()
-
-    # expired access token
-    # if ('error' in profile):
-    #     print "Error in access tokens:", token
-    #     print profile
-    #     logging.info("Error in the access token: {}".format(token))
-    #     logging.info(profile)
-
-    #     with open('check_db.txt', 'w') as filetemp:
-    #         filetemp.write(str(check))
-    #         logging.info(
-    #             "check_db.txt is updated for an error in access token. Now after line {}".format(check))
-    #     continue
 
     # valid token
     profile['name'] = profile['name'].title()
@@ -177,33 +131,24 @@ def run_update(access_token):
     logging.info("Processing {}\'s timeline took {} CPU time".format(
         user_name, difference))
 
-    # with open('check_db.txt', 'w') as filetwo:
-    #     filetwo.write(str(check))
-    #     logging.info(
-    #         "check_db.txt is updated for successfully collecting a user's data.")
-
     # close database connections - newViz will use its own
     client.close()
 
     # generate or update visualization
     to_update_friends = list(set(to_update_friends))
-    x = newViz.GenerateViz()
-    x.init(user_id)
+    visualization_generator = viz_generator.VisualizationGenerator(user_id)
+    visualization_generator.generate_viz()
     logging.info("Generated or updated visualization")
     #Popen(['mail','-s','Your visualization is ready to view',profile['email'],'<<<','Hi,Your network visualization on the Social Interaction Graph app is ready to view. Thank you for your support!'])
     vizurl = "https://das-lab.org/truefriend/viz.php?resp={}&user={}".format(
         token, user_id)
-    # with open("email_content.txt","a") as myfile:
-    # myfile.write("/n"+vizurl)
+
     os.system(
         """echo "Hi,\n\nYour network visualization on our Facebook App TrueFriends is ready to view now. The link is shown below. Thank you for your support on our project"'!'"\n\n"'{}' | mail -a "From: TrueFriend <truefriend@das-lab.org>" -s "Your network visualization is ready" {}""".format(vizurl, profile['email']))
-    # with open('check_db.txt', 'w+') as file2:
-    #lines = file2.readlines()
-    #lines = lines[:-1]
-    # file2.write(lines)
+
     for friend in to_update_friends:
-        y = newViz.GenerateViz()
-        y.init(friend)
+        friend_viz_generator = viz_generator.VisualizationGenerator(friend)
+        friend_viz_generator.generate_viz()
         logging.info("Updated visualization for a friend")
 
     print 'Past processing time: {}'.format(runtime)
@@ -322,133 +267,137 @@ def process_feed(feeds, data, user_name, user_id, relation, people, interactions
                 doc[relation].append({"name": user_name, "id": user_id})
             feeds.update({"id": doc['id']}, doc)
 
-    for doc in result_total:
-        sys.stdout.flush()
-        # collect people name and id from a doc, add to both people feeds
-        people_list = []
-        find_people(doc, people, people_list, user_name, user_id)
-        people_set = set(people_list)
-        people_list = sorted(list(people_set))
+    ###########################################################################
+    # I think this is all now unnecessary because of viz_generator stuff.     #
+    ###########################################################################
 
-        # pair wise interactions
-        for A in people_list:
-            for B in people_list:
-                if A != B:
+    # for doc in result_total:
+    #     sys.stdout.flush()
+    #     # collect people name and id from a doc, add to both people feeds
+    #     people_list = []
+    #     find_people(doc, people, people_list, user_name, user_id)
+    #     people_set = set(people_list)
+    #     people_list = sorted(list(people_set))
 
-                    if people.find_one({"id": A})['name'] <= people.find_one({"id": B})['name']:
-                        small = {"name": people.find_one(
-                            {"id": A})['name'], "id": A}
-                        large = {"name": people.find_one(
-                            {"id": B})['name'], "id": B}
-                    else:
-                        small = {"name": people.find_one(
-                            {"id": B})['name'], "id": B}
-                        large = {"name": people.find_one(
-                            {"id": A})['name'], "id": A}
+    #     # pair wise interactions
+    #     for A in people_list:
+    #         for B in people_list:
+    #             if A != B:
 
-                    # compare it to track_list
-                    # which tracks node pairs already created from this user
-                    track_pair = {
-                        "small_id": small['id'], "large_id": large['id']}
-                    # if this node pair exists, print information
-                    if track_pair in track_list:
-                        continue
-                    # else, add to the tracking list[]
-                    else:
-                        track_list.append(track_pair)
+    #                 if people.find_one({"id": A})['name'] <= people.find_one({"id": B})['name']:
+    #                     small = {"name": people.find_one(
+    #                         {"id": A})['name'], "id": A}
+    #                     large = {"name": people.find_one(
+    #                         {"id": B})['name'], "id": B}
+    #                 else:
+    #                     small = {"name": people.find_one(
+    #                         {"id": B})['name'], "id": B}
+    #                     large = {"name": people.find_one(
+    #                         {"id": A})['name'], "id": A}
 
-                        # get the pair wise interaction for this node pair
-                        # def
-                        # get_interaction(small,large,user,events,friends,mutual,taggable_friends,likes,feeds):
-                        pair = get_interaction(
-                            small, large, user, events, friends, mutual, taggable_friends, likes, feeds)
-                        existing = interactions.find_one(
-                            {"$and": [{"small_id": small['id']}, {"large_id": large['id']}]})
+    #                 # compare it to track_list
+    #                 # which tracks node pairs already created from this user
+    #                 track_pair = {
+    #                     "small_id": small['id'], "large_id": large['id']}
+    #                 # if this node pair exists, print information
+    #                 if track_pair in track_list:
+    #                     continue
+    #                 # else, add to the tracking list[]
+    #                 else:
+    #                     track_list.append(track_pair)
 
-                        # if this node pair does not exists, insert
-                        if existing == None:
-                            pair['collected_from'] = [
-                                {"name": user_name, "id": user_id}]
-                            interactions.insert_one(pair)
-                        # or update the existing one
-                        # remember to copy existing "collected_from" list
-                        else:
-                            pair['collected_from'] = existing['collected_from']
-                            if {"name": user_name, "id": user_id} not in pair['collected_from']:
-                                pair['collected_from'].append(
-                                    {"name": user_name, "id": user_id})
-                            interactions.update(
-                                {"$and": [{"small_id": small['id']}, {"large_id": large['id']}]}, pair)
+    #                     # get the pair wise interaction for this node pair
+    #                     # def
+    #                     # get_interaction(small,large,user,events,friends,mutual,taggable_friends,likes,feeds):
+    #                     pair = get_interaction(
+    #                         small, large, user, events, friends, mutual, taggable_friends, likes, feeds)
+    #                     existing = interactions.find_one(
+    #                         {"$and": [{"small_id": small['id']}, {"large_id": large['id']}]})
+
+    #                     # if this node pair does not exists, insert
+    #                     if existing == None:
+    #                         pair['collected_from'] = [
+    #                             {"name": user_name, "id": user_id}]
+    #                         interactions.insert_one(pair)
+    #                     # or update the existing one
+    #                     # remember to copy existing "collected_from" list
+    #                     else:
+    #                         pair['collected_from'] = existing['collected_from']
+    #                         if {"name": user_name, "id": user_id} not in pair['collected_from']:
+    #                             pair['collected_from'].append(
+    #                                 {"name": user_name, "id": user_id})
+    #                         interactions.update(
+    #                             {"$and": [{"small_id": small['id']}, {"large_id": large['id']}]}, pair)
 
     print '\nStore all {} from {} in the database'.format('feed', user_name)
     logging.info(
         "Store all {} from {} in the database".format('feed', user_name))
 
 
-# A helper function for function find_people
-# Apply to from and comments
-def create_person_one(key, doc, collection, people_list, user_name, user_id):
-    person = {}
-    person['name'] = doc[key]['name'].title()
-    person['id'] = doc[key]['id']
-    person['collected_from'] = [{"name": user_name, "id": user_id}]
+# # A helper function for function find_people
+# # Apply to from and comments
+# def create_person_one(key, doc, collection, people_list, user_name, user_id):
+#     person = {}
+#     person['name'] = doc[key]['name'].title()
+#     person['id'] = doc[key]['id']
+#     person['collected_from'] = [{"name": user_name, "id": user_id}]
 
-    if collection.find_one({"id": person['id']}) == None:
-        collection.insert_one(person)
-    else:
-        collection.update({"id": person['id']}, {"$addToSet": {
-                          "collected_from": {"name": user_name, "id": user_id}}})
+#     if collection.find_one({"id": person['id']}) == None:
+#         collection.insert_one(person)
+#     else:
+#         collection.update({"id": person['id']}, {"$addToSet": {
+#                           "collected_from": {"name": user_name, "id": user_id}}})
 
-    people_list.append(person['id'])
-
-
-# A helper function for function find_people
-# Apply to tags and likes
-def create_person_two(doc, collection, people_list, user_name, user_id):
-    person = {}
-    person['name'] = doc['name'].title()
-    person['id'] = doc['id']
-    person['collected_from'] = [{"name": user_name, "id": user_id}]
-
-    if collection.find_one({"id": person['id']}) == None:
-        collection.insert_one(person)
-    else:
-        collection.update({"id": person['id']}, {"$addToSet": {
-                          "collected_from": {"name": user_name, "id": user_id}}})
-
-    people_list.append(person['id'])
+#     people_list.append(person['id'])
 
 
-# A function to collect people from feeds
-def find_people(doc, collection, people_list, user_name, user_id):
-    if 'from' in doc:
-        if doc['from']['id'] != None:
-            create_person_one('from', doc, collection,
-                              people_list, user_name, user_id)
-    if 'comments' in doc:
-        for comment in doc['comments']['data']:
-            if 'from' in comment:
-                if comment['from']['id'] != None:
-                    create_person_one('from', comment, collection,
-                                      people_list, user_name, user_id)
-    if 'with_tags' in doc:
-        for tag in doc['with_tags']['data']:
-            if tag['id'] != None:
-                create_person_two(
-                    tag, collection, people_list, user_name, user_id)
-    if 'likes' in doc:
-        for like in doc['likes']['data']:
-            if like['id'] != None:
-                create_person_two(like, collection,
-                                  people_list, user_name, user_id)
-    if 'story_tags' in doc:
-        for item in doc['story_tags']:
-            # for item in doc['story_tags'][key]:
-            if (item['id'] != None) and (item['name'] != "") and ('type' in item):
-                if (item['type'] == 'user') and (item['id'] != user_id):
-                    create_person_two(item, collection,
-                                      people_list, user_name, user_id)
-    logging.info("Collected everyone for this item")
+# # A helper function for function find_people
+# # Apply to tags and likes
+# def create_person_two(doc, collection, people_list, user_name, user_id):
+#     person = {}
+#     person['name'] = doc['name'].title()
+#     person['id'] = doc['id']
+#     person['collected_from'] = [{"name": user_name, "id": user_id}]
+
+#     if collection.find_one({"id": person['id']}) == None:
+#         collection.insert_one(person)
+#     else:
+#         collection.update({"id": person['id']}, {"$addToSet": {
+#                           "collected_from": {"name": user_name, "id": user_id}}})
+
+#     people_list.append(person['id'])
+
+
+# # A function to collect people from feeds
+# def find_people(doc, collection, people_list, user_name, user_id):
+#     if 'from' in doc:
+#         if doc['from']['id'] != None:
+#             create_person_one('from', doc, collection,
+#                               people_list, user_name, user_id)
+#     if 'comments' in doc:
+#         for comment in doc['comments']['data']:
+#             if 'from' in comment:
+#                 if comment['from']['id'] != None:
+#                     create_person_one('from', comment, collection,
+#                                       people_list, user_name, user_id)
+#     if 'with_tags' in doc:
+#         for tag in doc['with_tags']['data']:
+#             if tag['id'] != None:
+#                 create_person_two(
+#                     tag, collection, people_list, user_name, user_id)
+#     if 'likes' in doc:
+#         for like in doc['likes']['data']:
+#             if like['id'] != None:
+#                 create_person_two(like, collection,
+#                                   people_list, user_name, user_id)
+#     if 'story_tags' in doc:
+#         for item in doc['story_tags']:
+#             # for item in doc['story_tags'][key]:
+#             if (item['id'] != None) and (item['name'] != "") and ('type' in item):
+#                 if (item['type'] == 'user') and (item['id'] != user_id):
+#                     create_person_two(item, collection,
+#                                       people_list, user_name, user_id)
+#     logging.info("Collected everyone for this item")
 
 
 # A function to loop through pagination and update likes/comments/tags

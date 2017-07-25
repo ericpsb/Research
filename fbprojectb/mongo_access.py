@@ -26,6 +26,10 @@ class MongoAccess(object):
         users_collection = self.get_users_collection()
         users_collection.update({'user id': userid}, updated_user)
 
+    def insert_many_interactions(self, interactions):
+        interactions_collection = self.get_interactions_collection()
+        interactions_collection.insert_many(interactions)
+
     def query_feed(self, query):
         feed_collection = self.get_feed_collection()
         return feed_collection.find(query)
