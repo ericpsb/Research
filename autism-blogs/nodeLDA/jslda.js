@@ -173,10 +173,9 @@ $.ajax({
     type: "GET",
     url: "/cgraph",
     dataType: "json",
-    success: function(obj) {
-		$("#cgraph").after(obj.graph).remove();
-		
-		$("#corr-page circle").each(function() {
+    success: function(data) {
+		$("#cgraph").after(data).remove();
+		$("#corr-page circle.cover").each(function() {
 			var circle = $(this);
 			var t1 = circle.data("t1");
 			var t2 = circle.data("t2");
@@ -184,25 +183,63 @@ $.ajax({
 			circle.removeAttr("data-t2");
 			circle.data("t1", t1);
 			circle.data("t2", t2);
-			var tooltip = circle.attr("title");
+			
+			var title = circle.attr("title");
 			circle.removeAttr("title");
-			var big = obj.topic[t1] > obj.topic[t2] ? obj.topic[t1] : obj.topic[t2];
-			var small = obj.topic[t1] < obj.topic[t2] ? obj.topic[t1] : obj.topic[t2];
-			var intercept = obj.table[t1][t2];
 			circle.mouseover(function(evt) {
-				$("#tooltip").html($("<span></span>").css("font-size", "small").html(tooltip)).append($("<br>"));
-				var svg = $('<svg viewBox="-100 -100 400 200" preserveAspectRatio="none"></svg>').attr("width", 100).attr("height", 50);
-				console.log(obj.topic[t1] + " " + obj.topic[t2] + " " + intercept + " " + big + " " + small);
-				svg.append($("<circle></circle>").attr("cx", 0).attr("cy", 0).attr("r", Math.round(obj.topic[t1]/big*100)).css("fill", "#f00").css("fill-opacity", 0.5));
-				svg.append($("<circle></circle>").attr("cx", ((1+small/big)*100)).attr("cy", 0).attr("r", Math.round(obj.topic[t2]/big*100)).css("fill", "#00f").css("fill-opacity", 0.5));
-				$("#tooltip").append(svg);
-				$("#tooltip").html($("#tooltip").html());
-				$("#tooltip").css("visibility", "visible").css("top", evt.pageY + 10);
-				var left = evt.pageX - $("#tooltip").width();
-				$("#tooltip").css("left", left < 0 ? 0 : left);
+				var tooltip = $("#tooltip");
+				tooltip.html($("<span></span>").css("font-size", "small").html(title));
+				tooltip.css("visibility", "visible").css("top", evt.pageY + 10);
+				var left = evt.pageX - $("#tooltip").width() - 20;
+				tooltip.css("left", left < 0 ? 0 : left);
 			});
 			circle.mouseout(function() {
 				$("#tooltip").css("visibility", "hidden");
+			});
+			circle.click(function(){
+				$.ajax({
+					type: "GET",
+					url: "/corr",
+					data: $.param({t1: circle.data("t1"), t2: circle.data("t2")}),
+					dataType: "json",
+					success: function(data) {
+						$(".corr-zoom-graph").remove();
+						$("#corr-page").append($("<div></div>").addClass("corr-zoom-graph").append(data.graph).css("width", "100%").css("height", 205));
+						$(".corr-zoom-graph").append($("<div></div>").addClass("viewer").addClass("display-none").append($("<div></div>").addClass("docviewer")))
+						$(".corr-zoom-graph").append($("<div></div>").addClass("close").html("X").click(function(){$(".corr-zoom-graph").remove();}));
+						$(".corr-zoom-graph svg").children().each(function(){
+							var index = $(this).data("index");
+							$(this).removeAttr("data-index");
+							$(this).data("index", index);
+						})
+						$(".corr-zoom-graph svg").children().mouseover(function(evt) {
+							var index = $(this).data("index");
+							var numdocs = data.cumlen[index] - (index == 0 ? 0 : data.cumlen[index-1]);
+							var tooltip = $("#tooltip");
+							tooltip.html(numdocs + " document" + (numdocs > 1 ? "s" : ""));
+							tooltip.css("visibility", "visible").css("top", evt.pageY + 10);
+							var left = evt.pageX - $("#tooltip").width() - 20;
+							tooltip.css("left", left < 0 ? 0 : left);
+						}).mouseout(function() {
+							$("#tooltip").css("visibility", "hidden");
+						}).click(function(evt){
+							$(".corr-zoom-graph .viewer").removeClass("display-none");
+							var index = $(this).data("index");
+							var start = index == 0 ? 0 : data.cumlen[index-1];
+							$.ajax({
+								type: "GET",
+								url: "/corrdocs",
+								data: {t1: circle.data("t1"), t2: circle.data("t2"), docids: data.docids.slice(start, data.cumlen[index])},
+								success: function(docs) {
+									$(".corr-zoom-graph .docviewer").html(docs).scrollTop(0);;
+								
+								}
+							});
+							
+						});
+						
+					}
+				});
 			});
 			
 		});
@@ -517,7 +554,7 @@ $.ajax({
 							idx = 0;
 						}
 						var temp = $("<ellipse></ellipse>").attr("cx", ((p.x+offset[idx])*10).toFixed(3)).attr("cy", (p.y*100)).attr("data-tooltip", p.html);
-						temp.addClass("avgall");
+						temp.addClass("avgone");
 						sameday.push(temp);
 						idx = (idx+1)%offset.length;
 					}
@@ -528,9 +565,17 @@ $.ajax({
 					viewYmin = min;
 					viewHeight = max - min;
 					
-					for(var i=1; i<31; i++) {
-						$(".ts-zoom-graph svg").append($("<line></line>").attr("stroke-dasharray", "0.1, 0.1").attr("x1", (i+0.5)*10).attr("x2", (i+0.5)*10).attr("y1", (viewYmin-1)).attr("y2", (viewYmin+viewHeight+1)).css("stroke-width", 0.2).css("stroke", "#555"));
+					if(viewHeight <= 0.4) {
+						for(var i=1; i<31; i++) {
+							$(".ts-zoom-graph svg").append($("<line></line>").attr("stroke-dasharray", "0.01, 0.01").attr("x1", (i+0.5)*10).attr("x2", (i+0.5)*10).attr("y1", (viewYmin-1)).attr("y2", (viewYmin+viewHeight+1)).css("stroke-width", 0.2).css("stroke", "#555"));
+						}
 					}
+					else {
+						for(var i=1; i<31; i++) {
+							$(".ts-zoom-graph svg").append($("<line></line>").attr("stroke-dasharray", "0.1, 0.1").attr("x1", (i+0.5)*10).attr("x2", (i+0.5)*10).attr("y1", (viewYmin-1)).attr("y2", (viewYmin+viewHeight+1)).css("stroke-width", 0.2).css("stroke", "#555"));
+						}
+					}
+					
 					$(".ts-zoom-graph svg").append($("<line></line>").attr("stroke-dasharray", "1, 1").attr("x1", (viewXmin-1)).attr("x2", (viewXmin+viewWidth+1)).attr("y1", 0).attr("y2", 0).css("stroke-width", 0.4*viewHeight/viewHeight2).css("stroke", "#f00"));
 					for(var i=Math.floor(min); i<=Math.ceil(max); i++) {
 						if(i == 0) {continue;}
@@ -546,11 +591,17 @@ $.ajax({
 					$(".ts-zoom-graph .scales .bot-scale").html(min.toFixed(1) + "σ");
 					
 					$(".ts-zoom-graph svg").html($(".ts-zoom-graph svg").html());
+					$(".ts-zoom-graph svg ellipse").each(function(){
+						var tooltip = $(this).data("tooltip");
+						$(this).removeAttr("data-tooltip");
+						$(this).data("tooltip", tooltip);
+					});
 					$(".ts-zoom-graph svg ellipse").mouseover(function(evt){
-						$("#tooltip").html($(this).data("tooltip"));
+						$("#tooltip").html($(this).data("tooltip")).addClass("ts-tooltip");
+						$("#tooltip .document").prepend(parseFloat($(this).attr("cy")).toFixed(2) + "σ")
 						$("#tooltip").css("visibility", "visible").css("top", evt.pageY + 10).css("left", evt.pageX + (evt.pageX > $(window).width()/2 ? - $("#tooltip").width()-20 : 20));
 					}).mouseout(function() {
-						$("#tooltip").css("visibility", "hidden");
+						$("#tooltip").css("visibility", "hidden").removeClass("ts-tooltip");
 					}).click(function() {
 						window.open($("#tooltip a").attr("href"));
 					});
@@ -613,13 +664,17 @@ $.ajax({
 						idx = (idx+1)%offset.length;
 					}
 					$(".ts-zoom-graph2 svg").html($(".ts-zoom-graph2 svg").html());
+					$(".ts-zoom-graph2 svg ellipse").each(function(){
+						var tooltip = $(this).data("tooltip");
+						$(this).removeAttr("data-tooltip");
+						$(this).data("tooltip", tooltip);
+					});
 					$(".ts-zoom-graph2 svg ellipse").mouseover(function(evt){
-						$("#tooltip").html($(this).data("tooltip"));
+						$("#tooltip").html($(this).data("tooltip")).addClass("ts-tooltip");
+						$("#tooltip .document").prepend(parseFloat($(this).attr("cy")).toFixed(1) + "%");
 						$("#tooltip").css("visibility", "visible").css("top", evt.pageY + 10).css("left", evt.pageX + (evt.pageX > $(window).width()/2 ? -$("#tooltip").width()-40 : 20));
-						$("#tooltip").css("min-width", "30%");
 					}).mouseout(function() {
-						$("#tooltip").css("visibility", "hidden");
-						$("#tooltip").css("min-width", "");
+						$("#tooltip").css("visibility", "hidden").removeClass("ts-tooltip");
 					}).click(function() {
 						window.open($("#tooltip a").attr("href"));
 					});

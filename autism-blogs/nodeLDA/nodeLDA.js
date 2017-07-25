@@ -38,9 +38,16 @@ var topic_sort_map = new Array(numtopics);
 for(var i=0; i<numtopics; i++) {
 	sorted_topic_table[i] = new Array(numdocs);
 	sorted_topic_docid[i] = new Array(numdocs);
-	topic_sort_map[i] = {avg: 0, index: i, back: -1};
+	topic_sort_map[i] = {avg: 0, index: i, back: -1, std: 0};
 }
 
+var topic_table_diag = new Array(numtopics);
+for(var i=0; i<numtopics; i++) {
+	topic_table_diag[i] = new Array(numdocs);
+	for(var j=0; j<numdocs; j++) {
+		topic_table_diag[i][j] = parseFloat(topic_table[j][i]);
+	}
+}
 for(var i=0; i<numtopics; i++) {
 	topic_table.sort(function(a, b) {return b[i] - a[i];}); // sort the table on a specific topic
 	for(var j=0; j<numdocs; j++) {
@@ -56,6 +63,12 @@ for(var i=0; i<numtopics; i++) {
 topic_sort_map.forEach(function(e){
 	e.avg /= numdocs;
 });
+for(var i=0; i<numtopics; i++) {
+	var topicavg = topic_sort_map[i].avg;
+	var topicdiff = sorted_topic_table[i].map(function(el){var d = el-topicavg; return d*d;});
+	topicdiff = topicdiff.reduce(function(result, val){return result + val;}, 0);
+	topic_sort_map[i].std = Math.sqrt(topicdiff);
+}
 topic_sort_map.sort(function(a, b) {return b.avg - a.avg;})
 
 for(var i=0; i < topic_sort_map.length; i++) {
@@ -73,6 +86,7 @@ function sort_array_with_map(array) {
 sort_array_with_map(sorted_topic_table);
 sort_array_with_map(sorted_topic_docid);
 sort_array_with_map(topics);
+sort_array_with_map(topic_table_diag);
 
 // process topics
 function topic_template(topic, avg){ return $('<div></div>').attr("title", "average: " + avg).addClass('topicwords').html(topic); };
@@ -83,7 +97,6 @@ topic_dom.children('div').first().addClass("selected");
 
 // topic correlation
 var corrlation_table = new Array(numtopics);
-var corrlation_value_table = new Array(numtopics);
 var topic_prob = new Array(numtopics);
 for(var i=0; i<numtopics; i++) {
 	var temp = new Array(numtopics);
@@ -91,7 +104,6 @@ for(var i=0; i<numtopics; i++) {
 		temp[j] = 0;
 	}
 	corrlation_table[i] = temp;
-	corrlation_value_table[i] = new Array(numtopics);
 	topic_prob[i] = 0;
 }
 
@@ -118,12 +130,23 @@ for(var t1=0; t1 < numtopics-1; t1++) {
 		var denom = topic_prob[t1] * topic_prob[t2];
 		// Since the graph is semetric, only one half needs to be computed
 		// corrlation_table[t1][t2] could produce 0, but Math.log(0) produces Infinity, however we want it to be -Inf instead
-		corrlation_value_table[t1][t2] = corrlation_table[t1][t2] == 0 ? -1/0 : Math.log(numdocs * corrlation_table[t1][t2] / denom);
+		corrlation_table[t1][t2] = corrlation_table[t1][t2] == 0 ? -1/0 : Math.log(numdocs * corrlation_table[t1][t2] / denom);
 	}
 }
 
 function getShortTopic(topic) {
 	return topic.split(", ", 3).join(", ");
+}
+
+function splitTopicToLines(topic, words, delimiter) {
+	var result = "";
+	var array = topic.split(delimiter);
+	for(var i = 0; i<array.length; i+=words) {
+		var last = i+words >= array.length-1;
+		result += array.slice(i, (last ? array.length-1 : i+words)).join(delimiter);
+		result += (last ? "" : delimiter + "<br>");
+	}
+	return result;
 }
 
 function getCorrelationGraphHtml() {
@@ -138,9 +161,9 @@ function getCorrelationGraphHtml() {
 	var circleScale = function(val) {return isFinite(val) ? Math.sqrt(val / ((ymax-ymin)/(2*numtopics))) * (topicScale/2) : (topicScale/2);}; // if val is infinite, produce largest circle
 	
 	for(var i=0; i<numtopics; i++) {
-		var hor = $("<text></text>").addClass("hor").attr("x", xmax).attr("y", ymin + i*topicScale).html(getShortTopic(topics[i]));
-		var ver = $("<text></text>").addClass("ver").attr("x", xmin + i*topicScale).attr("y", ymax).attr("transform", "rotate(45, " + (xmin + i*topicScale) + ", " + ymax + ")").html(getShortTopic(topics[i]));
-		var vertop = $("<text></text>").addClass("ver").attr("x", xmin + i*topicScale).attr("y", (ymin-topicScale)).attr("transform", "rotate(-45, " + (xmin + i*topicScale) + ", " + (ymin-topicScale) + ")").html(getShortTopic(topics[i]));
+		var hor = $("<text></text>").addClass("t2").attr("x", xmax).attr("y", ymin + i*topicScale).html(getShortTopic(topics[i]));
+		var ver = $("<text></text>").addClass("t1").attr("x", xmin + i*topicScale).attr("y", ymax).attr("transform", "rotate(45, " + (xmin + i*topicScale) + ", " + ymax + ")").html(getShortTopic(topics[i]));
+		var vertop = $("<text></text>").addClass("t1").attr("x", xmin + i*topicScale).attr("y", (ymin-topicScale)).attr("transform", "rotate(-45, " + (xmin + i*topicScale) + ", " + (ymin-topicScale) + ")").html(getShortTopic(topics[i]));
 		graph.append(hor);
 		graph.append(ver);
 		graph.append(vertop);
@@ -148,15 +171,24 @@ function getCorrelationGraphHtml() {
 	
 	for(var t1=0; t1 < numtopics-1; t1++) {
 		for(var t2=t1+1; t2 < numtopics; t2++) {
-			var val = corrlation_value_table[t1][t2];
-			var circle = $("<circle></circle>").attr("cx", xmin + t1*topicScale).attr("cy", ymin + t2*topicScale).attr("r", circleScale(Math.abs(val))).attr("title", topics[t1] + ' /<br>' + topics[t2]).css("fill", val > 0 ? "#88f" : "#f88").attr("data-t1", t1).attr("data-t2", t2);
-			var circle2 = $("<circle></circle>").attr("cx", xmin + t2*topicScale).attr("cy", ymin + t1*topicScale).attr("r", circleScale(Math.abs(val))).attr("title", topics[t2] + ' /<br>' + topics[t1]).css("fill", val > 0 ? "#88f" : "#f88").attr("data-t1", t2).attr("data-t2", t1);
+			var val = corrlation_table[t1][t2];
+			var r = circleScale(Math.abs(val));
+			//var size = r/(topicScale/2);
+			//size = (1 - (Math.pow(10, size) / 10)) / 2;
+			//var color = val > 0 ? ("rgba(" + Math.round(255*size) + ", " + Math.round(255*size) + ", 255, 1)") : ("rgba(255, " + Math.round(255*size) + ", " + Math.round(255*size) + ", 1)")
+			var color = val > 0 ? "#88f" : "#f88";
+			var circle = $("<circle></circle>").attr("cx", xmin + t1*topicScale).attr("cy", ymin + t2*topicScale).attr("r", r).css("fill", color);
+			var circle2 = $("<circle></circle>").attr("cx", xmin + t2*topicScale).attr("cy", ymin + t1*topicScale).attr("r", r).css("fill", color);
+			var cover = $("<circle></circle>").addClass("cover").attr("cx", xmin + t1*topicScale).attr("cy", ymin + t2*topicScale).attr("r", topicScale/3).attr("title", splitTopicToLines(topics[t1], 5, ", ") + ' /<br>' + splitTopicToLines(topics[t2], 5, ", ")).attr("data-t1", t1).attr("data-t2", t2);
+			var cover2 = $("<circle></circle>").addClass("cover").attr("cx", xmin + t2*topicScale).attr("cy", ymin + t1*topicScale).attr("r", topicScale/3).attr("title", splitTopicToLines(topics[t2], 5, ", ") + ' /<br>' + splitTopicToLines(topics[t1], 5, ", ")).attr("data-t1", t2).attr("data-t2", t1);;
 			graph.append(circle);
 			graph.append(circle2);
+			graph.append(cover);
+			graph.append(cover2);
 		}
 	}
 	process.stdout.write("done\n");
-	return JSON.stringify({graph: $("<div></div>").append(graph).html(), topic: topic_prob, table: corrlation_table});
+	return JSON.stringify($("<div></div>").append(graph).html());
 }
 
 // preprocess documents
@@ -211,25 +243,30 @@ documents.forEach(function(element, index, array) {
 	
 });
 
-function document_template(rank, link, date, score, content) {
-	var score100 = (score*100).toFixed(1);
-	var r = score < 0.5 ? 255 : Math.round(255-255*(score-0.5)*2);
-	var g = score > 0.5 ? 255 : Math.round(255-255*(0.5-score)*2);
-	return $("<div></div>").addClass("document").html((rank > 0 ? '#' + rank : '') + 
-	' <span style="background: linear-gradient(45deg, rgba(' + r + ', ' + g + ', 0, 0.7) ' + Math.round(score100*0.95+4) + '%, #fff 1%, #fff ' + Math.round((100-score100)*0.95) + '%);">' +
-	'[<span title="' + score + '">' + score100 + '%</span> ' + date + ']</span> <a href="' + link + '">' + link + '</a><br> ' +  content);
-}
-
 function getDocumentsHtml(topic, start, end) {
 	var result = $("<div></div>");
 	for(var i=start; i<end; i++) {
 		var docid = sorted_topic_docid[topic][i];
 		var doc = doc_table[docid];
 		var score = sorted_topic_table[topic][i];
-		result.append(document_template(i+1, doc.link, doc.date, score, doc.content));
+		if(typeof doc === 'undefined') {continue;}
+		result.append(document_template("#" + (i+1) + " ", doc.link, doc.date, score, doc.content, true));
 	}
 	return result.html();
 }
+
+function document_template(prefix, link, date, score, content, color) {
+	var span = score + ' ' + date;
+	if (color == true) {
+		var score100 = (score*100).toFixed(1);
+		var r = score < 0.5 ? 255 : Math.round(255-255*(score-0.5)*2);
+		var g = score > 0.5 ? 255 : Math.round(255-255*(0.5-score)*2);
+		span = '<span style="border: 1px solid #ccc; background: linear-gradient(45deg, rgba(' + r + ', ' + g + ', 0, 0.7) ' + Math.round(score100*0.95+4) + '%, #fff 1%, #fff ' +
+		Math.round((100-score100)*0.95) + '%);">' + '<span title="' + score + '">' + score100 + '%</span> ' + date + '</span>';
+	}
+	return $("<div></div>").addClass("document").html(prefix + span + ' <a href="' + link + '">' + link + '</a><br> ' +  content);
+}
+
 function getTimeSeriesGraphHtml() {
 	process.stdout.write("generating time series graph...");
 	var h = 110;
@@ -401,5 +438,8 @@ nodeLDA.sorted_topic_docid = sorted_topic_docid;
 nodeLDA.sorted_topic_table = sorted_topic_table;
 nodeLDA.correlation_graph = getCorrelationGraphHtml();
 nodeLDA.time_series_graph = getTimeSeriesGraphHtml();
+nodeLDA.topic_table_diag = topic_table_diag;
+nodeLDA.topic_prob = topic_prob;
+nodeLDA.topics = topics;
 
 fs.writeFileSync("nodeLDA.json", JSON.stringify(nodeLDA), {encoding: 'utf8'});

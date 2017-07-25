@@ -27,22 +27,37 @@ div.help { padding: 20px 100px 15px 30px; color: #777; }
 
 text { font-size: small; fill: #555; dominant-baseline: middle;; }
 
-#tooltip { border: solid #ddd 2px; margin:0 2px 0 0; padding:7px 10px; color:#333; border-radius: 4px; background: #FFFFFF; position: absolute; z-index: 10; visibility: hidden; max-width: 30%; }
+#tooltip { border: solid #ddd 2px; margin:0 2px 0 0; padding:7px 10px; color:#333; border-radius: 4px; background: #FFFFFF; position: absolute; z-index: 10; visibility: hidden; }
+#tooltip.ts-tooltip { max-width: 30%; }
 
-#ts-page svg { border: 1px solid #ccc!important; border-radius: 8px;}
+#ts-page svg { border: 1px solid #ccc!important; border-radius: 8px; }
 
 .curr { margin-left: 10px; margin-right: 10px; }
 .dest { width: 5em; margin-left: 20px; }
 
+.cover { fill: transparent; }
+.corr-zoom-graph { position: fixed; top: 0px; left: 0px; background-color: #fff; border-radius: 100px;}
+.corr-zoom-graph > div { display: inline-block; position: absolute; height: 200px; }
+.corr-zoom-graph > div > span { display: inline-block; position: relative; top: 35%; margin-left: 10px; margin-right: 10px; width: calc(100% - 210px);}
+.corr-zoom-graph .left { border: 2px solid; border-radius: 100px; border-color: #0cc; }
+.corr-zoom-graph .mid { border: 2px solid; border-radius: 100px; border-color: #0f0; z-index: 1; }
+.corr-zoom-graph .right { border: 2px solid; border-radius: 100px; border-color: #cc0; text-align: right; right: 0px ;}
+.corr-zoom-graph .viewer { width: 100%; height: 100px; top: 204px; }
+.corr-zoom-graph .docviewer { width: 50%; height: 100%; margin: auto; overflow-y: scroll; overflow-wrap: break-word; background: #fff; }
+.corr-zoom-graph .close { top: 0px; right: 0px; width: 25px; height: 25px; border: 1px solid #ccc; color: #ccc; text-align: center; cursor: pointer; }
+
+.t1 { color: #0cc; }
+.t2 { color: #cc0; }
+
 .ts-div { margin-right: 5px; margin-top: 5px; position: relative; font-size: small; display: inline-block; }
-.ts-div text { position: absolute; font-size: 100%; color: #555; font-size: 100%; text-shadow: 0px 0px 0px #fff; z-index: 1}
-.ts-div svg, .ts-zoom-graph svg, .ts-zoom-graph2 svg { transform: scaleY(-1); }
+.ts-div text { position: absolute; font-size: 100%; color: #555; font-size: 100%; text-shadow: 0px 0px 0px #fff; z-index: 1; }
+.corr-zoom-graph svg, .ts-div svg, .ts-zoom-graph svg, .ts-zoom-graph2 svg { transform: scaleY(-1); }
 .ts-div.numdocs polyline { stroke: #55c; stroke-width: 0.2px; }
 .ts-div.valavg polyline { stroke: #fff; stroke-width: 0.2px; }
 
-.ts-zoom-graph:hover .topic, .ts-zoom-graph2:hover .topic {opacity: 0;} 
-.scales text {position: absolute; -webkit-touch-callout: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;}
-.display-none {display: none;}
+.ts-zoom-graph:hover .topic, .ts-zoom-graph2:hover .topic { opacity: 0; } 
+.scales text { position: absolute; -webkit-touch-callout: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+.display-none { display: none!important; }
 
 .p1 { fill: #0d47a1; }
 .p2 { fill: #1976d2; }
