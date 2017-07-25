@@ -1,0 +1,38 @@
+<DOCTYPE html>
+<html>
+<head>
+<title>Personality Quiz</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://das-lab.org/datalight/script.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css"  href="https://das-lab.org/datalight/styles.css">
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand">DataLight</a>
+        </div>
+    </div> 
+</nav>
+<div class="container">
+    <div class="starter-template">
+        <br></br>
+        <h3>I see myself as...</h3>
+    </div>
+    <div id="quiz"></div> 
+    <div>
+        <button type="button" id="submit" class="btn btn-success" onclick=collectValues();loadLoginPage()>Submit</button>
+    </div>
+<!--
+    <div>
+        <a href="https://das-lab.org/datalight/login.html" id="next" class="btn btn-info">Next</a>
+    </div>
+-->
+</body> 
+</html>
