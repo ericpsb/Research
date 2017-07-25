@@ -1,426 +1,1979 @@
-<!--
-Original functionality for comparison's sake
--->
-
-
 <!DOCTYPE html>
-<meta charset="utf-8">
-<body>
-<script src="d3.js"></script>
-<script src="jquery.js"></script>
-<script src="cosineData.js"></script>
+<html style = "height: 100%; width: 100%">
+    <head>
+        <meta charset="utf-8">
+        <title> Similarity Analysis </title>
+    </head>
+    <body style = "height: 100%; width: 100%">
+        <script src="d3.js"></script>
+        <script src="jquery.js"></script>
+        <script src="cosineData.js"></script>
+        <script src="yearlydata.js"></script>
+        <script src="totalposts.js"></script>
 
-<div class="filters" style="position:relative">
-
-<!-- vaccine_vaccines_thimerosal -->
-<input class='filter_button' id='50' value='50' type='checkbox'>All Topics</input><br>
-<input class="filter_button" id="0" value=0 type="checkbox"></input><br>
-<input class="filter_button" id="1" value=1 type="checkbox"></input><br>
-<input class="filter_button" id="2" value=2 type="checkbox"></input><br>
-<input class="filter_button" id="3" value=3 type="checkbox"></input><br>
-<input class="filter_button" id="4" value=4 type="checkbox"></input><br>
-<input class="filter_button" id="5" value=5 type="checkbox"></input><br>
-<input class="filter_button" id="6" value=6 type="checkbox"></input><br>
-<input class="filter_button" id="7" value=7 type="checkbox"></input><br>
-<input class="filter_button" id="8" value=8 type="checkbox"></input><br>
-<input class="filter_button" id="9" value=9 type="checkbox"></input><br>
-<input class="filter_button" id="10" value=10 type="checkbox"></input><br>
-<input class="filter_button" id="11" value=11 type="checkbox"></input><br>
-<input class="filter_button" id="12" value=12 type="checkbox"></input><br>
-<input class="filter_button" id="13" value=13 type="checkbox"></input><br>
-<input class="filter_button" id="14" value=14 type="checkbox"></input><br>
-<input class="filter_button" id="15" value=15 type="checkbox"></input><br>
-<input class="filter_button" id="16" value=16 type="checkbox"></input><br>
-<input class="filter_button" id="17" value=17 type="checkbox"></input><br>
-<input class="filter_button" id="18" value=18 type="checkbox"></input><br>
-<input class="filter_button" id="19" value=19 type="checkbox"></input><br>
-<input class="filter_button" id="20" value=20 type="checkbox"></input><br>
-<input class="filter_button" id="21" value=21 type="checkbox"></input><br>
-<input class="filter_button" id="22" value=22 type="checkbox"></input><br>
-<input class="filter_button" id="23" value=23 type="checkbox"></input><br>
-<input class="filter_button" id="24" value=24 type="checkbox"></input><br>
-<input class="filter_button" id="25" value=25 type="checkbox"></input><br>
-<input class="filter_button" id="26" value=26 type="checkbox"></input><br>
-<input class="filter_button" id="27" value=27 type="checkbox"></input><br>
-<input class="filter_button" id="28" value=28 type="checkbox"></input><br>
-<input class="filter_button" id="29" value=29 type="checkbox"></input><br>
-<input class="filter_button" id="30" value=30 type="checkbox"></input><br>
-<input class="filter_button" id="31" value=31 type="checkbox"></input><br>
-<input class="filter_button" id="32" value=32 type="checkbox"></input><br>
-<input class="filter_button" id="33" value=33 type="checkbox"></input><br>
-<input class="filter_button" id="34" value=34 type="checkbox"></input><br>
-<input class="filter_button" id="35" value=35 type="checkbox"></input><br>
-<input class="filter_button" id="36" value=36 type="checkbox"></input><br>
-<input class="filter_button" id="37" value=37 type="checkbox"></input><br>
-<input class="filter_button" id="38" value=38 type="checkbox"></input><br>
-<input class="filter_button" id="39" value=39 type="checkbox"></input><br>
-<input class="filter_button" id="40" value=40 type="checkbox"></input><br>
-<input class="filter_button" id="41" value=41 type="checkbox"></input><br>
-<input class="filter_button" id="42" value=42 type="checkbox"></input><br>
-<input class="filter_button" id="43" value=43 type="checkbox"></input><br>
-<input class="filter_button" id="44" value=44 type="checkbox"></input><br>
-<input class="filter_button" id="45" value=45 type="checkbox"></input><br>
-<input class="filter_button" id="46" value=46 type="checkbox"></input><br>
-<input class="filter_button" id="47" value=47 type="checkbox"></input><br>
-<input class="filter_button" id="48" value=48 type="checkbox"></input><br>
-<input class="filter_button" id="49" value=49 type="checkbox"></input><br>
-
-</div>
-
-<script>
-
-// assign the topic names to the check boxes
-var checkboxes = document.getElementsByClassName("filter_button");
-// by default, we want to start with All Topics selected
-checkboxes[0].defaultChecked = true;
-for (var i=1; i<checkboxes.length; i++) {
-	checkboxes[i].outerHTML = "<input class=\"filter_button\" id=\"" + i + "\" value=" + i + " type=\"checkbox\">" + topics[parseInt(checkboxes[i].value)] + "</input>";
-	//checkboxes[i].text = topics[parseInt(checkboxes[i].value)];
-}
-
-var blogs = ["ablogonthespectrum.blogspot.com", "adiaryofamom.com", "adventuresinautism.blogspot.co.uk", "alyric.blogspot.com", "aspergersquare8.blogspot.com",
-			 "autism-vicky.blogspot.com", "autism.typepad.com", "autismandoughtisms.wordpress.com", "autismblogsdirectory.blogspot.com", "autismcrisis.blogspot.com:", // id = 10
-			 "autismgadfly.blogspot.com", "autisminnb.blogspot.com", "autismjabberwocky.blogspot.com", "autismnaturalvariation.blogspot.com", "autismschmatism.blogspot.com", 
-			 "autismsedges.blogspot.com", "autismsucksrocks.blogspot.com", "bloom-parentingkidswithdisabilities.blogspot.com", "carrielink.blogspot.com", "chavisory.wordpress.com", // id = 20
-			 "club166.blogspot.com", "confessionsofanaspergersmom.blogspot.com", "daysixtyseven.blogspot.com", "donnathomson.com", "elvis-sightings.blogspot.com:", 
-			 "embracingchaos.stephanieallencrist.com", "esteeklar.com", "extraordinary-ordinary.net", "fullspectrummama.blogspot.com", "hoopdeedoo.blogspot.com", // id = 30
-			 "idoinautismland.com", "injectingsense.blogspot.com", "jennyalice.com", "joeyandymom.blogspot.com", "juststimming.wordpress.com", 
-			 "leftbrainrightbrain.co.uk", "letitbeautism.blogspot.com", "lizditz.typepad.com", "lovethatmax.com", "maternalinstincts.wordpress.com", // id = 40
-			 "mfamama.typepad.com:my-blog", "momnos.blogspot.com", "motherofshrek.blogspot.com", "noahsdad.com", "onedadsopinion.blogspot.com", 
-			 "questioning-answers.blogspot.com", "qw88nb88.wordpress.com", "rebekahscot.wordpress.com", "rhemashope.wordpress.com", "roostercalls.blogspot.com", // id = 50
-			 "specialed.wordpress.com", "spectrumliving.blogspot.com", "squashedmom.com", "squidalicious.com", "stimcity.org", 
-			 "stimeyland.com", "susanetlinger.typepad.com", "susansenator.com:blog", "teenautism.com", "theadventuresofboywonder.blogspot.com", // id = 60
-			 "thefamilyvoyage.blogspot.com", "therocchronicles.wordpress.com", "thismom.blogs.com", "tinygracenotes.blogspot.com", "trydefyinggravity.wordpress.com/autism", 
-			 "unstrangemind.wordpress.com"];
-
-var posts = [870, 1613, 1352, 58, 391, 
-			 6, 2097, 412, 373, 109,
-			 430, 2393, 392, 173, 198,
-			 233, 134, 1162, 696, 243, 
-			 209, 483, 456, 459, 481, 
-			 587, 450, 1399, 168, 189, 
-			 202, 279, 683, 1510, 34,
-			 2816, 181, 403, 2187, 523, 
-			 1373, 747, 259, 443, 152, 
-			 1331, 571, 29, 665, 516, 
-			 326, 132, 585, 2553, 113, 
-			 1770, 295, 1846, 435, 128, 
-			 516, 365, 806, 64, 236, 
-			 90]
-
-//Blogs used in analysis (as of Dec 2016)
-var blogids = [1,2,3,4,7,
-			   8,12,13,14,15,
-			   16,19,21,22,23,
-			   25,26,27,29,30,
-			   32,33,34,36,37,
-			   40,42,43,45,48,
-			   49,50,51,52,53,
-			   54,55,56,57,58,
-			   59,60,61,62,63,
-			   65]
-
-// var blogids = [1,2,3,4,6,
-//                7,8,12,13,14,
-//                15,16,19,21,22,
-//                23,25,26,27,29,
-//                30,32,33,34,36,
-//                37,38,40,42,43,
-//                45,48,49,50,51,
-//                52,53,54,56,57,
-//                58,59,60,61,62,
-//                63,64]
-
-//Width and Height of the frame
-var width = 1400,
-    height = 700;
-
-//Make an SVG Container
-var svgContainer = d3.select("body").append("svg")
-                                    .attr("width", width)
-                                    .attr("height", height)
-                                    .style("vertical-align", "top")
-                                    .style("display", "inline-block")
-                                    .style("position", "absolute");
-
-d3.select(".filters").style("display", "inline-block")
+        <div class="filters" style="float: left; width: 49%; height: 100%">
+            <div id = 'column1' style = "float: left; width: 41%; height: 100%; overflow-y: scroll; overflow-x: scroll">
+                <input class="filter_button" id='0' value='0' type="checkbox" onchange = "updatetopics(true)">All Topics<br>
+                <input class="filter_button" value = "0" type="checkbox" /><br>
+                <input class="filter_button" value = "1" type="checkbox" /><br>
+                <input class="filter_button" value = "2" type="checkbox" /><br>
+                <input class="filter_button" value = "3" type="checkbox" /><br>
+                <input class="filter_button" value = "4" type="checkbox" /><br>
+                <input class="filter_button" value = "5" type="checkbox" /><br>
+                <input class="filter_button" value = "6" type="checkbox" /><br>
+                <input class="filter_button" value = "7" type="checkbox" /><br>
+                <input class="filter_button" value = "8" type="checkbox" /><br>
+                <input class="filter_button" value = "9" type="checkbox" /><br>
+                <input class="filter_button" value = "10" type="checkbox" /><br>
+                <input class="filter_button" value = "11" type="checkbox" /><br>
+                <input class="filter_button" value = "12" type="checkbox" /><br>
+                <input class="filter_button" value = "13" type="checkbox" /><br>
+                <input class="filter_button" value = "14" type="checkbox" /><br>
+                <input class="filter_button" value = "15" type="checkbox" /><br>
+                <input class="filter_button" value = "16" type="checkbox" /><br>
+                <input class="filter_button" value = "17" type="checkbox" /><br>
+                <input class="filter_button" value = "18" type="checkbox" /><br>
+                <input class="filter_button" value = "19" type="checkbox" /><br>
+                <input class="filter_button" value = "20" type="checkbox" /><br>
+                <input class="filter_button" value = "21" type="checkbox" /><br>
+                <input class="filter_button" value = "22" type="checkbox" /><br>
+                <input class="filter_button" value = "23" type="checkbox" /><br>
+                <input class="filter_button" value = "24" type="checkbox" /><br>
+                <input class="filter_button" value = "25" type="checkbox" /><br>
+                <input class="filter_button" value = "26" type="checkbox" /><br>
+                <input class="filter_button" value = "27" type="checkbox" /><br>
+                <input class="filter_button" value = "28" type="checkbox" /><br>
+                <input class="filter_button" value = "29" type="checkbox" /><br>
+                <input class="filter_button" value = "30" type="checkbox" /><br>
+                <input class="filter_button" value = "31" type="checkbox" /><br>
+                <input class="filter_button" value = "32" type="checkbox" /><br>
+                <input class="filter_button" value = "33" type="checkbox" /><br>
+                <input class="filter_button" value = "34" type="checkbox" /><br>
+            </div>
+            <div id = 'column2' style = "float: left; width: 59%; height: 100%">
+                <div style = "height: 41%; width: 100%">
+                    <input class="filter_button" value = "35" type="checkbox"><br>
+                    <input class="filter_button" value = "36" type="checkbox"><br>
+                    <input class="filter_button" value = "37" type="checkbox"><br>
+                    <input class="filter_button" value = "38" type="checkbox"><br>
+                    <input class="filter_button" value = "39" type="checkbox"><br>
+                    <input class="filter_button" value = "40" type="checkbox"><br>
+                    <input class="filter_button" value = "41" type="checkbox"><br>
+                    <input class="filter_button" value = "42" type="checkbox"><br>
+                    <input class="filter_button" value = "43" type="checkbox"><br>
+                    <input class="filter_button" value = "44" type="checkbox"><br>
+                    <input class="filter_button" value = "45" type="checkbox"><br>
+                    <input class="filter_button" value = "46" type="checkbox"><br>
+                    <input class="filter_button" value = "47" type="checkbox"><br>
+                    <input class="filter_button" value = "48" type="checkbox"><br>
+                    <input class="filter_button" value = "49" type="checkbox"><br>
+                </div>
+                <div id = "simScoresTitle" style = "height: 8.5%; width: 100%"> </div> 
+                <div id = "simScores" style = "height: 45%; width: 100%; overflow-y: scroll; overflow-x: hidden"> </div>
+                <br>
+            </div>
+        </div>
+        <div id = "selected" style = "position: absolute; top: 1%; left: 35%"> </div>
+        <div id = "dropdown" style = "position: absolute; top: 6%; left: 43%">
+            Year: 
+            <select id = "year" onchange = "changeYear()">
+                <option class = 'year' selected> All </option>
+                <option class = 'year'> 2017 </option>
+                <option class = 'year'> 2016 </option>
+                <option class = 'year'> 2015 </option>
+                <option class = 'year'> 2014 </option>
+                <option class = 'year'> 2013 </option>
+                <option class = 'year'> 2012 </option>
+                <option class = 'year'> 2011 </option>
+                <option class = 'year'> 2010 </option>
+                <option class = 'year'> 2009 </option>
+                <option class = 'year'> 2008 </option>
+                <option class = 'year'> 2007 </option>
+                <option class = 'year'> 2006 </option>
+                <option class = 'year'> 2005 </option>
+                <option class = 'year'> 2004 </option>
+                <option class = 'year'> 2003 </option>
+            </select>
+        </div>
+        <table style = "border-collapse: collapse; position: absolute; top: 8.5%; left: 45% ">
+            <thead>
+                <tr>
+                    <td style = "padding-bottom: 10px"></td>
+                    <td style = "padding-bottom: 10px"></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style = "padding: 0px; border-color: #000000; border-style: solid; border-width: thin">
+                        <button id = "minus" onclick = "decrementyear()" style = "border-style: solid; color: #000000; background-color: #BCBCBC; border-color: #000000; border-width: thin; width: 100%" disabled> - </button>
+                    </td> 
+                    <td style = "padding: 0px; border-color: #000000; border-style: solid; border-width: thin">
+                        <button id = "plus" onclick = "incrementyear()" style = "border-style: solid; color: #000000; background-color: #BCBCBC; border-color: #000000; border-width: thin; width: 100%" disabled> + </button>
+                    </td>
+                </tr>  
+            </tbody>
+        </table>
 
 
-//Make the blog nodes
-var i = 0,
-    cx = width/2,
-    cy = height/2,
-    bigradius = 300,
-    radius = 10;
+        <script>
 
-var slice = 2 * Math.PI / blogids.length; 
-var phase = 0;
-var cen = 128;
-var w = 127;
+            // GLOBAL VARIABLES
 
-// set up scale circles around middle
-var strokeOpacity = 0.0;
-for (i = 1; i * (bigradius / 8.0) <= bigradius; i++) {
-	strokeOpacity = 0.2; // calculate opacity based on distance
-	strokeOpacity -= ( ((i % 2) != 0) ? 0.05 : 0.0 );
-	strokeOpacity -= ( ((i % 4) != 0) ? 0.10 : 0.0 );
-	svgContainer.append("circle")
-						.attr("cx", cx)
-						.attr("cy", cy)
-						.attr("class", "scaleCircle")
-						.style("stroke", "black")
-						.style("stroke-opacity", strokeOpacity)
-						.style("fill-opacity", 0)
-						.attr("r", i * (bigradius / 8.0));
-}
+            // Links for all blogs
+            var blogs = ["ablogonthespectrum.blogspot.com", "adiaryofamom.com", "adventuresinautism.blogspot.co.uk", "alyric.blogspot.com", "aspergersquare8.blogspot.com",
+                "autism-vicky.blogspot.com", "autism.typepad.com", "autismandoughtisms.wordpress.com", "autismblogsdirectory.blogspot.com", "autismcrisis.blogspot.com:", // id = 10
+                "autismgadfly.blogspot.com", "autisminnb.blogspot.com", "autismjabberwocky.blogspot.com", "autismnaturalvariation.blogspot.com", "autismschmatism.blogspot.com",
+                "autismsedges.blogspot.com", "autismsucksrocks.blogspot.com", "bloom-parentingkidswithdisabilities.blogspot.com", "carrielink.blogspot.com", "chavisory.wordpress.com", // id = 20
+                "club166.blogspot.com", "confessionsofanaspergersmom.blogspot.com", "daysixtyseven.blogspot.com", "donnathomson.com", "elvis-sightings.blogspot.com:",
+                "embracingchaos.stephanieallencrist.com", "esteeklar.com", "extraordinary-ordinary.net", "fullspectrummama.blogspot.com", "hoopdeedoo.blogspot.com", // id = 30
+                "idoinautismland.com", "injectingsense.blogspot.com", "jennyalice.com", "joeyandymom.blogspot.com", "juststimming.wordpress.com",
+                "leftbrainrightbrain.co.uk", "letitbeautism.blogspot.com", "lizditz.typepad.com", "lovethatmax.com", "maternalinstincts.wordpress.com", // id = 40
+                "mfamama.typepad.com:my-blog", "momnos.blogspot.com", "motherofshrek.blogspot.com", "noahsdad.com", "onedadsopinion.blogspot.com",
+                "questioning-answers.blogspot.com", "qw88nb88.wordpress.com", "rebekahscot.wordpress.com", "rhemashope.wordpress.com", "roostercalls.blogspot.com", // id = 50
+                "specialed.wordpress.com", "spectrumliving.blogspot.com", "squashedmom.com", "squidalicious.com", "stimcity.org",
+                "stimeyland.com", "susanetlinger.typepad.com", "susansenator.com:blog", "teenautism.com", "theadventuresofboywonder.blogspot.com", // id = 60
+                "thefamilyvoyage.blogspot.com", "therocchronicles.wordpress.com", "thismom.blogs.com", "tinygracenotes.blogspot.com", "trydefyinggravity.wordpress.com/autism",
+                "unstrangemind.com"];
+            // Selected blogs (as of Dec 2016)
+            var blogids = [1, 2, 3, 4, 7,
+                8, 12, 13, 14, 15,
+                16, 19, 21, 22, 23,
+                25, 26, 27, 29, 30,
+                32, 33, 34, 36, 37,
+                40, 42, 43, 45, 48,
+                49, 50, 51, 52, 53,
+                54, 55, 56, 57, 58,
+                59, 60, 61, 62, 63,
+                65];
+            // The blog in the center of the visualization
+            var primaryblog = null;
+            // The blog being compared with the primary blog
+            var secondaryblog = null;
+            // The year being viewed
+            var year = " All ";
+            // Data for the year being viewed
+            var singleyeardata = null;
+            
+            // INITIAL SETUP
 
+            // Creating the checkboxes for the various topics
+            var checkboxes = document.getElementsByClassName("filter_button");
+            // By default, we want to start with All Topics selected
+            checkboxes[0].defaultChecked = true;
+            // Assign the topic names to the check boxes
+            for (var i = 1; i < checkboxes.length; i++) {
+                checkboxes[i].outerHTML = "<input class=\"filter_button\" id=\"" + i + "\" value=" + i + " type=\"checkbox\" onchange = 'updatetopics(false)'>" + topics[parseInt(checkboxes[i].value)] + "</input>";
+            }
+            d3.select(".filters").style("display", "inline-block");
+            //Width and Height of the visualization's frame
+            var width = 650,
+                    height = 700;
+            // https://stackoverflow.com/questions/18822756/mouse-events-on-overlapping-svg-elements
+            // Make multiple SVG Containers on top of each other ("layers" for the visualization)
+            var svgContainerA = d3.select("body").append("svg")
+                    .attr("width", width)
+                    .attr("height", height)
+                    .style("position", "absolute")
+                    .attr("pointer-events", "none");
+            var svgContainerB = d3.select("body").append("svg")
+                    .attr("width", width)
+                    .attr("height", height)
+                    .style("position", "absolute")
+                    .attr("pointer-events", "none");
+            var svgContainerC = d3.select("body").append("svg")
+                    .attr("width", width)
+                    .attr("height", height)
+                    .style("position", "absolute")
+                    .attr("pointer-events", "none");
+            var i = 0,
+                    cx = width / 2,
+                    cy = height / 2,
+                    bigradius = 300,
+                    radius = 10;
+            var slice = 2 * Math.PI / blogids.length;
+            var phase = 0;
+            var cen = 128;
+            var w = 127;
+            // set up scale circles around middle
+            var strokeOpacity = 0.0;
+            for (i = 1; i * (bigradius / 8.0) <= bigradius; i++) {
+                strokeOpacity = 0.2; // calculate opacity based on distance
+                strokeOpacity -= (((i % 2) !== 0) ? 0.05 : 0.0);
+                strokeOpacity -= (((i % 4) !== 0) ? 0.10 : 0.0);
+                svgContainerA.append("circle")
+                        .attr("cx", cx)
+                        .attr("cy", cy)
+                        .attr("class", "scaleCircle")
+                        .style("stroke", "black")
+                        .style("stroke-opacity", strokeOpacity)
+                        .style("fill-opacity", 0)
+                        .attr("r", i * (bigradius / 8.0));
+            }
+            // Set up various dots that will be in the visualization
+            for (var i = 0; i < blogids.length; i++) {
+                id = blogids[i]; // id encodes the index in the list of blogs (or rather, the index + 1)
+                var angle = slice * i;
+                var newX = (cx + bigradius * Math.cos(angle));
+                var newY = (cy + bigradius * Math.sin(angle));
+                var name = blogs[id - 1];
+                blogposts = 0;
+                for (var j = 0; j < totalposts.length; j += 1) {
+                    if (parseInt(totalposts[j][0]) === parseInt(id)) {
+                        blogposts = totalposts[j][1];
+                    }
+                }
+                radius = Math.log10(blogposts) * 3;
+                var red = Math.sin(slice * i + 2 + phase) * w + cen;
+                var green = Math.sin(slice * i + 0 + phase) * w + cen;
+                var blue = Math.sin(slice * i + 4 + phase) * w + cen;
+                // Set up dots to show paths in the future
+                for (j = parseInt($(".year")[1].value); j >= (parseInt($(".year")[$(".year").length - 1].value)); j -= 1) {
+                    for (k = 0; k < yearlydata.length; k += 1) {
+                        if (yearlydata[k][0] === id) {
+                            if (yearlydata[k][1] === j) {
+                                var dotid = id + "" + j;
+                                var circle = svgContainerA.append("circle")
+                                        .attr("id", dotid)
+                                        .attr("cx", newX)
+                                        .attr("cy", newY)
+                                        .attr("class", "pathDot")
+                                        .style("fill", "#A0A0A0")
+                                        .attr("r", radius)
+                                        .attr("fill-opacity", 0)
+                                        .attr("pointer-events", "auto");
+                            }
+                        }
+                    }
+                }
+                // Second set of dots so that prominent ones can be shown as such later on
+                for (j = parseInt($(".year")[1].value); j >= (parseInt($(".year")[$(".year").length - 1].value)); j -= 1) {
+                    for (k = 0; k < yearlydata.length; k += 1) {
+                        if (yearlydata[k][0] === id) {
+                            if (yearlydata[k][1] === j) {
+                                var dotid = id + "" + j;
+                                var circle = svgContainerB.append("circle")
+                                        .attr("id", dotid + "B")
+                                        .attr("cx", newX)
+                                        .attr("cy", newY)
+                                        .attr("class", "pathDotB")
+                                        .style("fill", "#A0A0A0")
+                                        .attr("r", radius)
+                                        .attr("fill-opacity", 0)
+                                        .attr("pointer-events", "auto");
+                            }
+                        }
+                    }
+                }
+                // Actual dot for blog
+                var circle = svgContainerC.append("circle")
+                        .attr("id", id)
+                        .attr("cx", newX)
+                        .attr("cy", newY)
+                        .attr("x", newX)
+                        .attr("y", newY)
+                        .attr("class", "blogCircle")
+                        .style("fill", RGB2Color(red, green, blue))
+                        .attr("oldr", radius)
+                        .attr("r", radius)
+                        .attr("fill-opacity", 1)
+                        .attr("pointer-events", "auto");
+                // Colors for legend
+                if (parseInt(id) === 59) {
+                    var r = red;
+                    var g = green;
+                    var b = blue;
+                }
+            }
+            //Set up hover div to display blog name
+                var div = d3.select("body")
+                        .append("div")
+                        .attr("class", "tooltip")
+                        .style("display", "none")
+                        .style("position", "absolute")
+                        .style("top", "0.5%")
+                        .style("right", "1%");
+            // Event Listeners
+            var blogCircles = document.getElementsByClassName("blogCircle");
+            for (var i = 0; i < blogCircles.length; i++) {
+                blogCircles[i].addEventListener("mouseover", mouseoverA);
+                blogCircles[i].addEventListener("mouseout", mouseoutA);
+                blogCircles[i].addEventListener("click", click);
+            }
+            var pathDots = document.getElementsByClassName("pathDotB");
+            for (var i = 0; i < pathDots.length; i++) {
+                pathDots[i].addEventListener("mouseover", mouseoverB);
+                pathDots[i].addEventListener("mouseout", mouseoutB);
+            }
 
-for (var i = 0; i < blogids.length; i++){
-  id = blogids[i]; // id encodes the index in the list of blogs (or rather, the index + 1)
-  var angle = slice * i;
-  var newX = (cx + bigradius * Math.cos(angle));
-  var newY = (cy + bigradius * Math.sin(angle));
-  var name = blogs[id - 1];
-  // the following line should use Math.max(posts), but Math.max doesn't seem to handle Arrays
-  radius = (((posts[id - 1] - 6) / (2816 - 6)) * 10) + 3;
-  var red   = Math.sin(slice*i+2+phase) * w + cen;
-  var green = Math.sin(slice*i+0+phase) * w + cen;
-  var blue  = Math.sin(slice*i+4+phase) * w + cen;
-  var circle = svgContainer.append("circle")
-                                    .attr("id", id)
-                                    .attr("cx", newX)
-                                    .attr("cy", newY)
-                                    .attr("x", newX)
-                                    .attr("y", newY)
-                                    .attr("class", "blogCircle")
-                                    .style("fill", RGB2Color(red,green,blue))
-                                    .attr("oldr", radius)
-                                    .attr("r", radius);
+            // Legend creation
+            var svgLegend = d3.select("body").append("svg")
+                    .attr("width", 120)
+                    .attr("height", 120)
+                    .style("position", "absolute")
+                    .style("top", "22%")
+                    .style("right", "50%")
+                    .style("border-style", "solid")
+                    .style("border-color", "#000000");
 
-  // $("circle").off().on("click", click);
-  // $("circle").on("mouseover", mouseover);
-  // $("circle").on("mouseout", mouseout);
+            var small = svgLegend.append("circle")
+                    .attr("id", "small")
+                    .attr("cx", 20)
+                    .attr("cy", 30)
+                    .style("fill", RGB2Color(r, g, b))
+                    .attr("r", Math.log10(10) * 3)
+                    .attr("fill-opacity", 1);
 
-  //Set up hover div to display blog name
-  var div = d3.select("body")
-          .append("div")   
-          .attr("class", "tooltip")               
-          .style("display", "none")
-          .style("float", "right" );
+            var smalllabel = svgLegend.append("text")
+                    .attr("id", "smalllabel")
+                    .html("10 posts")
+                    .attr("x", 40)
+                    .attr("y", 35);
 
-  // Set up div to display similar topics
-  // var div = d3.select("body")
-  //         .append("div")
-  //         .attr("class", "tooltip");
-}
+            var medium = svgLegend.append("circle")
+                    .attr("id", "medium")
+                    .attr("cx", 20)
+                    .attr("cy", 60)
+                    .style("fill", RGB2Color(r, g, b))
+                    .attr("r", Math.log10(100) * 3)
+                    .attr("fill-opacity", 1);
 
-//Display blog name in div
-function mouseover(){
-  div.text(blogs[$(this).attr("id") - 1]);
-  div.style("display","block");
-  $(this).attr("r", 15);  
-}
-//Hide blog name from div
-function mouseout(){
-   div.style("display","none");
-   $(this).attr("r", $(this).attr("oldr"));
-}
+            var mediumlabel = svgLegend.append("text")
+                    .attr("id", "mediumlabel")
+                    .html("100 posts")
+                    .attr("x", 40)
+                    .attr("y", 65);
 
-var blogCircles = document.getElementsByClassName("blogCircle");
-for (var i = 0; i < blogCircles.length; i++) {
-	blogCircles[i].addEventListener("mouseover", mouseover);
-	blogCircles[i].addEventListener("mouseout", mouseout);
-	blogCircles[i].addEventListener("click", click);
-}
+            var large = svgLegend.append("circle")
+                    .attr("id", "large")
+                    .attr("cx", 20)
+                    .attr("cy", 90)
+                    .style("fill", RGB2Color(r, g, b))
+                    .attr("r", Math.log10(1000) * 3)
+                    .attr("fill-opacity", 1);
 
-//Respond to clicked circle
-function click(){
-	var foo = d3.selectAll("circle[class=blogCircle]").filter(function (d) 
-		{return (this.getAttribute("cx") == width/2 && this.getAttribute("cy") == height/2); }
-		);
-	centerNode = foo.nodes()[0];
-  
-    //Check if it is in the center return all nodes to outside circle
-    //if ($(this).attr("cx") != $(this).attr("x") || $(this).attr("cy") != $(this).attr("y")) {
-    if ($(this).attr("cx") == (width/2) && $(this).attr("cy") == (height/2)) {
-      // we shouldn't be testing if this is blog away from its own spot but if it's in the center
-      //$(this).css("fill", "blue");
-      
-      var nodes = document.getElementsByClassName("blogCircle");
-      for (var i = 0; i < nodes.length; i++) {
-      	var oldx = $(nodes[i]).attr("x");
-      	var oldy = $(nodes[i]).attr("y");
-      	$(nodes[i]).attr("cx", oldx);
-      	$(nodes[i]).attr("cy", oldy);
-      }
+            var largelabel = svgLegend.append("text")
+                    .attr("id", "largelabel")
+                    .html("1000 posts")
+                    .attr("x", 40)
+                    .attr("y", 95);
 
-      	
-      //Not Implemented - get representative documents from blog for topics selected
-      	/*var center = $(document.querySelectorAll('[clicked="true"]')).attr("id");
-      	var checkedBoxes = getCheckedBoxes("filter_button");
-      	var vectorA = data[center];
+            // HELPER METHODS AND EVENT HANDLERS
 
-      	$.getJSON("mytest.json", function(json) {
-    		var maxCosSim = 0;
-    		var maxText = "";
-    		for (var i = 0; i < json.length; i++) {
-    			var vectorB = [];
-    			for (var j = 4; i < 54; j++) {
-    				vectorB.push(json[i][j]);
-    			}
+            //Display blog name/number of posts in div when "blog circle" is hovered over
+            function mouseoverA() {
+                if (year === " All ") {
+                    var blogid = $(this).attr("id");
+                    var totalblogposts = null;
+                    for (var i = 0; i < totalposts.length; i += 1) {
+                        if (parseInt(totalposts[i][0]) === parseInt(blogid)) {
+                            totalblogposts = totalposts[i][1];
+                        }
+                    }
+                    div.html(blogs[$(this).attr("id") - 1] + "<br /> Total Posts: " + totalblogposts);
+                    div.style("display", "block");
+                    $(this).attr("r", 15);
+                }
+                else {
+                    var blogid = $(this).attr("id");
+                    var yearblogposts = null;
+                    for (var i = 0; i < yearlydata.length; i += 1) {
+                        if (parseInt(yearlydata[i][1]) === parseInt(year)) {
+                            if (parseInt(yearlydata[i][0]) === parseInt(blogid)) {
+                                yearblogposts = yearlydata[i][52];
+                            }
+                        }
+                    }
+                    div.html(blogs[$(this).attr("id") - 1] + "<br /> Posts in " + year + ": " + yearblogposts);
+                    div.style("display", "block");
+                    $(this).attr("r", 15);
+                }
+                if (secondaryblog !== null) {
+                    if (parseInt($(this).attr("id")) === parseInt(secondaryblog.attr("id"))) {
+                        $(this)
+                            .attr("stroke", "#000000")
+                            .attr("stroke-opacity", 1)
+                            .attr("stroke-width", 3);
+                    }
+                }
+            }
+            //Hide information from div when the mouse is moved away from the "blog circle"
+            function mouseoutA() {
+                div.style("display", "none");
+                var otherid = $(this).attr("id");
+                if (primaryblog !== null) {
+                    var primaryid = primaryblog.attr("id");
+                    if (parseInt(primaryid) !== parseInt(otherid)) {
+                        if (year === " All ") {
+                            var totalblogposts = 0;
+                            for (var j = 0; j < totalposts.length; j += 1) {
+                                if (parseInt(totalposts[j][0]) === parseInt(otherid)) {
+                                    totalblogposts = totalposts[j][1];
+                                }
+                            }
+                            var properradius = Math.log10(totalblogposts) * 3;
+                        } else {
+                            if (singleyeardata[otherid]) {
+                                var yearposts = singleyeardata[otherid][51];
+                                var properradius = Math.log10(yearposts) * 3 + 4;
+                            } else {
+                                var properradius = 0;
+                            }
+                        }
+                    } else {
+                        if (year === " All ") {
+                            var totalblogposts = 0;
+                            for (var j = 0; j < totalposts.length; j += 1) {
+                                if (parseInt(totalposts[j][0]) === parseInt(primaryid)) {
+                                    totalblogposts = totalposts[j][1];
+                                }
+                            }
+                            var properradius = Math.log10(totalblogposts) * 3;
+                        } else {
+                            var yearposts = singleyeardata[primaryid][51];
+                            var properradius = Math.log10(yearposts) * 3 + 4;
+                        }
+                    }
+                } else {
+                    if (year === " All ") {
+                        var totalblogposts = 0;
+                        for (var j = 0; j < totalposts.length; j += 1) {
+                            if (parseInt(totalposts[j][0]) === parseInt(otherid)) {
+                                totalblogposts = totalposts[j][1];
+                            }
+                        }
+                        var properradius = Math.log10(totalblogposts) * 3;
+                    } else {
+                        if (singleyeardata[otherid]) {
+                            var yearposts = singleyeardata[otherid][51];
+                            var properradius = Math.log10(yearposts) * 3 + 4;
+                        } else {
+                            var properradius = 0;
+                        }
+                    }
+                }
+                $(this).attr("r", properradius);
+                if (secondaryblog !== null) {
+                    if (parseInt($(this).attr("id")) === parseInt(secondaryblog.attr("id"))) {
+                        $(this)
+                            .attr("stroke", "#000000")
+                            .attr("stroke-opacity", 1)
+                            .attr("stroke-width", 3);
+                    }
+                }
+            }
+            // Display relevant information when one of the "path dots" is hovered over
+            function mouseoverB() {
+                var dotid = $(this).attr("id");
+                var blogyear = "";
+                var blogid = "";
+                if (parseInt(dotid.length) === parseInt(6)) {
+                    blogid = dotid[0];
+                    for (j = 1; j < 5; j += 1) {
+                        blogyear += dotid[j];
+                    }
+                } else {
+                    for (j = 0; j < 2; j += 1) {
+                        blogid += dotid[j];
+                    }
+                    for (j = 2; j < 6; j += 1) {
+                        blogyear += dotid[j];
+                    }
+                }
+                var yearposts = null;
+                for (var i = 0; i < yearlydata.length; i += 1) {
+                    if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                        if (parseInt(yearlydata[i][0]) === parseInt(blogid)) {
+                            yearposts = yearlydata[i][52];
+                        }
+                    }
+                }
+                div.html("Blog: " + blogs[blogid - 1] + " <br /> Year: " + blogyear + " <br /> Number of Posts: " + yearposts);
+                div.style("display", "block");
+                $(this)
+                    .attr("stroke", "#000000")
+                    .attr("stroke-width", 3)
+                    .attr("stroke-opacity", 1);
+                var blogCircles = document.getElementsByClassName("blogCircle");
+                for (var i = 0; i < blogCircles.length; i++) {
+                    var secondaryid = $(blogCircles[i]).attr("id");
+                    if (parseInt(secondaryid) === parseInt(blogid)) {
+                        $(blogCircles[i])
+                            .attr("stroke", "#000000")
+                            .attr("stroke-width", 3)
+                            .attr("stroke-opacity", 1);
+                    }
+                }
+            }
+            // Hide information from the div when the mouse is moved away from the "path dot"
+            function mouseoutB() {
+                var dotid = $(this).attr("id");
+                var blogid = "";
+                if (parseInt(dotid.length) === parseInt(6)) {
+                    blogid = dotid[0];
+                } else {
+                    for (j = 0; j < 2; j += 1) {
+                        blogid += dotid[j];
+                    }
+                }
+                div.style("display", "none");
+                if (secondaryblog !== null) {
+                    if (parseInt(blogid) !== parseInt(secondaryblog.attr("id"))) {
+                        $(this)
+                            .attr("stroke", "none");
+                    }
+                }
+                else {
+                    $(this)
+                        .attr("stroke", "none");
+                }
+                var blogCircles = document.getElementsByClassName("blogCircle");
+                for (var i = 0; i < blogCircles.length; i++) {
+                    var otherid = $(blogCircles[i]).attr("id");
+                    if (parseInt(otherid) === parseInt(blogid)) {
+                        if (secondaryblog !== null) {
+                            if (parseInt(otherid) !== parseInt(secondaryblog.attr("id"))) {
+                                $(blogCircles[i])
+                                    .attr("stroke", "none");
+                            }
+                        }
+                        else {
+                            $(blogCircles[i])
+                                .attr("stroke", "none");
+                        }
+                    }
+                }
+            }
+            //Returns a list of checked box values
+            function getCheckedBoxes(chkboxName) {
+                var checkboxes = document.getElementsByClassName(chkboxName);
+                var checkboxesChecked = [];
+                // loop over them all, skipping the All Topics one
+                for (var i = 1; i < checkboxes.length; i++) {
+                    // And stick the checked ones onto an array...
+                    if (checkboxes[i].checked) {
+                        var val = d3.select(checkboxes[i]).attr("value");
+                        checkboxesChecked.push(parseInt(val));
+                    }
+                }
+                // make All Topics override other selections.
+                if (checkboxesChecked.length === 0) {
+                    checkboxesChecked = [];
+                    for (var i = 1; i <= 50; i++) {
+                        checkboxesChecked.push(i);
+                    }
+                } else
+                {
+                    // epsb: since the checkboxes includes "All Topics" at the beginning, we need to decrement to get the proper topic number
+                    for (var i = 0; i < checkboxesChecked.length; i++) {
+                        checkboxesChecked[i] -= 1;
+                    }
+                }
+                // Return the array if it is non-empty, or null
+                return checkboxesChecked.length > 0 ? checkboxesChecked : null;
+            }
+            // Converts a color in rgb to a color in hex
+            function RGB2Color(r, g, b)
+            {
+                return '#' + byte2Hex(r) + byte2Hex(g) + byte2Hex(b);
+            }
+            function byte2Hex(n)
+            {
+                var nybHexString = "0123456789ABCDEF";
+                return String(nybHexString.substr((n >> 4) & 0x0F, 1)) + nybHexString.substr(n & 0x0F, 1);
+            }
+            //Gives cosine similarity of two equal length vectors A and B for selected topics
+            function cosineSim(vectorA, vectorB, selectedTopics) {
+                var numerator = 0;
+                var denomA = 0;
+                var denomB = 0;
+                if (selectedTopics.length === 1) {
+                    var difference = Math.abs(vectorA[selectedTopics[0]] - vectorB[selectedTopics[0]]);
+                    var ave = vectorA[selectedTopics[0]] / 2.0 + vectorB[selectedTopics[0]] / 2.0;
+                    var pd = difference / ave;
+                    if (pd > 1) {
+                        pd = 1;
+                    }
+                    return 1 - pd;
+                } else {
+                    for (var i = 0; i < vectorA.length; i++) {
+                        if (selectedTopics.indexOf(i) !== -1) {
+                            numerator = numerator + (vectorA[i] * vectorB[i]);
+                            denomA = denomA + (vectorA[i] * vectorA[i]);
+                            denomB = denomB + (vectorB[i] * vectorB[i]);
+                        }
+                    }
+                    var denominator = Math.sqrt(denomA) * Math.sqrt(denomB);
+                    return numerator / (denominator);
+                }
+            }
+            // Displays to the user how similar the center blog and the selected blog are with respect to the defined topic(s) (along with the shortened link for the selected blog)
+            function displaySimScores(simScores, link, rgb) {
+                var box = $("#simScores");
+                $("#simScoresTitle").append("<p> <div style = 'text-align: center; font-size: 18pt; font-weight: bold'> Similarity Scores </div> <div style = 'text-align: center'>" + link + " </div> </p>");
+                var content = "<table> <thead style = 'font-weight: bold; text-decoration: underline'> <tr> <td> Topic </td> <td> Score </td> </tr> </thead> <tbody> ";
+                for (i in simScores) {
+                    content = content + "<tr> <td class = 'topicOrScore'> " + simScores[i][1] + " </td> <td> " + +simScores[i][0].toFixed(12) + " </td> </tr>";
+                }
+                content = content + "</tbody> </table>";
+                box.append(content);
+                $(".topicOrScore").css("padding-right", "20px");
+                box.css("border", "solid");
+                box.css("border-color", rgb);
+            }
 
-    			var current = cosineSim(vectorA, vectorB, checkedBoxes);
-    			if (current > maxCosSim){
-    				maxCosSim = current;
-    				maxText = json[i]["text"];
-    			}
-    		}
-    		console.log(maxText);
-		});*/
-      
-    }
+            // METHODS THAT CALL FOR A CHANGE IN DATA DISPLAY  
 
-    else if (centerNode) {
-      // if something else is in the center, show the matching topics
-      var selfid =  $(this).attr("id");
-      var selfIndex = blogids.indexOf(parseInt(selfid));
-      var selectedTopics = getCheckedBoxes("filter_button");
-      var centerID = centerNode.id;
-      var centerIndex = blogids.indexOf(parseInt(centerID));
-      // look up average topic scores for this blog and for the center blog
-      var selfTopics = data[selfIndex];
-      var centerTopcis = data[centerIndex];
+            // Makes things happen when "blog circles" are clicked on
+            function click() {
+                // Primary blog de-selected
+                if (parseInt($(this).attr("cx")) === parseInt(width / 2) && parseInt($(this).attr("cy")) === parseInt(height / 2)) {
+                    primaryblog = null;
+                    secondaryblog = null;
+                    updateDisplay(true, true, true, true, true, false);
+                    if (year !== " All ") {
+                        var all = "Year: <select id = 'year' onchange = 'changeYear()'> <option class = 'year'> All </option> <option class = 'year'> 2017 </option> <option class = 'year'> 2016 </option> <option class = 'year'> 2015 </option> <option class = 'year'> 2014 </option> <option class = 'year'> 2013 </option> <option class = 'year'> 2012 </option> <option class = 'year'> 2011 </option> <option class = 'year'> 2010 </option> <option class = 'year'> 2009 </option> <option class = 'year'> 2008 </option> <option class = 'year'> 2007 </option> <option class = 'year'> 2006 </option> <option class = 'year'> 2005 </option> <option class = 'year'> 2004 </option> <option class = 'year'> 2003 </option> </select>";
+                        $("#dropdown").html(all);
+                        $("#year").val(year);
+                    } else {
+                        var all = "Year: <select id = 'year' onchange = 'changeYear()'> <option class = 'year' selected> All </option> <option class = 'year'> 2017 </option> <option class = 'year'> 2016 </option> <option class = 'year'> 2015 </option> <option class = 'year'> 2014 </option> <option class = 'year'> 2013 </option> <option class = 'year'> 2012 </option> <option class = 'year'> 2011 </option> <option class = 'year'> 2010 </option> <option class = 'year'> 2009 </option> <option class = 'year'> 2008 </option> <option class = 'year'> 2007 </option> <option class = 'year'> 2006 </option> <option class = 'year'> 2005 </option> <option class = 'year'> 2004 </option> <option class = 'year'> 2003 </option> </select>";
+                        $("#dropdown").html(all);
+                    }
+                    var disabledminus = true;
+                    var disabledplus = true;
+                    if (year < 2017) {
+                        disabledplus = false;
+                    }
+                    if (year > 2003) {
+                        disabledminus = false;
+                    }
+                    $("#minus").attr("disabled", disabledminus);
+                    if (disabledminus === true) {
+                        $("#minus").css("background-color", "#BCBCBC");
+                        $("#minus").css("color", "#000000");
+                    } else {
+                        $("#minus").css("background-color", "#FFFFFF");
+                    }
+                    $("#plus").attr("disabled", disabledplus);
+                    if (disabledplus === true) {
+                        $("#plus").css("background-color", "#BCBCBC");
+                        $("#plus").css("color", "#000000");
+                    } else {
+                        $("#plus").css("background-color", "#FFFFFF");
+                    }
+                }
+                // Secondary blog selected
+                else if (primaryblog) {
+                    secondaryblog = $(this);
+                    updateDisplay(true, true, true, true, false, false);
+                }
+                // New primary blog selected
+                else {
+                    primaryblog = $(this);
+                    updateDisplay(true, true, true, true, true, false);
+                    if (year !== " All ") {
+                        var restricted = "Year: <select id = 'year' onchange = 'changeYear()'> <option class = 'year'> All </option> ";
+                    } else {
+                        var restricted = "Year: <select id = 'year' onchange = 'changeYear()'> <option class = 'year' selected> All </option> ";
+                    }
+                    var years = document.getElementsByClassName("year");
+                    var primaryid = primaryblog.attr("id");
+                    for (i = 1; i < years.length; i += 1) {
+                        // for-loop that determines if there is data for that blog and year
+                        for (j = 0; j < yearlydata.length; j += 1) {
+                            if (parseInt(yearlydata[j][0]) === parseInt(primaryid)) {
+                                if (parseInt(yearlydata[j][1]) === parseInt(years[i].innerText)) {
+                                    restricted += "<option class = 'year'> " + parseInt(years[i].innerText) + " </option> ";
+                                }
+                            }
+                        }
+                    }
+                    restricted += " </select>";
+                    $("#dropdown").html(restricted);
+                    if (year !== " All ") {
+                        $("#year").val(year);
+                    }
+                    var disabledminus = true;
+                    var disabledplus = true;
+                    for (j = 0; j < yearlydata.length; j += 1) {
+                        if (parseInt(yearlydata[j][0]) === parseInt(primaryid)) {
+                            if (parseInt(yearlydata[j][1]) === year - 1) {
+                                disabledminus = false;
+                            }
+                            if (parseInt(yearlydata[j][1]) === year + 1) {
+                                disabledplus = false;
+                            }
+                        }
+                    }
+                    $("#minus").attr("disabled", disabledminus);
+                    if (disabledminus === true) {
+                        $("#minus").css("background-color", "#BCBCBC");
+                        $("#minus").css("color", "#000000");
+                    } else {
+                        $("#minus").css("background-color", "#FFFFFF");
+                    }
+                    $("#plus").attr("disabled", disabledplus);
+                    if (disabledplus === true) {
+                        $("#plus").css("background-color", "#BCBCBC");
+                        $("#plus").css("color", "#000000");
+                    } else {
+                        $("#plus").css("background-color", "#FFFFFF");
+                    }
+                }
+            }
+            // Reacts to a checkbox being either checked or unchecked
+            function updatetopics(all) {
+                var topicchecked = false;
+                for (var i = 1; i < checkboxes.length; i++) {
+                    if (checkboxes[i].checked) {
+                        topicchecked = true;
+                    }
+                }
+                if (topicchecked) {
+                    if (!all) {
+                        $(".filter_button")[0].checked = false;
+                    }
+                }
+                if (all) {
+                    for (var i = 1; i < checkboxes.length; i++) {
+                        checkboxes[i].checked = false;
+                    }
+                    $(".filter_button")[0].checked = true;
+                }
+                if (getCheckedBoxes("filter_button").length === 50) {
+                    $(".filter_button")[0].checked = true;
+                }
+                updateDisplay(true, true, true, true, false, false);
+            }
+            // Reacts to a change in the year being displayed via the drop-down menu
+            function changeYear() {
+                year = $("#year :selected").text();
+                if (year === " All ") {
+                    singleyeardata = null;
+                } else {
+                    year = Number.parseInt(year);
+                    singleyeardata = [];
+                    for (i = 0; i < yearlydata.length; i += 1) {
+                        if (yearlydata[i][1] === year) {
+                            var temparray = [];
+                            temparray[0] = yearlydata[i][0];
+                            for (var k = 2; k < 53; k += 1) {
+                                temparray[k - 1] = yearlydata[i][k];
+                            }
+                            singleyeardata[parseInt(yearlydata[i][0])] = temparray;
+                        }
+                    }
+                }
+                if (year === " All ") {
+                    $("#minus").attr("disabled", true);
+                    $("#minus").css("background-color", "#BCBCBC");
+                    $("#minus").css("color", "#000000");
+                    $("#plus").attr("disabled", true);
+                    $("#plus").css("background-color", "#BCBCBC");
+                    $("#plus").css("color", "#000000");
+                } else {
+                    if (primaryblog !== null) {
+                        var primaryid = primaryblog.attr("id");
+                        var disabledminus = true;
+                        var disabledplus = true;
+                        for (j = 0; j < yearlydata.length; j += 1) {
+                            if (parseInt(yearlydata[j][0]) === parseInt(primaryid)) {
+                                if (parseInt(yearlydata[j][1]) === year - 1) {
+                                    disabledminus = false;
+                                }
+                                if (parseInt(yearlydata[j][1]) === year + 1) {
+                                    disabledplus = false;
+                                }
+                            }
+                        }
+                        $("#minus").attr("disabled", disabledminus);
+                        if (disabledminus === true) {
+                            $("#minus").css("background-color", "#BCBCBC");
+                            $("#minus").css("color", "#000000");
+                        } else {
+                            $("#minus").css("background-color", "#FFFFFF");
+                        }
+                        $("#plus").attr("disabled", disabledplus);
+                        if (disabledplus === true) {
+                            $("#plus").css("background-color", "#BCBCBC");
+                            $("#plus").css("color", "#000000");
+                        } else {
+                            $("#plus").css("background-color", "#FFFFFF");
+                        }
+                    } else {
+                        var disabledminus = true;
+                        var disabledplus = true;
+                        if (year < 2017) {
+                            disabledplus = false;
+                        }
+                        if (year > 2003) {
+                            disabledminus = false;
+                        }
+                        $("#minus").attr("disabled", disabledminus);
+                        if (disabledminus === true) {
+                            $("#minus").css("background-color", "#BCBCBC");
+                            $("#minus").css("color", "#000000");
+                        } else {
+                            $("#minus").css("background-color", "#FFFFFF");
+                        }
+                        $("#plus").attr("disabled", disabledplus);
+                        if (disabledplus === true) {
+                            $("#plus").css("background-color", "#BCBCBC");
+                            $("#plus").css("color", "#000000");
+                        } else {
+                            $("#plus").css("background-color", "#FFFFFF");
+                        }
+                    }
+                }
+                updateDisplay(true, true, true, true, false, true);
+            }
+            // Reacts to a change in the year being viewed via the "-" button
+            function decrementyear() {
+                $("#plus").attr("disabled", false);
+                $("#plus").css("background-color", "#FFFFFF");
+                $("#plus").css("color", "#000000");
+                year = Number.parseInt(year);
+                year = year - 1;
+                singleyeardata = [];
+                for (i = 0; i < yearlydata.length; i += 1) {
+                    if (yearlydata[i][1] === year) {
+                        var temparray = [];
+                        temparray[0] = yearlydata[i][0];
+                        for (var k = 2; k < 53; k += 1) {
+                            temparray[k - 1] = yearlydata[i][k];
+                        }
+                        singleyeardata[parseInt(yearlydata[i][0])] = temparray;
+                    }
+                }
+                $("#year").val(year);
+                if (primaryblog !== null) {
+                    var primaryid = primaryblog.attr("id");
+                    var disabledminus = true;
+                    for (j = 0; j < yearlydata.length; j += 1) {
+                        if (parseInt(yearlydata[j][0]) === parseInt(primaryid)) {
+                            if (parseInt(yearlydata[j][1]) === year - 1) {
+                                disabledminus = false;
+                            }
+                        }
+                    }
+                    $("#minus").attr("disabled", disabledminus);
+                    if (disabledminus === true) {
+                        $("#minus").css("background-color", "#BCBCBC");
+                        $("#minus").css("color", "#000000");
+                    } else {
+                        $("#minus").css("background-color", "#FFFFFF");
+                    }
+                } else {
+                    var disabledminus = true;
+                    if (year > 2003) {
+                        disabledminus = false;
+                    }
+                    $("#minus").attr("disabled", disabledminus);
+                    if (disabledminus === true) {
+                        $("#minus").css("background-color", "#BCBCBC");
+                        $("#minus").css("color", "#000000");
+                    } else {
+                        $("#minus").css("background-color", "#FFFFFF");
+                    }
+                }
+                updateDisplay(true, true, true, true, false, false);
+            }
+            // Reacts to a change in the year being viewed via the "-" button
+            function incrementyear() {
+                $("#minus").attr("disabled", false);
+                $("#minus").css("background-color", "#FFFFFF");
+                $("#minus").css("color", "#000000");
+                year = Number.parseInt(year);
+                year = year + 1;
+                singleyeardata = [];
+                for (i = 0; i < yearlydata.length; i += 1) {
+                    if (yearlydata[i][1] === year) {
+                        var temparray = [];
+                        temparray[0] = yearlydata[i][0];
+                        for (var k = 2; k < 53; k += 1) {
+                            temparray[k - 1] = yearlydata[i][k];
+                        }
+                        singleyeardata[parseInt(yearlydata[i][0])] = temparray;
+                    }
+                }
+                $("#year").val(year);
+                if (primaryblog !== null) {
+                    var primaryid = primaryblog.attr("id");
+                    var disabledplus = true;
+                    for (j = 0; j < yearlydata.length; j += 1) {
+                        if (parseInt(yearlydata[j][0]) === parseInt(primaryid)) {
+                            if (parseInt(yearlydata[j][1]) === year + 1) {
+                                disabledplus = false;
+                            }
+                        }
+                    }
+                    $("#plus").attr("disabled", disabledplus);
+                    if (disabledplus === true) {
+                        $("#plus").css("background-color", "#BCBCBC");
+                        $("#plus").css("color", "#000000");
+                    } else {
+                        $("#plus").css("background-color", "#FFFFFF");
+                    }
+                } else {
+                    var disabledplus = true;
+                    if (year < 2017) {
+                        disabledplus = false;
+                    }
+                    $("#plus").attr("disabled", disabledplus);
+                    if (disabledplus === true) {
+                        $("#plus").css("background-color", "#BCBCBC");
+                        $("#plus").css("color", "#000000");
+                    } else {
+                        $("#plus").css("background-color", "#FFFFFF");
+                    }
+                }
+                updateDisplay(true, true, true, true, false, false);
+            }
 
-      // calculate like a dot product, but put into a vector rather than adding
-      var dotVector = Array(selectedTopics.length);
-      for (var i = 0; i < selfTopics.length; i++) {
-  	    if (selectedTopics.indexOf(i)!=-1){
-  	      dotVector[i] = selfTopics[i] * centerTopcis[i];
-  	  	}
-      }
-      // match dot-like vector with topics to sort
-      var topicSimScores = dotVector.map(function(e, i) {
-        return [e, topics[i]];
-      });
-      // now sort the topics
-      var sortedTopics = topicSimScores.sort(function (a, b) {
-        return b[0] - a[0];
-      });
-      // ugly hack for now. these should be presented in a pop-up or mouseover for each blog.
-      alert(sortedTopics);
-	  
-    }
+            // RESPOND TO CHANGES IN REQUESTS
 
-    //Move node to center and adjust all other circles around it.
-    
-    else{
-      $(this).attr("cx", width/2);
-      $(this).attr("cy", height/2);
-      $(this).attr("clicked", "true");
-      //$(this).css("fill", "black");
-      var selfid =  $(this).attr("id");
-      var selfIndex = blogids.indexOf(parseInt(selfid));
-      var checkedBoxes = getCheckedBoxes("filter_button");
-      var nodes = document.getElementsByClassName("blogCircle");
-      for (var i = 0; i < nodes.length; i++) {
-      	var otherid = nodes[i].id;
-      	var otherIndex = blogids.indexOf(parseInt(otherid));
-      	//console.log(id);
-      	if (selfIndex != otherIndex){
-      		//console.log("self:" + selfid + " " + selfIndex);
-      		//console.log("other:" + otherid + " " + otherIndex);
-      		var cosim = cosineSim(data[selfIndex], data[otherIndex], checkedBoxes);
-      		//console.log(cosim);
-			var sli = 2 * Math.PI / blogids.length;   
-			var ang = sli * i;
-  			var newx = ((width/2) + (bigradius*(1 -(cosim))) * Math.cos(ang));
-  			//console.log(newx);
-  			var newy = ((height/2) + (bigradius*(1-(cosim))) * Math.sin(ang));
-      		$(nodes[i]).attr("cx", newx);
-      		$(nodes[i]).attr("cy", newy);
-      		//$(nodes[i]).attr("r", 5);
-      		//console.log(newd);
-      	}
-      }
-      
-    }
-  }
-
-//Returns a list of checked box values
-function getCheckedBoxes(chkboxName) {
-  var checkboxes = document.getElementsByClassName(chkboxName);
-  var checkboxesChecked = [];
-  // loop over them all, skipping the All Topics one
-  for (var i=0; i<checkboxes.length; i++) {
-     // And stick the checked ones onto an array...
-     if (checkboxes[i].checked) {
-        var val = d3.select(checkboxes[i]).attr("value");
-        checkboxesChecked.push(parseInt(val));
-     }
-  }
-  // if (checkboxesChecked.length == 1 && checkboxesChecked[0] == '50'){
-  // make All Topics override other selections.
-  if (checkboxesChecked[0] == '50'){
-  	checkboxesChecked = [];
-  	for (var i = 0; i < 50; i++) {
-  		checkboxesChecked.push(i);
-  	}
-  	//console.log(checkboxesChecked);
-  }
-  else
-  {
-    // epsb: since the checkboxes includes "All Topics" at the beginning, we need to decrement to get the proper topic number
-    for (var i = 0; i < checkboxesChecked.length; i++) {
-      checkboxesChecked[i] -= 1;
-    }
-  }
-  // Return the array if it is non-empty, or null
-  return checkboxesChecked.length > 0 ? checkboxesChecked : null;
-}
-
-function RGB2Color(r,g,b)
-  {
-    return '#' + byte2Hex(r) + byte2Hex(g) + byte2Hex(b);
-  }
-function byte2Hex(n)
-  {
-    var nybHexString = "0123456789ABCDEF";
-    return String(nybHexString.substr((n >> 4) & 0x0F,1)) + nybHexString.substr(n & 0x0F,1);
-  }
-
-//Gives cosine similarity of two equal length vectors A and B for selected topics
-function cosineSim(vectorA, vectorB, selectedTopics) {
-  var numerator = 0;
-  var denomA = 0;
-  var denomB = 0;
-  if (selectedTopics.length == 1){
-  	var difference = Math.abs(vectorA[selectedTopics[0]] - vectorB[selectedTopics[0]]);
-  	var ave = vectorA[selectedTopics[0]] / 2.0 + vectorB[selectedTopics[0]] / 2.0;
-  	var pd = difference/ave;
-  	if (pd > 1){
-  		pd = 1
-  	}
-  	return 1 - pd;
-  }
-
-  else{
-	  for (var i = 0; i < vectorA.length; i++) {
-	    if (selectedTopics.indexOf(i)!=-1){
-	      numerator = numerator + (vectorA[i] * vectorB[i]);
-	      //console.log(numerator);
-	      denomA = denomA + (vectorA[i] * vectorA[i]);
-	      //console.log(denomA);
-	      denomB = denomB + (vectorB[i] * vectorB[i]);
-	      //console.log(denomB);
-	  	}
-	  }
-	  var denominator = Math.sqrt(denomA) * Math.sqrt(denomB);
-	  return numerator/(denominator);
-  }
- }
-
-
-
-
-
-</script>
+            // Massive function that re-generates parts of the display when necessary (called by functions in the section above)
+            function updateDisplay(graph, paths, outlines, scores, blog, legend) {
+                var checkedBoxes = getCheckedBoxes("filter_button");
+                // Updates the positions, radii, and opacities of the "blog circles"
+                if (graph) {
+                    var blogCircles = svgContainerC.selectAll(".blogCircle");
+                    blogCircles
+                            .transition()
+                            .attr("fill-opacity", function () {
+                                var otherid = $(this).attr("id");
+                                if (primaryblog !== null) {
+                                    var primaryid = primaryblog.attr("id");
+                                    if (parseInt(primaryid) !== parseInt(otherid)) {
+                                        if (year === " All ") {
+                                            return 1;
+                                        } else {
+                                            if (singleyeardata[otherid]) {
+                                                return 1;
+                                            } else {
+                                                return 0;
+                                            }
+                                        }
+                                    } else {
+                                        if (year === " All ") {
+                                            return 1;
+                                        } else {
+                                            return 1;
+                                        }
+                                    }
+                                } else {
+                                    if (year === " All ") {
+                                        return 1;
+                                    } else {
+                                        if (singleyeardata[otherid]) {
+                                            return 1;
+                                        } else {
+                                            return 0;
+                                        }
+                                    }
+                                }
+                            })
+                            .attr("cx", function () {
+                                var otherid = $(this).attr("id");
+                                var otherIndex = blogids.indexOf(parseInt(otherid));
+                                if (primaryblog !== null) {
+                                    var primaryid = primaryblog.attr("id");
+                                    var primaryIndex = blogids.indexOf(parseInt(primaryid));
+                                    if (parseInt(primaryid) !== parseInt(otherid)) {
+                                        if (year === " All ") {
+                                            var cosim = cosineSim(data[primaryIndex], data[otherIndex], checkedBoxes);
+                                            var ang = slice * otherIndex;
+                                            var newx = ((width / 2) + (bigradius * (1 - (cosim))) * Math.cos(ang));
+                                            return newx;
+                                        } else {
+                                            if (singleyeardata[otherid]) {
+                                                var cosim = cosineSim(singleyeardata[primaryid], singleyeardata[otherid], checkedBoxes);
+                                                var ang = slice * otherIndex;
+                                                var newx = ((width / 2) + (bigradius * (1 - (cosim))) * Math.cos(ang));
+                                                return newx;
+                                            } else {
+                                                var ang = slice * otherIndex;
+                                                var pageradius = Math.pow(Math.pow(height, 2) + Math.pow(width, 2), 0.5) / 2;
+                                                return cx + pageradius * Math.cos(ang);
+                                            }
+                                        }
+                                    } else {
+                                        if (year === " All ") {
+                                            return width / 2;
+                                        } else {
+                                            return width / 2;
+                                        }
+                                    }
+                                } else {
+                                    if (year === " All ") {
+                                        var theta = slice * parseInt(otherIndex);
+                                        var newx = (cx + bigradius * Math.cos(theta));
+                                        return newx;
+                                    } else {
+                                        if (singleyeardata[otherid]) {
+                                            var theta = slice * parseInt(otherIndex);
+                                            var newx = (cx + bigradius * Math.cos(theta));
+                                            return newx;
+                                        } else {
+                                            var ang = slice * otherIndex;
+                                            var pageradius = Math.pow(Math.pow(height, 2) + Math.pow(width, 2), 0.5) / 2;
+                                            return cx + pageradius * Math.cos(ang);
+                                        }
+                                    }
+                                }
+                            })
+                            .attr("cy", function () {
+                                var otherid = $(this).attr("id");
+                                var otherIndex = blogids.indexOf(parseInt(otherid));
+                                if (primaryblog !== null) {
+                                    var primaryid = primaryblog.attr("id");
+                                    var primaryIndex = blogids.indexOf(parseInt(primaryid));
+                                    if (parseInt(primaryid) !== parseInt(otherid)) {
+                                        if (year === " All ") {
+                                            var cosim = cosineSim(data[primaryIndex], data[otherIndex], checkedBoxes);
+                                            var ang = slice * otherIndex;
+                                            var newy = ((height / 2) + (bigradius * (1 - (cosim))) * Math.sin(ang));
+                                            return newy;
+                                        } else {
+                                            if (singleyeardata[otherid]) {
+                                                var cosim = cosineSim(singleyeardata[primaryid], singleyeardata[otherid], checkedBoxes);
+                                                var ang = slice * otherIndex;
+                                                var newy = ((height / 2) + (bigradius * (1 - (cosim))) * Math.sin(ang));
+                                                return newy;
+                                            } else {
+                                                var ang = slice * otherIndex;
+                                                var pageradius = Math.pow(Math.pow(height, 2) + Math.pow(width, 2), 0.5) / 2;
+                                                return cy + pageradius * Math.sin(ang);
+                                            }
+                                        }
+                                    } else {
+                                        if (year === " All ") {
+                                            return height / 2;
+                                        } else {
+                                            return height / 2;
+                                        }
+                                    }
+                                } else {
+                                    if (year === " All ") {
+                                        var theta = slice * parseInt(otherIndex);
+                                        var newy = (cy + bigradius * Math.sin(theta));
+                                        return newy;
+                                    } else {
+                                        if (singleyeardata[otherid]) {
+                                            var theta = slice * parseInt(otherIndex);
+                                            var newy = (cy + bigradius * Math.sin(theta));
+                                            return newy;
+                                        } else {
+                                            var ang = slice * otherIndex;
+                                            var pageradius = Math.pow(Math.pow(height, 2) + Math.pow(width, 2), 0.5) / 2;
+                                            return cy + pageradius * Math.sin(ang);
+                                        }
+                                    }
+                                }
+                            })
+                            .attr("r", function () {
+                                var otherid = $(this).attr("id");
+                                if (primaryblog !== null) {
+                                    var primaryid = primaryblog.attr("id");
+                                    if (parseInt(primaryid) !== parseInt(otherid)) {
+                                        if (year === " All ") {
+                                            var totalblogposts = 0;
+                                            for (var j = 0; j < totalposts.length; j += 1) {
+                                                if (parseInt(totalposts[j][0]) === parseInt(otherid)) {
+                                                    totalblogposts = totalposts[j][1];
+                                                }
+                                            }
+                                            return Math.log10(totalblogposts) * 3;
+                                        } else {
+                                            if (singleyeardata[otherid]) {
+                                                var yearposts = singleyeardata[otherid][51];
+                                                return Math.log10(yearposts) * 3 + 4;
+                                            } else {
+                                                return 0;
+                                            }
+                                        }
+                                    } else {
+                                        if (year === " All ") {
+                                            var totalblogposts = 0;
+                                            for (var j = 0; j < totalposts.length; j += 1) {
+                                                if (parseInt(totalposts[j][0]) === parseInt(primaryid)) {
+                                                    totalblogposts = totalposts[j][1];
+                                                }
+                                            }
+                                            return Math.log10(totalblogposts) * 3;
+                                        } else {
+                                            var yearposts = singleyeardata[primaryid][51];
+                                            return Math.log10(yearposts) * 3 + 4;
+                                        }
+                                    }
+                                } else {
+                                    if (year === " All ") {
+                                        var totalblogposts = 0;
+                                        for (var j = 0; j < totalposts.length; j += 1) {
+                                            if (parseInt(totalposts[j][0]) === parseInt(otherid)) {
+                                                totalblogposts = totalposts[j][1];
+                                            }
+                                        }
+                                        return Math.log10(totalblogposts) * 3;
+                                    } else {
+                                        if (singleyeardata[otherid]) {
+                                            var yearposts = singleyeardata[otherid][51];
+                                            return Math.log10(yearposts) * 3 + 4;
+                                        } else {
+                                            return 0;
+                                        }
+                                    }
+                                }
+                            })
+                            .duration(1500);
+                }
+                // Updates the positions, radii, and opacities of the "path dots"
+                if (paths) {
+                    var pathdots = svgContainerA.selectAll(".pathDot");
+                    pathdots
+                            .transition()
+                            .attr("fill-opacity", function () {
+                                var dotid = $(this).attr("id");
+                                var blogyear = "";
+                                var blogid = "";
+                                if (parseInt(dotid.length) === parseInt(5)) {
+                                    blogid = dotid[0];
+                                    for (j = 1; j < 5; j += 1) {
+                                        blogyear += dotid[j];
+                                    }
+                                } else {
+                                    for (j = 0; j < 2; j += 1) {
+                                        blogid += dotid[j];
+                                    }
+                                    for (j = 2; j < 6; j += 1) {
+                                        blogyear += dotid[j];
+                                    }
+                                }
+                                if (primaryblog !== null) {
+                                    var primaryid = $(primaryblog).attr("id");
+                                    if (primaryid !== blogid) {
+                                        if (year === " All ") {
+                                            var existsa = false;
+                                            for (var i = 0; i < yearlydata.length; i += 1) {
+                                                if (parseInt(yearlydata[i][0]) === parseInt(primaryid)) {
+                                                    if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                                                        existsa = true;
+                                                    }
+                                                }
+                                            }
+                                            if (existsa) {
+                                                return 0.4;
+                                            }
+                                        } else {
+                                            var existsb = false;
+                                            if (singleyeardata[parseInt(blogid)]) {
+                                                for (var i = 0; i < yearlydata.length; i += 1) {
+                                                    if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                                                        if (parseInt(yearlydata[i][0]) === parseInt(primaryid)) {
+                                                            existsb = true;
+                                                        }
+                                                    }
+                                                }
+                                                if (existsb) {
+                                                    return 0.4;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                return 0;
+                            })
+                            .attr("cx", function () {
+                                var dotid = $(this).attr("id");
+                                var blogyear = "";
+                                var blogid = "";
+                                if (parseInt(dotid.length) === parseInt(5)) {
+                                    blogid = dotid[0];
+                                    for (j = 1; j < 5; j += 1) {
+                                        blogyear += dotid[j];
+                                    }
+                                } else {
+                                    for (j = 0; j < 2; j += 1) {
+                                        blogid += dotid[j];
+                                    }
+                                    for (j = 2; j < 6; j += 1) {
+                                        blogyear += dotid[j];
+                                    }
+                                }
+                                var blogIndex = blogids.indexOf(parseInt(blogid));
+                                if (primaryblog !== null) {
+                                    var primaryid = $(primaryblog).attr("id");
+                                    var primaryIndex = blogids.indexOf(parseInt(primaryID));
+                                    if (primaryid !== blogid) {
+                                        if (year === " All ") {
+                                            for (var i = 0; i < yearlydata.length; i += 1) {
+                                                if (parseInt(yearlydata[i][0]) === parseInt(primaryid)) {
+                                                    if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                                                        var primarydata = [];
+                                                        primarydata[0] = yearlydata[i][0];
+                                                        for (var k = 2; k < 53; k += 1) {
+                                                            primarydata[k - 1] = yearlydata[i][k];
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            if (primarydata) {
+                                                for (var i = 0; i < yearlydata.length; i += 1) {
+                                                    if (parseInt(yearlydata[i][0]) === parseInt(blogid)) {
+                                                        if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                                                            var otherdata = [];
+                                                            otherdata[0] = yearlydata[i][0];
+                                                            for (var k = 2; k < 53; k += 1) {
+                                                                otherdata[k - 1] = yearlydata[i][k];
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                var cosim = cosineSim(primarydata, otherdata, checkedBoxes);
+                                                var ang = slice * blogIndex;
+                                                var newx = ((width / 2) + (bigradius * (1 - (cosim))) * Math.cos(ang));
+                                                return newx;
+                                            } else {
+                                                var ang = slice * blogIndex;
+                                                var pageradius = Math.pow(Math.pow(height, 2) + Math.pow(width, 2), 0.5) / 2;
+                                                return cx + pageradius * Math.cos(ang);
+                                            }
+                                        } else {
+                                            var exists = false;
+                                            for (var i = 0; i < yearlydata.length; i += 1) {
+                                                if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                                                    if (parseInt(yearlydata[i][0]) === parseInt(primaryid)) {
+                                                        exists = true;
+                                                    }
+                                                }
+                                            }
+                                            if (!exists) {
+                                                var ang = slice * i;
+                                                return cx + bigradius * Math.cos(angle);
+                                            } else {
+                                                for (var i = 0; i < yearlydata.length; i += 1) {
+                                                    if (parseInt(yearlydata[i][0]) === parseInt(blogid)) {
+                                                        if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                                                            var otherdata = [];
+                                                            otherdata[0] = yearlydata[i][0];
+                                                            for (var k = 2; k < 53; k += 1) {
+                                                                otherdata[k - 1] = yearlydata[i][k];
+                                                            }
+                                                        }
+                                                    } else if (parseInt(yearlydata[i][0]) === parseInt(primaryid)) {
+                                                        if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                                                            var primarydata = [];
+                                                            primarydata[0] = yearlydata[i][0];
+                                                            for (var k = 2; k < 53; k += 1) {
+                                                                primarydata[k - 1] = yearlydata[i][k];
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                var cosim = cosineSim(primarydata, otherdata, checkedBoxes);
+                                                var ang = slice * blogIndex;
+                                                var newx = ((width / 2) + (bigradius * (1 - (cosim))) * Math.cos(ang));
+                                                return newx;
+                                            }
+                                        }
+                                    } else {
+                                        return width / 2;
+                                    }
+                                } else {
+                                    if (year === " All ") {
+                                        var theta = slice * parseInt(blogIndex);
+                                        var newx = (cx + bigradius * Math.cos(theta));
+                                        return newx;
+                                    } else {
+                                        if (singleyeardata[parseInt(blogid)]) {
+                                            var theta = slice * parseInt(blogIndex);
+                                            var newx = (cx + bigradius * Math.cos(theta));
+                                            return newx;
+                                        } else {
+                                            var ang = slice * blogIndex;
+                                            var pageradius = Math.pow(Math.pow(height, 2) + Math.pow(width, 2), 0.5) / 2;
+                                            return cx + pageradius * Math.cos(ang);
+                                        }
+                                    }
+                                }
+                            })
+                            .attr("cy", function () {
+                                var dotid = $(this).attr("id");
+                                var blogyear = "";
+                                var blogid = "";
+                                if (parseInt(dotid.length) === parseInt(5)) {
+                                    blogid = dotid[0];
+                                    for (j = 1; j < 5; j += 1) {
+                                        blogyear += dotid[j];
+                                    }
+                                } else {
+                                    for (j = 0; j < 2; j += 1) {
+                                        blogid += dotid[j];
+                                    }
+                                    for (j = 2; j < 6; j += 1) {
+                                        blogyear += dotid[j];
+                                    }
+                                }
+                                var blogIndex = blogids.indexOf(parseInt(blogid));
+                                if (primaryblog !== null) {
+                                    var primaryid = $(primaryblog).attr("id");
+                                    var primaryIndex = blogids.indexOf(parseInt(primaryID));
+                                    if (primaryid !== blogid) {
+                                        if (year === " All ") {
+                                            for (var i = 0; i < yearlydata.length; i += 1) {
+                                                if (parseInt(yearlydata[i][0]) === parseInt(primaryid)) {
+                                                    if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                                                        var primarydata = [];
+                                                        primarydata[0] = yearlydata[i][0];
+                                                        for (var k = 2; k < 53; k += 1) {
+                                                            primarydata[k - 1] = yearlydata[i][k];
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            if (primarydata) {
+                                                for (var i = 0; i < yearlydata.length; i += 1) {
+                                                    if (parseInt(yearlydata[i][0]) === parseInt(blogid)) {
+                                                        if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                                                            var otherdata = [];
+                                                            otherdata[0] = yearlydata[i][0];
+                                                            for (var k = 2; k < 53; k += 1) {
+                                                                otherdata[k - 1] = yearlydata[i][k];
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                var cosim = cosineSim(primarydata, otherdata, checkedBoxes);
+                                                var ang = slice * blogIndex;
+                                                var newy = ((height / 2) + (bigradius * (1 - (cosim))) * Math.sin(ang));
+                                                return newy;
+                                            } else {
+                                                var ang = slice * blogIndex;
+                                                var pageradius = Math.pow(Math.pow(height, 2) + Math.pow(width, 2), 0.5) / 2;
+                                                return cy + pageradius * Math.sin(ang);
+                                            }
+                                        } else {
+                                            var exists = false;
+                                            for (var i = 0; i < yearlydata.length; i += 1) {
+                                                if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                                                    if (parseInt(yearlydata[i][0]) === parseInt(primaryid)) {
+                                                        exists = true;
+                                                    }
+                                                }
+                                            }
+                                            if (!exists) {
+                                                var ang = slice * i;
+                                                return cy + bigradius * Math.sin(angle);
+                                            } else {
+                                                for (var i = 0; i < yearlydata.length; i += 1) {
+                                                    if (parseInt(yearlydata[i][0]) === parseInt(blogid)) {
+                                                        if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                                                            var otherdata = [];
+                                                            otherdata[0] = yearlydata[i][0];
+                                                            for (var k = 2; k < 53; k += 1) {
+                                                                otherdata[k - 1] = yearlydata[i][k];
+                                                            }
+                                                        }
+                                                    } else if (parseInt(yearlydata[i][0]) === parseInt(primaryid)) {
+                                                        if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                                                            var primarydata = [];
+                                                            primarydata[0] = yearlydata[i][0];
+                                                            for (var k = 2; k < 53; k += 1) {
+                                                                primarydata[k - 1] = yearlydata[i][k];
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                var cosim = cosineSim(primarydata, otherdata, checkedBoxes);
+                                                var ang = slice * blogIndex;
+                                                var newy = ((height / 2) + (bigradius * (1 - (cosim))) * Math.sin(ang));
+                                                return newy;
+                                            }
+                                        }
+                                    } else {
+                                        return height / 2;
+                                    }
+                                } else {
+                                    if (year === " All ") {
+                                        var theta = slice * parseInt(blogIndex);
+                                        var newy = (cy + bigradius * Math.sin(theta));
+                                        return newy;
+                                    } else {
+                                        if (singleyeardata[parseInt(blogid)]) {
+                                            var theta = slice * parseInt(blogIndex);
+                                            var newy = (cy + bigradius * Math.sin(theta));
+                                            return newy;
+                                        } else {
+                                            var ang = slice * blogIndex;
+                                            var pageradius = Math.pow(Math.pow(height, 2) + Math.pow(width, 2), 0.5) / 2;
+                                            return cy + pageradius * Math.sin(ang);
+                                        }
+                                    }
+                                }
+                            })
+                            .attr("r", function () {
+                                var dotid = $(this).attr("id");
+                                var blogyear = "";
+                                var blogid = "";
+                                if (parseInt(dotid.length) === parseInt(5)) {
+                                    blogid = dotid[0];
+                                    for (j = 1; j < 5; j += 1) {
+                                        blogyear += dotid[j];
+                                    }
+                                } else {
+                                    for (j = 0; j < 2; j += 1) {
+                                        blogid += dotid[j];
+                                    }
+                                    for (j = 2; j < 6; j += 1) {
+                                        blogyear += dotid[j];
+                                    }
+                                }
+                                if (primaryblog !== null) {
+                                    var primaryid = $(primaryblog).attr("id");
+                                    if (primaryid !== blogid) {
+                                        if (year === " All ") {
+                                            var exists = false;
+                                            for (var i = 0; i < yearlydata.length; i += 1) {
+                                                if (parseInt(yearlydata[i][0]) === parseInt(primaryid)) {
+                                                    if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                                                        exists = true;
+                                                    }
+                                                }
+                                            }
+                                            if (exists) {
+                                                var yearposts = 0;
+                                                for (var i = 0; i < yearlydata.length; i += 1) {
+                                                    if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                                                        if (parseInt(yearlydata[i][0]) === parseInt(blogid)) {
+                                                            yearposts = yearlydata[i][52];
+                                                        }
+                                                    }
+                                                }
+                                                return Math.log10(yearposts) * 3;
+                                            }
+                                        } else {
+                                            if (singleyeardata[parseInt(blogid)]) {
+                                                for (var i = 0; i < yearlydata.length; i += 1) {
+                                                    if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                                                        if (parseInt(yearlydata[i][0]) === parseInt(blogid)) {
+                                                            yearposts = yearlydata[i][52];
+                                                        }
+                                                    }
+                                                }
+                                                var exists = false;
+                                                for (var i = 0; i < yearlydata.length; i += 1) {
+                                                    if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                                                        if (parseInt(yearlydata[i][0]) === parseInt(primaryid)) {
+                                                            exists = true;
+                                                        }
+                                                    }
+                                                }
+                                                if (exists) {
+                                                    return Math.log10(yearposts) * 3 + 4;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                return 0;
+                            })
+                            .duration(1500);
+                }
+                // Updates the positions, radii, and outlines of the secondary "path dots" (created only for outlining purposes)
+                // Also outlines the "blog circles" when necessary
+                if (outlines) {
+                    var pathdotsB = svgContainerB.selectAll(".pathDotB");
+                    pathdotsB
+                            .transition()
+                            .attr("cx", function () {
+                                var dotid = $(this).attr("id");
+                                var blogyear = "";
+                                var blogid = "";
+                                if (parseInt(dotid.length) === parseInt(6)) {
+                                    blogid = dotid[0];
+                                    for (j = 1; j < 5; j += 1) {
+                                        blogyear += dotid[j];
+                                    }
+                                } else {
+                                    for (j = 0; j < 2; j += 1) {
+                                        blogid += dotid[j];
+                                    }
+                                    for (j = 2; j < 6; j += 1) {
+                                        blogyear += dotid[j];
+                                    }
+                                }
+                                var blogIndex = blogids.indexOf(parseInt(blogid));
+                                if (primaryblog !== null) {
+                                    var primaryid = $(primaryblog).attr("id");
+                                    var primaryIndex = blogids.indexOf(parseInt(primaryID));
+                                    if (primaryid !== blogid) {
+                                        if (year === " All ") {
+                                            for (var i = 0; i < yearlydata.length; i += 1) {
+                                                if (parseInt(yearlydata[i][0]) === parseInt(primaryid)) {
+                                                    if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                                                        var primarydata = [];
+                                                        primarydata[0] = yearlydata[i][0];
+                                                        for (var k = 2; k < 53; k += 1) {
+                                                            primarydata[k - 1] = yearlydata[i][k];
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            if (primarydata) {
+                                                for (var i = 0; i < yearlydata.length; i += 1) {
+                                                    if (parseInt(yearlydata[i][0]) === parseInt(blogid)) {
+                                                        if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                                                            var otherdata = [];
+                                                            otherdata[0] = yearlydata[i][0];
+                                                            for (var k = 2; k < 53; k += 1) {
+                                                                otherdata[k - 1] = yearlydata[i][k];
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                var cosim = cosineSim(primarydata, otherdata, checkedBoxes);
+                                                var ang = slice * blogIndex;
+                                                var newx = ((width / 2) + (bigradius * (1 - (cosim))) * Math.cos(ang));
+                                                return newx;
+                                            } else {
+                                                var ang = slice * blogIndex;
+                                                var pageradius = Math.pow(Math.pow(height, 2) + Math.pow(width, 2), 0.5) / 2;
+                                                return cx + pageradius * Math.cos(ang);
+                                            }
+                                        } else {
+                                            var exists = false;
+                                            for (var i = 0; i < yearlydata.length; i += 1) {
+                                                if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                                                    if (parseInt(yearlydata[i][0]) === parseInt(primaryid)) {
+                                                        exists = true;
+                                                    }
+                                                }
+                                            }
+                                            if (!exists) {
+                                                var ang = slice * i;
+                                                return cx + bigradius * Math.cos(angle);
+                                            } else {
+                                                for (var i = 0; i < yearlydata.length; i += 1) {
+                                                    if (parseInt(yearlydata[i][0]) === parseInt(blogid)) {
+                                                        if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                                                            var otherdata = [];
+                                                            otherdata[0] = yearlydata[i][0];
+                                                            for (var k = 2; k < 53; k += 1) {
+                                                                otherdata[k - 1] = yearlydata[i][k];
+                                                            }
+                                                        }
+                                                    } else if (parseInt(yearlydata[i][0]) === parseInt(primaryid)) {
+                                                        if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                                                            var primarydata = [];
+                                                            primarydata[0] = yearlydata[i][0];
+                                                            for (var k = 2; k < 53; k += 1) {
+                                                                primarydata[k - 1] = yearlydata[i][k];
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                var cosim = cosineSim(primarydata, otherdata, checkedBoxes);
+                                                var ang = slice * blogIndex;
+                                                var newx = ((width / 2) + (bigradius * (1 - (cosim))) * Math.cos(ang));
+                                                return newx;
+                                            }
+                                        }
+                                    } else {
+                                        return width / 2;
+                                    }
+                                } else {
+                                    if (year === " All ") {
+                                        var theta = slice * parseInt(blogIndex);
+                                        var newx = (cx + bigradius * Math.cos(theta));
+                                        return newx;
+                                    } else {
+                                        if (singleyeardata[parseInt(blogid)]) {
+                                            var theta = slice * parseInt(blogIndex);
+                                            var newx = (cx + bigradius * Math.cos(theta));
+                                            return newx;
+                                        } else {
+                                            var ang = slice * blogIndex;
+                                            var pageradius = Math.pow(Math.pow(height, 2) + Math.pow(width, 2), 0.5) / 2;
+                                            return cx + pageradius * Math.cos(ang);
+                                        }
+                                    }
+                                }
+                            })
+                            .attr("cy", function () {
+                                var dotid = $(this).attr("id");
+                                var blogyear = "";
+                                var blogid = "";
+                                if (parseInt(dotid.length) === parseInt(6)) {
+                                    blogid = dotid[0];
+                                    for (j = 1; j < 5; j += 1) {
+                                        blogyear += dotid[j];
+                                    }
+                                } else {
+                                    for (j = 0; j < 2; j += 1) {
+                                        blogid += dotid[j];
+                                    }
+                                    for (j = 2; j < 6; j += 1) {
+                                        blogyear += dotid[j];
+                                    }
+                                }
+                                var blogIndex = blogids.indexOf(parseInt(blogid));
+                                if (primaryblog !== null) {
+                                    var primaryid = $(primaryblog).attr("id");
+                                    var primaryIndex = blogids.indexOf(parseInt(primaryID));
+                                    if (primaryid !== blogid) {
+                                        if (year === " All ") {
+                                            for (var i = 0; i < yearlydata.length; i += 1) {
+                                                if (parseInt(yearlydata[i][0]) === parseInt(primaryid)) {
+                                                    if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                                                        var primarydata = [];
+                                                        primarydata[0] = yearlydata[i][0];
+                                                        for (var k = 2; k < 53; k += 1) {
+                                                            primarydata[k - 1] = yearlydata[i][k];
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            if (primarydata) {
+                                                for (var i = 0; i < yearlydata.length; i += 1) {
+                                                    if (parseInt(yearlydata[i][0]) === parseInt(blogid)) {
+                                                        if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                                                            var otherdata = [];
+                                                            otherdata[0] = yearlydata[i][0];
+                                                            for (var k = 2; k < 53; k += 1) {
+                                                                otherdata[k - 1] = yearlydata[i][k];
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                var cosim = cosineSim(primarydata, otherdata, checkedBoxes);
+                                                var ang = slice * blogIndex;
+                                                var newy = ((height / 2) + (bigradius * (1 - (cosim))) * Math.sin(ang));
+                                                return newy;
+                                            } else {
+                                                var ang = slice * blogIndex;
+                                                var pageradius = Math.pow(Math.pow(height, 2) + Math.pow(width, 2), 0.5) / 2;
+                                                return cy + pageradius * Math.sin(ang);
+                                            }
+                                        } else {
+                                            var exists = false;
+                                            for (var i = 0; i < yearlydata.length; i += 1) {
+                                                if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                                                    if (parseInt(yearlydata[i][0]) === parseInt(primaryid)) {
+                                                        exists = true;
+                                                    }
+                                                }
+                                            }
+                                            if (!exists) {
+                                                var ang = slice * i;
+                                                return cy + bigradius * Math.sin(angle);
+                                            } else {
+                                                for (var i = 0; i < yearlydata.length; i += 1) {
+                                                    if (parseInt(yearlydata[i][0]) === parseInt(blogid)) {
+                                                        if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                                                            var otherdata = [];
+                                                            otherdata[0] = yearlydata[i][0];
+                                                            for (var k = 2; k < 53; k += 1) {
+                                                                otherdata[k - 1] = yearlydata[i][k];
+                                                            }
+                                                        }
+                                                    } else if (parseInt(yearlydata[i][0]) === parseInt(primaryid)) {
+                                                        if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                                                            var primarydata = [];
+                                                            primarydata[0] = yearlydata[i][0];
+                                                            for (var k = 2; k < 53; k += 1) {
+                                                                primarydata[k - 1] = yearlydata[i][k];
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                var cosim = cosineSim(primarydata, otherdata, checkedBoxes);
+                                                var ang = slice * blogIndex;
+                                                var newy = ((height / 2) + (bigradius * (1 - (cosim))) * Math.sin(ang));
+                                                return newy;
+                                            }
+                                        }
+                                    } else {
+                                        return height / 2;
+                                    }
+                                } else {
+                                    if (year === " All ") {
+                                        var theta = slice * parseInt(blogIndex);
+                                        var newy = (cy + bigradius * Math.sin(theta));
+                                        return newy;
+                                    } else {
+                                        if (singleyeardata[parseInt(blogid)]) {
+                                            var theta = slice * parseInt(blogIndex);
+                                            var newy = (cy + bigradius * Math.sin(theta));
+                                            return newy;
+                                        } else {
+                                            var ang = slice * blogIndex;
+                                            var pageradius = Math.pow(Math.pow(height, 2) + Math.pow(width, 2), 0.5) / 2;
+                                            return cy + pageradius * Math.sin(ang);
+                                        }
+                                    }
+                                }
+                            })
+                            .attr("r", function () {
+                                var dotid = $(this).attr("id");
+                                var blogyear = "";
+                                var blogid = "";
+                                if (parseInt(dotid.length) === parseInt(6)) {
+                                    blogid = dotid[0];
+                                    for (j = 1; j < 5; j += 1) {
+                                        blogyear += dotid[j];
+                                    }
+                                } else {
+                                    for (j = 0; j < 2; j += 1) {
+                                        blogid += dotid[j];
+                                    }
+                                    for (j = 2; j < 6; j += 1) {
+                                        blogyear += dotid[j];
+                                    }
+                                }
+                                if (primaryblog !== null) {
+                                    var primaryid = $(primaryblog).attr("id");
+                                    if (primaryid !== blogid) {
+                                        if (year === " All ") {
+                                            var exists = false;
+                                            for (var i = 0; i < yearlydata.length; i += 1) {
+                                                if (parseInt(yearlydata[i][0]) === parseInt(primaryid)) {
+                                                    if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                                                        exists = true;
+                                                    }
+                                                }
+                                            }
+                                            if (exists) {
+                                                var yearposts = 0;
+                                                for (var i = 0; i < yearlydata.length; i += 1) {
+                                                    if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                                                        if (parseInt(yearlydata[i][0]) === parseInt(blogid)) {
+                                                            yearposts = yearlydata[i][52];
+                                                        }
+                                                    }
+                                                }
+                                                return Math.log10(yearposts) * 3;
+                                            }
+                                        } else {
+                                            if (singleyeardata[parseInt(blogid)]) {
+                                                for (var i = 0; i < yearlydata.length; i += 1) {
+                                                    if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                                                        if (parseInt(yearlydata[i][0]) === parseInt(blogid)) {
+                                                            yearposts = yearlydata[i][52];
+                                                        }
+                                                    }
+                                                }
+                                                var exists = false;
+                                                for (var i = 0; i < yearlydata.length; i += 1) {
+                                                    if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
+                                                        if (parseInt(yearlydata[i][0]) === parseInt(primaryid)) {
+                                                            exists = true;
+                                                        }
+                                                    }
+                                                }
+                                                if (exists) {
+                                                    return Math.log10(yearposts) * 3 + 4;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                return 0;
+                            })
+                            .attr("stroke", function () {
+                                if (secondaryblog !== null) {
+                                    var secondaryid = $(secondaryblog).attr("id");
+                                    var dotid = $(this).attr("id");
+                                    var blogid = "";
+                                    if (parseInt(dotid.length) === parseInt(6)) {
+                                        blogid = dotid[0];
+                                    } else {
+                                        for (j = 0; j < 2; j += 1) {
+                                            blogid += dotid[j];
+                                        }
+                                    }
+                                    if (parseInt(secondaryid) === parseInt(blogid)) {
+                                        return "#000000";
+                                    }
+                                }
+                                return "none";
+                            })
+                            .attr("stroke-width", function () {
+                                if (secondaryblog !== null) {
+                                    var secondaryid = $(secondaryblog).attr("id");
+                                    var dotid = $(this).attr("id");
+                                    var blogid = "";
+                                    if (parseInt(dotid.length) === parseInt(6)) {
+                                        blogid = dotid[0];
+                                    } else {
+                                        for (j = 0; j < 2; j += 1) {
+                                            blogid += dotid[j];
+                                        }
+                                    }
+                                    if (parseInt(secondaryid) === parseInt(blogid)) {
+                                        return 3;
+                                    }
+                                }
+                                return 0;
+                            })
+                            .attr("stroke-opacity", function () {
+                                if (secondaryblog !== null) {
+                                    var secondaryid = $(secondaryblog).attr("id");
+                                    var dotid = $(this).attr("id");
+                                    var blogid = "";
+                                    if (parseInt(dotid.length) === parseInt(6)) {
+                                        blogid = dotid[0];
+                                    } else {
+                                        for (j = 0; j < 2; j += 1) {
+                                            blogid += dotid[j];
+                                        }
+                                    }
+                                    if (parseInt(secondaryid) === parseInt(blogid)) {
+                                        return 1;
+                                    }
+                                }
+                                return 0;
+                            })
+                            .duration(1500);
+                    var blogCircles = document.getElementsByClassName("blogCircle");
+                    $(blogCircles)
+                        .attr("stroke", function () {
+                            if (secondaryblog !== null) {
+                                var secondaryid = $(secondaryblog).attr("id");
+                                var blogid = $(this).attr("id");
+                                if (parseInt(secondaryid) === parseInt(blogid)) {
+                                   return "#000000";
+                                }
+                            }
+                            return "none";
+                        })
+                        .attr("stroke-width", function () {
+                            if (secondaryblog !== null) {
+                                var secondaryid = $(secondaryblog).attr("id");
+                                var blogid = $(this).attr("id");
+                                if (parseInt(secondaryid) === parseInt(blogid)) {
+                                   return 3;
+                                }
+                            }
+                            return 0;
+                        })
+                        .attr("stroke-opacity", function () {
+                            if (secondaryblog !== null) {
+                                var secondaryid = $(secondaryblog).attr("id");
+                                var blogid = $(this).attr("id");
+                                if (parseInt(secondaryid) === parseInt(blogid)) {
+                                   return 1;
+                                }
+                            }
+                            return 0;
+                        })
+                }
+                // Removes Sim Scores currently being displayed and manipulates data to be sent to the "displaySimScores" method when necessary
+                if (scores) {
+                    $("#simScores").empty();
+                    $("#simScoresTitle").empty();
+                    $("#simScores").css("border-style", "none");
+                    if (secondaryblog !== null) {
+                        if (year === " All ") {
+                            var secondaryid = secondaryblog.attr("id");
+                            var secondaryIndex = blogids.indexOf(parseInt(secondaryid));
+                            var selectedTopics = getCheckedBoxes("filter_button");
+                            var primaryID = primaryblog.attr("id");
+                            var primaryIndex = blogids.indexOf(parseInt(primaryID));
+                            // look up average topic scores for this blog and for the center blog
+                            var secondaryTopics = data[secondaryIndex];
+                            var primaryTopcis = data[primaryIndex];
+                            // Determine the RGB components of the clicked blog
+                            var rgb = secondaryblog.css("fill");
+                            // calculate like a dot product, but put into a vector rather than adding
+                            var dotVector = Array(selectedTopics.length);
+                            for (var i = 0; i < secondaryTopics.length; i++) {
+                                if (parseInt(selectedTopics.indexOf(i)) !== parseInt(-1)) {
+                                    dotVector[i] = secondaryTopics[i] * primaryTopcis[i];
+                                }
+                            }
+                            // match dot-like vector with topics to sort
+                            var topicSimScores = dotVector.map(function (e, i) {
+                                return [e, topics[i]];
+                            });
+                            // now sort the topics
+                            var sortedTopics = topicSimScores.sort(function (a, b) {
+                                return b[0] - a[0];
+                            });
+                            var link = blogs[secondaryblog.attr("id") - 1];
+                            $("#simScores").empty();
+                            $("#simScoresTitle").empty();
+                            $("#simScores").css("border-style", "none");
+                            displaySimScores(sortedTopics, link, rgb);
+                        } else {
+                            var secondaryid = secondaryblog.attr("id");
+                            var secondaryIndex = blogids.indexOf(parseInt(secondaryid));
+                            var selectedTopics = getCheckedBoxes("filter_button");
+                            var primaryID = primaryblog.attr("id");
+                            var primaryIndex = blogids.indexOf(parseInt(primaryID));
+                            // Determine the RGB components of the clicked blog
+                            var rgb = secondaryblog.css("fill");
+                            // look up average topic scores for this blog and for the center blog
+                            var secondaryTopics = singleyeardata[secondaryid];
+                            var primaryTopcis = singleyeardata[primaryID];
+                            if (secondaryTopics) {
+                                // calculate like a dot product, but put into a vector rather than adding
+                                var dotVector = Array(selectedTopics.length);
+                                for (var i = 1; i < secondaryTopics.length - 1; i++) {
+                                    if (parseInt(selectedTopics.indexOf(i)) !== parseInt(-1)) {
+                                        dotVector[i] = secondaryTopics[i] * primaryTopcis[i];
+                                    }
+                                }
+                                // match dot-like vector with topics to sort
+                                var topicSimScores = dotVector.map(function (e, i) {
+                                    return [e, topics[i]];
+                                });
+                                // now sort the topics
+                                var sortedTopics = topicSimScores.sort(function (a, b) {
+                                    return b[0] - a[0];
+                                });
+                                var link = blogs[secondaryblog.attr("id") - 1];
+                                $("#simScores").empty();
+                                $("#simScoresTitle").empty();
+                                $("#simScores").css("border-style", "none");
+                                displaySimScores(sortedTopics, link, rgb);
+                            } else {
+                                $("#simScores").empty();
+                                $("#simScoresTitle").empty();
+                                $("#simScores").css("border-style", "none");
+                            }
+                        }
+                    }
+                }
+                // Displays the name of the "primary blog" when applicable
+                if (blog) {
+                    $("#selected").empty();
+                    if (primaryblog !== null) {
+                        var link = blogs[primaryblog.attr("id") - 1];
+                        var selectedlink = $("#selected");
+                        selectedlink.html("Selected Blog: " + link);
+                        selectedlink.css("font-weight", "bold");
+                        selectedlink.css("font-size", "20px");
+                        secondaryblog = null;
+                    }
+                }
+                // Updates the legend if the year being viewed is changed from a specific year to " All " or vice versa
+                if (legend) {
+                    if (year === " All ") {
+                        $("#small").attr("r", Math.log10(10) * 3);
+                        $("#smalllabel").html("10 posts");
+                        $("#medium").attr("r", Math.log10(100) * 3);
+                        $("#mediumlabel").html("100 posts");
+                        $("#large").attr("r", Math.log10(1000) * 3);
+                        $("#largelabel").html("1000 posts");
+                    } else {
+                        $("#small").attr("r", Math.log10(1) * 3 + 4);
+                        $("#smalllabel").html("1 post");
+                        $("#medium").attr("r", Math.log10(10) * 3 + 4);
+                        $("#mediumlabel").html("10 posts");
+                        $("#large").attr("r", Math.log10(100) * 3 + 4);
+                        $("#largelabel").html("100 posts");
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,6 +1,6 @@
 README for folder "autism-blogs"
 
-This repository contains code to scrape blogs, analyze
+This folder contains code to scrape blogs, analyze
 them using topic modeling, and display the results in
 various ways. The code is split up into three parts, with
 two additional folders for information and resources.
