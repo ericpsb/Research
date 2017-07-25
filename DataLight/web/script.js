@@ -13,8 +13,26 @@ $(document).ready(function() {
             });
 	    });
         addSliderBars();
+        changeRangeColor();
     });
 			
+// embeded in submit button, load facebook and twitter login page
+function loadLoginPage() {
+        window.location='https://das-lab.org/datalight/login.html';
+}
+
+function changeRangeColor() {
+        $('input[type="range"]').mousemove(function() {
+            var val = ($(this).val() - $(this).attr('min')) / ($(this).attr('max') - $(this).attr('min'));
+            $(this).css('background-image',
+                '-webkit-gradient(linear, left top, right top, '
+                + 'color-stop(' + val + ', #62C462), '
+                + 'color-stop(' + val + ', #DDE6D6)'
+                + ')'
+                );
+        });
+}
+
   // This is called with the results from from FB.getLoginStatus().
 function statusChangeCallback(response) {
 	console.log('statusChangeCallback');
@@ -23,9 +41,13 @@ function statusChangeCallback(response) {
       	getInfoAPI(getLikesPostsAPI);
     } else {
       // The person is not logged into your app or we are unable to tell.
-      	document.getElementById('status').innerHTML = 'Please log ' +
-        'into this app.';
+      //	document.getElementById('status').innerHTML = 'Please log ' +
+       // 'into this app.';
     }
+}
+
+function print() {
+    console.log('printjaaaa');
 }
 
 function collectValues() {
@@ -45,25 +67,24 @@ function disableSliderBars() {
         $(s).prop('disabled', true);
         $(s).css('cursor', 'not-allowed');
     }
+    $("#submit").prop('disabled', true);
+    $('input[type="range"]').css('background', '#EEEEEE');
 }
 
 // add 10 slider bars to UI
 function addSliderBars() {
-    const keywords = ['Extraverted, enthusiastic', 'Crtical, quarrelsome', 'Dependable, self-disciplined', 'Anxious, easily upset',
+    const keywords = ['Extraverted, enthusiastic', 'Critical, quarrelsome', 'Dependable, self-disciplined', 'Anxious, easily upset',
                       'Open to new experiences, complex', 'Reserved, quiet', 'Sympathetic, warm', 'Disorganized, careless', 
                       'Calm, emotionally stable', 'Conventional, uncreative'];
 
     for (i = 0; i < keywords.length; i++) {
         const s = 
                 '<div class="range-slider">' +
-                    '<input id="range-slider-' + i + '"' + 'type="range" value="50" min="0" max="100"/>' +
+                    '<input id="range-slider-' + i + '"' + 'type="range" value="0" min="0" max="100"/>' +
                     '<span class="range-slider-label">' + keywords[i] + '</span>' +
                 '</div>' 
         $('#quiz').append(s);
     }
-    const submit = '<button type="button" class="btn btn-success" onclick=collectValues()>Submit</button>'
-    $('#quiz').append(submit);
-
 }
 
 function checkLoginState() {
@@ -77,8 +98,8 @@ function getInfoAPI(getLikesPostsAPI) {
     FB.api('/me', 'get', function(response) {
 	    var userId = response.id;
         console.log('Successful login for: ' + response.name);
-        document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
+        //document.getElementById('status').innerHTML =
+        //'Thanks for logging in, ' + response.name + '!';
         getLikesPostsAPI(userId);
     });
     

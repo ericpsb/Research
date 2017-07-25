@@ -22,15 +22,19 @@ const options = {
 
 let accessToken = '';
 // make post request to Magic Sauce with `customer_id` and `api_key`
-request.post(options, function(err, res, body) {
-    let json = JSON.parse(body);
-    accessToken = json.token;
-    console.log(json);
-});
+function getAccessToken(callback) {
+    request.post(options, function(err, res, body) {
+        let json = JSON.parse(body);
+        accessToken = (JSON.parse(body)).token;
+        callback();
+    });
+}
 
-// get all likes from server side
+//getAccessToken();
+    
+
+// get all likes from client  side
 app.post('/likes', function(req, res) {
-    console.log('express app called successful');
     likesPrediction(req, function(result) {
         res.json({
              result: result 
@@ -38,8 +42,9 @@ app.post('/likes', function(req, res) {
     });
 });
 
+// get all posts from client side 
 app.post('/posts', function(req, res) {
-    console.log('express app called successful');
+    console.log('express app post called successful');
     postsPrediction(req, function(result) {
         res.json({
              result: result 
@@ -59,7 +64,15 @@ function likesPrediction(req, callback) {
         body: JSON.stringify(req.body.allLikes) 
     }
     request.post(options, function(err, res, body) {
-        callback(JSON.parse(body).predictions); 
+        console.log('error 403 in likes prediction');
+        // handle accessToken expiration
+        if ((JSON.parse(body)).status == 403) {
+            getAccessToken(function() {
+                likesPrediction(req, callback);
+            });
+        } else {
+            callback(JSON.parse(body).predictions); 
+        }
     });       
 }
 
@@ -77,16 +90,24 @@ function postsPrediction(req, callback) {
         },
         body: JSON.stringify(req.body.allPosts)
     }
+
     request.post(options, function(err, res, body) {
-        console.log(err);
+        // handle accessToken expiration
         if ((JSON.parse(body)).status == 403) {
-            console.log('error in posts prediction');
+            console.log('error 403 in postsPrediction');
+            getAccessToken(function() {
+                postsPrediction(req, callback);
+            });
+        } else {
+            callback(JSON.parse(body).predictions);
         }
-        console.log(JSON.parse(body));
-        callback(JSON.parse(body).predictions);
     });
 }
  
+app.use(function (err, req, res, next) {
+    console.error(err.stack);
+    res.status(403).send('acess token is expired');
+});
 
 var privateKey = fs.readFileSync('privkey.pem', 'utf8');
 var certificate = fs.readFileSync('cert.pem', 'utf8');
