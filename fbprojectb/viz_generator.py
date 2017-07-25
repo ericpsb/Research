@@ -69,11 +69,11 @@ class VisualizationGenerator(object):
     def generate_links(self):
         """Generate links between all nodes and assign values."""
 
-        #######################################################################
-        # TODO[P]: Still need to add functionality for book/music links and   #
-        # a check for when someone posts to your timeline, because that's an  #
-        # automatic 5 for the value.                                          #
-        #######################################################################
+        ########################################################################
+        # TODO[P]: Still need to add functionality for book/music links and    #
+        # a check for when someone posts to your timeline, because that's an   #
+        # automatic 5 for the value.                                           #
+        ########################################################################
 
         link_values = {
             'like': 2,
@@ -124,15 +124,36 @@ class VisualizationGenerator(object):
         if document['from']['id'] == self.uid:
             for option in options:
                 if option[4] is not None: # if option is in document
-                    interactions = self.process_status(document, option[1])
-                    self.generate_pairs(username, option[2], option[4], interactions)
+                    if (option[0] == 'story_tags' and 'type' in document
+                            and (document['type'] == 'wall_post' or document['type'] == 'photo')):
+                        interactions = self.process_status(document, option[1])
+                        self.generate_pairs(username, option[2], option[4], interactions)
         else:
             for option in options:
                 if self.is_in_list(option):
-                    interactions = self.process_status(document, option[1])
-                    self.generate_single_pair(username, option[3], document['from']['name'], interactions)
+                    if (option[0] == 'story_tags' and 'type' in document
+                            and (document['type'] == 'wall_post' or document['type'] == 'photo')):
+                        interactions = self.process_status(document, option[1])
+                        self.generate_single_pair(username, option[3], document['from']['name'], interactions)
+                        interactions = self.process_status(document, 'co-' + option[1])
+                        self.generate_pairs(username, option[3], option[4], interactions)
+        
+        # Generate pairs for every other person related to each other
+        for option in options:
+            if option[4] is not None:
+                if ((option[0] == 'story_tags' and 'type' in document
+                     and (document['type'] == 'wall_post' or document['type'] == 'photo'))
+                        or option[0] != 'story_tags'):
+                    # The fact that I'm copying this line again is probably not great, but not a
+                    # huge priority for me right now.
                     interactions = self.process_status(document, 'co-' + option[1])
-                    self.generate_pairs(username, option[3], option[4], interactions)
+                    for user in option[4]:
+                        if 'type' in user and user['type'] != 'user':
+                            continue
+                        if 'from' in user:
+                            self.generate_pairs(user['from']['name'], option[2], option[4], interactions)
+                        else:
+                            self.generate_pairs(user['name'], option[2], option[4], interactions)
 
         return
 
@@ -147,13 +168,15 @@ class VisualizationGenerator(object):
         if direction == 'source':
             for user in other_users:
                 if 'from' in user:
-                    if user['from']['id'] == self.uid:
+                    if user['from']['name'] == username or user['from']['id'] == self.uid:
                         continue
                     pair = self.get_user_pair(username, user['from']['name'])
                     if {'name': user['from']['name']} not in self.nodes:
                         self.nodes.append({'name': user['from']['name']})
                 else:
-                    if user['id'] == self.uid:
+                    if user['name'] == username or user['id'] == self.uid:
+                        continue
+                    if 'type' in user and user['type'] == 'page':
                         continue
                     pair = self.get_user_pair(username, user['name'])
                     if {'name': user['name']} not in self.nodes:
@@ -164,13 +187,15 @@ class VisualizationGenerator(object):
         else:
             for user in other_users:
                 if 'from' in user:
-                    if user['from']['id'] == self.uid:
+                    if user['from']['name'] == username or user['from']['id'] == self.uid:
                         continue
                     pair = self.get_user_pair(user['from']['name'], username)
                     if {'name': user['from']['name']} not in self.nodes:
                         self.nodes.append({'name': user['from']['name']})
                 else:
-                    if user['id'] == self.uid:
+                    if user['name'] == username or user['id'] == self.uid:
+                        continue
+                    if 'type' in user and user['type'] == 'page':
                         continue
                     pair = self.get_user_pair(user['name'], username)
                     if {'name': user['name']} not in self.nodes:
@@ -185,7 +210,6 @@ class VisualizationGenerator(object):
             pair = self.get_user_pair(username, other_user)
         else:
             pair = self.get_user_pair(other_user, username)
-
         pair['data'].append(interactions)
         if {'name': other_user} not in self.nodes:
             self.nodes.append({'name': other_user})
