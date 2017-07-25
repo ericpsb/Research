@@ -2,3 +2,7 @@
 	path = fbprojectb/libffi
 	url = git://github.com/libffi/libffi
 	ignore = dirty
+[submodule "fbprojectb/blast"]
+	path = fbprojectb/blast
+	url = https://github.com/julianshapiro/blast.git
+	ignore = dirty
