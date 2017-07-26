@@ -204,8 +204,18 @@ $.ajax({
 					dataType: "json",
 					success: function(data) {
 						$(".corr-zoom-graph").remove();
-						$("#corr-page").append($("<div></div>").addClass("corr-zoom-graph").append(data.graph).css("width", "100%").css("height", 205));
-						$(".corr-zoom-graph").append($("<div></div>").addClass("viewer").addClass("display-none").append($("<div></div>").addClass("docviewer")))
+						$("#corr-page").append($("<div></div>").addClass("corr-zoom-graph").append(data.graph));
+						$(".corr-zoom-graph").append($("<div></div>").addClass("viewer").css("display", "none"));
+						$(".viewer").append($("<div></div>").css("margin", "auto").css("width", "calc(50% + 400px)")
+							.append($("<div></div>").addClass("border").css("background-image", "radial-gradient(circle at 0 100%, rgba(0,0,0,0) 197px, #ffa500 198px, #ffa500 200px, #fff 201px )"))
+							.append($("<div></div>").addClass("docviewer"))
+							.append($("<div></div>").addClass("border").css("background-image", "radial-gradient(circle at 100% 100%, rgba(0,0,0,0) 197px, #800080 198px, #800080 200px, #fff 201px )")));
+						$(".viewer").append($("<div></div>").html("^").css("margin", "auto").css("width", 25).css("text-align", "center")
+						.css("border", "2px solid #ccc").css("background", "#fff").css("cursor", "pointer")
+						.click(function(){
+							$(".corr-zoom-graph .top, .corr-zoom-graph .bot").remove();
+							$(".corr-zoom-graph .viewer").animate({height: "hide"});							
+						}));
 						$(".corr-zoom-graph").append($("<div></div>").addClass("close").html("X").click(function(){$(".corr-zoom-graph").remove();}));
 						$(".corr-zoom-graph svg").children().each(function(){
 							var index = $(this).data("index");
@@ -223,7 +233,13 @@ $.ajax({
 						}).mouseout(function() {
 							$("#tooltip").css("visibility", "hidden");
 						}).click(function(evt){
-							$(".corr-zoom-graph .viewer").removeClass("display-none");
+							$(".corr-zoom-graph .top, .corr-zoom-graph .bot").remove();
+							var dtop = $("<div></div>").addClass("top").css("top", 10).css("left", evt.pageX - parseFloat($(".corr-zoom-graph").css("margin-left"))).css("z-index", 2).css("color", "#ccc").html("▼");	
+							var dbot = $("<div></div>").addClass("bot").css("bottom", 10).css("left", evt.pageX - parseFloat($(".corr-zoom-graph").css("margin-left"))).css("z-index", 2).css("color", "#ccc").html("▲");
+							$(".corr-zoom-graph").append(dtop).append(dbot);
+							$(".corr-zoom-graph .top, .corr-zoom-graph .bot").each(function(){$(this).css("left", parseFloat($(this).css("left")) - $(this).width()/2);});
+							$(".corr-zoom-graph .viewer").animate({height: "show"});
+							$(".corr-zoom-graph .docviewer").html("");
 							var index = $(this).data("index");
 							var start = index == 0 ? 0 : data.cumlen[index-1];
 							$.ajax({
@@ -231,13 +247,10 @@ $.ajax({
 								url: "/corrdocs",
 								data: {t1: circle.data("t1"), t2: circle.data("t2"), docids: data.docids.slice(start, data.cumlen[index])},
 								success: function(docs) {
-									$(".corr-zoom-graph .docviewer").html(docs).scrollTop(0);;
-								
+									$(".corr-zoom-graph .docviewer").html(docs);
 								}
 							});
-							
 						});
-						
 					}
 				});
 			});

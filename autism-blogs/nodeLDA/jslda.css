@@ -3,9 +3,6 @@ body { font-family: Calibri, Verdana; background-color: #fff; }
 div.sidebar { float: left; width: 22%; }
 div.sidebar div.sidebox { margin: 5px; padding: 10px; }
 
-div.top { background-color: #ddd; margin: 5px; padding: 10px; -moz-border-radius: 10px; border-radius: 10px; }
-form { float: right; }
-
 #topics div { color: #555; margin-bottom: 10px; padding: 5px; cursor: default; }
 #topics div.selected { border-right: solid black 2px; font-weight: bold; }
 #topics div:hover { background-color: #ccc; }
@@ -36,18 +33,20 @@ text { font-size: small; fill: #555; dominant-baseline: middle;; }
 .dest { width: 5em; margin-left: 20px; }
 
 .cover { fill: transparent; }
-.corr-zoom-graph { position: fixed; top: 0px; left: 0px; background-color: #fff; border-radius: 100px;}
-.corr-zoom-graph > div { display: inline-block; position: absolute; height: 200px; }
-.corr-zoom-graph > div > span { display: inline-block; position: relative; top: 35%; margin-left: 10px; margin-right: 10px; width: calc(100% - 210px);}
-.corr-zoom-graph .left { border: 2px solid; border-radius: 100px; border-color: #0cc; }
-.corr-zoom-graph .mid { border: 2px solid; border-radius: 100px; border-color: #0f0; z-index: 1; }
-.corr-zoom-graph .right { border: 2px solid; border-radius: 100px; border-color: #cc0; text-align: right; right: 0px ;}
-.corr-zoom-graph .viewer { width: 100%; height: 100px; top: 204px; }
-.corr-zoom-graph .docviewer { width: 50%; height: 100%; margin: auto; overflow-y: scroll; overflow-wrap: break-word; background: #fff; }
-.corr-zoom-graph .close { top: 0px; right: 0px; width: 25px; height: 25px; border: 1px solid #ccc; color: #ccc; text-align: center; cursor: pointer; }
+.corr-zoom-graph { position: fixed; top: 0px; left: 0px; background-color: #fff; border-radius: 100px; width: 90%; height: 205px; margin-left: 5%; margin-right: 5%; }
+.corr-zoom-graph > div { display: inline-block; position: absolute; }
+.corr-zoom-graph > div > span { display: inline-block; position: relative; top: 35%; margin-left: 10px; margin-right: 10px; width: calc(100% - 210px); }
+.corr-zoom-graph .left { border: 2px solid; border-radius: 100px; border-color: #ffa500; height: 200px; }
+.corr-zoom-graph .mid { border: 2px solid; border-radius: 100px; border-color: #bf5240; height: 200px; z-index: 1; }
+.corr-zoom-graph .right { border: 2px solid; border-radius: 100px; border-color: #800080; height: 200px; text-align: right; right: 0px ; }
+.corr-zoom-graph .viewer { width: 100%; top: 202px; }
+.corr-zoom-graph .docviewer { width: calc(100% - 400px); height: 198px; display: inline-block; overflow-y: scroll; background: #fff; border: 0; border-bottom: 2px solid transparent; overflow-wrap: break-word; border-image: linear-gradient(to right, #ffa500 0%, #800080 100%); border-image-slice: 1;}
+.corr-zoom-graph .close { top: 0px; right: 0px; width: 25px; height: 25px; border: 1px solid #ccc; color: #f00; text-align: center; cursor: pointer; }
+.corr-zoom-graph .viewer .border { display: inline-block; width: 200px; height: 200px; }
+.corr-zoom-graph .docviewer .document { padding-bottom: 10px; }
 
-.t1 { color: #0cc; }
-.t2 { color: #cc0; }
+.t1 { color: #ffa500; fill: #ffa500; }
+.t2 { color: #800080; fill: #800080; }
 
 .ts-div { margin-right: 5px; margin-top: 5px; position: relative; font-size: small; display: inline-block; }
 .ts-div text { position: absolute; font-size: 100%; color: #555; font-size: 100%; text-shadow: 0px 0px 0px #fff; z-index: 1; }

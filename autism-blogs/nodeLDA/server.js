@@ -166,7 +166,7 @@ app.get(baseurl + '/corr', function(req, res) {
 		data.push({doc: i, x: x, y: y});
 		endx = Math.abs(x)+1 > endx ? Math.abs(x)+1 : endx;
 	}
-	data.sort(function(a, b) {return b.x == a.x ? a.y - b.y : a.x - b.x;});
+	data.sort(function(a, b) {return b.x == a.x ? b.y - a.y : a.x - b.x;});
 	var lastX = 0;
 	var array = [];
 	var cumlen = [];
@@ -179,13 +179,13 @@ app.get(baseurl + '/corr', function(req, res) {
 		}
 		var x = array[0].x;
 		endy = y/1.5 > endy ? y/1.5 : endy;
-		var color = "#0f0";
+		var color = "#bf5240";
 		if (x < 0) {
 			var dx = -x/endx;
-			color = "rgb(0, " + Math.round(255-(255-204)*dx) + ", " + Math.round(204*dx) + ")";
+			color = "rgb(" + Math.round(191+(255-191)*dx) + ", " + Math.round(82-(165-82)*dx) + ", " + Math.round(64-(64-0)*dx) + ")";
 		} else if(x > 0) {
 			var dx = x/endx;
-			color = "rgb(" + Math.round(204*dx) + ", " + Math.round(255-(255-204)*dx) + ", 0)";
+			color = "rgb(" + Math.round(191-(191-128)*dx) + ", " + Math.round(82-(82-0)*dx) + ", " + Math.round(64+(128-64)*dx) + ")";
 		}
 		if(y == 1) {
 			graph.append($("<ellipse></ellipse>").attr("cx", x).attr("cy", 0).attr("rx", 0.5).attr("data-index", cumlen.length).css("fill", color));
