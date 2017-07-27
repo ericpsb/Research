@@ -25,6 +25,6 @@ posts Scraped from each blog
 "yearlydata.js" - a JavaScript file containing data from
 "agYearly.csv" (ie. topic proportions and number of posts by year)
 
-"cosineVisualization.html" - the HTML file that creates the Cosine
+"index.html" - the HTML file that creates the Cosine
 Visualization using the above JavaScript files and extensive
 embedded JavaScript code

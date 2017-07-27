@@ -1,16 +1,66 @@
 <!DOCTYPE html>
+
 <html style = "height: 100%; width: 100%">
     <head>
         <meta charset="utf-8">
         <title> Similarity Analysis </title>
     </head>
-    <body style = "height: 100%; width: 100%">
+    <body onload = "adjustCheckboxes()" onresize = "adjustCheckboxes()" style = "height: 100%; width: 100%">
         <script src="d3.js"></script>
         <script src="jquery.js"></script>
         <script src="cosineData.js"></script>
         <script src="yearlydata.js"></script>
         <script src="totalposts.js"></script>
-       <script>
+
+        <div class="filters" style="float: left; width: 40%; height: 100%; overflow-y: scroll">
+            <div id = 'column1' style = "float: left; width: 50%; height: 100%; overflow-y: scroll; overflow-x: scroll"> </div>
+            <div id = 'column2' style = "float: left; width: 50%; height: 100%"> </div>
+        </div>
+        <div id = "simScoresTitle" style = "height: 8.5%; width: 30%; position: absolute; top: 40%; left: 20%"> </div> 
+        <div id = "simScores" style = "height: 48%; width: 30%; position: absolute; top: 50%; left: 20%; overflow-y: scroll; overflow-x: hidden"> </div>
+        <div id = "selected" style = "position: absolute; top: 1%; left: 35%"> </div>
+        <div id = "dropdown" style = "position: absolute; top: 6%; left: 43%">
+            Year: 
+            <select id = "year" onchange = "changeYear()">
+                <option class = 'year' selected> All </option>
+                <option class = 'year'> 2017 </option>
+                <option class = 'year'> 2016 </option>
+                <option class = 'year'> 2015 </option>
+                <option class = 'year'> 2014 </option>
+                <option class = 'year'> 2013 </option>
+                <option class = 'year'> 2012 </option>
+                <option class = 'year'> 2011 </option>
+                <option class = 'year'> 2010 </option>
+                <option class = 'year'> 2009 </option>
+                <option class = 'year'> 2008 </option>
+                <option class = 'year'> 2007 </option>
+                <option class = 'year'> 2006 </option>
+                <option class = 'year'> 2005 </option>
+                <option class = 'year'> 2004 </option>
+                <option class = 'year'> 2003 </option>
+            </select>
+        </div>
+        <table style = "border-collapse: collapse; position: absolute; top: 8.5%; left: 45% ">
+            <thead>
+                <tr>
+                    <td style = "padding-bottom: 10px"></td>
+                    <td style = "padding-bottom: 10px"></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style = "padding: 0px; border-color: #000000; border-style: solid; border-width: thin">
+                        <button id = "minus" onclick = "decrementyear()" style = "border-style: solid; color: #000000; background-color: #BCBCBC; border-color: #000000; border-width: thin; width: 100%" disabled> - </button>
+                    </td> 
+                    <td style = "padding: 0px; border-color: #000000; border-style: solid; border-width: thin">
+                        <button id = "plus" onclick = "incrementyear()" style = "border-style: solid; color: #000000; background-color: #BCBCBC; border-color: #000000; border-width: thin; width: 100%" disabled> + </button>
+                    </td>
+                </tr>  
+            </tbody>
+        </table>
+
+
+        <script>
 
             // GLOBAL VARIABLES
 
@@ -19,7 +69,7 @@
                 "autism-vicky.blogspot.com", "autism.typepad.com", "autismandoughtisms.wordpress.com", "autismblogsdirectory.blogspot.com", "autismcrisis.blogspot.com:", // id = 10
                 "autismgadfly.blogspot.com", "autisminnb.blogspot.com", "autismjabberwocky.blogspot.com", "autismnaturalvariation.blogspot.com", "autismschmatism.blogspot.com",
                 "autismsedges.blogspot.com", "autismsucksrocks.blogspot.com", "bloom-parentingkidswithdisabilities.blogspot.com", "carrielink.blogspot.com", "chavisory.wordpress.com", // id = 20
-                "club166.blogspot.com", "confessionsofanaspergersmom.blogspot.com", "daysixtyseven.blogspot.com", "donnathomson.com", "elvis-sightings.blogspot.com",
+                "club166.blogspot.com", "confessionsofanaspergersmom.blogspot.com", "daysixtyseven.blogspot.com", "donnathomson.com", "elvis-sightings.blogspot.com:",
                 "embracingchaos.stephanieallencrist.com", "esteeklar.com", "extraordinary-ordinary.net", "fullspectrummama.blogspot.com", "hoopdeedoo.blogspot.com", // id = 30
                 "idoinautismland.com", "injectingsense.blogspot.com", "jennyalice.com", "joeyandymom.blogspot.com", "juststimming.wordpress.com",
                 "leftbrainrightbrain.co.uk", "letitbeautism.blogspot.com", "lizditz.typepad.com", "lovethatmax.com", "maternalinstincts.wordpress.com", // id = 40
@@ -48,105 +98,39 @@
             var year = " All ";
             // Data for the year being viewed
             var singleyeardata = null;
-            var hoverText = null;
             
             // INITIAL SETUP
-            
-            // SVGs for the checkboxes
-            var svgCheckboxA = d3.select("body").append("svg")
-                    .attr("width", "20%")
-                    .attr("height", "100%")
-                    .style("position", "absolute")
-                    .style("top", "0%")
-                    .style("left", "1%")
-                    .attr("viewBox", "0, -5, 240, 700")
-                    .attr("preserveAspectRatio", "xMinYMin");
-            var svgCheckboxB = d3.select("body").append("svg")
-                    .attr("width", "21%")
-                    .attr("height", "43%")
-                    .style("position", "absolute")
-                    .style("top", "0%")
-                    .style("left", "20%")
-                    .attr("viewBox", "0, -4.5, 245, 300")
-                    .attr("preserveAspectRatio", "xMinYMin");
-            // Add the checkboxes
-            var checkboxesA = svgCheckboxA.append("foreignObject")
-                .html("<input class = 'filter_button' id = '0' type = 'checkbox' onchange = 'updatetopics(true)'> All Topics <br> <input class = 'filter_button' value = '0' type = 'checkbox' /> <br> <input class = 'filter_button' value = '1' type = 'checkbox' /> <br> <input class = 'filter_button' value = '2' type = 'checkbox' /> <br> <input class = 'filter_button' value = '3' type = 'checkbox' /> <br> <input class = 'filter_button' value = '4' type = 'checkbox' /> <br> <input class = 'filter_button' value = '5' type = 'checkbox' /> <br> <input class = 'filter_button' value = '6' type = 'checkbox' /> <br> <input class = 'filter_button' value = '7' type = 'checkbox' /> <br> <input class = 'filter_button' value = '8' type = 'checkbox' /> <br> <input class = 'filter_button' value = '9' type = 'checkbox' /> <br> <input class = 'filter_button' value = '10' type = 'checkbox' /> <br> <input class = 'filter_button' value = '11' type = 'checkbox' /> <br> <input class = 'filter_button' value = '12' type = 'checkbox' /> <br> <input class = 'filter_button' value = '13' type = 'checkbox' /> <br> <input class = 'filter_button' value = '14' type = 'checkbox' /> <br> <input class = 'filter_button' value = '15' type = 'checkbox' /> <br> <input class = 'filter_button' value = '16' type = 'checkbox' /> <br> <input class = 'filter_button' value = '17' type = 'checkbox' /> <br> <input class = 'filter_button' value = '18' type = 'checkbox' /> <br> <input class = 'filter_button' value = '19' type = 'checkbox' /> <br> <input class = 'filter_button' value = '20' type = 'checkbox' /> <br> <input class = 'filter_button' value = '21' type = 'checkbox' /> <br> <input class = 'filter_button' value = '22' type = 'checkbox' /> <br> <input class = 'filter_button' value = '23' type = 'checkbox' /> <br> <input class = 'filter_button' value = '24' type = 'checkbox' /> <br> <input class = 'filter_button' value = '25' type = 'checkbox' /> <br> <input class = 'filter_button' value = '26' type = 'checkbox' /> <br> <input class = 'filter_button' value = '27' type = 'checkbox' /> <br> <input class = 'filter_button' value = '28' type = 'checkbox' /> <br> <input class = 'filter_button' value = '29' type = 'checkbox' /> <br> <input class = 'filter_button' value = '30' type = 'checkbox' /> <br> <input class = 'filter_button' value = '31' type = 'checkbox' /> <br> <input class = 'filter_button' value = '32' type = 'checkbox' /> <br> <input class = 'filter_button' value = '33' type = 'checkbox' /> <br> <input class = 'filter_button' value = '34' type = 'checkbox' /> <br>")
-                .attr("width", "100%")
-                .attr("height", "100%");
-            var checkboxesB = svgCheckboxB.append("foreignObject")
-                .html("<input class = 'filter_button' value = '35' type = 'checkbox'> <br> <input class = 'filter_button' value = '36' type = 'checkbox'> <br> <input class = 'filter_button' value = '37' type = 'checkbox'> <br> <input class = 'filter_button' value = '38' type = 'checkbox'> <br> <input class = 'filter_button' value = '39' type = 'checkbox'> <br> <input class = 'filter_button' value = '40' type = 'checkbox'> <br> <input class = 'filter_button' value = '41' type = 'checkbox'> <br> <input class = 'filter_button' value = '42' type = 'checkbox'> <br> <input class = 'filter_button' value = '43' type = 'checkbox'> <br> <input class = 'filter_button' value = '44' type = 'checkbox'> <br> <input class = 'filter_button' value = '45' type = 'checkbox'> <br> <input class = 'filter_button' value = '46' type = 'checkbox'> <br> <input class = 'filter_button' value = '47' type = 'checkbox'> <br> <input class = 'filter_button' value = '48' type = 'checkbox'> <br> <input class = 'filter_button' value = '49' type = 'checkbox'> <br>")
-                .attr("width", "100%")
-                .attr("height", "100%");
-                
-            // Creating the checkboxes for the various topics
-            var checkboxes = document.getElementsByClassName("filter_button");
-            // By default, we want to start with All Topics selected
-            checkboxes[0].defaultChecked = true;
-            // Assign the topic names to the check boxes
-            for (var i = 1; i < checkboxes.length; i++) {
-                checkboxes[i].outerHTML = "<input class=\"filter_button\" id=\"" + i + "\" value=" + i + " type=\"checkbox\" onchange = 'updatetopics(false)'>" + topics[parseInt(checkboxes[i].value)] + "</input>";
-            }
+
             d3.select(".filters").style("display", "inline-block");
+            //Width and Height of the visualization's frame
+            var width = 650,
+                    height = 700;
             // https://stackoverflow.com/questions/18822756/mouse-events-on-overlapping-svg-elements
             // Make multiple SVG Containers on top of each other ("layers" for the visualization)
-            // https://css-tricks.com/scale-svg/
-            // http://www.sarasoueidan.com/blog/svg-coordinate-systems/
-            var svgLink = d3.select("body").append("svg")
-                    .style("height", "5%")
-                    .style("width", "40%")
-                    .style("position", "absolute")
-                    .style("top", "1%")
-                    .style("left", "33%")
-                    .attr("viewBox", "0, 10, 500, 10");
-            var link = svgLink.append("foreignObject")
-                    .attr("height", "100%")
-                    .attr("width", "100%")
-                    .html("<div id = 'selected'> </div>");
-            var svgButtons = d3.select("body").append("svg")
-                    .style("height", "15%")
-                    .style("width", "9%")
-                    .style("position", "absolute")
-                    .style("top", "6%")
-                    .style("left", "41%")
-                    .attr("viewBox", "0, 0, 97, 100");
-            var buttons = svgButtons.append("foreignObject")
-                    .attr("height", "100%")
-                    .attr("width", "100%")
-                    .html("<div id = 'dropdown'> Year:  <select id = 'year' onchange = 'changeYear()'> <option class = 'year' selected> All </option> <option class = 'year'> 2017 </option> <option class = 'year'> 2016 </option> <option class = 'year'> 2015 </option> <option class = 'year'> 2014 </option> <option class = 'year'> 2013 </option> <option class = 'year'> 2012 </option> <option class = 'year'> 2011 </option> <option class = 'year'> 2010 </option> <option class = 'year'> 2009 </option> <option class = 'year'> 2008 </option> <option class = 'year'> 2007 </option> <option class = 'year'> 2006 </option> <option class = 'year'> 2005 </option> <option class = 'year'> 2004 </option> <option class = 'year'> 2003 </option> </select> </div> <table style = 'border-collapse: collapse; position: absolute; left: 33%'> <thead> <tr> <td style = 'padding-bottom: 10px'></td> <td style = 'padding-bottom: 10px'></td> </tr> </thead> <tbody> <tr> <td style = 'padding: 0px; border-color: #000000; border-style: solid; border-width: thin'> <button id = 'minus' onclick = 'decrementyear()' style = 'border-style: solid; color: #000000; background-color: #BCBCBC; border-color: #000000; border-width: thin; width: 100%' disabled> - </button> </td>  <td style = 'padding: 0px; border-color: #000000; border-style: solid; border-width: thin'> <button id = 'plus' onclick = 'incrementyear()' style = 'border-style: solid; color: #000000; background-color: #BCBCBC; border-color: #000000; border-width: thin; width: 100%' disabled> + </button> </td> </tr> </tbody> </table>");
-            //Set up hover div to display blog name
-            var svgHover = d3.select("body").append("svg")
-                    .attr("class", "tooltip")
-                    .style("position", "absolute")
-                    .style("top", "2%")
-                    .style("left", "75%")
-                    .attr("width", "25%")
-                    .attr("height", "8%")
-                    .attr("viewbox", "0, 0, 100, 230");
             var svgContainerA = d3.select("body").append("svg")
-                    .attr("width", "48%")
+                    .attr("width", "60%")
                     .attr("height", "100%")
                     .style("position", "absolute")
                     .style("top", "0%")
-                    .style("left", "50%")
+                    .style("left", "40%")
                     .attr("pointer-events", "none")
-                    .attr("viewBox", "-5, -20, 635, 610");
+                    .attr("viewBox", "-150, -20, 800, 610");
             var svgContainerB = d3.select("body").append("svg")
-                    .attr("width", "48%")
+                    .attr("width", "60%")
                     .attr("height", "100%")
                     .style("position", "absolute")
                     .style("top", "0%")
-                    .style("left", "50%")
+                    .style("left", "40%")
                     .attr("pointer-events", "none")
-                    .attr("viewBox", "-5, -20, 635, 610");
+                    .attr("viewBox", "-150, -20, 800, 610");
             var svgContainerC = d3.select("body").append("svg")
-                    .attr("width", "48%")
+                    .attr("width", "60%")
                     .attr("height", "100%")
                     .style("position", "absolute")
                     .style("top", "0%")
-                    .style("left", "50%")
+                    .style("left", "40%")
                     .attr("pointer-events", "none")
-                    .attr("viewBox", "-5, -20, 635, 610");
+                    .attr("viewBox", "-150, -20, 800, 610");
             var height = 610;
             var width = 625;
             var i = 0,
@@ -248,6 +232,65 @@
                     var b = blue;
                 }
             }
+            // Legend creation
+            var legendBox = svgContainerA.append("rect")
+                .attr("width", "16%")
+                .attr("height", "20%")
+                .attr("x", "-130")
+                .attr("y", "60")
+                .style("outline-style", "solid")
+                .style("outline-color", "#000000")
+                .style("fill", "#FFFFFF");
+            
+            var small = svgContainerA.append("circle")
+                    .attr("id", "small")
+                    .attr("cx", -107)
+                    .attr("cy", 90)
+                    .style("fill", RGB2Color(r, g, b))
+                    .attr("r", Math.log10(10) * 3)
+                    .attr("fill-opacity", 1);
+
+            var smalllabel = svgContainerA.append("text")
+                    .attr("id", "smalllabel")
+                    .html("10 posts")
+                    .attr("x", -87)
+                    .attr("y", 95);
+
+            var medium = svgContainerA.append("circle")
+                    .attr("id", "medium")
+                    .attr("cx", -107)
+                    .attr("cy", 120)
+                    .style("fill", RGB2Color(r, g, b))
+                    .attr("r", Math.log10(100) * 3)
+                    .attr("fill-opacity", 1);
+
+            var mediumlabel = svgContainerA.append("text")
+                    .attr("id", "mediumlabel")
+                    .html("100 posts")
+                    .attr("x", -87)
+                    .attr("y", 125);
+
+            var large = svgContainerA.append("circle")
+                    .attr("id", "large")
+                    .attr("cx", -107)
+                    .attr("cy", 150)
+                    .style("fill", RGB2Color(r, g, b))
+                    .attr("r", Math.log10(1000) * 3)
+                    .attr("fill-opacity", 1);
+
+            var largelabel = svgContainerA.append("text")
+                    .attr("id", "largelabel")
+                    .html("1000 posts")
+                    .attr("x", -87)
+                    .attr("y", 155);
+            //Set up hover div to display blog name
+                var div = d3.select("body")
+                        .append("div")
+                        .attr("class", "tooltip")
+                        .style("display", "none")
+                        .style("position", "absolute")
+                        .style("top", "0.5%")
+                        .style("right", "1%");
             // Event Listeners
             var blogCircles = document.getElementsByClassName("blogCircle");
             for (var i = 0; i < blogCircles.length; i++) {
@@ -261,78 +304,52 @@
                 pathDots[i].addEventListener("mouseout", mouseoutB);
             }
 
-            // Legend creation
-            var svgLegend = d3.select("body").append("svg")
-                    .attr("width", "10%")
-                    .attr("height", "17%")
-                    .style("position", "absolute")
-                    .style("top", "22%")
-                    .style("right", "50%")
-                    .style("border-style", "solid")
-                    .style("border-color", "#000000")
-                    .attr("viewBox", "0, 0, 120, 120");
-
-            var small = svgLegend.append("circle")
-                    .attr("id", "small")
-                    .attr("cx", 20)
-                    .attr("cy", 30)
-                    .style("fill", RGB2Color(r, g, b))
-                    .attr("r", Math.log10(10) * 3)
-                    .attr("fill-opacity", 1);
-
-            var smalllabel = svgLegend.append("text")
-                    .attr("id", "smalllabel")
-                    .html("10 posts")
-                    .attr("x", 40)
-                    .attr("y", 35);
-
-            var medium = svgLegend.append("circle")
-                    .attr("id", "medium")
-                    .attr("cx", 20)
-                    .attr("cy", 60)
-                    .style("fill", RGB2Color(r, g, b))
-                    .attr("r", Math.log10(100) * 3)
-                    .attr("fill-opacity", 1);
-
-            var mediumlabel = svgLegend.append("text")
-                    .attr("id", "mediumlabel")
-                    .html("100 posts")
-                    .attr("x", 40)
-                    .attr("y", 65);
-
-            var large = svgLegend.append("circle")
-                    .attr("id", "large")
-                    .attr("cx", 20)
-                    .attr("cy", 90)
-                    .style("fill", RGB2Color(r, g, b))
-                    .attr("r", Math.log10(1000) * 3)
-                    .attr("fill-opacity", 1);
-
-            var largelabel = svgLegend.append("text")
-                    .attr("id", "largelabel")
-                    .html("1000 posts")
-                    .attr("x", 40)
-                    .attr("y", 95);
-            var svgSSTitle = d3.select("body").append("svg")
-                    .style("height", "8.5%")
-                    .style("width", "30%")
-                    .style("position", "absolute")
-                    .style("top", "42.5%")
-                    .style("left", "19%")
-                    .attr("viewBox", "0, 0, 500, 100")
-                    .attr("preserveAspectRatio", "xMidYMin");
-            var title = svgSSTitle.append("foreignObject");
-            var svgSS = d3.select("body").append("svg")
-                    .style("height", "47%")
-                    .style("width", "30%")
-                    .style("position", "absolute")
-                    .style("top", "50.5%")
-                    .style("left", "19%")
-                    .attr("viewBox", "0, 0, 345, 300")
-                    .attr("overflow", "scroll");
-            var ss = svgSS.append("foreignObject");
-            
             // HELPER METHODS AND EVENT HANDLERS
+            
+            // Adjust the layout of the checkboxes based on the window size
+            function adjustCheckboxes() {
+                // Dealing with page length
+                if ($("body").width() >= 1200) {
+                    var margin = Math.round((700 - $("body").height()) / 20);
+                    if (margin > 15) {
+                        margin = 15;
+                    }
+                    else if (margin < 0) {
+                        margin = 0;
+                    }
+                    var n1 = 36 + margin;
+                    var n2 = 15 - margin;
+                    var checkboxes1 = "";
+                    var checkboxes2 = "";
+                    for (i = 0; i < n1; i += 1) {
+                        checkboxes1 += "<input class='filter_button' value = '" + i + "' type='checkbox' /><br>";
+                    }
+                    for (i = 0; i < n2; i += 1) {
+                        checkboxes2 += "<input class='filter_button' value = '" + (i + n1) + "' type='checkbox' /><br>";
+                    }
+                }
+                else {
+                    checkboxes1 = "";
+                    checkboxes2 = "";
+                    console.log(checkboxes1);
+                    for (i = 0; i < 51; i += 1) {
+                        checkboxes1 += "<input class='filter_button' value = '" + i + "' type='checkbox' /><br>";
+                        console.log(checkboxes1);
+                    }
+                }
+                $("#column1").empty();
+                $("#column2").empty();
+                $("#column1").html(checkboxes1);
+                $("#column2").html(checkboxes2);
+                var checkboxes = document.getElementsByClassName("filter_button");
+                // Assign the topic names to the check boxes
+                checkboxes[0].outerHTML = "<input class=\"filter_button\" id= '0' value= '0' type=\"checkbox\" onchange = 'updatetopics(false)'> All Topics </input>";
+                for (var i = 1; i < checkboxes.length; i++) {
+                    checkboxes[i].outerHTML = "<input class=\"filter_button\" id=\"" + (i) + "\" value=" + (i) + " type=\"checkbox\" onchange = 'updatetopics(false)'>" + topics[parseInt(checkboxes[i - 1].value)] + "</input>";
+                }
+                // By default, we want to start with "All Topics" selected
+                checkboxes[0].checked = true;
+            }
 
             //Display blog name/number of posts in div when "blog circle" is hovered over
             function mouseoverA() {
@@ -344,11 +361,8 @@
                             totalblogposts = totalposts[i][1];
                         }
                     }
-                    hoverText = svgHover.append("foreignObject")
-                        .attr("height", "50")
-                        .attr("width", "320")
-                        .html(blogs[$(this).attr("id") - 1] + "<br /> Total Posts: " + totalblogposts);
-                    svgHover.style("display", "block");
+                    div.html(blogs[$(this).attr("id") - 1] + "<br /> Total Posts: " + totalblogposts);
+                    div.style("display", "block");
                     $(this).attr("r", 15);
                 }
                 else {
@@ -361,11 +375,8 @@
                             }
                         }
                     }
-                    hoverText = svgHover.append("foreignObject")
-                        .attr("height", "100%")
-                        .attr("width", "100%")
-                        .html(blogs[$(this).attr("id") - 1] + "<br /> Posts in " + year + ": " + yearblogposts);
-                    svgHover.style("display", "block");
+                    div.html(blogs[$(this).attr("id") - 1] + "<br /> Posts in " + year + ": " + yearblogposts);
+                    div.style("display", "block");
                     $(this).attr("r", 15);
                 }
                 if (secondaryblog !== null) {
@@ -379,8 +390,7 @@
             }
             //Hide information from div when the mouse is moved away from the "blog circle"
             function mouseoutA() {
-                svgHover.style("display", "none");
-                hoverText.html("");
+                div.style("display", "none");
                 var otherid = $(this).attr("id");
                 if (primaryblog !== null) {
                     var primaryid = primaryblog.attr("id");
@@ -469,11 +479,8 @@
                         }
                     }
                 }
-                hoverText = svgHover.append("foreignObject")
-                        .attr("height", "50")
-                        .attr("width", "320")
-                        .html("Blog: " + blogs[blogid - 1] + " <br /> Year: " + blogyear + " <br /> Number of Posts: " + yearposts);
-                svgHover.style("display", "block");
+                div.html("Blog: " + blogs[blogid - 1] + " <br /> Year: " + blogyear + " <br /> Number of Posts: " + yearposts);
+                div.style("display", "block");
                 $(this)
                     .attr("stroke", "#000000")
                     .attr("stroke-width", 3)
@@ -500,8 +507,7 @@
                         blogid += dotid[j];
                     }
                 }
-                svgHover.style("display", "none");
-                hoverText.html("");
+                div.style("display", "none");
                 if (secondaryblog !== null) {
                     if (parseInt(blogid) !== parseInt(secondaryblog.attr("id"))) {
                         $(this)
@@ -537,7 +543,7 @@
                 for (var i = 1; i < checkboxes.length; i++) {
                     // And stick the checked ones onto an array...
                     if (checkboxes[i].checked) {
-                        var val = d3.select(checkboxes[i]).attr("value");
+                        var val = d3.select(checkboxes[i + 1]).attr("value");
                         checkboxesChecked.push(parseInt(val));
                     }
                 }
@@ -594,25 +600,19 @@
             }
             // Displays to the user how similar the center blog and the selected blog are with respect to the defined topic(s) (along with the shortened link for the selected blog)
             function displaySimScores(simScores, link, rgb) {
-                title
-                    .attr("width", "100%")
-                    .attr("height", "100%")
-                    .html("<div style = 'text-align: center; font-weight: bold; font-size: 250%'> Similarity Scores </div> <div style = 'text-align: center; font-size: 175%'> " + link + " </div>");
+                var box = $("#simScores");
+                $("#simScoresTitle").append("<p> <div style = 'text-align: center; font-size: 18pt; font-weight: bold'> Similarity Scores </div> <div style = 'text-align: center'>" + link + " </div> </p>");
                 var content = "<table> <thead style = 'font-weight: bold; text-decoration: underline'> <tr> <td> Topic </td> <td> Score </td> </tr> </thead> <tbody> ";
                 for (i in simScores) {
                     content = content + "<tr> <td class = 'topicOrScore'> " + simScores[i][1] + " </td> <td> " + +simScores[i][0].toFixed(12) + " </td> </tr>";
                 }
                 content = content + "</tbody> </table>";
-                ss
-                    .html(content)
-                    .attr("width", "100%")
-                    .attr("height", "100%");
-                svgSS
-                    .style("border", "solid")
-                    .style("border-color", rgb);
+                box.append(content);
                 $(".topicOrScore").css("padding-right", "20px");
+                box.css("border", "solid");
+                box.css("border-color", rgb);
             }
-            
+
             // METHODS THAT CALL FOR A CHANGE IN DATA DISPLAY  
 
             // Makes things happen when "blog circles" are clicked on
@@ -714,6 +714,7 @@
             }
             // Reacts to a checkbox being either checked or unchecked
             function updatetopics(all) {
+                var checkboxes = document.getElementsByClassName("filter_button");
                 var topicchecked = false;
                 for (var i = 1; i < checkboxes.length; i++) {
                     if (checkboxes[i].checked) {
@@ -1860,9 +1861,9 @@
                 }
                 // Removes Sim Scores currently being displayed and manipulates data to be sent to the "displaySimScores" method when necessary
                 if (scores) {
-                    ss.html("");
-                    title.html("");
-                    svgSS.style("border-style", "none");
+                    $("#simScores").empty();
+                    $("#simScoresTitle").empty();
+                    $("#simScores").css("border-style", "none");
                     if (secondaryblog !== null) {
                         if (year === " All ") {
                             var secondaryid = secondaryblog.attr("id");
@@ -1892,7 +1893,7 @@
                             });
                             var link = blogs[secondaryblog.attr("id") - 1];
                             $("#simScores").empty();
-                            title.html("");                            
+                            $("#simScoresTitle").empty();
                             $("#simScores").css("border-style", "none");
                             displaySimScores(sortedTopics, link, rgb);
                         } else {
@@ -1924,12 +1925,12 @@
                                 });
                                 var link = blogs[secondaryblog.attr("id") - 1];
                                 $("#simScores").empty();
-                                title.html("");
+                                $("#simScoresTitle").empty();
                                 $("#simScores").css("border-style", "none");
                                 displaySimScores(sortedTopics, link, rgb);
                             } else {
                                 $("#simScores").empty();
-                                title.html("");
+                                $("#simScoresTitle").empty();
                                 $("#simScores").css("border-style", "none");
                             }
                         }
@@ -1966,8 +1967,6 @@
                     }
                 }
             }
-            // Useful link (doesn't necessarily need to be cited in the end):
-            // https://stackoverflow.com/questions/9847684/get-the-real-size-of-a-svg-g-element
         </script>
     </body>
 </html>
