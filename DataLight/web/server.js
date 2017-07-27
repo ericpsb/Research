@@ -103,6 +103,25 @@ function postsPrediction(req, callback) {
         }
     });
 }
+
+//***************
+// begin LIFX Code
+//***************
+
+// start-up for node-lifx
+var LifxClient = require('node-lifx').Client;
+var client = new LifxClient();
+
+function testNodeLifx() {
+    window.alert(client.lights());
+    console.log(client.lights());
+}
+ 
+client.init();
+
+//***************
+// end LIFX Code
+//***************
  
 app.use(function (err, req, res, next) {
     console.error(err.stack);
