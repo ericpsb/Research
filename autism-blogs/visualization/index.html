@@ -136,8 +136,7 @@
             var i = 0,
                     cx = width / 2,
                     cy = height / 2,
-                    bigradius = 300,
-                    radius = 10;
+                    bigradius = 300;
             var slice = 2 * Math.PI / blogids.length;
             var phase = 0;
             var cen = 128;
@@ -158,9 +157,10 @@
                         .attr("r", i * (bigradius / 8.0));
             }
             // Set up various dots that will be in the visualization
-            for (var i = 0; i < blogids.length; i++) {
-                id = blogids[i]; // id encodes the index in the list of blogs (or rather, the index + 1)
-                var angle = slice * i;
+            for (var l = 0; l < blogids.length; l += 1) {
+                var id = blogids[l]; // id encodes the index in the list of blogs (or rather, the index + 1)
+                var index = blogids.indexOf(parseInt(id));
+                var angle = slice * l;
                 var newX = (cx + bigradius * Math.cos(angle));
                 var newY = (cy + bigradius * Math.sin(angle));
                 var name = blogs[id - 1];
@@ -170,10 +170,9 @@
                         blogposts = totalposts[j][1];
                     }
                 }
-                radius = Math.log10(blogposts) * 3;
-                var red = Math.sin(slice * i + 2 + phase) * w + cen;
-                var green = Math.sin(slice * i + 0 + phase) * w + cen;
-                var blue = Math.sin(slice * i + 4 + phase) * w + cen;
+                var red = Math.sin(slice * l + 2 + phase) * w + cen;
+                var green = Math.sin(slice * l + 0 + phase) * w + cen;
+                var blue = Math.sin(slice * l + 4 + phase) * w + cen;
                 // Set up dots to show paths in the future
                 for (j = parseInt($(".year")[1].value); j >= (parseInt($(".year")[$(".year").length - 1].value)); j -= 1) {
                     for (k = 0; k < yearlydata.length; k += 1) {
@@ -186,7 +185,7 @@
                                         .attr("cy", newY)
                                         .attr("class", "pathDot")
                                         .style("fill", "#A0A0A0")
-                                        .attr("r", radius)
+                                        .attr("r", findRadius(blogids.indexOf(parseInt(id)), j))
                                         .attr("fill-opacity", 0)
                                         .attr("pointer-events", "auto");
                             }
@@ -205,7 +204,7 @@
                                         .attr("cy", newY)
                                         .attr("class", "pathDotB")
                                         .style("fill", "#A0A0A0")
-                                        .attr("r", radius)
+                                        .attr("r", findRadius(blogids.indexOf(parseInt(id)), j))
                                         .attr("fill-opacity", 0)
                                         .attr("pointer-events", "auto");
                             }
@@ -221,8 +220,7 @@
                         .attr("y", newY)
                         .attr("class", "blogCircle")
                         .style("fill", RGB2Color(red, green, blue))
-                        .attr("oldr", radius)
-                        .attr("r", radius)
+                        .attr("r", findRadius(index, year))
                         .attr("fill-opacity", 1)
                         .attr("pointer-events", "auto");
                 // Colors for legend
@@ -234,7 +232,7 @@
             }
             // Legend creation
             var legendBox = svgContainerA.append("rect")
-                .attr("width", "16%")
+                .attr("width", "13%")
                 .attr("height", "20%")
                 .attr("x", "-130")
                 .attr("y", "60")
@@ -247,12 +245,12 @@
                     .attr("cx", -107)
                     .attr("cy", 90)
                     .style("fill", RGB2Color(r, g, b))
-                    .attr("r", Math.log10(10) * 3)
+                    .attr("r", 15 - 3 * (Math.log10(1 / 0.001)))
                     .attr("fill-opacity", 1);
 
             var smalllabel = svgContainerA.append("text")
                     .attr("id", "smalllabel")
-                    .html("10 posts")
+                    .html("0.001")
                     .attr("x", -87)
                     .attr("y", 95);
 
@@ -261,12 +259,12 @@
                     .attr("cx", -107)
                     .attr("cy", 120)
                     .style("fill", RGB2Color(r, g, b))
-                    .attr("r", Math.log10(100) * 3)
+                    .attr("r", 15 - 3 * (Math.log10(1 / 0.01)))
                     .attr("fill-opacity", 1);
 
             var mediumlabel = svgContainerA.append("text")
                     .attr("id", "mediumlabel")
-                    .html("100 posts")
+                    .html("0.01")
                     .attr("x", -87)
                     .attr("y", 125);
 
@@ -275,12 +273,12 @@
                     .attr("cx", -107)
                     .attr("cy", 150)
                     .style("fill", RGB2Color(r, g, b))
-                    .attr("r", Math.log10(1000) * 3)
+                    .attr("r", 15 - 3 * (Math.log10(1 / 0.1)))
                     .attr("fill-opacity", 1);
 
             var largelabel = svgContainerA.append("text")
                     .attr("id", "largelabel")
-                    .html("1000 posts")
+                    .html("0.1")
                     .attr("x", -87)
                     .attr("y", 155);
             //Set up hover div to display blog name
@@ -305,6 +303,44 @@
             }
 
             // HELPER METHODS AND EVENT HANDLERS
+
+            // Get the appropriate radius for a given element
+            function findRadius(blogindex, yearb) {
+                var topicScores = sumTopicScores(yearb);
+                var topicScore = topicScores[parseInt(blogindex)];
+                if (topicScore > 1) {
+                    topicScore = 1;
+                }
+                return 15 - 3 * (Math.log10(1 / topicScore));
+            }
+
+            // Find the average topic scores for blogs across topics
+            function sumTopicScores(yearb) {
+                var topics = getCheckedBoxes("filter_button");
+                var sums = [];
+                var sum = 0;
+                if (yearb === " All ") {
+                    for (h = 0; h < blogids.length; h += 1) {
+                        for (m = 0; m < topics.length; m += 1) {
+                            var topic = parseInt(topics[m]);
+                            sum = parseFloat(sum) + parseFloat(data[parseInt(h)][topic - 1]);
+                        }
+                        sums[h] = sum;
+                        sum = 0;
+                    }
+                }
+                else {
+                    for (h = 0; h < blogids.length; h += 1) {
+                        for (m = 0; m < topics.length; m += 1) {
+                            var topic = parseInt(topics[m]);
+                            sum = parseFloat(sum) + parseFloat(yearlydata[parseInt(h)][topic]);
+                        }
+                        sums[h] = sum;
+                        sum = 0;
+                    }
+                }
+                return sums;
+            }
             
             // Adjust the layout of the checkboxes based on the window size
             function adjustCheckboxes() {
@@ -331,10 +367,8 @@
                 else {
                     checkboxes1 = "";
                     checkboxes2 = "";
-                    console.log(checkboxes1);
                     for (i = 0; i < 51; i += 1) {
                         checkboxes1 += "<input class='filter_button' value = '" + i + "' type='checkbox' /><br>";
-                        console.log(checkboxes1);
                     }
                 }
                 $("#column1").empty();
@@ -391,59 +425,9 @@
             //Hide information from div when the mouse is moved away from the "blog circle"
             function mouseoutA() {
                 div.style("display", "none");
-                var otherid = $(this).attr("id");
-                if (primaryblog !== null) {
-                    var primaryid = primaryblog.attr("id");
-                    if (parseInt(primaryid) !== parseInt(otherid)) {
-                        if (year === " All ") {
-                            var totalblogposts = 0;
-                            for (var j = 0; j < totalposts.length; j += 1) {
-                                if (parseInt(totalposts[j][0]) === parseInt(otherid)) {
-                                    totalblogposts = totalposts[j][1];
-                                }
-                            }
-                            var properradius = Math.log10(totalblogposts) * 3;
-                        } else {
-                            if (singleyeardata[otherid]) {
-                                var yearposts = singleyeardata[otherid][51];
-                                var properradius = Math.log10(yearposts) * 3 + 4;
-                            } else {
-                                var properradius = 0;
-                            }
-                        }
-                    } else {
-                        if (year === " All ") {
-                            var totalblogposts = 0;
-                            for (var j = 0; j < totalposts.length; j += 1) {
-                                if (parseInt(totalposts[j][0]) === parseInt(primaryid)) {
-                                    totalblogposts = totalposts[j][1];
-                                }
-                            }
-                            var properradius = Math.log10(totalblogposts) * 3;
-                        } else {
-                            var yearposts = singleyeardata[primaryid][51];
-                            var properradius = Math.log10(yearposts) * 3 + 4;
-                        }
-                    }
-                } else {
-                    if (year === " All ") {
-                        var totalblogposts = 0;
-                        for (var j = 0; j < totalposts.length; j += 1) {
-                            if (parseInt(totalposts[j][0]) === parseInt(otherid)) {
-                                totalblogposts = totalposts[j][1];
-                            }
-                        }
-                        var properradius = Math.log10(totalblogposts) * 3;
-                    } else {
-                        if (singleyeardata[otherid]) {
-                            var yearposts = singleyeardata[otherid][51];
-                            var properradius = Math.log10(yearposts) * 3 + 4;
-                        } else {
-                            var properradius = 0;
-                        }
-                    }
-                }
-                $(this).attr("r", properradius);
+                var id = $(this).attr("id");
+                var index = blogids.indexOf(parseInt(id));
+                $(this).attr("r", findRadius(index, year));
                 if (secondaryblog !== null) {
                     if (parseInt($(this).attr("id")) === parseInt(secondaryblog.attr("id"))) {
                         $(this)
@@ -543,7 +527,7 @@
                 for (var i = 1; i < checkboxes.length; i++) {
                     // And stick the checked ones onto an array...
                     if (checkboxes[i].checked) {
-                        var val = d3.select(checkboxes[i + 1]).attr("value");
+                        var val = d3.select(checkboxes[i]).attr("value");
                         checkboxesChecked.push(parseInt(val));
                     }
                 }
@@ -621,7 +605,7 @@
                 if (parseInt($(this).attr("cx")) === parseInt(width / 2) && parseInt($(this).attr("cy")) === parseInt(height / 2)) {
                     primaryblog = null;
                     secondaryblog = null;
-                    updateDisplay(true, true, true, true, true, false);
+                    updateDisplay(true, true, true, true, true);
                     if (year !== " All ") {
                         var all = "Year: <select id = 'year' onchange = 'changeYear()'> <option class = 'year'> All </option> <option class = 'year'> 2017 </option> <option class = 'year'> 2016 </option> <option class = 'year'> 2015 </option> <option class = 'year'> 2014 </option> <option class = 'year'> 2013 </option> <option class = 'year'> 2012 </option> <option class = 'year'> 2011 </option> <option class = 'year'> 2010 </option> <option class = 'year'> 2009 </option> <option class = 'year'> 2008 </option> <option class = 'year'> 2007 </option> <option class = 'year'> 2006 </option> <option class = 'year'> 2005 </option> <option class = 'year'> 2004 </option> <option class = 'year'> 2003 </option> </select>";
                         $("#dropdown").html(all);
@@ -656,12 +640,12 @@
                 // Secondary blog selected
                 else if (primaryblog) {
                     secondaryblog = $(this);
-                    updateDisplay(true, true, true, true, false, false);
+                    updateDisplay(true, true, true, true, false);
                 }
                 // New primary blog selected
                 else {
                     primaryblog = $(this);
-                    updateDisplay(true, true, true, true, true, false);
+                    updateDisplay(true, true, true, true, true);
                     if (year !== " All ") {
                         var restricted = "Year: <select id = 'year' onchange = 'changeYear()'> <option class = 'year'> All </option> ";
                     } else {
@@ -735,7 +719,7 @@
                 if (getCheckedBoxes("filter_button").length === 50) {
                     $(".filter_button")[0].checked = true;
                 }
-                updateDisplay(true, true, true, true, false, false);
+                updateDisplay(true, true, true, true, false);
             }
             // Reacts to a change in the year being displayed via the drop-down menu
             function changeYear() {
@@ -817,7 +801,7 @@
                         }
                     }
                 }
-                updateDisplay(true, true, true, true, false, true);
+                updateDisplay(true, true, true, true, false);
             }
             // Reacts to a change in the year being viewed via the "-" button
             function decrementyear() {
@@ -868,7 +852,7 @@
                         $("#minus").css("background-color", "#FFFFFF");
                     }
                 }
-                updateDisplay(true, true, true, true, false, false);
+                updateDisplay(true, true, true, true, false);
             }
             // Reacts to a change in the year being viewed via the "-" button
             function incrementyear() {
@@ -919,13 +903,13 @@
                         $("#plus").css("background-color", "#FFFFFF");
                     }
                 }
-                updateDisplay(true, true, true, true, false, false);
+                updateDisplay(true, true, true, true, false);
             }
 
             // RESPOND TO CHANGES IN REQUESTS
 
             // Massive function that re-generates parts of the display when necessary (called by functions in the section above)
-            function updateDisplay(graph, paths, outlines, scores, blog, legend) {
+            function updateDisplay(graph, paths, outlines, scores, blog) {
                 var checkedBoxes = getCheckedBoxes("filter_button");
                 // Updates the positions, radii, and opacities of the "blog circles"
                 if (graph) {
@@ -1064,58 +1048,9 @@
                                 }
                             })
                             .attr("r", function () {
-                                var otherid = $(this).attr("id");
-                                if (primaryblog !== null) {
-                                    var primaryid = primaryblog.attr("id");
-                                    if (parseInt(primaryid) !== parseInt(otherid)) {
-                                        if (year === " All ") {
-                                            var totalblogposts = 0;
-                                            for (var j = 0; j < totalposts.length; j += 1) {
-                                                if (parseInt(totalposts[j][0]) === parseInt(otherid)) {
-                                                    totalblogposts = totalposts[j][1];
-                                                }
-                                            }
-                                            return Math.log10(totalblogposts) * 3;
-                                        } else {
-                                            if (singleyeardata[otherid]) {
-                                                var yearposts = singleyeardata[otherid][51];
-                                                return Math.log10(yearposts) * 3 + 4;
-                                            } else {
-                                                return 0;
-                                            }
-                                        }
-                                    } else {
-                                        if (year === " All ") {
-                                            var totalblogposts = 0;
-                                            for (var j = 0; j < totalposts.length; j += 1) {
-                                                if (parseInt(totalposts[j][0]) === parseInt(primaryid)) {
-                                                    totalblogposts = totalposts[j][1];
-                                                }
-                                            }
-                                            return Math.log10(totalblogposts) * 3;
-                                        } else {
-                                            var yearposts = singleyeardata[primaryid][51];
-                                            return Math.log10(yearposts) * 3 + 4;
-                                        }
-                                    }
-                                } else {
-                                    if (year === " All ") {
-                                        var totalblogposts = 0;
-                                        for (var j = 0; j < totalposts.length; j += 1) {
-                                            if (parseInt(totalposts[j][0]) === parseInt(otherid)) {
-                                                totalblogposts = totalposts[j][1];
-                                            }
-                                        }
-                                        return Math.log10(totalblogposts) * 3;
-                                    } else {
-                                        if (singleyeardata[otherid]) {
-                                            var yearposts = singleyeardata[otherid][51];
-                                            return Math.log10(yearposts) * 3 + 4;
-                                        } else {
-                                            return 0;
-                                        }
-                                    }
-                                }
+                                var id = $(this).attr("id");
+                                var index = blogids.indexOf(parseInt(id));
+                                return findRadius(index, year);
                             })
                             .duration(1500);
                 }
@@ -1420,54 +1355,8 @@
                                         blogyear += dotid[j];
                                     }
                                 }
-                                if (primaryblog !== null) {
-                                    var primaryid = $(primaryblog).attr("id");
-                                    if (primaryid !== blogid) {
-                                        if (year === " All ") {
-                                            var exists = false;
-                                            for (var i = 0; i < yearlydata.length; i += 1) {
-                                                if (parseInt(yearlydata[i][0]) === parseInt(primaryid)) {
-                                                    if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
-                                                        exists = true;
-                                                    }
-                                                }
-                                            }
-                                            if (exists) {
-                                                var yearposts = 0;
-                                                for (var i = 0; i < yearlydata.length; i += 1) {
-                                                    if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
-                                                        if (parseInt(yearlydata[i][0]) === parseInt(blogid)) {
-                                                            yearposts = yearlydata[i][52];
-                                                        }
-                                                    }
-                                                }
-                                                return Math.log10(yearposts) * 3;
-                                            }
-                                        } else {
-                                            if (singleyeardata[parseInt(blogid)]) {
-                                                for (var i = 0; i < yearlydata.length; i += 1) {
-                                                    if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
-                                                        if (parseInt(yearlydata[i][0]) === parseInt(blogid)) {
-                                                            yearposts = yearlydata[i][52];
-                                                        }
-                                                    }
-                                                }
-                                                var exists = false;
-                                                for (var i = 0; i < yearlydata.length; i += 1) {
-                                                    if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
-                                                        if (parseInt(yearlydata[i][0]) === parseInt(primaryid)) {
-                                                            exists = true;
-                                                        }
-                                                    }
-                                                }
-                                                if (exists) {
-                                                    return Math.log10(yearposts) * 3 + 4;
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                                return 0;
+                                var blogindex = blogids.indexOf(parseInt(blogid));
+                                return findRadius(blogindex, blogyear);
                             })
                             .duration(1500);
                 }
@@ -1722,54 +1611,8 @@
                                         blogyear += dotid[j];
                                     }
                                 }
-                                if (primaryblog !== null) {
-                                    var primaryid = $(primaryblog).attr("id");
-                                    if (primaryid !== blogid) {
-                                        if (year === " All ") {
-                                            var exists = false;
-                                            for (var i = 0; i < yearlydata.length; i += 1) {
-                                                if (parseInt(yearlydata[i][0]) === parseInt(primaryid)) {
-                                                    if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
-                                                        exists = true;
-                                                    }
-                                                }
-                                            }
-                                            if (exists) {
-                                                var yearposts = 0;
-                                                for (var i = 0; i < yearlydata.length; i += 1) {
-                                                    if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
-                                                        if (parseInt(yearlydata[i][0]) === parseInt(blogid)) {
-                                                            yearposts = yearlydata[i][52];
-                                                        }
-                                                    }
-                                                }
-                                                return Math.log10(yearposts) * 3;
-                                            }
-                                        } else {
-                                            if (singleyeardata[parseInt(blogid)]) {
-                                                for (var i = 0; i < yearlydata.length; i += 1) {
-                                                    if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
-                                                        if (parseInt(yearlydata[i][0]) === parseInt(blogid)) {
-                                                            yearposts = yearlydata[i][52];
-                                                        }
-                                                    }
-                                                }
-                                                var exists = false;
-                                                for (var i = 0; i < yearlydata.length; i += 1) {
-                                                    if (parseInt(yearlydata[i][1]) === parseInt(blogyear)) {
-                                                        if (parseInt(yearlydata[i][0]) === parseInt(primaryid)) {
-                                                            exists = true;
-                                                        }
-                                                    }
-                                                }
-                                                if (exists) {
-                                                    return Math.log10(yearposts) * 3 + 4;
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                                return 0;
+                                var blogindex = blogids.indexOf(parseInt(blogid));
+                                return findRadius(blogindex, blogyear);
                             })
                             .attr("stroke", function () {
                                 if (secondaryblog !== null) {
@@ -1946,24 +1789,6 @@
                         selectedlink.css("font-weight", "bold");
                         selectedlink.css("font-size", "20px");
                         secondaryblog = null;
-                    }
-                }
-                // Updates the legend if the year being viewed is changed from a specific year to " All " or vice versa
-                if (legend) {
-                    if (year === " All ") {
-                        $("#small").attr("r", Math.log10(10) * 3);
-                        $("#smalllabel").html("10 posts");
-                        $("#medium").attr("r", Math.log10(100) * 3);
-                        $("#mediumlabel").html("100 posts");
-                        $("#large").attr("r", Math.log10(1000) * 3);
-                        $("#largelabel").html("1000 posts");
-                    } else {
-                        $("#small").attr("r", Math.log10(1) * 3 + 4);
-                        $("#smalllabel").html("1 post");
-                        $("#medium").attr("r", Math.log10(10) * 3 + 4);
-                        $("#mediumlabel").html("10 posts");
-                        $("#large").attr("r", Math.log10(100) * 3 + 4);
-                        $("#largelabel").html("100 posts");
                     }
                 }
             }
