@@ -21,6 +21,7 @@ function loadLoginPage() {
         window.location='https://das-lab.org/datalight/login.html';
 }
 
+// fill up slider bars when moved 
 function changeRangeColor() {
         $('input[type="range"]').mousemove(function() {
             var val = ($(this).val() - $(this).attr('min')) / ($(this).attr('max') - $(this).attr('min'));
@@ -46,9 +47,6 @@ function statusChangeCallback(response) {
     }
 }
 
-function print() {
-    console.log('printjaaaa');
-}
 
 function collectValues() {
     var values = [];
@@ -56,18 +54,20 @@ function collectValues() {
         var s = '#range-slider-' + i;
         values.push($(s).val());
     }
-    
     disableSliderBars();
-    console.log(values);
-}
+    sendQuiz(values);
+} 
+
 
 function disableSliderBars() {
+/*
     for (i = 0; i < 10; i++) {
         var s = '#range-slider-' + i;
         $(s).prop('disabled', true);
         $(s).css('cursor', 'not-allowed');
     }
-    $("#submit").prop('disabled', true);
+*/
+    //$("#submit").prop('disabled', true);
     $('input[type="range"]').css('background', '#EEEEEE');
 }
 
@@ -96,13 +96,17 @@ function checkLoginState() {
 function getInfoAPI(getLikesPostsAPI) {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', 'get', function(response) {
-	    var userId = response.id;
+	    const userId = response.id;
         console.log('Successful login for: ' + response.name);
         //document.getElementById('status').innerHTML =
         //'Thanks for logging in, ' + response.name + '!';
         getLikesPostsAPI(userId);
     });
     
+}
+
+function print() {
+    console.log('get all likes successful');
 }
 
 var allLikes = []; 
@@ -116,9 +120,7 @@ function getAllLikes(response) {
     
     try { 
         var nextPage = response.paging.next;
-	//console.log('Printing before getJSON: ' + nextPage);
         $.getJSON(nextPage, function(response) {
-			//console.log('Printing after getJSON: ' + nextPage);
              getAllLikes(response);
         });
     } catch (e) {
@@ -138,7 +140,6 @@ function getAllPosts(response) {
     try {    
         var nextPage = response.paging.next;
         $.getJSON(nextPage, function(response) {
-			//console.log('Posts Printing after getJSON: ' + nextPage);
             getAllPosts(response);
         });
     } catch (e) {
@@ -167,6 +168,8 @@ function logout() {
 	});
 }
 
+
+// send all likes and get back an array of like predictions
 function sendAllLikes() {
     $.ajax(
         '/likes',
@@ -179,11 +182,13 @@ function sendAllLikes() {
             contentType: 'application/json',
             dataType: 'json',
             success: function (result) {
+                // printing out likes predictions
                 console.log(result);
             }
         });
 }
 
+// send all posts and get back an array of post predictions
 function sendAllPosts() {
     $.ajax(
         '/posts',
@@ -196,7 +201,54 @@ function sendAllPosts() {
             contentType: 'application/json',
             dataType: 'json',
             success: function(result) {
+                // printing out posts predictions
                 console.log(result);
             }   
+        });
+}
+
+function msPredictions() {
+    $.ajax(
+        '/mspredictions',
+        {
+            type: 'GET',
+            processData: 'true',
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function(result) {
+                console.log(result);
+            }
+        });
+}
+
+function sendQuiz(quizzes) {
+    $.ajax(
+        '/quizzes',
+        {
+            type: 'POST',
+            data: JSON.stringify({
+               quizzes: quizzes 
+            }),
+            processData: 'true',
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function(result) {
+                console.log(result);
+            }
+    });
+}
+        
+function quizPrediction() {
+    $.ajax(
+        '/quizzes',
+        {
+            type: 'GET',
+            processData: 'true',
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function(result) {
+                console.log('print quiz prediction');
+                console.log(result);
+            }
         });
 }
