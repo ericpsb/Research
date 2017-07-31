@@ -30,8 +30,7 @@ var neighborNode;
 var togNeighbor = 0;
 var k = Math.sqrt(nodes.length / (width * height));
 
-force
-    .theta(1.0)
+force.theta(1.0)
     .charge(function (d) {
         if (nodes.length < 200) {
             return -3 * d.weight / k;
@@ -39,6 +38,7 @@ force
         return -(5 * d.weight / k);
     })
     .gravity(100 * k);
+
 force.linkDistance(function (d) {
     return 30 * k / (d.value);
 });
@@ -133,7 +133,6 @@ function dragmove(d, i) {
     svg.select('g.node-area').attr('transform', 'translate(' + (-X) + ',' + (-Y) + ')');
 }
 
-
 //Functions to fetch the message on clicking a node
 function popMsg(A, name, interactions) {
     console.log("ppmsg start");
@@ -144,147 +143,82 @@ function popMsg(A, name, interactions) {
     if (interactions != [] && interactions != null) {
         for (var i = 0; i < interactions.length; i++) {
             var interaction = interactions[i];
-            content = content.concat(i + 1);
-            content = content.concat(") ");
-            if (interaction[0] == "photo") {
+            console.log(interaction);
+            content += i + 1;
+            content += ") ";
+
+            if (interaction[0] == "status") {
+                if (interaction[2] == "like") {
+                    content += A + " liked " + name + "'s post on " + interaction[9];
+                }
+                else if (interaction[2] == "comment") {
+                    content += A + " commented on " + name + "'s post on " + interaction[9];
+                }
+                else if (interaction[2] == "tag") {
+                    content += A + " tagged " + name + "in a post on " + interaction[9];
+                }
+                else if (interaction[2] == "co-like") {
+                    content += A + " and " + name + " liked the same post on " + interaction[9];
+                }
+                else if (interaction[2] == "co-comment") {
+                    content += A + " and " + name + " commented on the same post on " + interaction[9];
+                }
+                else if (interaction[2] == "co-tag") {
+                    content += A + " and " + name + " were tagged in the same post on " + interaction[9];
+                }
+
+                s = getMyMsg(interaction);
+                content += s;
+                content += "<br />";
+                console.log(content);
+            }
+
+            else if (interaction[0] == "photo") {
                 var onlyUrl = interaction[2];
                 var myImg = '<img src="' + onlyUrl + '" />';
-                if (interaction[1] == "large_likes_small_action") {
-                    content = content.concat(A + " liked " + name + "'s photo:<br/> " + myImg + "<br /> on " + interaction[3]);
+
+                if (interaction[1] == "like") {
+                    content += A + " liked " + name + "'s photo:<br/> " + myImg + "<br /> on " + interaction[3];
                 }
-                if (interaction[1] == "small_likes_large_action") {
-                    content = content.concat(name + " liked the photo " + A + " posted to his wall<br/> " + myImg + "<br/> on " + interaction[3]);
+                else if (interaction[1] == "comment") {
+                    content += A + " commented on " + name + "'s photo:<br/> " + myImg + "<br /> on " + interaction[3];
                 }
-                if (interaction[1] == "large_likes_small_timeline") {
-                    content = content.concat(A + " liked the photo " + name + " posted to his wall<br/>" + myImg + "<br/> on " + interaction[3]);
+                else if (interaction[1] == "tag") {
+                    content += A + " tagged " + name + " in a photo:<br/> " + myImg + "<br /> on " + interaction[3];
                 }
-                if (interaction[1] == "small_likes_large_timeline") {
-                    content = content.concat(name + " liked " + A + "'s photo:<br/> " + myImg + "<br/> on " + interaction[3]);
+                else if (interaction[1] == "co-like") {
+                    content += A + " and " + name + " liked the same photo<br/> " + myImg + "<br/> on " + interaction[3];
+                }
+                else if (interaction[1] == "co-comment") {
+                    content += A + " and " + name + " commented on the same photo<br/> " + myImg + "<br/> on " + interaction[3];
+                }
+                else if (interaction[1] == "co-tag") {
+                    content += A + " and " + name + " were tagged in the same photo<br/> " + myImg + "<br/> on " + interaction[3];
                 }
 
-                if (interaction[1] == "large_comments_on_small_action") {
-                    content = content.concat(A + " commented on " + name + "'s photo:<br/> " + myImg + "<br/> on " + interaction[3]);
-                }
-                if (interaction[1] == "small_comments_on_large_action") {
-                    content = content.concat(name + " commented on the photo " + A + " posted to his wall<br/> " + myImg + "<br/> on " + interaction[3]);
-                }
-                if (interaction[1] == "large_comments_on_small_timeline") {
-                    content = content.concat(A + " commented on the photo " + name + " posted to his wall<br/>" + myImg + "<br/> on " + interaction[3]);
-                }
-                if (interaction[1] == "small_comments_on_large_timeline") {
-                    content = content.concat(name + " commented on " + A + "'s photo:<br/> " + myImg + "<br/> on " + interaction[3]);
-                }
-
-                if (interaction[1] == "large_tagged_in_small_action") {
-                    content = content.concat(A + " was tagged in this photo on " + name + "'s timeline:<br/> " + myImg + "<br/> on " + interaction[3]);
-                }
-                if (interaction[1] == "small_tagged_in_large_action") {
-                    content = content.concat(A + " tagged " + name + " in this photo:<br/> " + myImg + "<br/> on " + interaction[3]);
-                }
-                if (interaction[1] == "large_tagged_in_small_timeline") {
-                    content = content.concat(name + " tagged " + A + " in this photo:<br/> " + myImg + "<br/> on " + interaction[3]);
-                }
-                if (interaction[1] == "small_tagged_in_large_timeline") {
-                    content = content.concat(name + " was tagged in this photo on " + A + "'s timeline:<br/> " + myImg + "<br/> on " + interaction[3]);
-                }
-
-                if (interaction[1] == "CoLike") {
-                    content = content.concat(A + " and " + name + " liked the same photo<br/> " + myImg + "<br/> on " + interaction[3]);
-                }
-                if (interaction[1] == "CoCommented") {
-                    content = content.concat(A + " and " + name + " commented on the same photo<br/> " + myImg + "<br/> on " + interaction[3]);
-                }
-                if (interaction[1] == "CoTagged") {
-                    content = content.concat(A + " and " + name + " were tagged in the same photo<br/> " + myImg + "<br/> on " + interaction[3]);
-                }
-                content = content.concat("<br />");
+                content += "<br />";
             }
-
-            if (interaction[0] == "post") {
-                if (interaction[2] == "Bday") {
-                    content = content.concat(name + " wished you on your Birthday");
-                } else {
-                    if (interaction[1] == "large_likes_small_action") {
-                        content = content.concat(A + " liked " + name + "'s post on " + interaction[9]);
-                    }
-                    if (interaction[1] == "small_likes_large_action") {
-                        content = content.concat(name + " liked the post " + A + " published to his wall on " + interaction[9]);
-                    }
-                    if (interaction[1] == "large_likes_small_timeline") {
-                        content = content.concat(A + " liked the post " + name + " published to his wall on " + interaction[9]);
-                    }
-                    if (interaction[1] == "small_likes_large_timeline") {
-                        content = content.concat(name + " liked " + A + "'s post on " + interaction[9]);
-                    }
-
-                    if (interaction[1] == "large_comments_on_small_action") {
-                        content = content.concat(A + " commented on " + name + "'s post on " + interaction[9]);
-                    }
-                    if (interaction[1] == "small_comments_on_large_action") {
-                        content = content.concat(name + " commented on the post " + A + " published to his wall on " + interaction[9]);
-                    }
-                    if (interaction[1] == "large_comments_on_small_timeline") {
-                        content = content.concat(A + " commented on the post " + name + " published to his wall on " + interaction[9]);
-                    }
-                    if (interaction[1] == "small_comments_on_large_timeline") {
-                        content = content.concat(name + " commented on " + A + "'s post on " + interaction[9]);
-                    }
-
-                    if (interaction[1] == "large_tagged_in_small_action") {
-                        content = content.concat(A + " was tagged in this post on " + name + "'s timeline on " + interaction[9]);
-                    }
-                    if (interaction[1] == "small_tagged_in_large_action") {
-                        content = content.concat(A + " tagged " + name + " in this post on " + interaction[9]);
-                    }
-                    if (interaction[1] == "large_tagged_in_small_timeline") {
-                        content = content.concat(name + " tagged " + A + " in this post on " + interaction[9]);
-                    }
-                    if (interaction[1] == "small_tagged_in_large_timeline") {
-                        content = content.concat(name + " was tagged in this post on " + A + "'s timeline on " + interaction[9]);
-                    }
-
-                    if (interaction[1] == "CoLike") {
-                        content = content.concat(A + " and " + name + " liked the same post on " + interaction[9]);
-                    }
-                    if (interaction[1] == "CoCommented") {
-                        content = content.concat(A + " and " + name + " commented on the same post on " + interaction[9]);
-                    }
-                    if (interaction[1] == "CoTagged") {
-                        content = content.concat(A + " and " + name + " were tagged in the same post on " + interaction[9]);
-                    }
-                    if (interaction[1] == "large_posts_to_small") {
-                        content = content.concat(A + " posted this to " + name + "'s timeline on " + interaction[9]);
-                    }
-                    if (interaction[1] == "small_posts_to_large") {
-                        content = content.concat(name + " posted this to " + A + "'s timeline on " + interaction[9]);
-                    }
-                    s = getMyMsg(interaction);
-                    content = content.concat(s);
-                }
-                content = content.concat("<br />");
-            }
-
-            if (interaction[0] == "event") {
-                content = content.concat(A + " and " + name + " attended this event together on " + interaction[4]);
+            
+            else if (interaction[0] == "event") {
+                content += A + " and " + name + " attended this event together on " + interaction[4];
                 s = getEvent(interaction, 0);
-                content = content.concat(s);
-                content.concat("<br />");
+                content += s;
+                content += "<br />";
             }
 
-            if (interaction[0] == "book") {
-                content = content.concat(A + " and " + name + " liked the following book: ");
+            else if (interaction[0] == "book") {
+                content += A + " and " + name + " liked the following book: ";
                 s = getEvent(interaction, 1);
-                content = content.concat(s);
-                content.concat("<br />");
+                content += s;
+                content += "<br />";
             }
 
-            if (interaction[0] == "music") {
-                content = content.concat(A + " and " + name + " liked the following music: ");
+            else if (interaction[0] == "music") {
+                content += A + " and " + name + " liked the following music: ";
                 s = getEvent(interaction, 1);
-                content = content.concat(s);
-                content.concat("<br />");
+                content += s;
+                content += "<br />";
             }
-
         }
 
         return content;
@@ -298,12 +232,12 @@ function popMsg(A, name, interactions) {
         }
         connect = connect.concat('<span>');
         if (interaction[3] != "") {
-            connect = connect.concat('Story:' + interaction[3]);
+            connect = connect.concat(interaction[3]);
         }
-        if (interaction[4] != "") {
-            connect = connect.concat('Message:' + interaction[4]);
+        else if (interaction[4] != "") {
+            connect = connect.concat(interaction[4]);
         }
-        if (interaction[5] != "") {
+        else if (interaction[5] != "") {
             connect = connect.concat(interaction[5]);
         }
         connect = connect.concat("</span></div>");
@@ -314,20 +248,12 @@ function popMsg(A, name, interactions) {
 
 function getEvent(interaction, x) {
     var connect = '<div style="background:#191919 ; font-size:14px; padding-left : 10px; padding-top:10px; padding-right:10px; padding-bottom : 10px; border-bottom-left-radius:15px; border-bottom-right-radius:15px; border-top-left-radius:15px ; border-top-right-radius:15px">';
-    if (x == 0) {
-        if (interaction[3] != "") {
-            connect = connect.concat('<img style="vertical-align:middle" src="' + interaction[3] + '" />');
-        }
+
+    if (interaction[3] != "") {
+        connect = connect.concat('<img style="vertical-align:middle" src="' + interaction[3] + '" />');
     }
-    if (x == 1) {
-        if (interaction[4] != "") {
-            connect = connect.concat('<img style="vertical-align:middle" src="' + interaction[4] + '" />');
-        }
-    }
+
     connect = connect.concat('<span>');
-    if (x == 1 && interaction[3] != "") {
-        connect.concat(interaction[3]);
-    }
     if (interaction[1] != "") {
         connect = connect.concat(interaction[1]);
     }
@@ -489,7 +415,6 @@ function nodePop(d) {
 
 }
 
-
 function popNeighbor(d) {
     console.log("boom");
     lastClickedNeighborCirc = $(this);
@@ -543,8 +468,6 @@ function popNeighbor(d) {
     }
 }
 
-
-
 function closePop(d) {
     $(this).popover('toggle');
     $('.popover').each(function () {
@@ -556,7 +479,6 @@ function closePop(d) {
 
 var zoom = d3.behavior.zoom()
     .on("zoom", redraw);
-
 
 function redraw() {
     svg.attr("transform", "translate(" + d3.event.translate + ")" + " scale(" + d3.event.scale + ")");
@@ -763,42 +685,26 @@ var label = node.append("svg:text")
         }
     });
 
+// Main rendering of initial graph
+// NOTE: This currently breaks dragging of nodes, but that's kind of ok?
+requestAnimationFrame(function render() {
+    while (force.alpha() > 0) {
+        force.tick();
+    }
 
-force.on("tick", function () {
     link.attr("x1", function (d) {
         return d.source.x;
-    })
-        .attr("y1", function (d) {
+    }).attr("y1", function (d) {
             return d.source.y;
-        })
-        .attr("x2", function (d) {
+    }).attr("x2", function (d) {
             return d.target.x;
-        })
-        .attr("y2", function (d) {
+    }).attr("y2", function (d) {
             return d.target.y;
-        });
-    // node.attr("cx", function(d) {return d.x;})
-    //  .attr("cy", function(d) {return d.y;}) ;
-    //circle.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-    // label.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-    //node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
-    //node.attr("cx", function(d) { return d.x = Math.max(15, Math.min(width - 15, d.x)); })
-    //   .attr("cy", function(d) { return d.y = Math.max(15, Math.min(height - 15, d.y)); });
+    });
+
     node.attr("transform", function (d) {
         return "translate(" + d.x + "," + d.y + ")";
     });
-});
+})
+
 force.start();
-if (json["doneViz"] == 0) {
-    document.write("First Post on timeline:");
-    document.write(json["tempJson"]["first"][0]);
-    document.write("on");
-    document.write(json["tempJson"]["first"][1]);
-    document.write("Last post on timeline:");
-    document.write(json["tempJson"]["last"][0]);
-    document.write("on");
-    document.write(json["tempJson"]["last"][1]);
-    document.write("No. of events you have attended so far : ");
-    document.write(json["tempJson"]["events"]);
-    document.write("We will be back with your visualization soon");
-}
