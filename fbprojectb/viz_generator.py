@@ -15,10 +15,12 @@ class VisualizationGenerator(object):
     def __init__(self, userid):
         """Initialize class variables."""
         self.uid = userid
+        self.name = ""
         self.mongo = mongo_access.MongoAccess()
         self.nodes = []
         self.links = []
         self.pairs = []
+        self.people = []
 
     def generate_viz(self):
         """Generate JSON and insert into database."""
@@ -27,14 +29,26 @@ class VisualizationGenerator(object):
             # TODO[P]: throw error
             return
 
-        self.nodes.append({'name': user['name']})
+        self.name = user['name']
+        self.nodes.append({'name': self.name})
+        self.people.append({
+            'name' : self.name,
+            'id' : self.uid,
+            'collected_from' : [
+                {
+                    'name' : self.name,
+                    'id' : self.uid
+                }
+            ]
+        })
 
-        json = self.generate_viz_json(user['name'])
+        json = self.generate_viz_json()
         user['json'] = json
         self.mongo.update_user_db(self.uid, user)
         self.mongo.insert_many_interactions(self.pairs)
+        self.mongo.insert_many_people(self.people)
 
-    def generate_viz_json(self, username):
+    def generate_viz_json(self):
         """Generate JSON."""
         # Feed documents
         feed_query = {
@@ -48,7 +62,7 @@ class VisualizationGenerator(object):
         }
         feed = self.mongo.query_feed(feed_query)
         for document in feed:
-            self.explode_document(document, username)
+            self.explode_document(document)
 
         # Event documents
         event_query = {
@@ -57,7 +71,7 @@ class VisualizationGenerator(object):
         }
         events = self.mongo.query_events(event_query)
         for document in events:
-            self.explode_event(document, username)
+            self.explode_event(document)
 
         self.generate_links()
 
@@ -101,7 +115,7 @@ class VisualizationGenerator(object):
 
         return
 
-    def explode_document(self, document, username):
+    def explode_document(self, document):
         """Take individual feed document and turn into many pair interactions."""
 
         ########################################################################
@@ -124,19 +138,23 @@ class VisualizationGenerator(object):
         if document['from']['id'] == self.uid:
             for option in options:
                 if option[4] is not None: # if option is in document
-                    if (option[0] == 'story_tags' and 'type' in document
-                            and (document['type'] == 'wall_post' or document['type'] == 'photo')):
+                    if ((option[0] == 'story_tags' and 'type' in document
+                            and (document['type'] == 'wall_post' or document['type'] == 'photo'))
+                            or (option[0] == 'with_tags' or option[0] == 'comments' or option[0] == 'likes')):
                         interactions = self.process_status(document, option[1])
-                        self.generate_pairs(username, option[2], option[4], interactions)
+                        self.generate_pairs(self.name, option[2], option[4], interactions)
+
         else:
             for option in options:
                 if self.is_in_list(option):
-                    if (option[0] == 'story_tags' and 'type' in document
-                            and (document['type'] == 'wall_post' or document['type'] == 'photo')):
+                    if ((option[0] == 'story_tags' and 'type' in document
+                            and (document['type'] == 'wall_post' or document['type'] == 'photo'))
+                            or (option[0] == 'with_tags' or option[0] == 'comments' or option[0] == 'likes')):
                         interactions = self.process_status(document, option[1])
-                        self.generate_single_pair(username, option[3], document['from']['name'], interactions)
+                        self.add_to_people_collection(document['from'])
+                        self.generate_single_pair(self.name, option[3], document['from']['name'], interactions)
                         interactions = self.process_status(document, 'co-' + option[1])
-                        self.generate_pairs(username, option[3], option[4], interactions)
+                        self.generate_pairs(self.name, option[3], option[4], interactions)
         
         # Generate pairs for every other person related to each other
         for option in options:
@@ -157,16 +175,17 @@ class VisualizationGenerator(object):
 
         return
 
-    def explode_event(self, document, username):
+    def explode_event(self, document):
         """Take individual event document and turn into many pair interactions."""
         interactions = self.process_event(document)
-        self.generate_pairs(username, 'source', document['attending']['data'], interactions)
+        self.generate_pairs(self.name, 'source', document['attending']['data'], interactions)
         return
 
     def generate_pairs(self, username, direction, other_users, interactions):
         """Generates all pairs for given list of users and appends to object list."""
         if direction == 'source':
             for user in other_users:
+                self.add_to_people_collection(user)
                 if 'from' in user:
                     if user['from']['name'] == username or user['from']['id'] == self.uid:
                         continue
@@ -186,6 +205,7 @@ class VisualizationGenerator(object):
                 self.pairs.append(pair)
         else:
             for user in other_users:
+                self.add_to_people_collection(user)
                 if 'from' in user:
                     if user['from']['name'] == username or user['from']['id'] == self.uid:
                         continue
@@ -228,6 +248,13 @@ class VisualizationGenerator(object):
         for index, pair in enumerate(self.pairs):
             if pair['source'] == source and pair['target'] == target:
                 return self.pairs.pop(index)
+        return None
+
+    def find_person_in_list(self, name):
+        """Find person in existing list."""
+        for index, person in enumerate(self.people):
+            if person['name'] == name:
+                return self.people.pop(index)
         return None
 
     def is_in_list(self, option_tuple):
@@ -276,9 +303,31 @@ class VisualizationGenerator(object):
         cover = document['cover']['source'] if 'cover' in document else ""
         start_date = datetime.datetime.strptime(document['start_time'][:-5],
                                                   '%Y-%m-%dT%H:%M:%S').strftime('%m/%d/%y')
-        
+
         return [interaction_type, name, description, cover, start_date]
 
-    def get_pairs(self):
-        """Return pairs variable"""
-        return self.pairs
+    def add_to_people_collection(self, user):
+        """Add person to people list."""
+        person_id = user['from']['id'] if 'from' in user else user['id']
+        person_name = user['from']['name'] if 'from' in user else user['name']
+        person = self.find_person_in_list(person_name)
+        
+        if person is None:
+            person = {
+                'name' : person_name,
+                'id' : person_id,
+                'collected_from' : [
+                    {
+                        'name' : self.name,
+                        'id' : self.uid
+                    }
+                ]
+            }
+        else:
+            if {'id' : self.uid, 'name' : self.name} not in person['collected_from']:
+                person['collected_from'].append({
+                    'id' : self.uid,
+                    'name' : self.name
+                })
+        
+        self.people.append(person)

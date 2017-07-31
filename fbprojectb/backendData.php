@@ -36,11 +36,7 @@ $filterReverse = [
     'source' => $name2,
     'target' => $name1
 ];
-$options = [
-    // 'sort' => [
-    //     '$natural' => -1
-    // ]
-];
+$options = [];
 
 $tagid = $taggable -> findOne(array('name'=>$name2));
 $tag = $tagid["id"];
