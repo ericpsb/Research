@@ -33,6 +33,7 @@ $myFriendLinks = array_filter($links, 'isMyFriend');
 
 // sort by link strength
 usort($myFriendLinks, 'cmpLink');
+$myFriendLinks = uniqueLinks($myFriendLinks);
 
 // return names of top 5 friends
 $nodes = $interactions[0]->json->nodes;
@@ -74,5 +75,16 @@ function getID($username) {
     $id = iterator_to_array($id, false);
     $id = $id[0]->id;
     return $id;
+}
+
+function uniqueLinks($list) {
+    $newList = [];
+    for ($i = 1; $i < count($list); $i++) {
+        if ($list[$i]->target != $list[$i-1]->source || $list[$i]->source != $list[$i-1]->target) {
+            array_push($newList, $list[$i-1]);
+        }
+    }
+    array_push($newList, $list[count($list)-1]);
+    return $newList;
 }
 ?>

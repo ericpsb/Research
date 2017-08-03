@@ -140,12 +140,6 @@ foreach ($result as $item) {
             <td id="p5-img" class="name-img"></td>
             <td id="p5-name" class="name">Ore (stone)</td>
           </tr>
-
-          <tr class="top-5-item">
-            <td class="name-number">6</td>
-            <td id="p6-img" class="name-img"><img src="https://scontent.xx.fbcdn.net/v/t1.0-1/p200x200/18268505_10209519828372685_5151042587600937853_n.jpg?oh=aab109503c4090721e62e2934f4baa06&oe=59D2DACE" alt="profile picture"></td>
-            <td id="p6-name" class="name">Tihmothy Berrill</td>
-          </tr>
         </table>
 
         <button id="post-top-5">Post About This on Facebook</button>

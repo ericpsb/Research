@@ -177,7 +177,7 @@
           <e>really</e> your friends? This app analyzes your news feed to create a visualization showing which of your friends you're closest to based on your interactions on Facebook. It also shows how close your friends are with each other. Plus, if you
           share the app with your friends, your visualization gets more detailed. </p>
         <p> </p>
-        <p>Click below to log in and check it out.</p>
+        <p>Click below to log in and check it out. If the login button does not work for you, please be sure to turn off all pop-up blockers.</p>
         <p>
           <fb:login-button scope="public_profile,email,user_friends,user_posts,user_events,user_likes,user_birthday,publish_actions" onlogin="checkLoginState();">
           </fb:login-button>

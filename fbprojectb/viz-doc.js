@@ -54,7 +54,8 @@ function postToFB() {
         var postURL = "https://graph.facebook.com/v2.9/me/feed";
         var data = {
             "message": $("#post-text").val(),
-            "tags": JSON.parse(resp).join(",")
+            "tags": JSON.parse(resp).join(","),
+            "link": "https://das-lab.org/truefriend"
         };
 
         FB.api(
@@ -99,13 +100,13 @@ function populateTextArea(names) {
 
 function getTop5Message(names) {
     // Note: this makes the assumption that a person has at least five people in the graph
-    return "These are my top 5 friends according to TrueFriend (https://das-lab.org/truefriend)!\n" +
+    return "These are my top 5 friends according to TrueFriend!\n" +
            "1. " + names[0] + "\n" +
            "2. " + names[1] + "\n" +
            "3. " + names[2] + "\n" +
            "4. " + names[3] + "\n" +
            "5. " + names[4] + "\n" +
-           "Help the Lehigh University DAS Lab, find out your top 5 friends, and see your Social Interaction Graph at https://das-lab.org/truefriend !";
+           "Help the Lehigh University DAS Lab, find out your top 5 friends, and see your Social Interaction Graph at TrueFriend!";
 }
 
 /* Returns 2d array with first column being names and second column being IDs */
