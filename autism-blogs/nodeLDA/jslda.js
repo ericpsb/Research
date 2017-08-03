@@ -1,3 +1,5 @@
+"use strict";
+// tab switch
 $("#docs-tab").click(function() {
   $(".page").css("display", "none");
   $(".tabs ul li").attr("class", "");
@@ -16,6 +18,14 @@ $("#ts-tab").click(function() {
   $("#ts-page").css("display", "block");
   $("#ts-tab").attr("class", "selected");
 });
+$("#help-tab").click(function() {
+  $(".page").css("display", "none");
+  $(".tabs ul li").attr("class", "");
+  $("#help-page").css("display", "block");
+  $("#help-tab").attr("class", "selected");
+});
+
+// topic list
 $("#topics .topicwords").each(function(index) {$(this).data("topic-id", index);});
 var currtopic = 0;
 $("#topics .topicwords").click(function(){
@@ -29,15 +39,16 @@ $("#topics .topicwords").click(function(){
         data: $.param({tid: topic.data("topic-id")}),
         dataType: "json",
         success: function(data) {
-			$("#docs-page .document").remove();
-			$("#docs-page .help").after(data.html);
+			var old = $("#docs-page .document");
+			old.last().after(data.html);
+			old.remove();
 			currtopic = topic.data("topic-id");
 			currpage = 1;
 			$(".dest").val("");
 			$(".curr").html(data.page);
 			checkFirstPage();
 			checkLastPage();
-			$("#docs-tab").click();
+			$("#docs-tab").click(); // go to docs tab
 		}
     });
 });
@@ -56,7 +67,7 @@ if (maxpage == 1) {
 } else {
 	$(".dest").attr("placeholder", "1~" + maxpage);
 }
-var checkFirstPage = function() {
+function checkFirstPage() {
 	if(currpage == 1) {
 		$(".prev").css("visibility", "hidden");
 		$(".next").css("visibility", "");
@@ -65,7 +76,7 @@ var checkFirstPage = function() {
 	}
 };
 checkFirstPage();
-var checkLastPage = function() {
+function checkLastPage() {
 	if(currpage == maxpage) {
 		$(".prev").css("visibility", "");
 		$(".next").css("visibility", "hidden");
@@ -81,8 +92,9 @@ $(".prev").click(function(){
         data: $.param({tid: currtopic, page: currpage-1}),
         dataType: "json",
         success: function(data) {
-			$("#docs-page .document").remove();
-			$("#docs-page .help").after(data.html);
+			var old = $("#docs-page .document");
+			old.last().after(data.html);
+			old.remove();
 			currpage = parseInt(data.page);
 			$(".dest").val("");
 			$(".curr").html(data.page);
@@ -99,8 +111,9 @@ $(".next").click(function(){
         data: $.param({tid: currtopic, page: currpage+1}),
         dataType: "json",
         success: function(data) {
-			$("#docs-page .document").remove();
-			$("#docs-page .help").after(data.html);
+			var old = $("#docs-page .document");
+			old.last().after(data.html);
+			old.remove();
 			currpage = parseInt(data.page);
 			$(".dest").val("");
 			$(".curr").html(data.page);
@@ -111,7 +124,7 @@ $(".next").click(function(){
 });
 
 $(".dest").keypress(function(evt){
-	if(evt.which == 13) {
+	if(evt.which == 13) { // enter key
 		evt.preventDefault();
 		var page = parseInt($(this).val());
 		if(isNaN(page)) {$(".dest").val(""); return;}
@@ -121,8 +134,9 @@ $(".dest").keypress(function(evt){
 			data: $.param({tid: currtopic, page: page}),
 			dataType: "json",
 			success: function(data) {
-				$("#docs-page .document").remove();
-				$("#docs-page .help").after(data.html);
+				var old = $("#docs-page .document");
+				old.last().after(data.html);
+				old.remove();
 				currpage = parseInt(data.page);
 				$(".dest").val("");
 				$(".curr").html(data.page);
@@ -142,8 +156,9 @@ $(".go").click(function(){
         data: $.param({tid: currtopic, page: page}),
         dataType: "json",
         success: function(data) {
-			$("#docs-page .document").remove();
-			$("#docs-page .help").after(data.html);
+			var old = $("#docs-page .document");
+			old.last().after(data.html);
+			old.remove();
 			currpage = parseInt(data.page);
 			$(".dest").val("");
 			$(".curr").html(data.page);
@@ -206,41 +221,74 @@ $.ajax({
 						$(".corr-zoom-graph").remove();
 						$("#corr-page").append($("<div></div>").addClass("corr-zoom-graph").append(data.graph));
 						$(".corr-zoom-graph").append($("<div></div>").addClass("viewer").css("display", "none"));
-						$(".viewer").append($("<div></div>").css("margin", "auto").css("width", "calc(50% + 400px)")
-							.append($("<div></div>").addClass("border").css("background-image", "radial-gradient(circle at 0 100%, rgba(0,0,0,0) 197px, #ffa500 198px, #ffa500 200px, #fff 201px )"))
+						$(".viewer").append($("<div></div>").css("margin", "auto").css("width", "80%")
+							.append($("<div></div>").addClass("border1"))
+							.append($("<div></div>").addClass("border2"))
 							.append($("<div></div>").addClass("docviewer"))
-							.append($("<div></div>").addClass("border").css("background-image", "radial-gradient(circle at 100% 100%, rgba(0,0,0,0) 197px, #800080 198px, #800080 200px, #fff 201px )")));
+							.append($("<div></div>").addClass("border3"))
+							.append($("<div></div>").addClass("border4")));
 						$(".viewer").append($("<div></div>").html("^").css("margin", "auto").css("width", 25).css("text-align", "center")
 						.css("border", "2px solid #ccc").css("background", "#fff").css("cursor", "pointer")
 						.click(function(){
 							$(".corr-zoom-graph .top, .corr-zoom-graph .bot").remove();
-							$(".corr-zoom-graph .viewer").animate({height: "hide"});							
+							$(".corr-zoom-graph .viewer").animate({height: "hide"});
+							$(".corr-zoom-graph svg").children().removeClass("chosen");
+							$(".corr-zoom-graph svg").removeData("selected");
 						}));
 						$(".corr-zoom-graph").append($("<div></div>").addClass("close").html("X").click(function(){$(".corr-zoom-graph").remove();}));
+						var xmin = parseInt($(".corr-zoom-graph svg").attr("viewBox").split(" ")[0]);
+						var svgw = $(".corr-zoom-graph svg").width(); 
+						var xmap = new Array($(".corr-zoom-graph svg").children().length);
 						$(".corr-zoom-graph svg").children().each(function(){
 							var index = $(this).data("index");
 							$(this).removeAttr("data-index");
 							$(this).data("index", index);
-						})
-						$(".corr-zoom-graph svg").children().mouseover(function(evt) {
-							var index = $(this).data("index");
-							var numdocs = data.cumlen[index] - (index == 0 ? 0 : data.cumlen[index-1]);
+							var x = $(this).attr("x") ? parseFloat($(this).attr("x")) + 0.5 : $(this).attr("cx");
+							xmap[index] = {x: (x-xmin)/(xmin*-2)*svgw, obj: $(this)};
+						});
+						
+						var hoverIndex = 0;
+						$(".corr-zoom-graph svg").mousemove(function(evt) {
+							var x = evt.offsetX;
+							var diff = svgw;
+							for(var i=0; i<xmap.length; i++) {
+								var dx = Math.abs(x - xmap[i].x);
+								if(dx > diff) {
+									break;
+								} else {
+									diff = dx;
+									hoverIndex = i;
+								}
+							}
+							$(".corr-zoom-graph svg").children().removeClass("peek");
+							xmap[hoverIndex].obj.addClass("peek");
+							
+							var numdocs = data.cumlen[hoverIndex] - (hoverIndex == 0 ? 0 : data.cumlen[hoverIndex-1]);
 							var tooltip = $("#tooltip");
 							tooltip.html(numdocs + " document" + (numdocs > 1 ? "s" : ""));
 							tooltip.css("visibility", "visible").css("top", evt.pageY + 10);
 							var left = evt.pageX - $("#tooltip").width() - 20;
 							tooltip.css("left", left < 0 ? 0 : left);
-						}).mouseout(function() {
+						}).mouseout(function(){
+							$(".corr-zoom-graph svg").children().removeClass("peek");
 							$("#tooltip").css("visibility", "hidden");
-						}).click(function(evt){
+						}).click(function(){
+							getCorrDocs(hoverIndex);
+						});
+						var getCorrDocs = function(index) {
+							$(".corr-zoom-graph svg").data("selected", index);
 							$(".corr-zoom-graph .top, .corr-zoom-graph .bot").remove();
-							var dtop = $("<div></div>").addClass("top").css("top", 10).css("left", evt.pageX - parseFloat($(".corr-zoom-graph").css("margin-left"))).css("z-index", 2).css("color", "#ccc").html("▼");	
-							var dbot = $("<div></div>").addClass("bot").css("bottom", 10).css("left", evt.pageX - parseFloat($(".corr-zoom-graph").css("margin-left"))).css("z-index", 2).css("color", "#ccc").html("▲");
+							var left = xmap[index].x + $(".corr-zoom-graph svg").offset().left - parseFloat($(".corr-zoom-graph").css("margin-left"));
+							var dtop = $("<div></div>").addClass("top").css("top", 10).css("left", left).css("z-index", 2).css("color", "#0cc").html("▼");	
+							var dbot = $("<div></div>").addClass("bot").css("bottom", 10).css("left", left).css("z-index", 2).css("color", "#0cc").html("▲");
 							$(".corr-zoom-graph").append(dtop).append(dbot);
 							$(".corr-zoom-graph .top, .corr-zoom-graph .bot").each(function(){$(this).css("left", parseFloat($(this).css("left")) - $(this).width()/2);});
 							$(".corr-zoom-graph .viewer").animate({height: "show"});
 							$(".corr-zoom-graph .docviewer").html("");
-							var index = $(this).data("index");
+							
+							$(".corr-zoom-graph svg").children().removeClass("chosen");
+							xmap[index].obj.addClass("chosen");
+							
 							var start = index == 0 ? 0 : data.cumlen[index-1];
 							$.ajax({
 								type: "GET",
@@ -250,13 +298,27 @@ $.ajax({
 									$(".corr-zoom-graph .docviewer").html(docs);
 								}
 							});
+						}
+						$(".corr-zoom-graph .left").click(function(){
+							var index = $(".corr-zoom-graph svg").data("selected");
+							if(typeof index == "undefined") { return; }
+							if(index > 0) {
+								getCorrDocs(--index);
+							}
+						});
+						$(".corr-zoom-graph .right").click(function(){
+							var index = $(".corr-zoom-graph svg").data("selected");
+							if(typeof index == "undefined") { return; }
+							if(index < xmap.length-1) {
+								getCorrDocs(++index);
+							}
 						});
 					}
 				});
 			});
 			
 		});
-
+		// zoom feature for correlation graph
 		var corr_ratio = 1.0;
 		var corr_width = $("#corr-page svg").width();
 		var corr_height = $("#corr-page svg").height();
@@ -306,8 +368,11 @@ $.ajax({
 		var viewY = viewYmin;
 		var viewX2 = viewXmin;
 		var viewY2 = viewYmin2;
-
 		
+		$("#ts-page").mouseup(function(){
+			$(".ts-zoom-graph svg, .ts-zoom-graph2 svg").data("drag", false);
+		});
+
 		var temp = [-0.25, 0, 0.25];
 		var offset = [0, -0.25, 0.25];
 		for(var i=0; i<5; i++) {
@@ -368,11 +433,7 @@ $.ajax({
 					shiftgraph(this, ptx, pty, relx, rely, false);
 				}
 			});
-			$(".ts-zoom-graph svg").off("mouseup");
-			$(".ts-zoom-graph svg").mouseup(function(){
-				$(this).data("drag", false);
-			});
-			
+
 			$(".ts-zoom-graph svg").off("mousewheel");
 			$(".ts-zoom-graph svg").off("DOMMouseScroll");
 			$(".ts-zoom-graph svg").bind('mousewheel DOMMouseScroll', function(evt){
@@ -437,10 +498,6 @@ $.ajax({
 					var rely = evt.offsetY/$(this).height();
 					shiftgraph2(this, ptx, pty, relx, rely, false);
 				}
-			});
-			$(".ts-zoom-graph2 svg").off("mouseup");
-			$(".ts-zoom-graph2 svg").mouseup(function(){
-				$(this).data("drag", false);
 			});
 			
 			$(".ts-zoom-graph2 svg").off("mousewheel");
@@ -582,8 +639,7 @@ $.ajax({
 						for(var i=1; i<31; i++) {
 							$(".ts-zoom-graph svg").append($("<line></line>").attr("stroke-dasharray", "0.01, 0.01").attr("x1", (i+0.5)*10).attr("x2", (i+0.5)*10).attr("y1", (viewYmin-1)).attr("y2", (viewYmin+viewHeight+1)).css("stroke-width", 0.2).css("stroke", "#555"));
 						}
-					}
-					else {
+					} else {
 						for(var i=1; i<31; i++) {
 							$(".ts-zoom-graph svg").append($("<line></line>").attr("stroke-dasharray", "0.1, 0.1").attr("x1", (i+0.5)*10).attr("x2", (i+0.5)*10).attr("y1", (viewYmin-1)).attr("y2", (viewYmin+viewHeight+1)).css("stroke-width", 0.2).css("stroke", "#555"));
 						}
@@ -727,7 +783,6 @@ $.ajax({
 			var m = num%12;
 			return names[m] + ", " + Math.floor(num/12);
 		}
-		$("#ts-page .help").append("The time range is from " + toMonth(minMonth) + " to " + toMonth(maxMonth) + ".");
 		// mouseover info display
 		$(".ts-div.valavg").each(function() {
 			var graph = $(this);
@@ -849,15 +904,19 @@ $.ajax({
 		$("#cbox-valavg").click(function(){
 			if($(this).prop("checked")) {
 				$(".ts-div.valavg").css("display", "");
+				$(".ts-zoom-graph").not("#ts-zoom-div .ts-zoom-graph").css("display", "");
 			} else {
 				$(".ts-div.valavg").css("display", "none");
+				$(".ts-zoom-graph").not("#ts-zoom-div .ts-zoom-graph").css("display", "none");
 			}
 		});
 		$("#cbox-numdocs").click(function(){
 			if($(this).prop("checked")) {
 				$(".ts-div.numdocs").css("display", "");
+				$(".ts-zoom-graph2").not("#ts-zoom-div2 .ts-zoom-graph2").css("display", "");
 			} else {
 				$(".ts-div.numdocs").css("display", "none");
+				$(".ts-zoom-graph2").not("#ts-zoom-div2 .ts-zoom-graph2").css("display", "none");
 			}
 		});
 	}

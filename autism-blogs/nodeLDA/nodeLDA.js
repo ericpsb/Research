@@ -173,9 +173,6 @@ function getCorrelationGraphHtml() {
 		for(var t2=t1+1; t2 < numtopics; t2++) {
 			var val = corrlation_table[t1][t2];
 			var r = circleScale(Math.abs(val));
-			//var size = r/(topicScale/2);
-			//size = (1 - (Math.pow(10, size) / 10)) / 2;
-			//var color = val > 0 ? ("rgba(" + Math.round(255*size) + ", " + Math.round(255*size) + ", 255, 1)") : ("rgba(255, " + Math.round(255*size) + ", " + Math.round(255*size) + ", 1)")
 			var color = val > 0 ? "#88f" : "#f88";
 			var circle = $("<circle></circle>").attr("cx", xmin + t1*topicScale).attr("cy", ymin + t2*topicScale).attr("r", r).css("fill", color);
 			var circle2 = $("<circle></circle>").attr("cx", xmin + t2*topicScale).attr("cy", ymin + t1*topicScale).attr("r", r).css("fill", color);
@@ -249,7 +246,6 @@ function getDocumentsHtml(topic, start, end) {
 		var docid = sorted_topic_docid[topic][i];
 		var doc = doc_table[docid];
 		var score = sorted_topic_table[topic][i];
-		if(typeof doc === 'undefined') {continue;}
 		result.append(document_template("#" + (i+1) + " ", doc.link, doc.date, score, doc.content, true));
 	}
 	return result.html();
@@ -261,10 +257,11 @@ function document_template(prefix, link, date, score, content, color) {
 		var score100 = (score*100).toFixed(1);
 		var r = score < 0.5 ? 255 : Math.round(255-255*(score-0.5)*2);
 		var g = score > 0.5 ? 255 : Math.round(255-255*(0.5-score)*2);
+		// we don't want color to be unseenable when the value is too low, so we set a lower bound of 4 percent
 		span = '<span style="border: 1px solid #ccc; background: linear-gradient(45deg, rgba(' + r + ', ' + g + ', 0, 0.7) ' + Math.round(score100*0.95+4) + '%, #fff 1%, #fff ' +
 		Math.round((100-score100)*0.95) + '%);">' + '<span title="' + score + '">' + score100 + '%</span> ' + date + '</span>';
 	}
-	return $("<div></div>").addClass("document").html(prefix + span + ' <a href="' + link + '">' + link + '</a><br> ' +  content);
+	return $("<div></div>").addClass("document").html(prefix + span + ' <a href="' + link + '" target="_blank">' + link + '</a><br> ' +  content);
 }
 
 function getTimeSeriesGraphHtml() {
@@ -272,7 +269,7 @@ function getTimeSeriesGraphHtml() {
 	var h = 110;
 	var w = 500;
 	var months = lastM - firstM + 1;
-	var w1 = 250/months;
+	var w1 = w/2/months;
 	var result = $("<div></div>");
 	var topavg = 0;
 	var topdocs = 0;
@@ -425,21 +422,21 @@ var homepageHtml = pp.preprocess(html, {TOPICS: topic_dom.html(), DOCS: getDocum
 process.stdout.write("done\n");
 
 // package necessary data for server to run
-// Note: function cannot be packaged so needs to be synced manually
+// Note: function cannot be packaged so needs to be sync-ed manually
 process.stdout.write("dumping data to file...\n");
 var nodeLDA = {};
-nodeLDA.numtopics = numtopics;
-nodeLDA.numdocs = numdocs;
-nodeLDA.pagesize = pagesize;
-nodeLDA.maxpage = maxpage;
-nodeLDA.homepageHtml = homepageHtml;
-nodeLDA.doc_table = doc_table;
-nodeLDA.sorted_topic_docid = sorted_topic_docid;
-nodeLDA.sorted_topic_table = sorted_topic_table;
-nodeLDA.correlation_graph = getCorrelationGraphHtml();
-nodeLDA.time_series_graph = getTimeSeriesGraphHtml();
-nodeLDA.topic_table_diag = topic_table_diag;
-nodeLDA.topic_prob = topic_prob;
-nodeLDA.topics = topics;
+nodeLDA.numtopics = numtopics; // number of topics
+nodeLDA.numdocs = numdocs; // number of document
+nodeLDA.pagesize = pagesize; // number of documents in a page
+nodeLDA.maxpage = maxpage; // maximum number of pages
+nodeLDA.homepageHtml = homepageHtml; // the html preprocessed with some additional data
+nodeLDA.doc_table = doc_table; // the documents and its data
+nodeLDA.sorted_topic_docid = sorted_topic_docid; // document id sorted by values for each topic
+nodeLDA.sorted_topic_table = sorted_topic_table; // values sorted for each topic
+nodeLDA.correlation_graph = getCorrelationGraphHtml(); // the correlation graph html the server sends upon request
+nodeLDA.time_series_graph = getTimeSeriesGraphHtml(); // the time series graph html the server sends upon request
+nodeLDA.topic_table_diag = topic_table_diag; // values in the order of the documents for each topic
+nodeLDA.topic_prob = topic_prob; // number of documents that is higher than the cutoff value for each topic
+nodeLDA.topics = topics; // the list of topics
 
 fs.writeFileSync("nodeLDA.json", JSON.stringify(nodeLDA), {encoding: 'utf8'});

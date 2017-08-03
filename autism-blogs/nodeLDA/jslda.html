@@ -1,5 +1,7 @@
-﻿<html>
+﻿<!DOCTYPE html>
+<html>
 <head>
+<title>LDA data visualization</title>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <link href='https://fonts.googleapis.com/css?family=Alegreya' rel='stylesheet' type='text/css'>
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -30,6 +32,7 @@
 				<li id="docs-tab" class="selected">Topic Documents</li>
 				<li id="corr-tab">Topic Correlations</li>
 				<li id="ts-tab">Time Series</li>
+				<li id="help-tab">About</li>
 			</ul>
 		</div>
 	</div>
@@ -42,7 +45,6 @@
 				<input class="dest" type="number" data-maxpage="<!-- @echo MAXPAGE -->">
 				<button class="go">Go</button>
 			</div>
-			<div class="help">Documents are sorted by their proportion of the currently selected topic. The topics are sorted by their average proportion of all documents.</div>
 			<!-- @echo DOCS -->
 			<div style="text-align:center;">
 				<button class="prev">&lt;</button>
@@ -54,7 +56,6 @@
 		</div>
 		
 		<div id="corr-page" class="page">
-			<div class="help">Topics that occur together more than expected are blue, topics that occur together less than expected are red.</div>
 			<div>
 				<button id="corr-zoom-in" title="zoom in">🔍+10%</button>
 				<button id="corr-zoom-out" title="zoom out">🔍-10%</button>
@@ -65,22 +66,20 @@
 
 		<div id="ts-page" class="page" data-minmonth=<!-- @echo MINM --> data-maxmonth=<!-- @echo MAXM -->>
 			<div id="ts-zoom-div" class="display-none">
-				<div class="ts-zoom-graph" style="position: relative; display: inline-block; margin-bottom: 10px; margin-left: 20px;">
+				<div class="ts-zoom-graph">
 				<div class="control"><button class="prev-month"><</button><span style="margin-left: 10px; margin-right: 10px;"></span><button class="next-month">></button>&emsp;&emsp;<button class="close">X</button></div>
 				<div class="scales"><text class="topic"></text><text class="top-scale" style="left: -25px;"></text><text class="mid-scale" style="left: -25px; top: 50%;"></text><text class="bot-scale" style="left: -25px; bottom: -0px;"></text></div>
-				<svg preserveAspectRatio="none">
-				</svg>
+				<svg preserveAspectRatio="none"></svg>
 				</div>
 			</div>
+			
 			<div id="ts-zoom-div2" class="display-none">
-				<div class="ts-zoom-graph2" style="position: relative; display: inline-block; margin-bottom: 10px; margin-left: 20px;">
+				<div class="ts-zoom-graph2">
 				<div class="control"><button class="prev-month"><</button><span style="margin-left: 10px; margin-right: 10px;"></span><button class="next-month">></button>&emsp;&emsp;<button class="close">X</button></div>
 				<div class="scales"><text class="topic"></text><text class="top-scale" style="left: -25px;"></text><text class="mid-scale" style="left: -25px; top: 50%;"></text><text class="bot-scale" style="left: -25px; bottom: -0px;"></text></div>
-				<svg preserveAspectRatio="none">
-				</svg>
+				<svg preserveAspectRatio="none"></svg>
 				</div>
 			</div>
-			<div class="help">Documents are grouped by their date. These plots show the average document proportion of each topic at each date value. </div>
 			<div style="position: fixed; right: 1%; top: 4%; z-index: 15;">
 				<button id="ts-zoom-in" title="zoom in">🔍+10%</button>
 				<button id="ts-zoom-out" title="zoom out">🔍-10%</button>
@@ -98,6 +97,151 @@
 				
 			</div>
 			<span id="tgraph" />
+		</div>
+		<div id="help-page" class="page">
+			<h2>Tabs</h2>
+			<img src="/img/tabs.png" alt="tabs.png">
+			<ol>
+				<li>Show/Hide the topic list -- used to frees up spaces for the graphs</li>
+				<li>Show Documents Page</li>
+				<li>Show Correlation Page</li>
+				<li>Show Time Series Page</li>
+				<li>Show About Page -- aka, this page </li>
+			</ol>
+			<h2>Topic list</h2>
+			<img src="/img/topics.png" alt="topics.png">
+			<ul>
+				<li>The list displays all the topics</li>
+				<li>The topics are sorted by the average proportion value for all documents in the corpus</li>
+				<li>Hovering over a topic displays the average </li>
+				<li>Clicking a topic will display the first page of the document list for that topic</li>
+				<li>Clicking a topic will take you back to the Documents page, even when you are on different pages</li>
+			</ul>
+			<h2>Topic Documents page</h2>
+			<img src="/img/blog1.png" alt="blog1.png">
+			<img src="/img/blog2.png" alt="blog2.png">
+			<img src="/img/blog3.png" alt="blog3.png">
+			<img src="/img/blog4.png" alt="blog4.png">
+			<ul>
+				<li>This page will display lists of documents sorted by the proportion value for the topic selected</li>
+				<li>Each document includes the rank, its topic proportion value for the topic, the date it was posted, the url link to the post, and the snippet of the blog</li>
+				<li>Based on the topic proportion value, the "value bar" in the background will change
+					<ul>
+						<li>The color will shift from green to yellow to red for values from 100% to 50% to 0%</li>
+						<li>The area of the color region matches the proportion value, the higher the value more area is covered</li>
+					</ul>
+				</li>
+				<li>The value displayed is a rounded value, hovering over it will display the specific value</li>
+				<li>If the actual blog does not contain any text, "(this post contains no text)" will get displayed</li>
+			</ul>
+			<h2>Topic Correlations page</h2>
+				<h3>General View</h3>
+				<img src="/img/corr.png" alt="corr.png" width="800px">
+				<ul>
+					<li>The general view displays the correlation graph</li>
+					<li>The three buttons with magnifying glass can be used to change the graph size to fit the screen</li>
+					<li>Pearson product-moment correlation coefficient is not used due to the property of the LDA process</li>
+					<li>Instead the "correlation" is calculated by the ratio of documents that includes both topics to the product of number of documents that includes each topic</li>
+					<li>A "document includes a topic" means the topic proportion value for a topic is high enough to be considered as one of the topics the document is describing</li>
+					<li>A blue circle indicates topics that occur together more than expected, a red circle indicates topics that occur together less than expected</li>
+					<li>The size of the circle indicates the magnitude of the "correlation", a big blue circle indicates the topics are occuring way more than expected</li>
+					<li>Hovering over the circle will display the two complete topics it represents, the legend only includes part of the topic</li>
+					<li>Click on the circle will brings up the zoom view for those two topics</li>
+				</ul>
+			
+				<h3>Zoom View</h3>
+				<img src="/img/corr.zoom1.png" alt="corr.zoom1.png" width="800px">
+				<img src="/img/corr.zoom2.png" alt="corr.zoom2.png" width="800px">
+				<ul>
+					<li>The view can be closed with the red X at the top right corner</li>
+					<li>The view represents a venn diagram, the middle circle will be located towards the topic with lower amount of documents which includes it</li>
+					<li>The center circle includes columns, each column contains a set of documents
+						<ul>
+							<li>The position of column indicate how the topic proportion values in the document</li>
+							<li>Column in the center contains documents with similar topic proportion values for both topics</li>
+							<li>Column close to the side contains documents with value of the topic it is close to much higher than the other value</li>
+							<li>The height of the column indicates the amount of document the column contains</li>
+						</ul>
+					</li>
+					<li>Hovering over the center circle will highlights the cloest column to the cursor and display the amount of document the column contains</li>
+					<li>Click on the center circle will display the document contained by the highlighted column</li>
+				</ul>
+				<img src="/img/corr.zoom3.png" alt="corr.zoom3.png" width="800px">
+				<ul>	
+					<li>The documents view can be closed with the ^ button at the bottom</li>
+					<li>The documents will have the values for both topic shown, along with date, link, and the text snippet like in the document page</li>
+					<li>The current column that is shown is highlighted with a different color with triangles pointing to it</li>
+					<li>Another column can shown simply be clicking on another column without closing the documents view</li>
+					<li>While the documents wiew is open, you can click on the outer circles of the venn diagram to show the column that is one column closer to that topic</li>
+				</ul>
+				
+			<h2>Time Series page</h2>	
+			<img src="/img/ts.png" alt="ts.png" width="800px">
+			<ul>
+				<li>The page displays the time series graphs</li>
+				<li>Simular to the correlation page, you can use the magnifying glass buttons on top right corner to change the graph size to fit the screen</li>
+				<li>In addition, you can select the scales of the graph to be either topic or corpus
+					<ul>
+						<li>topic: the maximum is the maximum value appeared in the topic graph, good for analysing trends within the topic</li>
+						<li>corpus: the maximum is the maximum value appeared in all the topics, good for comparing graphs from different topics</li>
+					</ul>
+				</li>
+				<li>There are two type of graph displayed in the time series page, you can show or hide them using the checkbox</li>
+			</ul>
+				<h4>Average Value per Document graph</h4>
+				<img src="/img/ts.valavg.png" alt="ts.valavg.png">
+				</ul>
+					<li>This type of graph shows the average topic proportion value for a specific month</li>
+					<li>The lower, brighter orange shows the average value for all documents that is posted that month</li>
+					<li>The higher, darker orange shows the average value for documents that has value more than 1% in that topic</li>
+					<li>This two level system is designed to show the "true average" so the large amount of low value assigned by LDA will not hide any potential trend</li>
+					<li>Since it is an average, it could get influenced by the amount of document posted that month, which is displayed in the next type of graph</li>
+					<li>Hovering over the graph shows the two averages and the month where you cursor represents</li>
+					<li>Clicking the graph will open the zoom view for that topic at that month</li>
+				</ul>
+				<h4>Number of Documents graph</h4>
+				<img src="/img/ts.numdocs.png" alt="ts.numdocs.png">
+				</ul>
+					<li>This type of graph shows the number of documents with different topic proportion level</li>
+					<li>The gray line represents all the documents posted in that month, therefore this is the same for all topics</li>
+					<li>The relavent documents are represented by the colored area, the deeper the color, the more relavent it represents</li>
+					<li>When the scale is "topic", the maximum is the maximum of the relavent documents throughout time (not based on gray)</li>
+					<li>When the scale is "corpus", the maximum is set to the maximum number of documents posted throughout time (based on gray)</li>
+					<li>Hovering over the graph shows the number of documents with different proportion level and the month where you cursor represents</li>
+					<li>Note the values shown are cumulative, since it shows the number of document greater than a proportion level, not between levels</li>
+					<li>Clicking the graph will open the zoom view for that topic at that month</li>
+				</ul>
+				<h3>Zoom Views</h3>
+				<img src="/img/ts.valavg.zoom.png" alt="ts.valavg.zoom.png">
+				<img src="/img/ts.numdocs.zoom.png" alt="ts.numdocs.zoom.png">
+				</ul>
+					<li>Each type of graph can have maximum of one zoom view opened at once, choosing another topic will close the zoom view for the old topic</li>
+					<li>The zoom view can be closed via the X button</li>
+					<li>The zoom view displays the individual documents for the day they are posted in that month</li>
+					<li>The month displayed can be changed via the two arrow buttons, for larger changes, exit the view and use the cursor to select the target month</li>
+					<li>The graph can be zoomed in and out with the mouse wheel or equivalent action</li>
+					<li>While zoomed in, the graph can be dragged for finer control of the view</li>
+					<li>Hovering over the circle will display the document</li>
+					<li>Clicking the circle will open the url in a new window</li>
+					<li><b style="color: #2196f3">For Average Value per Document zoom views only</b>
+						<ul>
+							<li>This type of graph displays how many standard deviation the document is away from <b>daily</b> average</li>
+							<li>The average line is displayed in red, with a legend on the side tracking it</li>
+							<li>The zoom level of the graph will get reset when months change due to maximum and minimum of standard deviation changes</li>
+							<li>Each horizontal line represents 1 standard deviation</li>
+						</ul>
+					</li>
+					<li><b style="color: #ff8f00">For Number of Documents zoom views only</b>
+						<ul>
+							<li>This type of graph displays the topic proportion value of the documents</li>
+							<li>The zoom level of the graph will not reset when months change as the scale is fixed at 0% to 100%</li>
+							<li>Each horizontal line represents 10% topic proportion</li>
+						</ul>
+					</li>
+				</ul>
+			
+			<h2>About page</h2>
+			<span onclick="$('html,body').animate({ scrollTop: 0}, 700);" style="cursor: pointer;">[show content]</span>
 		</div>
 
 	</div>

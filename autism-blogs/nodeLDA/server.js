@@ -23,7 +23,6 @@ function getDocumentsHtml(topic, start, end) {
 		var docid = sorted_topic_docid[topic][i];
 		var doc = doc_table[docid];
 		var score = sorted_topic_table[topic][i];
-		if(typeof doc === 'undefined') {continue;}
 		result.append(document_template("#" + (i+1) + " ", doc.link, doc.date, score, doc.content, true));
 	}
 	return result.html();
@@ -35,10 +34,11 @@ function document_template(prefix, link, date, score, content, color) {
 		var score100 = (score*100).toFixed(1);
 		var r = score < 0.5 ? 255 : Math.round(255-255*(score-0.5)*2);
 		var g = score > 0.5 ? 255 : Math.round(255-255*(0.5-score)*2);
+		// we don't want color to be unseenable when the value is too low, so we set a lower bound of 4 percent
 		span = '<span style="border: 1px solid #ccc; background: linear-gradient(45deg, rgba(' + r + ', ' + g + ', 0, 0.7) ' + Math.round(score100*0.95+4) + '%, #fff 1%, #fff ' +
 		Math.round((100-score100)*0.95) + '%);">' + '<span title="' + score + '">' + score100 + '%</span> ' + date + '</span>';
 	}
-	return $("<div></div>").addClass("document").html(prefix + span + ' <a href="' + link + '">' + link + '</a><br> ' +  content);
+	return $("<div></div>").addClass("document").html(prefix + span + ' <a href="' + link + '" target="_blank">' + link + '</a><br> ' +  content);
 }
 // End note
 
@@ -79,6 +79,7 @@ const app = express();
 const baseurl = ""; // e.g. "/nodeLDA"
 app.use(express.static(__dirname));
 
+// homepage + pages for each topic
 app.get(baseurl + '/', function(req, res) {
 	
 	var tid = req.query.tid;
@@ -118,7 +119,7 @@ app.get(baseurl + '/tgraph', function(req, res) {
 		res.send(time_series_graph);
 		res.end();
 		return;
-	} else {
+	} else { // ts zoom graph data
 		if(tid < 0 || tid >= sorted_topic_table.length) {
 			res.sendStatus(400).end();
 			return;
@@ -215,9 +216,9 @@ app.get(baseurl + '/corr', function(req, res) {
 	var w2 = 100 - w1;
 	
 	graph.attr("viewBox", (-endx) + " " + (-endy) + " " + (endx*2) + " " + (endy*2));
-	div1.append($("<span></span>").append(topics[t1] + "<br>" + topic_prob[t1] + " documents").addClass("t1")).addClass("left").css("width", "calc(" + w1.toFixed(1) + "% + 98px)");
+	div1.append($("<div></div>").append($("<span></span>").append(topics[t1] + "<br>" + topic_prob[t1] + " documents").addClass("t1"))).addClass("left").css("width", "calc(" + w1.toFixed(1) + "% + 98px)");
 	div2.append(graph).addClass("mid").css("left", "calc(" + w1.toFixed(1) + "% - 102px)");
-	div3.append($("<span></span>").append(topics[t2]  + "<br>" + topic_prob[t2] + " documents").addClass("t2")).addClass("right").css("width", "calc(" + w2.toFixed(1) + "% + 98px)").css("right", 0);
+	div3.append($("<div></div>").append($("<span></span>").append(topics[t2]  + "<br>" + topic_prob[t2] + " documents").addClass("t2")).css("float", "right")).addClass("right").css("width", "calc(" + w2.toFixed(1) + "% + 98px)").css("float", "right");
 	res.json({cumlen: cumlen, docids: docids, graph: $("<div></div>").append(div1).append(div2).append(div3).html()});
 	res.end();
 });
@@ -230,12 +231,11 @@ app.get(baseurl + '/corrdocs', function(req, res) {
 	res.end();
 });
 
+// comment out this block and uncomment app.listen if you are using http instead of https
 const privateKey  = fs.readFileSync('privkey.pem', 'utf8');
 const certificate = fs.readFileSync('cert.pem', 'utf8');
 const credentials = {key: privateKey, cert: certificate};
 const httpsServer = https.createServer(credentials, app);
-const serverDate = new Date().toUTCString();
-
 httpsServer.listen(8080, '0.0.0.0');
 
 //app.listen(8080, '0.0.0.0');
