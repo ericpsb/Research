@@ -81,14 +81,14 @@ app.use(express.static(__dirname));
 
 // homepage + pages for each topic
 app.get(baseurl + '/', function(req, res) {
-	
 	var tid = req.query.tid;
 	var page = req.query.page;
-	
+	// return homepage
 	if(typeof tid === 'undefined' && typeof page === 'undefined') {
 		res.set('Content-Type', 'text/html');
 		res.send(homepageHtml);
 		res.end();
+	// return a computed page for just the document section
 	} else {
 		tid = typeof tid === 'undefined' ? 0 : tid;
 		page = typeof page === 'undefined' ? 1 : page;
@@ -159,11 +159,11 @@ app.get(baseurl + '/corr', function(req, res) {
 		var y = topic_table_diag[t1][i] - cutoff;
 		var x = topic_table_diag[t2][i] - cutoff;
 		var r = Math.sqrt(x*x + y*y);
-		if(r < 0.02) {continue;}
+		if(r < 0.02) {continue;} // omitting docs just around the cutoff origin since they all get mapped to the center column
 		var ang =  Math.asin(y/r);
 		ang += Math.PI/4;
 		y = r*Math.sin(ang)*100;
-		x = Math.round(r*Math.cos(ang)*60)*2; //Math.round(r*Math.cos(ang)*maxColumnsOnEachSide)*SpacingBetweenColumn; 
+		x = Math.round(r*Math.cos(ang)*60)*2; // Math.round(r*Math.cos(ang)*maxColumnsOnEachSide)*SpacingBetweenColumn; 
 		data.push({doc: i, x: x, y: y});
 		endx = Math.abs(x)+1 > endx ? Math.abs(x)+1 : endx;
 	}
