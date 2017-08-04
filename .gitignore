@@ -1,11 +1,17 @@
 .DS_Store
 *log.txt
 *.pyc
+*.Rhistory
 
 autism-blogs/topicmodeling/mallet2/finalRun/run5data.RData
-
 autism-blogs/blogscrapers/specificBlogs/merged_file.json
-
 autism-blogs/topicmodeling/mallet2/merged_file.json
-
+autism-blogs/topicmodeling/mallet2/.Rhistory
 autism-blogs/topicmodeling/mallet2/.RData
+autism-blogs/nodeLDA/documents.txt
+autism-blogs/nodeLDA/topic_frame.csv
+autism-blogs/nodeLDA/nodeLDA.json
+autism-blogs/nodeLDA/merged_file.json
+autism-blogs/nodeLDA/filtered_merged_file.json
+autism-blogs/nodeLDA/cert.pem
+autism-blogs/nodeLDA/privkey.pem
