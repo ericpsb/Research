@@ -1,0 +1,438 @@
+1496253917313	geckodriver	INFO	Listening on 127.0.0.1:51955
+1496253920704	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496253925842	Marionette	INFO	Listening on port 51973
+1496253926066	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 14:05:26.839 plugin-container[2708:160889] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:05:26.841 plugin-container[2708:160889] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x931f, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:05:26.841 plugin-container[2708:160889] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498580492880	geckodriver	INFO	Listening on 127.0.0.1:53413
+1498580494019	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498580497306	Marionette	INFO	Listening on port 53465
+1498580497429	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498580497781	Marionette	DEBUG	loaded listener.js
+2017-06-27 12:21:37.931 plugin-container[1917:234767] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8c3b, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:21:37.932 plugin-container[1917:234767] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5107, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:21:37.932 plugin-container[1917:234767] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498580498679	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1498580498760	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498580498761	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498580499494	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.lovethatmax.com/"
+1498580499672	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://www.lovethatmax.com/"
+1498580499681	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.lovethatmax.com/"
+1498580500076	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://www.lovethatmax.com/"
+1498580500102	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483653"
+1498580500126	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://www.lovethatmax.com/"
+1498580500405	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://mpp.vindicosuite.com/?y=3&t=h&u=http%3A%2F%2Fwww.lovethatmax.com%2F&r="
+1498580500420	Marionette	DEBUG	Received DOM event "pageshow" for "http://mpp.vindicosuite.com/?y=3&t=h&u=http%3A%2F%2Fwww.lovethatmax.com%2F&r="
+1498580500543	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://s7.addthis.com/static/sh.886bb8b2fb82aeab6a228151.html#rand=0.20463249793240978&iit=1498580499976&tmr=load%3D1498580499359%26core%3D1498580499432%26main%3D1498580499944%26ifr%3D1498580500018&cb=0&cdn=0&md=0&kw=&ab=-&dh=www.lovethatmax.com&dr=&du=http%3A%2F%2Fwww.lovethatmax.com%2F&href=http%3A%2F%2Fwww.lovethatmax.com%2F&dt=The%20best%20cups%20and%20water%20bottles%20for%20kids%20and%20teens%20with%20disabilities&dbg=0&cap=tc%3D0%26ab%3D0&inst=1&jsl=33&prod=undefined&lng=en&ogt=site_name%2Curl%2Ctype%3Darticle%2Cdescription%2Ctitle%2Cdescription%2Ctitle&pc=men&pub=xa-515afac10736aedf&ssl=0&sid=5952861307bb2eaf&srf=0.01&ver=300&xck=0&xtr=0&og=url%3Dhttp%253A%252F%252Fwww.lovethatmax.com%252F%26title%3DThe%2520best%2520cups%2520and%2520water%2520bottles%2520for%2520kids%2520and%2520teens%2520with%2520disabilities%26description%3DA%2520blog%2520about%2520parenting%2520kids%2520with%2520special%2520needs%26type%3Darticle%26site_name%3DLove%2520That%2520Max&csi=undefined&rev=v7.15.4-wp&ct=1&xld=1&xd=1"
+1498580500546	Marionette	DEBUG	Received DOM event "pageshow" for "http://s7.addthis.com/static/sh.886bb8b2fb82aeab6a228151.html#rand=0.20463249793240978&iit=1498580499976&tmr=load%3D1498580499359%26core%3D1498580499432%26main%3D1498580499944%26ifr%3D1498580500018&cb=0&cdn=0&md=0&kw=&ab=-&dh=www.lovethatmax.com&dr=&du=http%3A%2F%2Fwww.lovethatmax.com%2F&href=http%3A%2F%2Fwww.lovethatmax.com%2F&dt=The%20best%20cups%20and%20water%20bottles%20for%20kids%20and%20teens%20with%20disabilities&dbg=0&cap=tc%3D0%26ab%3D0&inst=1&jsl=33&prod=undefined&lng=en&ogt=site_name%2Curl%2Ctype%3Darticle%2Cdescription%2Ctitle%2Cdescription%2Ctitle&pc=men&pub=xa-515afac10736aedf&ssl=0&sid=5952861307bb2eaf&srf=0.01&ver=300&xck=0&xtr=0&og=url%3Dhttp%253A%252F%252Fwww.lovethatmax.com%252F%26title%3DThe%2520best%2520cups%2520and%2520water%2520bottles%2520for%2520kids%2520and%2520teens%2520with%2520disabilities%26description%3DA%2520blog%2520about%2520parenting%2520kids%2520with%2520special%2520needs%26type%3Darticle%26site_name%3DLove%2520That%2520Max&csi=undefined&rev=v7.15.4-wp&ct=1&xld=1&xd=1"
+1498580500665	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498580500670	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://googleads.g.doubleclick.net/pagead/html/r20170619/r20170110/zrt_lookup.html#"
+1498580500687	Marionette	DEBUG	Received DOM event "pageshow" for "https://googleads.g.doubleclick.net/pagead/html/r20170619/r20170110/zrt_lookup.html#"
+1498580500694	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://dp1.33across.com/ps/?tt=iframe&amp;pid=523&amp;cgn=14275"
+1498580500876	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.lovethatmax.com/"
+1498580500885	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.lovethatmax.com/"
+1498580500938	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498580501028	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.lovethatmax.com/"
+1498580501053	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.lovethatmax.com/"
+1498580501146	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://platform.twitter.com/widgets/tweet_button.7bf2b0e802ada47dae9548b7a1739fed.en.html#dnt=false&id=twitter-widget-0&lang=en&original_referer=http%3A%2F%2Fwww.lovethatmax.com%2F&size=m&text=The%20best%20cups%20and%20water%20bottles%20for%20kids%20and%20teens%20with%20disabilities&time=1498580501020&type=share&url=http%3A%2F%2Fwww.lovethatmax.com%2F2017%2F06%2Fbest-cups-water-bottles-kids-teens-with-disabilities.html%23.WVKGEywm0a0.twitter"
+1498580501155	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f4a8fa97af069e&origin=http%3A%2F%2Fwww.lovethatmax.com"
+1498580501157	Marionette	DEBUG	Received DOM event "pageshow" for "http://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f4a8fa97af069e&origin=http%3A%2F%2Fwww.lovethatmax.com"
+1498580501165	Marionette	DEBUG	Received DOM event "pageshow" for "http://platform.twitter.com/widgets/tweet_button.7bf2b0e802ada47dae9548b7a1739fed.en.html#dnt=false&id=twitter-widget-0&lang=en&original_referer=http%3A%2F%2Fwww.lovethatmax.com%2F&size=m&text=The%20best%20cups%20and%20water%20bottles%20for%20kids%20and%20teens%20with%20disabilities&time=1498580501020&type=share&url=http%3A%2F%2Fwww.lovethatmax.com%2F2017%2F06%2Fbest-cups-water-bottles-kids-teens-with-disabilities.html%23.WVKGEywm0a0.twitter"
+1498580501431	Marionette	DEBUG	Received DOM event "pageshow" for "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-1920060719174707&output=html&h=250&slotname=5774691637&adk=1653201887&adf=3069486557&w=300&lmt=1498576222&loeid=191880400&host=ca-host-pub-1556223355139109&h_ch=L0001&flash=0&url=http%3A%2F%2Fwww.lovethatmax.com%2F&wgl=1&dt=1498580499452&bpp=28&bdt=694&fdt=45&idt=376&shv=r20170619&cbv=r20170110&saldr=sa&correlator=1921868923472&frm=20&ga_vid=1077765752.1498580499&ga_sid=1498580499&ga_hid=222989466&ga_fc=1&pv=2&icsg=2&nhd=1&dssz=2&mdo=0&mso=0&u_tz=-240&u_his=1&u_java=0&u_h=800&u_w=1280&u_ah=773&u_aw=1280&u_cd=24&u_nplug=0&u_nmime=0&adx=790&ady=479&biw=1280&bih=694&abxe=1&eid=10593696%2C191880410%2C575144605&oid=3&rx=0&eae=0&fc=528&brdim=%2C%2C0%2C23%2C1280%2C23%2C1280%2C773%2C1280%2C694&vis=1&rsz=%7C%7CoeE%7C&abl=CS&ppjl=u&pfx=0&fu=16&bc=1&ifi=1&xpc=V08bjIBJ9q&p=http%3A//www.lovethatmax.com&dtd=453"
+1498580501483	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f4a8fa97af069e&origin=http%3A%2F%2Fwww.lovethatmax.com"
+1498580501486	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f4a8fa97af069e&origin=http%3A%2F%2Fwww.lovethatmax.com"
+1498580501509	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-1920060719174707&output=html&h=250&slotname=5774691637&adk=1653201887&adf=3069486557&w=300&lmt=1498576222&loeid=191880400&host=ca-host-pub-1556223355139109&h_ch=L0001&flash=0&url=http%3A%2F%2Fwww.lovethatmax.com%2F&wgl=1&dt=1498580499452&bpp=28&bdt=694&fdt=45&idt=376&shv=r20170619&cbv=r20170110&saldr=sa&correlator=1921868923472&frm=20&ga_vid=1077765752.1498580499&ga_sid=1498580499&ga_hid=222989466&ga_fc=1&pv=2&icsg=2&nhd=1&dssz=2&mdo=0&mso=0&u_tz=-240&u_his=1&u_java=0&u_h=800&u_w=1280&u_ah=773&u_aw=1280&u_cd=24&u_nplug=0&u_nmime=0&adx=790&ady=479&biw=1280&bih=694&abxe=1&eid=10593696%2C191880410%2C575144605&oid=3&rx=0&eae=0&fc=528&brdim=%2C%2C0%2C23%2C1280%2C23%2C1280%2C773%2C1280%2C694&vis=1&rsz=%7C%7CoeE%7C&abl=CS&ppjl=u&pfx=0&fu=16&bc=1&ifi=1&xpc=V08bjIBJ9q&p=http%3A//www.lovethatmax.com&dtd=453"
+1498580501683	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-1920060719174707&output=html&h=250&slotname=5774691637&adk=1653201887&adf=3069486557&w=300&lmt=1498576222&loeid=191880400&host=ca-host-pub-1556223355139109&h_ch=L0001&flash=0&url=http%3A%2F%2Fwww.lovethatmax.com%2F&wgl=1&dt=1498580499452&bpp=28&bdt=694&fdt=45&idt=376&shv=r20170619&cbv=r20170110&saldr=sa&correlator=1921868923472&frm=20&ga_vid=1077765752.1498580499&ga_sid=1498580499&ga_hid=222989466&ga_fc=1&pv=2&icsg=2&nhd=1&dssz=2&mdo=0&mso=0&u_tz=-240&u_his=1&u_java=0&u_h=800&u_w=1280&u_ah=773&u_aw=1280&u_cd=24&u_nplug=0&u_nmime=0&adx=790&ady=479&biw=1280&bih=694&abxe=1&eid=10593696%2C191880410%2C575144605&oid=3&rx=0&eae=0&fc=528&brdim=%2C%2C0%2C23%2C1280%2C23%2C1280%2C773%2C1280%2C694&vis=1&rsz=%7C%7CoeE%7C&abl=CS&ppjl=u&pfx=0&fu=16&bc=1&ifi=1&xpc=V08bjIBJ9q&p=http%3A//www.lovethatmax.com&dtd=453"
+1498580501691	Marionette	DEBUG	Received DOM event "pageshow" for "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-1920060719174707&output=html&h=250&slotname=5774691637&adk=1653201887&adf=3069486557&w=300&lmt=1498576222&loeid=191880400&host=ca-host-pub-1556223355139109&h_ch=L0001&flash=0&url=http%3A%2F%2Fwww.lovethatmax.com%2F&wgl=1&dt=1498580499452&bpp=28&bdt=694&fdt=45&idt=376&shv=r20170619&cbv=r20170110&saldr=sa&correlator=1921868923472&frm=20&ga_vid=1077765752.1498580499&ga_sid=1498580499&ga_hid=222989466&ga_fc=1&pv=2&icsg=2&nhd=1&dssz=2&mdo=0&mso=0&u_tz=-240&u_his=1&u_java=0&u_h=800&u_w=1280&u_ah=773&u_aw=1280&u_cd=24&u_nplug=0&u_nmime=0&adx=790&ady=479&biw=1280&bih=694&abxe=1&eid=10593696%2C191880410%2C575144605&oid=3&rx=0&eae=0&fc=528&brdim=%2C%2C0%2C23%2C1280%2C23%2C1280%2C773%2C1280%2C694&vis=1&rsz=%7C%7CoeE%7C&abl=CS&ppjl=u&pfx=0&fu=16&bc=1&ifi=1&xpc=V08bjIBJ9q&p=http%3A//www.lovethatmax.com&dtd=453"
+1498580503436	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://tpc.googlesyndication.com/sodar/9im3l02I.html"
+1498580503441	Marionette	DEBUG	Received DOM event "pageshow" for "https://tpc.googlesyndication.com/sodar/9im3l02I.html"
+1498580503450	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://tags.bluekai.com/site/27519?dt=0&r=1914326719&sig=850909827&bkca=KJpnEnaNpQlN2UcnYzf/YcuhE9XmXpDyzcj1PpPt9uvNG+xutT0ulO0NGLuXkwhzV61Euy+EYyBE961eR019EkAuWx=="
+1498580503565	Marionette	DEBUG	Received DOM event "pageshow" for "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-1920060719174707&output=html&h=250&slotname=5774691637&adk=1653201887&adf=3069486557&w=300&lmt=1498576222&loeid=191880400&host=ca-host-pub-1556223355139109&h_ch=L0001&flash=0&url=http%3A%2F%2Fwww.lovethatmax.com%2F&wgl=1&dt=1498580499452&bpp=28&bdt=694&fdt=45&idt=376&shv=r20170619&cbv=r20170110&saldr=sa&correlator=1921868923472&frm=20&ga_vid=1077765752.1498580499&ga_sid=1498580499&ga_hid=222989466&ga_fc=1&pv=2&icsg=2&nhd=1&dssz=2&mdo=0&mso=0&u_tz=-240&u_his=1&u_java=0&u_h=800&u_w=1280&u_ah=773&u_aw=1280&u_cd=24&u_nplug=0&u_nmime=0&adx=790&ady=479&biw=1280&bih=694&abxe=1&eid=10593696%2C191880410%2C575144605&oid=3&rx=0&eae=0&fc=528&brdim=%2C%2C0%2C23%2C1280%2C23%2C1280%2C773%2C1280%2C694&vis=1&rsz=%7C%7CoeE%7C&abl=CS&ppjl=u&pfx=0&fu=16&bc=1&ifi=1&xpc=V08bjIBJ9q&p=http%3A//www.lovethatmax.com&dtd=453"
+1498580503593	Marionette	DEBUG	Received DOM event "pageshow" for "http://dp1.33across.com/ps/?tt=iframe&amp;pid=523&amp;cgn=14275"
+1498580503902	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-1920060719174707&output=html&h=250&slotname=5774691637&adk=1653201887&adf=3069486557&w=300&lmt=1498576222&loeid=191880400&host=ca-host-pub-1556223355139109&h_ch=L0001&flash=0&url=http%3A%2F%2Fwww.lovethatmax.com%2F&wgl=1&dt=1498580499452&bpp=28&bdt=694&fdt=45&idt=376&shv=r20170619&cbv=r20170110&saldr=sa&correlator=1921868923472&frm=20&ga_vid=1077765752.1498580499&ga_sid=1498580499&ga_hid=222989466&ga_fc=1&pv=2&icsg=2&nhd=1&dssz=2&mdo=0&mso=0&u_tz=-240&u_his=1&u_java=0&u_h=800&u_w=1280&u_ah=773&u_aw=1280&u_cd=24&u_nplug=0&u_nmime=0&adx=790&ady=479&biw=1280&bih=694&abxe=1&eid=10593696%2C191880410%2C575144605&oid=3&rx=0&eae=0&fc=528&brdim=%2C%2C0%2C23%2C1280%2C23%2C1280%2C773%2C1280%2C694&vis=1&rsz=%7C%7CoeE%7C&abl=CS&ppjl=u&pfx=0&fu=16&bc=1&ifi=1&xpc=V08bjIBJ9q&p=http%3A//www.lovethatmax.com&dtd=453"
+1498580503999	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://s0.2mdn.net/ads/richmedia/studio/pv2/60088410/20170525153142617/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=R4jgpm5UCn&t=1"
+1498580504029	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.lovethatmax.com/"
+1498580504047	Marionette	DEBUG	Received DOM event "pageshow" for "https://s0.2mdn.net/ads/richmedia/studio/pv2/60088410/20170525153142617/index.html?e=69&renderingType=2&leftOffset=0&topOffset=0&c=R4jgpm5UCn&t=1"
+1498580504103	Marionette	DEBUG	Received DOM event "pageshow" for "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-1920060719174707&output=html&h=250&slotname=5774691637&adk=1653201887&adf=3069486557&w=300&lmt=1498576222&loeid=191880400&host=ca-host-pub-1556223355139109&h_ch=L0001&flash=0&url=http%3A%2F%2Fwww.lovethatmax.com%2F&wgl=1&dt=1498580499452&bpp=28&bdt=694&fdt=45&idt=376&shv=r20170619&cbv=r20170110&saldr=sa&correlator=1921868923472&frm=20&ga_vid=1077765752.1498580499&ga_sid=1498580499&ga_hid=222989466&ga_fc=1&pv=2&icsg=2&nhd=1&dssz=2&mdo=0&mso=0&u_tz=-240&u_his=1&u_java=0&u_h=800&u_w=1280&u_ah=773&u_aw=1280&u_cd=24&u_nplug=0&u_nmime=0&adx=790&ady=479&biw=1280&bih=694&abxe=1&eid=10593696%2C191880410%2C575144605&oid=3&rx=0&eae=0&fc=528&brdim=%2C%2C0%2C23%2C1280%2C23%2C1280%2C773%2C1280%2C694&vis=1&rsz=%7C%7CoeE%7C&abl=CS&ppjl=u&pfx=0&fu=16&bc=1&ifi=1&xpc=V08bjIBJ9q&p=http%3A//www.lovethatmax.com&dtd=453"
+1498580504105	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.lovethatmax.com/"
+1498580504165	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://www.lovethatmax.com/"
+1498580504168	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.lovethatmax.com/"
+1498580504200	Marionette	DEBUG	Received DOM event "pageshow" for "http://tags.bluekai.com/site/27519?dt=0&r=1914326719&sig=850909827&bkca=KJpnEnaNpQlN2UcnYzf/YcuhE9XmXpDyzcj1PpPt9uvNG+xutT0ulO0NGLuXkwhzV61Euy+EYyBE961eR019EkAuWx=="
+1498580504447	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/v2.6/plugins/like.php?action=like&app_id=172525162793917&channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df36bb92b1815bfc%26domain%3Dwww.lovethatmax.com%26origin%3Dhttp%253A%252F%252Fwww.lovethatmax.com%252Ff4a8fa97af069e%26relation%3Dparent.parent&container_width=0&font=arial&height=25&href=http%3A%2F%2Fwww.lovethatmax.com%2F2017%2F06%2Fbest-cups-water-bottles-kids-teens-with-disabilities.html&layout=button_count&locale=en_US&sdk=joey&send=false&share=false&show_faces=false&width=90"
+1498580504503	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/v2.6/plugins/like.php?action=like&app_id=172525162793917&channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df36bb92b1815bfc%26domain%3Dwww.lovethatmax.com%26origin%3Dhttp%253A%252F%252Fwww.lovethatmax.com%252Ff4a8fa97af069e%26relation%3Dparent.parent&container_width=0&font=arial&height=25&href=http%3A%2F%2Fwww.lovethatmax.com%2F2017%2F06%2Fbest-cups-water-bottles-kids-teens-with-disabilities.html&layout=button_count&locale=en_US&sdk=joey&send=false&share=false&show_faces=false&width=90"
+1498580504539	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.lovethatmax.com/"
+1498580504545	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.lovethatmax.com/"
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1498584034189	Marionette	INFO	Ceased listening
+1500404335189	geckodriver	INFO	Listening on 127.0.0.1:57158
+1500404336284	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500404340113	Marionette	INFO	Listening on port 57165
+1500404340247	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500404340438	Marionette	DEBUG	loaded listener.js
+2017-07-18 14:59:00.593 plugin-container[1972:351016] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e33, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-18 14:59:00.596 plugin-container[1972:351016] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x4b23, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-18 14:59:00.596 plugin-container[1972:351016] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+2017-07-18 14:59:42.286 plugin-container[1974:351399] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-18 14:59:42.287 plugin-container[1974:351399] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9023, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-18 14:59:42.287 plugin-container[1974:351399] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500404698647	geckodriver	INFO	Listening on 127.0.0.1:57414
+1500404699949	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500404703278	Marionette	INFO	Listening on port 57421
+1500404703377	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500404703670	Marionette	DEBUG	loaded listener.js
+2017-07-18 15:05:03.780 plugin-container[1981:354698] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x903f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-18 15:05:03.784 plugin-container[1981:354698] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9223, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-18 15:05:03.784 plugin-container[1981:354698] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500404704805	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500404704899	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500404704899	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500404705385	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.lovethatmax.com/"
+1500404705722	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.lovethatmax.com/"
+1500404705733	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://www.lovethatmax.com/"
+1500404705848	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483653"
+1500404705979	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://googleads.g.doubleclick.net/pagead/html/r20170712/r20170110/zrt_lookup.html#"
+1500404705987	Marionette	DEBUG	Received DOM event "pageshow" for "https://googleads.g.doubleclick.net/pagead/html/r20170712/r20170110/zrt_lookup.html#"
+1500404706277	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://s7.addthis.com/static/sh.886bb8b2fb82aeab6a228151.html#rand=0.24705601549016243&iit=1500404705699&tmr=load%3D1500404705266%26core%3D1500404705319%26main%3D1500404705692%26ifr%3D1500404705707&cb=0&cdn=0&md=0&kw=&ab=-&dh=www.lovethatmax.com&dr=&du=http%3A%2F%2Fwww.lovethatmax.com%2F&href=http%3A%2F%2Fwww.lovethatmax.com%2F&dt=Are%20you%20happy%20very%20so%20much%3F&dbg=0&cap=tc%3D0%26ab%3D0&inst=1&jsl=33&prod=undefined&lng=en&ogt=site_name%2Curl%2Ctype%3Darticle%2Cdescription%2Ctitle%2Cdescription%2Ctitle&pc=men&pub=xa-515afac10736aedf&ssl=0&sid=596e5be17bed1598&srf=0.01&ver=300&xck=0&xtr=0&og=url%3Dhttp%253A%252F%252Fwww.lovethatmax.com%252F%26title%3DAre%2520you%2520happy%2520very%2520so%2520much%253F%26description%3DA%2520blog%2520about%2520parenting%2520kids%2520with%2520special%2520needs%26type%3Darticle%26site_name%3DLove%2520That%2520Max&csi=undefined&rev=v7.15.4-wp&ct=1&xld=1&xd=1"
+1500404706287	Marionette	DEBUG	Received DOM event "pageshow" for "http://s7.addthis.com/static/sh.886bb8b2fb82aeab6a228151.html#rand=0.24705601549016243&iit=1500404705699&tmr=load%3D1500404705266%26core%3D1500404705319%26main%3D1500404705692%26ifr%3D1500404705707&cb=0&cdn=0&md=0&kw=&ab=-&dh=www.lovethatmax.com&dr=&du=http%3A%2F%2Fwww.lovethatmax.com%2F&href=http%3A%2F%2Fwww.lovethatmax.com%2F&dt=Are%20you%20happy%20very%20so%20much%3F&dbg=0&cap=tc%3D0%26ab%3D0&inst=1&jsl=33&prod=undefined&lng=en&ogt=site_name%2Curl%2Ctype%3Darticle%2Cdescription%2Ctitle%2Cdescription%2Ctitle&pc=men&pub=xa-515afac10736aedf&ssl=0&sid=596e5be17bed1598&srf=0.01&ver=300&xck=0&xtr=0&og=url%3Dhttp%253A%252F%252Fwww.lovethatmax.com%252F%26title%3DAre%2520you%2520happy%2520very%2520so%2520much%253F%26description%3DA%2520blog%2520about%2520parenting%2520kids%2520with%2520special%2520needs%26type%3Darticle%26site_name%3DLove%2520That%2520Max&csi=undefined&rev=v7.15.4-wp&ct=1&xld=1&xd=1"
+1500404706293	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://dp1.33across.com/ps/?tt=iframe&amp;pid=523&amp;cgn=14275"
+1500404706396	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.lovethatmax.com/"
+1500404706460	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://www.lovethatmax.com/"
+1500404706461	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500404706463	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500404706526	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://platform.twitter.com/widgets/tweet_button.5f60791584f95f2ec483faec8b16a58b.en.html#dnt=false&id=twitter-widget-0&lang=en&original_referer=http%3A%2F%2Fwww.lovethatmax.com%2F&size=m&text=Are%20you%20happy%20very%20so%20much%3F%20&time=1500404706386&type=share&url=http%3A%2F%2Fwww.lovethatmax.com%2F2017%2F07%2Fare-you-happy-very-so-much.html%23.WW5b4eroKLs.twitter"
+1500404706665	Marionette	DEBUG	Received DOM event "pageshow" for "http://platform.twitter.com/widgets/tweet_button.5f60791584f95f2ec483faec8b16a58b.en.html#dnt=false&id=twitter-widget-0&lang=en&original_referer=http%3A%2F%2Fwww.lovethatmax.com%2F&size=m&text=Are%20you%20happy%20very%20so%20much%3F%20&time=1500404706386&type=share&url=http%3A%2F%2Fwww.lovethatmax.com%2F2017%2F07%2Fare-you-happy-very-so-much.html%23.WW5b4eroKLs.twitter"
+1500404706680	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.lovethatmax.com/"
+1500404706694	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-1920060719174707&output=html&h=250&slotname=5774691637&adk=1653201887&adf=3069486557&w=300&lmt=1500401514&host=ca-host-pub-1556223355139109&h_ch=L0001&flash=0&url=http%3A%2F%2Fwww.lovethatmax.com%2F&wgl=1&dt=1500404705334&bpp=20&bdt=437&fdt=54&idt=445&shv=r20170712&cbv=r20170110&saldr=sa&correlator=7007591891463&frm=20&ga_vid=517151447.1500404705&ga_sid=1500404705&ga_hid=1794094550&ga_fc=1&pv=2&icsg=2&nhd=1&dssz=2&mdo=0&mso=0&u_tz=-240&u_his=1&u_java=0&u_h=800&u_w=1280&u_ah=773&u_aw=1280&u_cd=24&u_nplug=0&u_nmime=0&adx=790&ady=479&biw=1280&bih=694&abxe=1&eid=575144605%2C828064250%2C137237720&oid=3&rx=0&eae=0&fc=528&brdim=%2C%2C0%2C23%2C1280%2C23%2C1280%2C773%2C1280%2C694&vis=1&rsz=%7C%7CoeE%7C&abl=CS&ppjl=u&pfx=0&fu=16&bc=1&ifi=1&xpc=V6HMwTx0My&p=http%3A//www.lovethatmax.com&dtd=500"
+1500404706745	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://googleads.g.doubleclick.net/pagead/drt/s?v=r20120211"
+1500404706749	Marionette	DEBUG	Received DOM event "pageshow" for "https://googleads.g.doubleclick.net/pagead/drt/s?v=r20120211"
+1500404706763	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Fwww.lovethatmax.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.kpXrwGSPBxQ.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOZfgAHdRXw9ae_JEm_JrE3nGmdog#rpctoken=782336861&forcesecure=1"
+1500404706779	Marionette	DEBUG	Received DOM event "pageshow" for "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-1920060719174707&output=html&h=250&slotname=5774691637&adk=1653201887&adf=3069486557&w=300&lmt=1500401514&host=ca-host-pub-1556223355139109&h_ch=L0001&flash=0&url=http%3A%2F%2Fwww.lovethatmax.com%2F&wgl=1&dt=1500404705334&bpp=20&bdt=437&fdt=54&idt=445&shv=r20170712&cbv=r20170110&saldr=sa&correlator=7007591891463&frm=20&ga_vid=517151447.1500404705&ga_sid=1500404705&ga_hid=1794094550&ga_fc=1&pv=2&icsg=2&nhd=1&dssz=2&mdo=0&mso=0&u_tz=-240&u_his=1&u_java=0&u_h=800&u_w=1280&u_ah=773&u_aw=1280&u_cd=24&u_nplug=0&u_nmime=0&adx=790&ady=479&biw=1280&bih=694&abxe=1&eid=575144605%2C828064250%2C137237720&oid=3&rx=0&eae=0&fc=528&brdim=%2C%2C0%2C23%2C1280%2C23%2C1280%2C773%2C1280%2C694&vis=1&rsz=%7C%7CoeE%7C&abl=CS&ppjl=u&pfx=0&fu=16&bc=1&ifi=1&xpc=V6HMwTx0My&p=http%3A//www.lovethatmax.com&dtd=500"
+1500404706793	Marionette	DEBUG	Received DOM event "pageshow" for "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-1920060719174707&output=html&h=250&slotname=5774691637&adk=1653201887&adf=3069486557&w=300&lmt=1500401514&host=ca-host-pub-1556223355139109&h_ch=L0001&flash=0&url=http%3A%2F%2Fwww.lovethatmax.com%2F&wgl=1&dt=1500404705334&bpp=20&bdt=437&fdt=54&idt=445&shv=r20170712&cbv=r20170110&saldr=sa&correlator=7007591891463&frm=20&ga_vid=517151447.1500404705&ga_sid=1500404705&ga_hid=1794094550&ga_fc=1&pv=2&icsg=2&nhd=1&dssz=2&mdo=0&mso=0&u_tz=-240&u_his=1&u_java=0&u_h=800&u_w=1280&u_ah=773&u_aw=1280&u_cd=24&u_nplug=0&u_nmime=0&adx=790&ady=479&biw=1280&bih=694&abxe=1&eid=575144605%2C828064250%2C137237720&oid=3&rx=0&eae=0&fc=528&brdim=%2C%2C0%2C23%2C1280%2C23%2C1280%2C773%2C1280%2C694&vis=1&rsz=%7C%7CoeE%7C&abl=CS&ppjl=u&pfx=0&fu=16&bc=1&ifi=1&xpc=V6HMwTx0My&p=http%3A//www.lovethatmax.com&dtd=500"
+1500404706795	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.lovethatmax.com/"
+1500404706804	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-1920060719174707&output=html&h=250&slotname=5774691637&adk=1653201887&adf=3069486557&w=300&lmt=1500401514&host=ca-host-pub-1556223355139109&h_ch=L0001&flash=0&url=http%3A%2F%2Fwww.lovethatmax.com%2F&wgl=1&dt=1500404705334&bpp=20&bdt=437&fdt=54&idt=445&shv=r20170712&cbv=r20170110&saldr=sa&correlator=7007591891463&frm=20&ga_vid=517151447.1500404705&ga_sid=1500404705&ga_hid=1794094550&ga_fc=1&pv=2&icsg=2&nhd=1&dssz=2&mdo=0&mso=0&u_tz=-240&u_his=1&u_java=0&u_h=800&u_w=1280&u_ah=773&u_aw=1280&u_cd=24&u_nplug=0&u_nmime=0&adx=790&ady=479&biw=1280&bih=694&abxe=1&eid=575144605%2C828064250%2C137237720&oid=3&rx=0&eae=0&fc=528&brdim=%2C%2C0%2C23%2C1280%2C23%2C1280%2C773%2C1280%2C694&vis=1&rsz=%7C%7CoeE%7C&abl=CS&ppjl=u&pfx=0&fu=16&bc=1&ifi=1&xpc=V6HMwTx0My&p=http%3A//www.lovethatmax.com&dtd=500"
+1500404706807	Marionette	DEBUG	Received DOM event "pageshow" for "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-1920060719174707&output=html&h=250&slotname=5774691637&adk=1653201887&adf=3069486557&w=300&lmt=1500401514&host=ca-host-pub-1556223355139109&h_ch=L0001&flash=0&url=http%3A%2F%2Fwww.lovethatmax.com%2F&wgl=1&dt=1500404705334&bpp=20&bdt=437&fdt=54&idt=445&shv=r20170712&cbv=r20170110&saldr=sa&correlator=7007591891463&frm=20&ga_vid=517151447.1500404705&ga_sid=1500404705&ga_hid=1794094550&ga_fc=1&pv=2&icsg=2&nhd=1&dssz=2&mdo=0&mso=0&u_tz=-240&u_his=1&u_java=0&u_h=800&u_w=1280&u_ah=773&u_aw=1280&u_cd=24&u_nplug=0&u_nmime=0&adx=790&ady=479&biw=1280&bih=694&abxe=1&eid=575144605%2C828064250%2C137237720&oid=3&rx=0&eae=0&fc=528&brdim=%2C%2C0%2C23%2C1280%2C23%2C1280%2C773%2C1280%2C694&vis=1&rsz=%7C%7CoeE%7C&abl=CS&ppjl=u&pfx=0&fu=16&bc=1&ifi=1&xpc=V6HMwTx0My&p=http%3A//www.lovethatmax.com&dtd=500"
+1500404706833	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Fwww.lovethatmax.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.kpXrwGSPBxQ.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOZfgAHdRXw9ae_JEm_JrE3nGmdog#rpctoken=782336861&forcesecure=1"
+1500404706848	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.lovethatmax.com/"
+1500404706856	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.lovethatmax.com/"
+1500404707200	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483687"
+1500404707268	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=fc82626b907764&origin=http%3A%2F%2Fwww.lovethatmax.com"
+1500404707270	Marionette	DEBUG	Received DOM event "pageshow" for "http://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=fc82626b907764&origin=http%3A%2F%2Fwww.lovethatmax.com"
+1500404707271	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://tags.bluekai.com/site/27519?dt=0&r=1420561130&sig=4255811380&bkca=KJpnEnaNpQlN2zfJvxNUBUn05exwe9fwppwwz6hUBURO/gViNOnqMJnzcnVihn0DdahqxN1e9h1eWl1e1N1n1yOXUCnG"
+1500404707275	Marionette	DEBUG	Received DOM event "pageshow" for "http://dp1.33across.com/ps/?tt=iframe&amp;pid=523&amp;cgn=14275"
+1500404707281	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=fc82626b907764&origin=http%3A%2F%2Fwww.lovethatmax.com"
+1500404707283	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=fc82626b907764&origin=http%3A%2F%2Fwww.lovethatmax.com"
+1500404707433	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://googleads.g.doubleclick.net/pagead/drt/si"
+1500404707436	Marionette	DEBUG	Received DOM event "pageshow" for "https://googleads.g.doubleclick.net/pagead/drt/si"
+1500404707897	Marionette	DEBUG	Received DOM event "pageshow" for "http://tags.bluekai.com/site/27519?dt=0&r=1420561130&sig=4255811380&bkca=KJpnEnaNpQlN2zfJvxNUBUn05exwe9fwppwwz6hUBURO/gViNOnqMJnzcnVihn0DdahqxN1e9h1eWl1e1N1n1yOXUCnG"
+1500404707949	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.lovethatmax.com/"
+1500404707952	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.lovethatmax.com/"
+1500404708457	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404709722	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404710979	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404712244	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404713508	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404714795	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404716042	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404717289	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404718544	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404719787	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404721041	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404722286	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404723529	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404724789	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404726050	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404727304	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404728554	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404729798	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404731065	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404732317	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404733567	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404734814	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404736064	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404737324	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404738572	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404739815	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404741065	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404742318	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404743581	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404744832	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404746079	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404747324	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404748566	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404749826	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404751075	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404752321	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404753570	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404754838	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404756096	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404757344	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404758590	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404759837	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404761080	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404762341	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404763595	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404764834	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404766078	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404767322	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404768579	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404769839	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404771094	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404772341	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404773592	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404774840	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404776108	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404777355	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404778596	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404779840	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404781079	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404782334	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404783590	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404784855	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404786106	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404787352	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404788598	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404789859	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404791107	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404792360	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404793607	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404794853	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404796116	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404797366	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404798611	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404799858	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404801103	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404802369	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404803622	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404804871	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404806116	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404807361	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404808613	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404809875	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404811128	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404812376	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404813622	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404814865	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404816116	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404817383	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404818638	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404819882	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404821132	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404822375	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404823624	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404824887	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404826138	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404827381	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404828744	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404830110	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404831360	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404832807	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404834052	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404835293	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404836604	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404837854	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404839104	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404840345	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404841584	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404842826	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404844066	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404845305	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404846578	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404847825	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404849074	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404850392	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500404983283	Marionette	INFO	New connections will no longer be accepted
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1500405052443	geckodriver	INFO	Listening on 127.0.0.1:60219
+1500405053752	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500405059250	Marionette	INFO	Listening on port 60226
+1500405059322	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500405059692	Marionette	DEBUG	loaded listener.js
+2017-07-18 15:10:59.821 plugin-container[1990:356944] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8d3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-18 15:10:59.825 plugin-container[1990:356944] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f23, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-18 15:10:59.825 plugin-container[1990:356944] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500405060646	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500405060759	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500405060760	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500405061400	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.lovethatmax.com/"
+1500405061652	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.lovethatmax.com/"
+1500405061663	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://www.lovethatmax.com/"
+1500405061839	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483653"
+1500405061893	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://googleads.g.doubleclick.net/pagead/html/r20170712/r20170110/zrt_lookup.html#"
+1500405061902	Marionette	DEBUG	Received DOM event "pageshow" for "https://googleads.g.doubleclick.net/pagead/html/r20170712/r20170110/zrt_lookup.html#"
+1500405062072	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://dp1.33across.com/ps/?tt=iframe&amp;pid=523&amp;cgn=14275"
+1500405062127	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://s7.addthis.com/static/sh.886bb8b2fb82aeab6a228151.html#rand=0.0505097373505331&iit=1500405061628&tmr=load%3D1500405061310%26core%3D1500405061357%26main%3D1500405061620%26ifr%3D1500405061638&cb=0&cdn=0&md=0&kw=&ab=-&dh=www.lovethatmax.com&dr=&du=http%3A%2F%2Fwww.lovethatmax.com%2F&href=http%3A%2F%2Fwww.lovethatmax.com%2F&dt=Are%20you%20happy%20very%20so%20much%3F&dbg=0&cap=tc%3D0%26ab%3D0&inst=1&jsl=33&prod=undefined&lng=en&ogt=site_name%2Curl%2Ctype%3Darticle%2Cdescription%2Ctitle%2Cdescription%2Ctitle&pc=men&pub=xa-515afac10736aedf&ssl=0&sid=596e5d45c384e6f1&srf=0.01&ver=300&xck=0&xtr=0&og=url%3Dhttp%253A%252F%252Fwww.lovethatmax.com%252F%26title%3DAre%2520you%2520happy%2520very%2520so%2520much%253F%26description%3DA%2520blog%2520about%2520parenting%2520kids%2520with%2520special%2520needs%26type%3Darticle%26site_name%3DLove%2520That%2520Max&csi=undefined&rev=v7.15.4-wp&ct=1&xld=1&xd=1"
+1500405062129	Marionette	DEBUG	Received DOM event "pageshow" for "http://s7.addthis.com/static/sh.886bb8b2fb82aeab6a228151.html#rand=0.0505097373505331&iit=1500405061628&tmr=load%3D1500405061310%26core%3D1500405061357%26main%3D1500405061620%26ifr%3D1500405061638&cb=0&cdn=0&md=0&kw=&ab=-&dh=www.lovethatmax.com&dr=&du=http%3A%2F%2Fwww.lovethatmax.com%2F&href=http%3A%2F%2Fwww.lovethatmax.com%2F&dt=Are%20you%20happy%20very%20so%20much%3F&dbg=0&cap=tc%3D0%26ab%3D0&inst=1&jsl=33&prod=undefined&lng=en&ogt=site_name%2Curl%2Ctype%3Darticle%2Cdescription%2Ctitle%2Cdescription%2Ctitle&pc=men&pub=xa-515afac10736aedf&ssl=0&sid=596e5d45c384e6f1&srf=0.01&ver=300&xck=0&xtr=0&og=url%3Dhttp%253A%252F%252Fwww.lovethatmax.com%252F%26title%3DAre%2520you%2520happy%2520very%2520so%2520much%253F%26description%3DA%2520blog%2520about%2520parenting%2520kids%2520with%2520special%2520needs%26type%3Darticle%26site_name%3DLove%2520That%2520Max&csi=undefined&rev=v7.15.4-wp&ct=1&xld=1&xd=1"
+1500405062230	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.lovethatmax.com/"
+1500405062238	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://www.lovethatmax.com/"
+1500405062330	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://platform.twitter.com/widgets/tweet_button.5f60791584f95f2ec483faec8b16a58b.en.html#dnt=false&id=twitter-widget-0&lang=en&original_referer=http%3A%2F%2Fwww.lovethatmax.com%2F&size=m&text=Are%20you%20happy%20very%20so%20much%3F%20&time=1500405062222&type=share&url=http%3A%2F%2Fwww.lovethatmax.com%2F2017%2F07%2Fare-you-happy-very-so-much.html%23.WW5dRcK6Fp8.twitter"
+1500405062331	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://plus.google.com/undefinedse/0/_/+1/fastbutton?usegapi=1&size=medium&hl=en&origin=http://www.lovethatmax.com&url=http://www.lovethatmax.com/2017/07/are-you-happy-very-so-much.html&gsrc=3p&ic=1&jsh=m;/_/scs/apps-static/_/js/k%3Doz.gapi.en_US.kpXrwGSPBxQ.O/m%3D__features__/am%3DAQ/rt%3Dj/d%3D1/rs%3DAGLTcCOZfgAHdRXw9ae_JEm_JrE3nGmdog#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled%2Cdrefresh%2Cerefresh&id=I0_1500405061874&parent=http%3A%2F%2Fwww.lovethatmax.com&pfname=&rpctoken=29703725"
+1500405062346	Marionette	DEBUG	Received DOM event "pageshow" for "http://platform.twitter.com/widgets/tweet_button.5f60791584f95f2ec483faec8b16a58b.en.html#dnt=false&id=twitter-widget-0&lang=en&original_referer=http%3A%2F%2Fwww.lovethatmax.com%2F&size=m&text=Are%20you%20happy%20very%20so%20much%3F%20&time=1500405062222&type=share&url=http%3A%2F%2Fwww.lovethatmax.com%2F2017%2F07%2Fare-you-happy-very-so-much.html%23.WW5dRcK6Fp8.twitter"
+1500405062428	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.lovethatmax.com/"
+1500405062436	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.lovethatmax.com/"
+1500405062455	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.lovethatmax.com/"
+1500405062533	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-1920060719174707&output=html&h=250&slotname=5774691637&adk=1653201887&adf=3069486557&w=300&lmt=1500401514&host=ca-host-pub-1556223355139109&h_ch=L0001&flash=0&url=http%3A%2F%2Fwww.lovethatmax.com%2F&wgl=1&dt=1500405061370&bpp=20&bdt=612&fdt=33&idt=340&shv=r20170712&cbv=r20170110&saldr=sa&correlator=3123214958205&frm=20&ga_vid=610667790.1500405061&ga_sid=1500405061&ga_hid=193606158&ga_fc=1&pv=2&icsg=2&nhd=1&dssz=2&mdo=0&mso=0&u_tz=-240&u_his=1&u_java=0&u_h=800&u_w=1280&u_ah=773&u_aw=1280&u_cd=24&u_nplug=0&u_nmime=0&adx=790&ady=479&biw=1280&bih=694&abxe=1&eid=575144605%2C137237721&oid=3&rx=0&eae=0&fc=528&brdim=%2C%2C0%2C23%2C1280%2C23%2C1280%2C773%2C1280%2C694&vis=1&rsz=%7C%7CoeE%7C&abl=CS&ppjl=u&pfx=0&fu=16&bc=1&ifi=1&xpc=hqmzGLZABr&p=http%3A//www.lovethatmax.com&dtd=411"
+1500405062534	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://googleads.g.doubleclick.net/pagead/drt/s?v=r20120211"
+1500405062538	Marionette	DEBUG	Received DOM event "pageshow" for "https://googleads.g.doubleclick.net/pagead/drt/s?v=r20120211"
+1500405062558	Marionette	DEBUG	Received DOM event "pageshow" for "https://p4-fdtvzxbxmymnq-vasijizjotafskpc-if-v6exp3-v4.metric.gstatic.com/v6exp3/redir.html"
+1500405062590	Marionette	DEBUG	Received DOM event "pageshow" for "https://plus.google.com/undefinedse/0/_/+1/fastbutton?usegapi=1&size=medium&hl=en&origin=http://www.lovethatmax.com&url=http://www.lovethatmax.com/2017/07/are-you-happy-very-so-much.html&gsrc=3p&ic=1&jsh=m;/_/scs/apps-static/_/js/k%3Doz.gapi.en_US.kpXrwGSPBxQ.O/m%3D__features__/am%3DAQ/rt%3Dj/d%3D1/rs%3DAGLTcCOZfgAHdRXw9ae_JEm_JrE3nGmdog#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled%2Cdrefresh%2Cerefresh&id=I0_1500405061874&parent=http%3A%2F%2Fwww.lovethatmax.com&pfname=&rpctoken=29703725"
+1500405062591	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://p4-fdtvzxbxmymnq-vasijizjotafskpc-if-v6exp3-v4.metric.gstatic.com/v6exp3/redir.html"
+1500405062602	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f1d818ac84cbf4a&origin=http%3A%2F%2Fwww.lovethatmax.com"
+1500405062604	Marionette	DEBUG	Received DOM event "pageshow" for "http://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f1d818ac84cbf4a&origin=http%3A%2F%2Fwww.lovethatmax.com"
+1500405062660	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f1d818ac84cbf4a&origin=http%3A%2F%2Fwww.lovethatmax.com"
+1500405062662	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f1d818ac84cbf4a&origin=http%3A%2F%2Fwww.lovethatmax.com"
+1500405062662	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://p4-fdtvzxbxmymnq-vasijizjotafskpc-if-v6exp3-v4.metric.gstatic.com/v6exp3/iframe.html"
+1500405062665	Marionette	DEBUG	Received DOM event "pageshow" for "https://p4-fdtvzxbxmymnq-vasijizjotafskpc-if-v6exp3-v4.metric.gstatic.com/v6exp3/iframe.html"
+1500405062799	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://googleads.g.doubleclick.net/pagead/drt/si"
+1500405062801	Marionette	DEBUG	Received DOM event "pageshow" for "https://googleads.g.doubleclick.net/pagead/drt/si"
+1500405062811	Marionette	DEBUG	Received DOM event "pageshow" for "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-1920060719174707&output=html&h=250&slotname=5774691637&adk=1653201887&adf=3069486557&w=300&lmt=1500401514&host=ca-host-pub-1556223355139109&h_ch=L0001&flash=0&url=http%3A%2F%2Fwww.lovethatmax.com%2F&wgl=1&dt=1500405061370&bpp=20&bdt=612&fdt=33&idt=340&shv=r20170712&cbv=r20170110&saldr=sa&correlator=3123214958205&frm=20&ga_vid=610667790.1500405061&ga_sid=1500405061&ga_hid=193606158&ga_fc=1&pv=2&icsg=2&nhd=1&dssz=2&mdo=0&mso=0&u_tz=-240&u_his=1&u_java=0&u_h=800&u_w=1280&u_ah=773&u_aw=1280&u_cd=24&u_nplug=0&u_nmime=0&adx=790&ady=479&biw=1280&bih=694&abxe=1&eid=575144605%2C137237721&oid=3&rx=0&eae=0&fc=528&brdim=%2C%2C0%2C23%2C1280%2C23%2C1280%2C773%2C1280%2C694&vis=1&rsz=%7C%7CoeE%7C&abl=CS&ppjl=u&pfx=0&fu=16&bc=1&ifi=1&xpc=hqmzGLZABr&p=http%3A//www.lovethatmax.com&dtd=411"
+1500405062825	Marionette	DEBUG	Received DOM event "pageshow" for "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-1920060719174707&output=html&h=250&slotname=5774691637&adk=1653201887&adf=3069486557&w=300&lmt=1500401514&host=ca-host-pub-1556223355139109&h_ch=L0001&flash=0&url=http%3A%2F%2Fwww.lovethatmax.com%2F&wgl=1&dt=1500405061370&bpp=20&bdt=612&fdt=33&idt=340&shv=r20170712&cbv=r20170110&saldr=sa&correlator=3123214958205&frm=20&ga_vid=610667790.1500405061&ga_sid=1500405061&ga_hid=193606158&ga_fc=1&pv=2&icsg=2&nhd=1&dssz=2&mdo=0&mso=0&u_tz=-240&u_his=1&u_java=0&u_h=800&u_w=1280&u_ah=773&u_aw=1280&u_cd=24&u_nplug=0&u_nmime=0&adx=790&ady=479&biw=1280&bih=694&abxe=1&eid=575144605%2C137237721&oid=3&rx=0&eae=0&fc=528&brdim=%2C%2C0%2C23%2C1280%2C23%2C1280%2C773%2C1280%2C694&vis=1&rsz=%7C%7CoeE%7C&abl=CS&ppjl=u&pfx=0&fu=16&bc=1&ifi=1&xpc=hqmzGLZABr&p=http%3A//www.lovethatmax.com&dtd=411"
+1500405062827	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.lovethatmax.com/"
+1500405062833	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-1920060719174707&output=html&h=250&slotname=5774691637&adk=1653201887&adf=3069486557&w=300&lmt=1500401514&host=ca-host-pub-1556223355139109&h_ch=L0001&flash=0&url=http%3A%2F%2Fwww.lovethatmax.com%2F&wgl=1&dt=1500405061370&bpp=20&bdt=612&fdt=33&idt=340&shv=r20170712&cbv=r20170110&saldr=sa&correlator=3123214958205&frm=20&ga_vid=610667790.1500405061&ga_sid=1500405061&ga_hid=193606158&ga_fc=1&pv=2&icsg=2&nhd=1&dssz=2&mdo=0&mso=0&u_tz=-240&u_his=1&u_java=0&u_h=800&u_w=1280&u_ah=773&u_aw=1280&u_cd=24&u_nplug=0&u_nmime=0&adx=790&ady=479&biw=1280&bih=694&abxe=1&eid=575144605%2C137237721&oid=3&rx=0&eae=0&fc=528&brdim=%2C%2C0%2C23%2C1280%2C23%2C1280%2C773%2C1280%2C694&vis=1&rsz=%7C%7CoeE%7C&abl=CS&ppjl=u&pfx=0&fu=16&bc=1&ifi=1&xpc=hqmzGLZABr&p=http%3A//www.lovethatmax.com&dtd=411"
+1500405062836	Marionette	DEBUG	Received DOM event "pageshow" for "https://googleads.g.doubleclick.net/pagead/ads?client=ca-pub-1920060719174707&output=html&h=250&slotname=5774691637&adk=1653201887&adf=3069486557&w=300&lmt=1500401514&host=ca-host-pub-1556223355139109&h_ch=L0001&flash=0&url=http%3A%2F%2Fwww.lovethatmax.com%2F&wgl=1&dt=1500405061370&bpp=20&bdt=612&fdt=33&idt=340&shv=r20170712&cbv=r20170110&saldr=sa&correlator=3123214958205&frm=20&ga_vid=610667790.1500405061&ga_sid=1500405061&ga_hid=193606158&ga_fc=1&pv=2&icsg=2&nhd=1&dssz=2&mdo=0&mso=0&u_tz=-240&u_his=1&u_java=0&u_h=800&u_w=1280&u_ah=773&u_aw=1280&u_cd=24&u_nplug=0&u_nmime=0&adx=790&ady=479&biw=1280&bih=694&abxe=1&eid=575144605%2C137237721&oid=3&rx=0&eae=0&fc=528&brdim=%2C%2C0%2C23%2C1280%2C23%2C1280%2C773%2C1280%2C694&vis=1&rsz=%7C%7CoeE%7C&abl=CS&ppjl=u&pfx=0&fu=16&bc=1&ifi=1&xpc=hqmzGLZABr&p=http%3A//www.lovethatmax.com&dtd=411"
+1500405062843	Marionette	DEBUG	Received DOM event "pageshow" for "http://dp1.33across.com/ps/?tt=iframe&amp;pid=523&amp;cgn=14275"
+1500405062976	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://tags.bluekai.com/site/27519?dt=0&r=1236718154&sig=2990745062&bkca=KJpnEnaNpQlN2xfnvR6/extFgwJ0nDQBnUJ1PpPt9uvNG+xutT0ulO0NGLuXkwhzV6BE9y1E9N1e10BMWN19KoxEW9=="
+1500405063264	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483692"
+1500405063664	Marionette	DEBUG	Received DOM event "pageshow" for "http://tags.bluekai.com/site/27519?dt=0&r=1236718154&sig=2990745062&bkca=KJpnEnaNpQlN2xfnvR6/extFgwJ0nDQBnUJ1PpPt9uvNG+xutT0ulO0NGLuXkwhzV6BE9y1E9N1e10BMWN19KoxEW9=="
+1500405063713	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.lovethatmax.com/"
+1500405063716	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.lovethatmax.com/"
+1500405063988	Marionette	DEBUG	Received DOM event "pagehide" for "http://www.lovethatmax.com/"
+1500405064128	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405065222	Marionette	DEBUG	Received DOM event "pagehide" for "http://www.lovethatmax.com/"
+1500405065384	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405066645	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405067913	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405069164	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405070428	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405071673	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405072929	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405074185	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405075432	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405076686	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405077935	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405079181	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405080447	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405081696	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405082939	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405084187	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405085435	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405086710	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405087962	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405089203	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405090454	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405091704	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405092967	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405094214	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405095459	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405096716	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405097958	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405099218	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405100473	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405101725	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405102977	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405104218	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405105459	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405106724	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405107976	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405109221	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405110463	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405111723	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405112986	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405114233	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405115474	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405116718	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405117961	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405119228	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405120473	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405121721	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405122970	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405124216	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405125480	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405126727	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405127971	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405129219	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405130463	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405131715	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405132975	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405134230	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405135478	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405136724	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405137967	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405139230	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405140482	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405141751	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405142998	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405144245	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405145488	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405146755	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405148010	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405149255	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405150504	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405151757	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405153014	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405154270	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405155541	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405156799	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405158068	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405159326	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405160596	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405161848	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405163097	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405164350	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405165593	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405166844	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405168108	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405169359	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405170604	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405172219	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405173474	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405174772	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405176023	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405177279	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405178530	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405179819	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405181077	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405182328	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405183567	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405185021	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405186473	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405187724	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405189204	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405190442	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405191793	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405193211	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405194506	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405195824	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405197072	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405198310	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405199575	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405200949	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405202199	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405203506	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405204749	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405206022	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405207311	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500405350255	Marionette	INFO	New connections will no longer be accepted
+1500406690469	Marionette	INFO	Ceased listening

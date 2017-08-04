@@ -18,7 +18,7 @@ n.topics <- 50
 
 #Import Json file to a data variable (requires formatting data once imported)
 json_file <- "merged_file.json"
-data <- fromJSON(json_file)
+data <- fromJSON("merged_file.json")
 data <- bind_rows(data, .id = 'blog')
 
 
@@ -52,7 +52,7 @@ doc.topics <- mallet.doc.topics(topic.model, smoothed=T, normalized=T)
 topic.words <- mallet.topic.words(topic.model, smoothed=T, normalized=T)
 mallet.top.words(topic.model, topic.words[1,], 30)
 
-topics.labels <- gsub("\\W", "_", mallet.topic.labels(topic.model, topic.words, 3))
+topics.labels <- gsub("\\W", ", ", mallet.topic.labels(topic.model, topic.words, 3))
 topics.long.labels <- mallet.topic.labels(topic.model, topic.words, num.top.words=50)
 
 

@@ -1,0 +1,327 @@
+1496256205777	geckodriver	INFO	Listening on 127.0.0.1:64709
+1496256206834	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496256209289	Marionette	INFO	Listening on port 64716
+1496256209360	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 14:43:29.911 plugin-container[3451:233295] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:43:29.912 plugin-container[3451:233295] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f4b, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:43:29.912 plugin-container[3451:233295] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+JavaScript error: http://onedadsopinion.blogspot.com/feeds/comments/default?alt=json-in-script&callback=showrecentcomments, line 2: ReferenceError: showrecentcomments is not defined
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+[Child 3451] WARNING: pipe error: Broken pipe: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 702
+1498584455289	geckodriver	INFO	Listening on 127.0.0.1:49377
+1498584458259	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498584465885	Marionette	INFO	Listening on port 49386
+1498584466200	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498584466748	Marionette	DEBUG	loaded listener.js
+2017-06-27 13:27:46.999 plugin-container[2783:376381] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x913f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 13:27:47.000 plugin-container[2783:376381] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5417, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 13:27:47.000 plugin-container[2783:376381] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498584469388	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1498584469475	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498584469476	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+JavaScript error: http://onedadsopinion.blogspot.com/feeds/comments/default?alt=json-in-script&callback=showrecentcomments, line 2: ReferenceError: showrecentcomments is not defined
+1498584470440	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=6202467949945153658&blogName=One+Dad%27s+Opinion&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://onedadsopinion.blogspot.com/search&blogLocale=en_US&v=2&homepageUrl=http://onedadsopinion.blogspot.com/&vt=617980936691650811&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#id=navbar-iframe&parent=http%3A%2F%2Fonedadsopinion.blogspot.com&pfname=&rpctoken=59278073"
+1498584470831	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498584470986	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498584471029	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://mpp.vindicosuite.com/?y=3&t=h&u=http%3A%2F%2Fonedadsopinion.blogspot.com%2F&r="
+1498584471107	Marionette	DEBUG	Received DOM event "pageshow" for "http://mpp.vindicosuite.com/?y=3&t=h&u=http%3A%2F%2Fonedadsopinion.blogspot.com%2F&r="
+1498584471283	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://onedadsopinion.blogspot.com/"
+1498584472111	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=504882469&forcesecure=1"
+1498584472165	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=504882469&forcesecure=1"
+1498584472168	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=6202467949945153658&blogName=One+Dad%27s+Opinion&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://onedadsopinion.blogspot.com/search&blogLocale=en_US&v=2&homepageUrl=http://onedadsopinion.blogspot.com/&vt=617980936691650811&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#id=navbar-iframe&parent=http%3A%2F%2Fonedadsopinion.blogspot.com&pfname=&rpctoken=59278073"
+1498584546110	Marionette	DEBUG	Received DOM event "pageshow" for "http://onedadsopinion.blogspot.com/"
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1498585199834	Marionette	INFO	Ceased listening
+1498663121471	geckodriver	INFO	Listening on 127.0.0.1:62330
+1498663125518	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498663132069	Marionette	INFO	Listening on port 62347
+1498663132177	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498663132613	Marionette	DEBUG	loaded listener.js
+2017-06-28 11:18:52.799 plugin-container[4351:603621] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-28 11:18:52.803 plugin-container[4351:603621] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e43, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-28 11:18:52.803 plugin-container[4351:603621] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498663133876	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1498663133969	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498663133970	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+JavaScript error: http://onedadsopinion.blogspot.com/feeds/comments/default?alt=json-in-script&callback=showrecentcomments, line 2: ReferenceError: showrecentcomments is not defined
+1498663134893	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=6202467949945153658&blogName=One+Dad%27s+Opinion&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://onedadsopinion.blogspot.com/search&blogLocale=en_US&v=2&homepageUrl=http://onedadsopinion.blogspot.com/&vt=617980936691650811&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#id=navbar-iframe&parent=http%3A%2F%2Fonedadsopinion.blogspot.com&pfname=&rpctoken=33644932"
+1498663135207	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498663135301	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498663135342	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=395769622&forcesecure=1"
+1498663135354	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://mpp.vindicosuite.com/?y=3&t=h&u=http%3A%2F%2Fonedadsopinion.blogspot.com%2F&r="
+1498663135359	Marionette	DEBUG	Received DOM event "pageshow" for "http://mpp.vindicosuite.com/?y=3&t=h&u=http%3A%2F%2Fonedadsopinion.blogspot.com%2F&r="
+1498663135462	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://onedadsopinion.blogspot.com/"
+1498663135469	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=395769622&forcesecure=1"
+1498663135471	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=6202467949945153658&blogName=One+Dad%27s+Opinion&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://onedadsopinion.blogspot.com/search&blogLocale=en_US&v=2&homepageUrl=http://onedadsopinion.blogspot.com/&vt=617980936691650811&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#id=navbar-iframe&parent=http%3A%2F%2Fonedadsopinion.blogspot.com&pfname=&rpctoken=33644932"
+1498663210394	Marionette	DEBUG	Received DOM event "pageshow" for "http://onedadsopinion.blogspot.com/"
+1498663210713	Marionette	DEBUG	loaded listener.js
+1498663211028	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498663215014	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498663216290	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498663217552	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498663218816	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498663220072	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498663221356	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498663222610	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498663223866	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498663225122	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498663226376	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498663227649	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498663228914	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498663230169	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498663231422	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498663232672	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498663233941	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498663235202	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498663236459	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498663237705	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498663238958	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498663240219	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498663241479	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498663242734	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498663243982	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498663245230	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498663246487	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498663247748	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498663249003	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498663250251	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498663258539	Marionette	INFO	New connections will no longer be accepted
+1498672642739	geckodriver	INFO	Listening on 127.0.0.1:52959
+1498672644330	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498672647831	Marionette	INFO	Listening on port 52973
+1498672647904	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498672648345	Marionette	DEBUG	loaded listener.js
+2017-06-28 13:57:28.459 plugin-container[5240:680836] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x913f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-28 13:57:28.463 plugin-container[5240:680836] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x531b, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-28 13:57:28.463 plugin-container[5240:680836] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498672649130	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1498672649217	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498672649217	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+JavaScript error: http://onedadsopinion.blogspot.com/feeds/comments/default?alt=json-in-script&callback=showrecentcomments, line 2: ReferenceError: showrecentcomments is not defined
+1498672650066	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=6202467949945153658&blogName=One+Dad%27s+Opinion&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://onedadsopinion.blogspot.com/search&blogLocale=en_US&v=2&homepageUrl=http://onedadsopinion.blogspot.com/&vt=617980936691650811&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#id=navbar-iframe&parent=http%3A%2F%2Fonedadsopinion.blogspot.com&pfname=&rpctoken=38688828"
+1498672650349	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498672650430	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498672650488	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=447874276&forcesecure=1"
+1498672650518	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=447874276&forcesecure=1"
+1498672650521	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=6202467949945153658&blogName=One+Dad%27s+Opinion&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://onedadsopinion.blogspot.com/search&blogLocale=en_US&v=2&homepageUrl=http://onedadsopinion.blogspot.com/&vt=617980936691650811&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#id=navbar-iframe&parent=http%3A%2F%2Fonedadsopinion.blogspot.com&pfname=&rpctoken=38688828"
+1498672650523	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://mpp.vindicosuite.com/?y=3&t=h&u=http%3A%2F%2Fonedadsopinion.blogspot.com%2F&r="
+1498672650528	Marionette	DEBUG	Received DOM event "pageshow" for "http://mpp.vindicosuite.com/?y=3&t=h&u=http%3A%2F%2Fonedadsopinion.blogspot.com%2F&r="
+1498672650635	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://onedadsopinion.blogspot.com/"
+1498672725674	Marionette	DEBUG	Received DOM event "pageshow" for "http://onedadsopinion.blogspot.com/"
+1498672739487	geckodriver	INFO	Listening on 127.0.0.1:53565
+1498672740734	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498672745417	Marionette	INFO	Listening on port 53572
+1498672745486	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498672745867	Marionette	DEBUG	loaded listener.js
+2017-06-28 13:59:05.969 plugin-container[5248:682233] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-28 13:59:05.973 plugin-container[5248:682233] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x902b, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-28 13:59:05.974 plugin-container[5248:682233] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498672746461	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1498672746559	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498672746559	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+JavaScript error: http://onedadsopinion.blogspot.com/feeds/comments/default?alt=json-in-script&callback=showrecentcomments, line 2: ReferenceError: showrecentcomments is not defined
+1498672747242	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=6202467949945153658&blogName=One+Dad%27s+Opinion&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://onedadsopinion.blogspot.com/search&blogLocale=en_US&v=2&homepageUrl=http://onedadsopinion.blogspot.com/&vt=617980936691650811&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#id=navbar-iframe&parent=http%3A%2F%2Fonedadsopinion.blogspot.com&pfname=&rpctoken=27072041"
+1498672747536	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498672747647	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498672747666	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://onedadsopinion.blogspot.com/"
+1498672747748	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=360308951&forcesecure=1"
+1498672747768	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=360308951&forcesecure=1"
+1498672747770	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=6202467949945153658&blogName=One+Dad%27s+Opinion&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://onedadsopinion.blogspot.com/search&blogLocale=en_US&v=2&homepageUrl=http://onedadsopinion.blogspot.com/&vt=617980936691650811&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#id=navbar-iframe&parent=http%3A%2F%2Fonedadsopinion.blogspot.com&pfname=&rpctoken=27072041"
+1498672843558	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://mpp.vindicosuite.com/?y=3&t=h&u=http%3A%2F%2Fonedadsopinion.blogspot.com%2F&r="
+1498672843563	Marionette	DEBUG	Received DOM event "pageshow" for "http://mpp.vindicosuite.com/?y=3&t=h&u=http%3A%2F%2Fonedadsopinion.blogspot.com%2F&r="
+1498672843572	Marionette	DEBUG	Received DOM event "pageshow" for "http://onedadsopinion.blogspot.com/"
+1498672843838	Marionette	DEBUG	loaded listener.js
+1498672844138	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498672847070	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498672848328	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498672849588	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498672850843	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498672852117	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498672853370	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498672854624	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498672855873	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498672857127	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498672858383	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498672859630	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498672860876	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498672862146	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498672863407	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498672864656	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498672865905	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498672867155	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498672868407	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498672869676	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498672870926	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498672872175	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498672873428	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498672874683	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498672875951	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498672877207	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498672878450	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498672879705	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498672880953	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498672882219	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498672890063	Marionette	INFO	New connections will no longer be accepted
+1498673206951	geckodriver	INFO	Listening on 127.0.0.1:54036
+1498673208014	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498673210510	Marionette	INFO	Listening on port 54043
+1498673210626	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498673210848	Marionette	DEBUG	loaded listener.js
+2017-06-28 14:06:50.967 plugin-container[5265:684646] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-28 14:06:50.971 plugin-container[5265:684646] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5207, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-28 14:06:50.971 plugin-container[5265:684646] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498673211204	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1498673211288	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498673211289	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+JavaScript error: http://onedadsopinion.blogspot.com/feeds/comments/default?alt=json-in-script&callback=showrecentcomments, line 2: ReferenceError: showrecentcomments is not defined
+1498673212076	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=6202467949945153658&blogName=One+Dad%27s+Opinion&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://onedadsopinion.blogspot.com/search&blogLocale=en_US&v=2&homepageUrl=http://onedadsopinion.blogspot.com/&vt=617980936691650811&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#id=navbar-iframe&parent=http%3A%2F%2Fonedadsopinion.blogspot.com&pfname=&rpctoken=38923510"
+1498673212184	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://mpp.vindicosuite.com/?y=3&t=h&u=http%3A%2F%2Fonedadsopinion.blogspot.com%2F&r="
+1498673212193	Marionette	DEBUG	Received DOM event "pageshow" for "http://mpp.vindicosuite.com/?y=3&t=h&u=http%3A%2F%2Fonedadsopinion.blogspot.com%2F&r="
+1498673212445	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://onedadsopinion.blogspot.com/"
+1498673212455	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498673212515	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498673212614	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=462671801&forcesecure=1"
+1498673212652	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=462671801&forcesecure=1"
+1498673212654	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=6202467949945153658&blogName=One+Dad%27s+Opinion&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://onedadsopinion.blogspot.com/search&blogLocale=en_US&v=2&homepageUrl=http://onedadsopinion.blogspot.com/&vt=617980936691650811&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#id=navbar-iframe&parent=http%3A%2F%2Fonedadsopinion.blogspot.com&pfname=&rpctoken=38923510"
+1498673286994	Marionette	DEBUG	Received DOM event "pageshow" for "http://onedadsopinion.blogspot.com/"
+1498673287254	Marionette	DEBUG	loaded listener.js
+1498673287559	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498673289379	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498673290641	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498673291918	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498673293183	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498673294438	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498673295691	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498673296940	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498673298197	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498673299466	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498673300716	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498673301974	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498673303224	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498673304474	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498673305739	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498673306993	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498673308250	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498673309506	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498673310754	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498673312024	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498673313279	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498673314522	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498673315773	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498673317020	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498673318288	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498673319547	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498673320795	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498673322051	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498673323304	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+JavaScript error: http://kunoichi.info/blogger_buster/comments.js, line 5: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+1498673324575	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498673332577	Marionette	INFO	New connections will no longer be accepted

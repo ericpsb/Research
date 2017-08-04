@@ -15,9 +15,14 @@ class test_spider(scrapy.Spider):
     def parse (self, response):
       self.driver.get(response.url)
       toclick = self.driver.find_elements_by_xpath('//span[@class="zippy"]')
-      for x in toclick:
-        webdriver.common.action_chains.ActionChains(self.driver).move_to_element(x).click(x).perform()
-        time.sleep(.2)
+      while toclick != []:
+        for x in toclick:
+          try: 
+            x.click()
+            time.sleep(1)
+          except:
+            time.sleep(.2)
+        toclick = self.driver.find_elements_by_xpath('//span[@class="zippy"]')
       for href in self.driver.find_elements_by_xpath('//ul[@class="posts"]/li/a'):
             full_url = response.urljoin(href.get_attribute("href"))
             yield scrapy.Request(full_url, callback=self.parse_link)

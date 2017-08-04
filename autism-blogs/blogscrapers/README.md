@@ -1,29 +1,15 @@
-# blogscrapers
+README for folder "blogscrapers"
 
-For generalScrapers:
+This folder contains both Scraper scripts and Scraped data in
+addition to a Python script that will combine all necessary JSON
+files into one large JSON file
 
-Need to install scrapy and selenium
-	pip install scrapy
-	pip install selenium
+"generalScrapers" - a folder containing three example Scrapers
+that can be used to Scrape some or all blogs from a certain
+domain if they are modified slightly; the three domains are
+wordpress, blogspot, and typepad
 
-This package provides python scripts that can be used to scrape every archived blog posts from blogspot, wordpress, and typepad. The scripts make the assumption that the sites follow a certain HTML structure. The following sites are examples of compatible blogs. 
-
-blogspot - "http://autismschmatism.blogspot.com/"
-wordpress - "https://rhemashope.wordpress.com/"
-typepad - "http://lizditz.typepad.com/i_speak_of_dreams/archives.html"
-
-
-What is important is the xpath for the archives on the main page and the HTML tags for each post. Just modify the xpath in the scraper file to navigate to the archive links and scrape parts. Firefox and the firebug package will be very useful to this.
-
-To scrape the blog x into a file titled "data.json":
-	1. Open appropriate scraper and make changes as commented on the top of the 	file
-	2. Go to the command line and navigate to the correct directory
-	3. Run the following command
-		scrapy runspider scraper.py -o data.json
-
-For specificBlogs:
-
-This folder contains all of the specific scraper scripts used on the blogs.
-Additionally, it contains all of the data that was scraped from said blog.
-merge.py is the python script used to compile all of the JSON Files in the 
-directory into merged_file.json
+"specificBlogs" - a folder containing all of the specific
+Scraper scripts used on the chosen blogs; additionally, this
+folder contains all of the data that was scraped from each blog
+and the aforementioned Python script used to combine JSON files

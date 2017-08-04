@@ -1,0 +1,383 @@
+1496252635354	geckodriver	INFO	Listening on 127.0.0.1:59947
+1496252636427	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496252641501	Marionette	INFO	Listening on port 59976
+1496252641671	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 13:44:02.393 plugin-container[2508:136039] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 13:44:02.395 plugin-container[2508:136039] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x900f, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 13:44:02.395 plugin-container[2508:136039] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498597117250	geckodriver	INFO	Listening on 127.0.0.1:51921
+1498597121035	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498597128087	Marionette	INFO	Listening on port 51972
+1498597128214	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498597128756	Marionette	DEBUG	loaded listener.js
+2017-06-27 16:58:48.980 plugin-container[3541:484868] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x913f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 16:58:48.998 plugin-container[3541:484868] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5407, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 16:58:48.998 plugin-container[3541:484868] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498597130133	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1498597130263	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498597130263	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498597133685	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://carrielink.blogspot.co.uk/"
+1498597134311	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://player.vimeo.com/video/62383034?byline=0&portrait=0&color=07abf2"
+1498597135049	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=6190519338493655360&blogName=love.&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=LIGHT&layoutType=LAYOUTS&searchRoot=http://carrielink.blogspot.com/search&blogLocale=en&v=2&homepageUrl=http://carrielink.blogspot.com/&vt=-6577146969312880385&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#id=navbar-iframe&parent=http%3A%2F%2Fcarrielink.blogspot.co.uk&pfname=&rpctoken=30550241"
+1498597135521	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/JX-K46Ej7P4?list=PLrwetDuvkXKd6S39v5mNhro3KTVd0QNJl"
+1498597135533	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/Ok-1PhiZHMw"
+1498597136585	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597136617	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597136692	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597136698	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597136712	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597136720	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597136741	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597136750	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597136764	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597136769	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597136786	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597136801	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597136808	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597136822	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597136829	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597136838	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597136845	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597136850	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597136862	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597136865	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597136873	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597136876	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597136881	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597136891	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597136899	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597136929	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597136939	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597136947	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597136957	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597136969	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597136980	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597137003	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597137011	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597137019	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597137047	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/JX-K46Ej7P4?list=PLrwetDuvkXKd6S39v5mNhro3KTVd0QNJl"
+1498597137056	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/Ok-1PhiZHMw"
+1498597137067	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137075	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137085	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137095	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137103	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137112	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137122	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137131	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137139	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137147	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137153	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137159	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137165	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137173	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137179	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137185	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137191	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137200	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137205	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137211	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137217	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137225	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137231	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137238	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137246	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137253	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137261	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137268	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137275	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137282	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137289	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137295	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137520	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597137531	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137594	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498597137599	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498597137607	Marionette	DEBUG	Received DOM event "pageshow" for "https://player.vimeo.com/video/62383034?byline=0&portrait=0&color=07abf2"
+1498597137608	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Fcarrielink.blogspot.co.uk&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=888636335&forcesecure=1"
+1498597137673	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Fcarrielink.blogspot.co.uk&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=888636335&forcesecure=1"
+1498597137705	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=453441105&forcesecure=1"
+1498597138043	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=453441105&forcesecure=1"
+1498597138048	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=6190519338493655360&blogName=love.&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=LIGHT&layoutType=LAYOUTS&searchRoot=http://carrielink.blogspot.com/search&blogLocale=en&v=2&homepageUrl=http://carrielink.blogspot.com/&vt=-6577146969312880385&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#id=navbar-iframe&parent=http%3A%2F%2Fcarrielink.blogspot.co.uk&pfname=&rpctoken=30550241"
+1498597138059	Marionette	DEBUG	Received DOM event "pageshow" for "http://carrielink.blogspot.co.uk/"
+1498597139001	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597140328	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597141617	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597142889	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597144152	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597145408	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597146675	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597147949	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597149209	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597150503	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597151776	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597153059	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597154361	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597155640	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597156930	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597158187	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597159449	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597160698	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597161948	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597163256	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597164530	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597165793	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597167083	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597168348	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597169630	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597170882	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597172150	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597173433	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597174719	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597175985	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597177240	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597178492	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597179747	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597181077	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597182338	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597183618	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597184872	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597186123	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597187382	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597188721	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597190064	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597191323	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597192572	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597193852	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597195115	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597196370	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597197633	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597198907	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597200190	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597201470	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597202728	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597203978	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597205238	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597206494	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597207767	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597209023	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597210298	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597211574	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597212848	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597214102	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597215364	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597216646	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597217909	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597219185	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597220444	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597221699	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597222967	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597224224	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597225507	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597226754	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597228004	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597229285	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597230529	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597231780	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597233034	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597234278	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597235554	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597236816	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597238073	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597239318	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597240590	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597241835	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597243082	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597244346	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597245639	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597246899	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597248154	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597249401	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498597292475	Marionette	INFO	New connections will no longer be accepted
+1498658719146	geckodriver	INFO	Listening on 127.0.0.1:54215
+1498658723538	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498658730230	Marionette	INFO	Listening on port 54245
+1498658730361	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498658730690	Marionette	DEBUG	loaded listener.js
+2017-06-28 10:05:30.912 plugin-container[4041:556364] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-28 10:05:30.915 plugin-container[4041:556364] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x531b, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-28 10:05:30.915 plugin-container[4041:556364] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498658731636	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1498658731720	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498658731720	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498658733968	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://carrielink.blogspot.com/"
+1498658734692	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=6190519338493655360&blogName=love.&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=LIGHT&layoutType=LAYOUTS&searchRoot=http://carrielink.blogspot.com/search&blogLocale=en&v=2&homepageUrl=http://carrielink.blogspot.com/&vt=-6577146969312880385&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#id=navbar-iframe&parent=http%3A%2F%2Fcarrielink.blogspot.com&pfname=&rpctoken=20028711"
+1498658734712	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://player.vimeo.com/video/62383034?byline=0&portrait=0&color=07abf2"
+1498658735393	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/Ok-1PhiZHMw"
+1498658735402	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.youtube.com/embed/JX-K46Ej7P4?list=PLrwetDuvkXKd6S39v5mNhro3KTVd0QNJl"
+1498658736304	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736353	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736365	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736375	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736384	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736388	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736394	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736400	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736449	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736452	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736473	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736481	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736542	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658736552	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658736569	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658736579	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658736598	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658736608	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658736615	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658736624	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658736635	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658736653	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658736680	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736685	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736691	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736704	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736721	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658736726	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658736747	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736751	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736761	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736772	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736783	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736791	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736799	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736807	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736815	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736830	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736834	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736846	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736854	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736868	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736872	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736880	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736891	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736902	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658736926	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/Ok-1PhiZHMw"
+1498658736931	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.youtube.com/embed/JX-K46Ej7P4?list=PLrwetDuvkXKd6S39v5mNhro3KTVd0QNJl"
+1498658737033	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658737041	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658737051	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658737059	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658737068	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658737081	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658737098	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658737112	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658737123	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658737131	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658737138	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658737154	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658737162	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658737170	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658737175	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658737180	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658737184	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658737190	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658737194	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658737200	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658737206	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658737211	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658737368	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498658737372	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498658737381	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Fcarrielink.blogspot.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=446413067&forcesecure=1"
+1498658737435	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Fcarrielink.blogspot.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=446413067&forcesecure=1"
+1498658737450	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=639365828&forcesecure=1"
+1498658737891	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=639365828&forcesecure=1"
+1498658737895	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=6190519338493655360&blogName=love.&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=LIGHT&layoutType=LAYOUTS&searchRoot=http://carrielink.blogspot.com/search&blogLocale=en&v=2&homepageUrl=http://carrielink.blogspot.com/&vt=-6577146969312880385&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#id=navbar-iframe&parent=http%3A%2F%2Fcarrielink.blogspot.com&pfname=&rpctoken=20028711"
+1498658738130	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483772"
+1498658738311	Marionette	DEBUG	Received observer notification "outer-window-destroyed" for "2147483774"
+1498658744517	Marionette	DEBUG	Received DOM event "pageshow" for "https://player.vimeo.com/video/62383034?byline=0&portrait=0&color=07abf2"
+1498658744547	Marionette	DEBUG	Received DOM event "pageshow" for "http://carrielink.blogspot.com/"
+1498658744994	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658746264	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658747536	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658748798	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658750055	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658751302	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658752572	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658753831	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658755083	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658756340	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658757592	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658758872	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658760131	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658761381	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658762633	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658763881	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658765152	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658766416	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658767670	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658768943	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658770191	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658771454	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658772717	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658773971	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658775219	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658776516	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658777779	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658779040	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658780294	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658781536	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658782817	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658784088	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658785487	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658786741	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658787998	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658789261	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658790528	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658791784	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658793036	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658794293	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658795537	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658796810	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658798056	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658799304	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658800551	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658801805	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658803067	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658804322	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658805578	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658806844	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658808100	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658809368	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658810623	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658811877	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658813160	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658814421	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658815676	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658816928	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658818179	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658819438	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658820696	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658821945	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658823195	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658824447	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658825707	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658826971	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658828218	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658829466	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658830712	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658831985	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658833234	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658834485	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658835750	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658837014	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658838285	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658839540	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658840781	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658842040	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658843294	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658844537	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658845789	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658847036	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658848273	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658849517	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658850764	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658852011	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658853254	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658854503	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498658889774	Marionette	INFO	New connections will no longer be accepted

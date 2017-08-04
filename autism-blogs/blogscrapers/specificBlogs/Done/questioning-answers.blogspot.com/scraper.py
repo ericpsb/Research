@@ -6,7 +6,7 @@ class test_spider(scrapy.Spider):
     name = "scraper"
     start_urls = ['http://questioning-answers.blogspot.com/']
     custom_settings = {
-        'RETRY_TIMES': 10,
+        'RETRY_TIMES': 100,
     }
 
     def __init__(self):
@@ -15,13 +15,20 @@ class test_spider(scrapy.Spider):
     def parse (self, response):
       self.driver.get(response.url)
       toclick = self.driver.find_elements_by_xpath('//span[@class="zippy"]')
-      for x in toclick:
-        webdriver.common.action_chains.ActionChains(self.driver).move_to_element(x).click(x).perform()
-        time.sleep(1)
+      while toclick != []:
+        for x in toclick:
+          try: 
+            #webdriver.common.action_chains.ActionChains(self.driver).move_to_element(x).click(x).perform()
+            x.click()
+            time.sleep(1)
+          except:
+            time.sleep(.2)
+        toclick = self.driver.find_elements_by_xpath('//span[@class="zippy"]')
+      
       for href in self.driver.find_elements_by_xpath('//ul[@class="posts"]/li/a'):
             full_url = response.urljoin(href.get_attribute("href"))
             yield scrapy.Request(full_url, callback=self.parse_link)
-      self.driver.close()
+      self.driver.quit()
     
     def parse_link(self, response):
       try:
