@@ -1,0 +1,380 @@
+1496256509329	geckodriver	INFO	Listening on 127.0.0.1:53145
+1496256512755	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496256520244	Marionette	INFO	Listening on port 53177
+1496256520445	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 14:48:41.588 plugin-container[3550:243360] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x913f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:48:41.589 plugin-container[3550:243360] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x921f, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 14:48:41.589 plugin-container[3550:243360] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+[Child 3550] WARNING: pipe error: Broken pipe: file /builds/slave/m-rel-m64-00000000000000000000/build/src/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 702
+1498580897912	geckodriver	INFO	Listening on 127.0.0.1:59612
+1498580899012	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498580902381	Marionette	INFO	Listening on port 59655
+1498580902539	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498580902950	Marionette	DEBUG	loaded listener.js
+2017-06-27 12:28:23.097 plugin-container[2040:256875] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:28:23.103 plugin-container[2040:256875] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9027, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 12:28:23.103 plugin-container[2040:256875] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498580904995	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1498580905098	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498580905098	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498580906124	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=6670201345837905864&blogName=The+Squashed+Bologna:+a+slice+of+life...&publishMode=PUBLISH_MODE_HOSTED&navbarType=BLACK&layoutType=LAYOUTS&searchRoot=http://www.squashedmom.com/search&blogLocale=en&v=2&homepageUrl=http://www.squashedmom.com/&vt=-6611831986974987902&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DEQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMJgBcU0Z0eWj4ZR2LIJ6n1In4ukg#id=navbar-iframe&parent=http%3A%2F%2Fwww.squashedmom.com&pfname=&rpctoken=22731491"
+1498580907466	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498580907506	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498580907626	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://mpp.vindicosuite.com/?y=3&t=h&u=http%3A%2F%2Fwww.squashedmom.com%2F&r="
+1498580907631	Marionette	DEBUG	Received DOM event "pageshow" for "http://mpp.vindicosuite.com/?y=3&t=h&u=http%3A%2F%2Fwww.squashedmom.com%2F&r="
+1498580907843	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://www.squashedmom.com/"
+1498580908064	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.squashedmom.com/"
+1498580908077	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.squashedmom.com/"
+1498580908330	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498580908350	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498580908361	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498580908370	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498580908382	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498580908390	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498580908438	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498580908451	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498580908457	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498580908465	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498580908475	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498580908487	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498580908490	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://badge.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fwww.squashedmom.com%2F"
+1498580908493	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://badge.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fwww.squashedmom.com%2F"
+1498580908494	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://badge.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fwww.squashedmom.com%2F"
+1498580908512	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498580908522	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498580908626	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://dp1.33across.com/ps/?tt=iframe&amp;pid=523&amp;cgn=14275"
+1498580908712	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f3b97990d0989fc&origin=http%3A%2F%2Fwww.squashedmom.com"
+1498580908716	Marionette	DEBUG	Received DOM event "pageshow" for "http://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f3b97990d0989fc&origin=http%3A%2F%2Fwww.squashedmom.com"
+1498580908718	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f3b97990d0989fc&origin=http%3A%2F%2Fwww.squashedmom.com"
+1498580908721	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f3b97990d0989fc&origin=http%3A%2F%2Fwww.squashedmom.com"
+1498580908722	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Fwww.squashedmom.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DEQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMJgBcU0Z0eWj4ZR2LIJ6n1In4ukg#rpctoken=309685044&forcesecure=1"
+1498580908724	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DEQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMJgBcU0Z0eWj4ZR2LIJ6n1In4ukg#rpctoken=1949534898&forcesecure=1"
+1498580908736	Marionette	DEBUG	Received DOM event "pageshow" for "http://badge.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fwww.squashedmom.com%2F"
+1498580908739	Marionette	DEBUG	Received DOM event "pageshow" for "http://badge.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fwww.squashedmom.com%2F"
+1498580908743	Marionette	DEBUG	Received DOM event "pageshow" for "http://badge.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fwww.squashedmom.com%2F"
+1498580908788	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Fwww.squashedmom.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DEQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMJgBcU0Z0eWj4ZR2LIJ6n1In4ukg#rpctoken=309685044&forcesecure=1"
+1498580908795	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DEQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMJgBcU0Z0eWj4ZR2LIJ6n1In4ukg#rpctoken=1949534898&forcesecure=1"
+1498580908798	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=6670201345837905864&blogName=The+Squashed+Bologna:+a+slice+of+life...&publishMode=PUBLISH_MODE_HOSTED&navbarType=BLACK&layoutType=LAYOUTS&searchRoot=http://www.squashedmom.com/search&blogLocale=en&v=2&homepageUrl=http://www.squashedmom.com/&vt=-6611831986974987902&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DEQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMJgBcU0Z0eWj4ZR2LIJ6n1In4ukg#id=navbar-iframe&parent=http%3A%2F%2Fwww.squashedmom.com&pfname=&rpctoken=22731491"
+1498580908985	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.squashedmom.com/"
+1498580909087	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.squashedmom.com/"
+1498580909638	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/followers.g?blogID=6670201345837905864&colors=Cgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByM0ZTRlNGUiByNhODUzMzgqC3RyYW5zcGFyZW50MgcjOGU4ZThlOgcjNGU0ZTRlQgcjYTg1MzM4SgcjMDAwMDAwUgcjYTg1MzM4Wgt0cmFuc3BhcmVudA%3D%3D&pageSize=21&origin=http%3A%2F%2Fwww.squashedmom.com%2F&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DEQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMJgBcU0Z0eWj4ZR2LIJ6n1In4ukg&bpli=1#id=I0_1498580906484&parent=http%3A%2F%2Fwww.squashedmom.com&pfname=&rpctoken=22400922"
+1498580910243	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://tags.bluekai.com/site/27519?dt=0&r=1137075981&sig=3066008212&bkca=KJpnEnaNpQlN2x7nYzTyvdq0v9XrXU46pUJ1PpPt9uvNG+xutT0ulO0NGLuXkwhzV61Euy+EYyBn9y+n9p19jd9uy9=="
+1498580910679	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/plugins/like_box.php?app_id=&channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df2de757e03a1124%26domain%3Dwww.squashedmom.com%26origin%3Dhttp%253A%252F%252Fwww.squashedmom.com%252Ff3b97990d0989fc%26relation%3Dparent.parent&container_width=0&header=true&href=http%3A%2F%2Fwww.facebook.com%2FTheSquashedBologna&locale=en_US&sdk=joey&show_faces=true&stream=false&width=200"
+1498580910909	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/plugins/like_box.php?app_id=&channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df2de757e03a1124%26domain%3Dwww.squashedmom.com%26origin%3Dhttp%253A%252F%252Fwww.squashedmom.com%252Ff3b97990d0989fc%26relation%3Dparent.parent&container_width=0&header=true&href=http%3A%2F%2Fwww.facebook.com%2FTheSquashedBologna&locale=en_US&sdk=joey&show_faces=true&stream=false&width=200"
+1498580911557	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/followers.g?blogID=6670201345837905864&colors=Cgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByM0ZTRlNGUiByNhODUzMzgqC3RyYW5zcGFyZW50MgcjOGU4ZThlOgcjNGU0ZTRlQgcjYTg1MzM4SgcjMDAwMDAwUgcjYTg1MzM4Wgt0cmFuc3BhcmVudA%3D%3D&pageSize=21&origin=http%3A%2F%2Fwww.squashedmom.com%2F&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DEQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMJgBcU0Z0eWj4ZR2LIJ6n1In4ukg&bpli=1#id=I0_1498580906484&parent=http%3A%2F%2Fwww.squashedmom.com&pfname=&rpctoken=22400922"
+1498580911641	Marionette	DEBUG	Received DOM event "pageshow" for "http://dp1.33across.com/ps/?tt=iframe&amp;pid=523&amp;cgn=14275"
+1498580912424	Marionette	DEBUG	Received DOM event "pageshow" for "http://tags.bluekai.com/site/27519?dt=0&r=1137075981&sig=3066008212&bkca=KJpnEnaNpQlN2x7nYzTyvdq0v9XrXU46pUJ1PpPt9uvNG+xutT0ulO0NGLuXkwhzV61Euy+EYyBn9y+n9p19jd9uy9=="
+1498580912453	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.squashedmom.com/"
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1498584039284	Marionette	INFO	Ceased listening
+1498674491960	geckodriver	INFO	Listening on 127.0.0.1:57768
+1498674493319	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498674498896	Marionette	INFO	Listening on port 57775
+1498674498966	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498674499231	Marionette	DEBUG	loaded listener.js
+2017-06-28 14:28:19.354 plugin-container[5321:693726] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-28 14:28:19.357 plugin-container[5321:693726] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f23, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-28 14:28:19.357 plugin-container[5321:693726] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498674500153	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1498674500225	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498674500225	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498674500872	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=6670201345837905864&blogName=The+Squashed+Bologna:+a+slice+of+life...&publishMode=PUBLISH_MODE_HOSTED&navbarType=BLACK&layoutType=LAYOUTS&searchRoot=http://www.squashedmom.com/search&blogLocale=en&v=2&homepageUrl=http://www.squashedmom.com/&vt=-6611831986974987902&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#id=navbar-iframe&parent=http%3A%2F%2Fwww.squashedmom.com&pfname=&rpctoken=11860076"
+1498674501930	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498674501987	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498674502264	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://mpp.vindicosuite.com/?y=3&t=h&u=http%3A%2F%2Fwww.squashedmom.com%2F&r="
+1498674502266	Marionette	DEBUG	Received DOM event "pageshow" for "http://mpp.vindicosuite.com/?y=3&t=h&u=http%3A%2F%2Fwww.squashedmom.com%2F&r="
+1498674502333	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.squashedmom.com/"
+1498674502343	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.squashedmom.com/"
+1498674502530	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498674502540	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498674502549	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498674502556	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498674502564	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498674502570	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498674502582	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498674502588	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498674502644	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498674502651	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498674502659	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498674502667	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498674502682	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498674502688	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498674502864	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://www.squashedmom.com/"
+1498674502903	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=831039503&forcesecure=1"
+1498674502929	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Fwww.squashedmom.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=618446737&forcesecure=1"
+1498674502942	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://badge.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fwww.squashedmom.com%2F"
+1498674502944	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://badge.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fwww.squashedmom.com%2F"
+1498674502949	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://badge.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fwww.squashedmom.com%2F"
+1498674502957	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f3863b8df7d1ce&origin=http%3A%2F%2Fwww.squashedmom.com"
+1498674502962	Marionette	DEBUG	Received DOM event "pageshow" for "http://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f3863b8df7d1ce&origin=http%3A%2F%2Fwww.squashedmom.com"
+1498674502985	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f3863b8df7d1ce&origin=http%3A%2F%2Fwww.squashedmom.com"
+1498674502987	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f3863b8df7d1ce&origin=http%3A%2F%2Fwww.squashedmom.com"
+1498674503016	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://badge.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fwww.squashedmom.com%2F"
+1498674503034	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=831039503&forcesecure=1"
+1498674503037	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=6670201345837905864&blogName=The+Squashed+Bologna:+a+slice+of+life...&publishMode=PUBLISH_MODE_HOSTED&navbarType=BLACK&layoutType=LAYOUTS&searchRoot=http://www.squashedmom.com/search&blogLocale=en&v=2&homepageUrl=http://www.squashedmom.com/&vt=-6611831986974987902&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#id=navbar-iframe&parent=http%3A%2F%2Fwww.squashedmom.com&pfname=&rpctoken=11860076"
+1498674503042	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://badge.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fwww.squashedmom.com%2F"
+1498674503049	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Fwww.squashedmom.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=618446737&forcesecure=1"
+1498674503051	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://badge.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fwww.squashedmom.com%2F"
+1498674503054	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://dp1.33across.com/ps/?tt=iframe&amp;pid=523&amp;cgn=14275"
+1498674503068	Marionette	DEBUG	Received DOM event "pageshow" for "http://badge.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fwww.squashedmom.com%2F"
+1498674503070	Marionette	DEBUG	Received DOM event "pageshow" for "http://badge.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fwww.squashedmom.com%2F"
+1498674503071	Marionette	DEBUG	Received DOM event "pageshow" for "http://badge.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fwww.squashedmom.com%2F"
+1498674503077	Marionette	DEBUG	Received DOM event "pageshow" for "http://badge.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fwww.squashedmom.com%2F"
+1498674503078	Marionette	DEBUG	Received DOM event "pageshow" for "http://badge.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fwww.squashedmom.com%2F"
+1498674503081	Marionette	DEBUG	Received DOM event "pageshow" for "http://badge.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fwww.squashedmom.com%2F"
+1498674503205	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.squashedmom.com/"
+1498674503276	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.squashedmom.com/"
+1498674503535	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/followers.g?blogID=6670201345837905864&colors=Cgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByM0ZTRlNGUiByNhODUzMzgqC3RyYW5zcGFyZW50MgcjOGU4ZThlOgcjNGU0ZTRlQgcjYTg1MzM4SgcjMDAwMDAwUgcjYTg1MzM4Wgt0cmFuc3BhcmVudA%3D%3D&pageSize=21&origin=http%3A%2F%2Fwww.squashedmom.com%2F&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg&bpli=1#id=I0_1498674501174&parent=http%3A%2F%2Fwww.squashedmom.com&pfname=&rpctoken=42143444"
+1498674504100	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://tags.bluekai.com/site/27519?dt=0&r=55921503&sig=2861123611&bkca=KJpnEnaNpQlN2Eq1YqW1M4xyEy2mYEjhDMP0z6hUBURO/gViNOnqMJnzcnVihn0DdahqxhBnYpBpWN1eR61MDyOCdHJH"
+1498674504335	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/plugins/like_box.php?app_id=&channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df8d050d6b869f4%26domain%3Dwww.squashedmom.com%26origin%3Dhttp%253A%252F%252Fwww.squashedmom.com%252Ff3863b8df7d1ce%26relation%3Dparent.parent&container_width=0&header=true&href=http%3A%2F%2Fwww.facebook.com%2FTheSquashedBologna&locale=en_US&sdk=joey&show_faces=true&stream=false&width=200"
+1498674504363	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/followers.g?blogID=6670201345837905864&colors=Cgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByM0ZTRlNGUiByNhODUzMzgqC3RyYW5zcGFyZW50MgcjOGU4ZThlOgcjNGU0ZTRlQgcjYTg1MzM4SgcjMDAwMDAwUgcjYTg1MzM4Wgt0cmFuc3BhcmVudA%3D%3D&pageSize=21&origin=http%3A%2F%2Fwww.squashedmom.com%2F&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg&bpli=1#id=I0_1498674501174&parent=http%3A%2F%2Fwww.squashedmom.com&pfname=&rpctoken=42143444"
+1498674504390	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/plugins/like_box.php?app_id=&channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df8d050d6b869f4%26domain%3Dwww.squashedmom.com%26origin%3Dhttp%253A%252F%252Fwww.squashedmom.com%252Ff3863b8df7d1ce%26relation%3Dparent.parent&container_width=0&header=true&href=http%3A%2F%2Fwww.facebook.com%2FTheSquashedBologna&locale=en_US&sdk=joey&show_faces=true&stream=false&width=200"
+1498674504648	Marionette	DEBUG	Received DOM event "pageshow" for "http://dp1.33across.com/ps/?tt=iframe&amp;pid=523&amp;cgn=14275"
+1498674505175	Marionette	DEBUG	Received DOM event "pageshow" for "http://tags.bluekai.com/site/27519?dt=0&r=55921503&sig=2861123611&bkca=KJpnEnaNpQlN2Eq1YqW1M4xyEy2mYEjhDMP0z6hUBURO/gViNOnqMJnzcnVihn0DdahqxhBnYpBpWN1eR61MDyOCdHJH"
+1498674505792	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.squashedmom.com/"
+1498674575169	Marionette	INFO	Ceased listening
+1500401344550	geckodriver	INFO	Listening on 127.0.0.1:65457
+1500401346869	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500401352053	Marionette	INFO	Listening on port 65464
+1500401352174	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500401352421	Marionette	DEBUG	loaded listener.js
+2017-07-18 14:09:12.595 plugin-container[1853:322842] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8d3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-18 14:09:12.599 plugin-container[1853:322842] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f27, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-18 14:09:12.599 plugin-container[1853:322842] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500401354272	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500401354432	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500401354432	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500401355314	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=6670201345837905864&blogName=The+Squashed+Bologna:+a+slice+of+life...&publishMode=PUBLISH_MODE_HOSTED&navbarType=BLACK&layoutType=LAYOUTS&searchRoot=http://www.squashedmom.com/search&blogLocale=en&v=2&homepageUrl=http://www.squashedmom.com/&vt=-6611831986974987902&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.kpXrwGSPBxQ.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOZfgAHdRXw9ae_JEm_JrE3nGmdog#id=navbar-iframe&parent=http%3A%2F%2Fwww.squashedmom.com&pfname=&rpctoken=28114258"
+1500401356791	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.squashedmom.com/"
+1500401356799	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.squashedmom.com/"
+1500401356817	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500401356820	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500401356837	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500401356840	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500401356879	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500401356904	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500401356910	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500401356914	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500401356921	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500401356923	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500401356931	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500401356934	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500401356986	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500401356989	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500401357009	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500401357015	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500401357021	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://badge.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fwww.squashedmom.com%2F"
+1500401357026	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://badge.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fwww.squashedmom.com%2F"
+1500401357028	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://badge.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fwww.squashedmom.com%2F"
+1500401357086	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.kpXrwGSPBxQ.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOZfgAHdRXw9ae_JEm_JrE3nGmdog#rpctoken=259569234&forcesecure=1"
+1500401357105	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Fwww.squashedmom.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.kpXrwGSPBxQ.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOZfgAHdRXw9ae_JEm_JrE3nGmdog#rpctoken=2145496284&forcesecure=1"
+1500401357183	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f798ca964d901e&origin=http%3A%2F%2Fwww.squashedmom.com"
+1500401357185	Marionette	DEBUG	Received DOM event "pageshow" for "http://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f798ca964d901e&origin=http%3A%2F%2Fwww.squashedmom.com"
+1500401357217	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f798ca964d901e&origin=http%3A%2F%2Fwww.squashedmom.com"
+1500401357218	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f798ca964d901e&origin=http%3A%2F%2Fwww.squashedmom.com"
+1500401357223	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.kpXrwGSPBxQ.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOZfgAHdRXw9ae_JEm_JrE3nGmdog#rpctoken=259569234&forcesecure=1"
+1500401357225	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=6670201345837905864&blogName=The+Squashed+Bologna:+a+slice+of+life...&publishMode=PUBLISH_MODE_HOSTED&navbarType=BLACK&layoutType=LAYOUTS&searchRoot=http://www.squashedmom.com/search&blogLocale=en&v=2&homepageUrl=http://www.squashedmom.com/&vt=-6611831986974987902&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.kpXrwGSPBxQ.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOZfgAHdRXw9ae_JEm_JrE3nGmdog#id=navbar-iframe&parent=http%3A%2F%2Fwww.squashedmom.com&pfname=&rpctoken=28114258"
+1500401357230	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Fwww.squashedmom.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.kpXrwGSPBxQ.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOZfgAHdRXw9ae_JEm_JrE3nGmdog#rpctoken=2145496284&forcesecure=1"
+1500401357239	Marionette	DEBUG	Received DOM event "pageshow" for "http://badge.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fwww.squashedmom.com%2F"
+1500401357242	Marionette	DEBUG	Received DOM event "pageshow" for "http://badge.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fwww.squashedmom.com%2F"
+1500401357244	Marionette	DEBUG	Received DOM event "pageshow" for "http://badge.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fwww.squashedmom.com%2F"
+1500401357353	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/followers.g?blogID=6670201345837905864&colors=Cgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByM0ZTRlNGUiByNhODUzMzgqC3RyYW5zcGFyZW50MgcjOGU4ZThlOgcjNGU0ZTRlQgcjYTg1MzM4SgcjMDAwMDAwUgcjYTg1MzM4Wgt0cmFuc3BhcmVudA%3D%3D&pageSize=21&origin=http%3A%2F%2Fwww.squashedmom.com%2F&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.kpXrwGSPBxQ.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOZfgAHdRXw9ae_JEm_JrE3nGmdog&bpli=1#id=I0_1500401355665&parent=http%3A%2F%2Fwww.squashedmom.com&pfname=&rpctoken=37650718"
+1500401357387	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.squashedmom.com/"
+1500401358328	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/followers.g?blogID=6670201345837905864&colors=Cgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByM0ZTRlNGUiByNhODUzMzgqC3RyYW5zcGFyZW50MgcjOGU4ZThlOgcjNGU0ZTRlQgcjYTg1MzM4SgcjMDAwMDAwUgcjYTg1MzM4Wgt0cmFuc3BhcmVudA%3D%3D&pageSize=21&origin=http%3A%2F%2Fwww.squashedmom.com%2F&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.kpXrwGSPBxQ.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOZfgAHdRXw9ae_JEm_JrE3nGmdog&bpli=1#id=I0_1500401355665&parent=http%3A%2F%2Fwww.squashedmom.com&pfname=&rpctoken=37650718"
+1500401358573	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://tags.bluekai.com/site/27519?dt=0&r=1066756164&sig=3696744878&bkca=KJpnEnaNpQlN2z7Jvx6onFz6vxIm0w1vvU51PpPt9uvNG+xutT0ulO0NGLuXkwhzV6BE9y1E96BMDlBMxN19K2XEW9=="
+1500401358576	Marionette	DEBUG	Received DOM event "pageshow" for "http://tags.bluekai.com/site/27519?dt=0&r=1066756164&sig=3696744878&bkca=KJpnEnaNpQlN2z7Jvx6onFz6vxIm0w1vvU51PpPt9uvNG+xutT0ulO0NGLuXkwhzV6BE9y1E96BMDlBMxN19K2XEW9=="
+1500401431026	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.squashedmom.com/"
+1500401431337	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://www.squashedmom.com/"
+1500401431394	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://dp1.33across.com/ps/?tt=iframe&amp;pid=523&amp;cgn=14275"
+1500401431813	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/plugins/like_box.php?app_id=&channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df36901c9a8aa30e%26domain%3Dwww.squashedmom.com%26origin%3Dhttp%253A%252F%252Fwww.squashedmom.com%252Ff798ca964d901e%26relation%3Dparent.parent&container_width=0&header=true&href=http%3A%2F%2Fwww.facebook.com%2FTheSquashedBologna&locale=en_US&sdk=joey&show_faces=true&stream=false&width=200"
+1500401431836	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/plugins/like_box.php?app_id=&channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Df36901c9a8aa30e%26domain%3Dwww.squashedmom.com%26origin%3Dhttp%253A%252F%252Fwww.squashedmom.com%252Ff798ca964d901e%26relation%3Dparent.parent&container_width=0&header=true&href=http%3A%2F%2Fwww.facebook.com%2FTheSquashedBologna&locale=en_US&sdk=joey&show_faces=true&stream=false&width=200"
+1500401431877	Marionette	DEBUG	Received DOM event "pageshow" for "http://dp1.33across.com/ps/?tt=iframe&amp;pid=523&amp;cgn=14275"
+1500401431903	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.squashedmom.com/"
+1500401432581	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401433859	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401435117	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401436379	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401437636	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401438889	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401440156	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401441410	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401442674	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401443934	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401445185	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401446456	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401447710	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401448976	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401450229	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401451502	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401452767	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401454013	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401455268	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401456520	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401457787	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401459042	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401460297	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401461546	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401462800	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401464047	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401465311	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401466564	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401467814	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401469061	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401470308	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401471572	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401472818	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401474068	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401475323	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401476573	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401477847	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401479097	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401480348	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401481598	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401482847	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401484115	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401485371	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401486613	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401487860	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401489113	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401490390	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401491657	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401492911	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401494158	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401495407	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401496669	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401497934	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401499187	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500401500460	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402354483	geckodriver	INFO	Listening on 127.0.0.1:53476
+1500402356066	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1500402362357	Marionette	INFO	Listening on port 53483
+1500402362480	Marionette	WARN	TLS certificate errors will be ignored for this session
+1500402362737	Marionette	DEBUG	loaded listener.js
+2017-07-18 14:26:02.866 plugin-container[1885:330993] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8f3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-18 14:26:02.869 plugin-container[1885:330993] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9123, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-07-18 14:26:02.869 plugin-container[1885:330993] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1500402364177	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1500402364293	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1500402364293	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1500402365000	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=6670201345837905864&blogName=The+Squashed+Bologna:+a+slice+of+life...&publishMode=PUBLISH_MODE_HOSTED&navbarType=BLACK&layoutType=LAYOUTS&searchRoot=http://www.squashedmom.com/search&blogLocale=en&v=2&homepageUrl=http://www.squashedmom.com/&vt=-6611831986974987902&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.kpXrwGSPBxQ.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOZfgAHdRXw9ae_JEm_JrE3nGmdog#id=navbar-iframe&parent=http%3A%2F%2Fwww.squashedmom.com&pfname=&rpctoken=18050050"
+1500402366430	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500402366441	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500402366497	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500402366500	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500402366505	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500402366508	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500402366527	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500402366530	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500402366536	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500402366538	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500402366543	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500402366546	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500402366551	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500402366553	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500402366559	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1500402366561	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1500402366567	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://badge.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fwww.squashedmom.com%2F"
+1500402366578	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://badge.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fwww.squashedmom.com%2F"
+1500402366580	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://badge.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fwww.squashedmom.com%2F"
+1500402366594	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.squashedmom.com/"
+1500402366603	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.squashedmom.com/"
+1500402366625	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.kpXrwGSPBxQ.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOZfgAHdRXw9ae_JEm_JrE3nGmdog#rpctoken=440092156&forcesecure=1"
+1500402366642	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Fwww.squashedmom.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.kpXrwGSPBxQ.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOZfgAHdRXw9ae_JEm_JrE3nGmdog#rpctoken=837441108&forcesecure=1"
+1500402366706	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.kpXrwGSPBxQ.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOZfgAHdRXw9ae_JEm_JrE3nGmdog#rpctoken=440092156&forcesecure=1"
+1500402366708	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=6670201345837905864&blogName=The+Squashed+Bologna:+a+slice+of+life...&publishMode=PUBLISH_MODE_HOSTED&navbarType=BLACK&layoutType=LAYOUTS&searchRoot=http://www.squashedmom.com/search&blogLocale=en&v=2&homepageUrl=http://www.squashedmom.com/&vt=-6611831986974987902&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.kpXrwGSPBxQ.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOZfgAHdRXw9ae_JEm_JrE3nGmdog#id=navbar-iframe&parent=http%3A%2F%2Fwww.squashedmom.com&pfname=&rpctoken=18050050"
+1500402366713	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=http%3A%2F%2Fwww.squashedmom.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.kpXrwGSPBxQ.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOZfgAHdRXw9ae_JEm_JrE3nGmdog#rpctoken=837441108&forcesecure=1"
+1500402366723	Marionette	DEBUG	Received DOM event "pageshow" for "http://badge.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fwww.squashedmom.com%2F"
+1500402366724	Marionette	DEBUG	Received DOM event "pageshow" for "http://badge.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fwww.squashedmom.com%2F"
+1500402366726	Marionette	DEBUG	Received DOM event "pageshow" for "http://badge.stumbleupon.com/badge/embed/5/?url=http%3A%2F%2Fwww.squashedmom.com%2F"
+1500402366791	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f2f80aa13aaaec&origin=http%3A%2F%2Fwww.squashedmom.com"
+1500402366793	Marionette	DEBUG	Received DOM event "pageshow" for "http://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f2f80aa13aaaec&origin=http%3A%2F%2Fwww.squashedmom.com"
+1500402366994	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.squashedmom.com/"
+1500402367071	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f2f80aa13aaaec&origin=http%3A%2F%2Fwww.squashedmom.com"
+1500402367074	Marionette	DEBUG	Received DOM event "pageshow" for "https://staticxx.facebook.com/connect/xd_arbiter/r/XBwzv5Yrm_1.js?version=42#channel=f2f80aa13aaaec&origin=http%3A%2F%2Fwww.squashedmom.com"
+1500402367254	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/followers.g?blogID=6670201345837905864&colors=Cgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByM0ZTRlNGUiByNhODUzMzgqC3RyYW5zcGFyZW50MgcjOGU4ZThlOgcjNGU0ZTRlQgcjYTg1MzM4SgcjMDAwMDAwUgcjYTg1MzM4Wgt0cmFuc3BhcmVudA%3D%3D&pageSize=21&origin=http%3A%2F%2Fwww.squashedmom.com%2F&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.kpXrwGSPBxQ.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOZfgAHdRXw9ae_JEm_JrE3nGmdog&bpli=1#id=I0_1500402365449&parent=http%3A%2F%2Fwww.squashedmom.com&pfname=&rpctoken=34439922"
+1500402367589	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://tags.bluekai.com/site/27519?dt=0&r=925362181&sig=1187542239&bkca=KJpnEnaNpQlN2Eq1vx6+1Fc6eyhmn4nNpUO1PpPt9uvNG+xutT0ulO0NGLuXkwhzV6BE9y1E90BM1pBpz6L9RuxuAy=="
+1500402367774	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/followers.g?blogID=6670201345837905864&colors=Cgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByM0ZTRlNGUiByNhODUzMzgqC3RyYW5zcGFyZW50MgcjOGU4ZThlOgcjNGU0ZTRlQgcjYTg1MzM4SgcjMDAwMDAwUgcjYTg1MzM4Wgt0cmFuc3BhcmVudA%3D%3D&pageSize=21&origin=http%3A%2F%2Fwww.squashedmom.com%2F&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.kpXrwGSPBxQ.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCOZfgAHdRXw9ae_JEm_JrE3nGmdog&bpli=1#id=I0_1500402365449&parent=http%3A%2F%2Fwww.squashedmom.com&pfname=&rpctoken=34439922"
+1500402368734	Marionette	DEBUG	Received DOM event "pageshow" for "http://tags.bluekai.com/site/27519?dt=0&r=925362181&sig=1187542239&bkca=KJpnEnaNpQlN2Eq1vx6+1Fc6eyhmn4nNpUO1PpPt9uvNG+xutT0ulO0NGLuXkwhzV6BE9y1E90BM1pBpz6L9RuxuAy=="
+1500402440969	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.squashedmom.com/"
+1500402441369	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://www.squashedmom.com/"
+1500402441450	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://dp1.33across.com/ps/?tt=iframe&amp;pid=523&amp;cgn=14275"
+1500402442105	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.facebook.com/plugins/like_box.php?app_id=&channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Dfc54854e3ad0a%26domain%3Dwww.squashedmom.com%26origin%3Dhttp%253A%252F%252Fwww.squashedmom.com%252Ff2f80aa13aaaec%26relation%3Dparent.parent&container_width=0&header=true&href=http%3A%2F%2Fwww.facebook.com%2FTheSquashedBologna&locale=en_US&sdk=joey&show_faces=true&stream=false&width=200"
+1500402442132	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.facebook.com/plugins/like_box.php?app_id=&channel=http%3A%2F%2Fstaticxx.facebook.com%2Fconnect%2Fxd_arbiter%2Fr%2FXBwzv5Yrm_1.js%3Fversion%3D42%23cb%3Dfc54854e3ad0a%26domain%3Dwww.squashedmom.com%26origin%3Dhttp%253A%252F%252Fwww.squashedmom.com%252Ff2f80aa13aaaec%26relation%3Dparent.parent&container_width=0&header=true&href=http%3A%2F%2Fwww.facebook.com%2FTheSquashedBologna&locale=en_US&sdk=joey&show_faces=true&stream=false&width=200"
+1500402442169	Marionette	DEBUG	Received DOM event "pageshow" for "http://dp1.33across.com/ps/?tt=iframe&amp;pid=523&amp;cgn=14275"
+1500402442231	Marionette	DEBUG	Received DOM event "pageshow" for "http://www.squashedmom.com/"
+1500402443098	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402444413	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402445682	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402446950	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402448205	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402449457	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402450712	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402451976	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402453234	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402454483	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402455733	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402456983	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402458237	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402459507	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402460760	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402462009	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402463261	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402464506	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402465776	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402467033	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402468297	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402469559	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402470872	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402472132	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402473384	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402474640	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402475904	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402477180	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402478436	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402479697	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402480948	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402482219	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402483492	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402484749	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402486000	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402487251	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402488519	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402489778	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402491051	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402492306	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402493562	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402494809	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402496075	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402497331	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402498600	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402499877	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402501152	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402502408	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402503663	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402504965	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402506233	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402507515	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402508783	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402510037	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1500402511335	Marionette	DEBUG	Canceled page load listener because no navigation has been detected

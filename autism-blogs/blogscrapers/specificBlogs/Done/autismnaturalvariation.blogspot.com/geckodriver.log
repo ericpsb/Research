@@ -1,0 +1,161 @@
+1496252343252	geckodriver	INFO	Listening on 127.0.0.1:58843
+1496252346093	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1496252358793	Marionette	INFO	Listening on port 58850
+1496252359335	Marionette	WARN	TLS certificate errors will be ignored for this session
+2017-05-31 13:39:20.422 plugin-container[2421:131982] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8c3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 13:39:20.423 plugin-container[2421:131982] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e1f, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-05-31 13:39:20.423 plugin-container[2421:131982] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498583271084	geckodriver	INFO	Listening on 127.0.0.1:59738
+1498583275484	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498583281945	Marionette	INFO	Listening on port 59760
+1498583282080	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498583282526	Marionette	DEBUG	loaded listener.js
+2017-06-27 13:08:02.724 plugin-container[2623:363823] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x903f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 13:08:02.725 plugin-container[2623:363823] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x9223, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 13:08:02.725 plugin-container[2623:363823] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498583283449	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1498583283549	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498583283549	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498583284776	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://autismnaturalvariation.blogspot.com/"
+1498583284781	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=22861867&blogName=Natural+Variation+-+Autism+Blog&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://autismnaturalvariation.blogspot.com/search&blogLocale=en_US&v=2&homepageUrl=http://autismnaturalvariation.blogspot.com/&vt=1191334857901413525&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#id=navbar-iframe&parent=http%3A%2F%2Fautismnaturalvariation.blogspot.com&pfname=&rpctoken=37479752"
+1498583285042	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498583285127	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498583285156	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=789087707&forcesecure=1"
+1498583285189	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=789087707&forcesecure=1"
+1498583285192	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=22861867&blogName=Natural+Variation+-+Autism+Blog&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://autismnaturalvariation.blogspot.com/search&blogLocale=en_US&v=2&homepageUrl=http://autismnaturalvariation.blogspot.com/&vt=1191334857901413525&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#id=navbar-iframe&parent=http%3A%2F%2Fautismnaturalvariation.blogspot.com&pfname=&rpctoken=37479752"
+1498583285649	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/followers.g?blogID=22861867&colors=Cgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByNjY2VlZGQiByMwMDAwMDAqByM0NDY2NjYyByMwMDAwMDA6ByNjY2VlZGRCByMwMDAwMDBKByMwMDAwMDBSByNGRkZGRkZaC3RyYW5zcGFyZW50&pageSize=21&origin=http%3A%2F%2Fautismnaturalvariation.blogspot.com%2F&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA&bpli=1#id=I0_1498583284592&parent=http%3A%2F%2Fautismnaturalvariation.blogspot.com&pfname=&rpctoken=25991501"
+1498583286227	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/followers.g?blogID=22861867&colors=Cgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByNjY2VlZGQiByMwMDAwMDAqByM0NDY2NjYyByMwMDAwMDA6ByNjY2VlZGRCByMwMDAwMDBKByMwMDAwMDBSByNGRkZGRkZaC3RyYW5zcGFyZW50&pageSize=21&origin=http%3A%2F%2Fautismnaturalvariation.blogspot.com%2F&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA&bpli=1#id=I0_1498583284592&parent=http%3A%2F%2Fautismnaturalvariation.blogspot.com&pfname=&rpctoken=25991501"
+1498583286232	Marionette	DEBUG	Received DOM event "pageshow" for "http://autismnaturalvariation.blogspot.com/"
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1498584081508	Marionette	INFO	Ceased listening
+1498595888348	geckodriver	INFO	Listening on 127.0.0.1:53734
+1498595889706	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498595898979	Marionette	INFO	Listening on port 53751
+1498595899156	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498595899629	Marionette	DEBUG	loaded listener.js
+2017-06-27 16:38:19.807 plugin-container[3357:465432] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e3f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 16:38:19.811 plugin-container[3357:465432] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8d4b, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-27 16:38:19.812 plugin-container[3357:465432] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498595901004	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1498595901068	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498595901069	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498595902212	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=22861867&blogName=Natural+Variation+-+Autism+Blog&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://autismnaturalvariation.blogspot.com/search&blogLocale=en_US&v=2&homepageUrl=http://autismnaturalvariation.blogspot.com/&vt=1191334857901413525&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#id=navbar-iframe&parent=http%3A%2F%2Fautismnaturalvariation.blogspot.co.uk&pfname=&rpctoken=14091074"
+1498595902404	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://autismnaturalvariation.blogspot.co.uk/"
+1498595902638	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498595902761	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498595902874	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=668998913&forcesecure=1"
+1498595902926	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#rpctoken=668998913&forcesecure=1"
+1498595902980	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=22861867&blogName=Natural+Variation+-+Autism+Blog&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://autismnaturalvariation.blogspot.com/search&blogLocale=en_US&v=2&homepageUrl=http://autismnaturalvariation.blogspot.com/&vt=1191334857901413525&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA#id=navbar-iframe&parent=http%3A%2F%2Fautismnaturalvariation.blogspot.co.uk&pfname=&rpctoken=14091074"
+1498595903919	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/followers.g?blogID=22861867&colors=Cgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByNjY2VlZGQiByMwMDAwMDAqByM0NDY2NjYyByMwMDAwMDA6ByNjY2VlZGRCByMwMDAwMDBKByMwMDAwMDBSByNGRkZGRkZaC3RyYW5zcGFyZW50&pageSize=21&origin=http%3A%2F%2Fautismnaturalvariation.blogspot.co.uk%2F&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA&bpli=1#id=I0_1498595902056&parent=http%3A%2F%2Fautismnaturalvariation.blogspot.co.uk&pfname=&rpctoken=76487290"
+1498595904809	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/followers.g?blogID=22861867&colors=Cgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByNjY2VlZGQiByMwMDAwMDAqByM0NDY2NjYyByMwMDAwMDA6ByNjY2VlZGRCByMwMDAwMDBKByMwMDAwMDBSByNGRkZGRkZaC3RyYW5zcGFyZW50&pageSize=21&origin=http%3A%2F%2Fautismnaturalvariation.blogspot.co.uk%2F&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.GfkYNo6gqPw.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCMb6GG45fF2HapKzrAkuFOe1Yx9QA&bpli=1#id=I0_1498595902056&parent=http%3A%2F%2Fautismnaturalvariation.blogspot.co.uk&pfname=&rpctoken=76487290"
+1498595904817	Marionette	DEBUG	Received DOM event "pageshow" for "http://autismnaturalvariation.blogspot.co.uk/"
+1498595905352	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595906614	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595907890	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595909171	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595910500	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595911802	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595913077	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595914328	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595915598	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595916880	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595918160	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595919425	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595920729	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595922005	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595923295	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595924566	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595925839	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595927155	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595928403	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595929670	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595930940	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595932240	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595933520	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595934785	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595936039	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595937283	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595938551	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595939805	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595941059	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595942335	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595943587	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595944860	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595946117	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595947371	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595948634	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595949915	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595951202	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498595964580	Marionette	INFO	New connections will no longer be accepted
+1498661222205	geckodriver	INFO	Listening on 127.0.0.1:51655
+1498661223451	geckodriver::marionette	INFO	Starting browser /Users/Hannah/Applications/Firefox.app/Contents/MacOS/firefox-bin with args ["-marionette"]
+1498661225782	Marionette	INFO	Listening on port 51662
+1498661226235	Marionette	WARN	TLS certificate errors will be ignored for this session
+1498661226567	Marionette	DEBUG	loaded listener.js
+2017-06-28 10:47:06.693 plugin-container[4146:584620] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x8e2f, name = 'com.apple.tsm.portname'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-28 10:47:06.698 plugin-container[4146:584620] *** CFMessagePort: bootstrap_register(): failed 1100 (0x44c) 'Permission denied', port = 0x5207, name = 'com.apple.CFPasteboardClient'
+See /usr/include/servers/bootstrap_defs.h for the error codes.
+2017-06-28 10:47:06.698 plugin-container[4146:584620] void __CFPasteboardSetup() : Failed to allocate communication port for com.apple.CFPasteboardClient; this is likely due to sandbox restrictions
+1498661227004	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1498661227082	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1498661227083	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1498661228057	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://autismnaturalvariation.blogspot.com/"
+1498661228062	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/navbar.g?targetBlogID=22861867&blogName=Natural+Variation+-+Autism+Blog&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://autismnaturalvariation.blogspot.com/search&blogLocale=en_US&v=2&homepageUrl=http://autismnaturalvariation.blogspot.com/&vt=1191334857901413525&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#id=navbar-iframe&parent=http%3A%2F%2Fautismnaturalvariation.blogspot.com&pfname=&rpctoken=28664815"
+1498661228304	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://apis.google.com/se/0/wm/1/"
+1498661228362	Marionette	DEBUG	Received DOM event "pageshow" for "https://apis.google.com/se/0/wm/1/"
+1498661228389	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=1604424093&forcesecure=1"
+1498661228428	Marionette	DEBUG	Received DOM event "pageshow" for "https://accounts.google.com/o/oauth2/postmessageRelay?parent=https%3A%2F%2Fwww.blogger.com&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#rpctoken=1604424093&forcesecure=1"
+1498661228430	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/navbar.g?targetBlogID=22861867&blogName=Natural+Variation+-+Autism+Blog&publishMode=PUBLISH_MODE_BLOGSPOT&navbarType=BLUE&layoutType=LAYOUTS&searchRoot=http://autismnaturalvariation.blogspot.com/search&blogLocale=en_US&v=2&homepageUrl=http://autismnaturalvariation.blogspot.com/&vt=1191334857901413525&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg#id=navbar-iframe&parent=http%3A%2F%2Fautismnaturalvariation.blogspot.com&pfname=&rpctoken=28664815"
+1498661229068	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "https://www.blogger.com/followers.g?blogID=22861867&colors=Cgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByNjY2VlZGQiByMwMDAwMDAqByM0NDY2NjYyByMwMDAwMDA6ByNjY2VlZGRCByMwMDAwMDBKByMwMDAwMDBSByNGRkZGRkZaC3RyYW5zcGFyZW50&pageSize=21&origin=http%3A%2F%2Fautismnaturalvariation.blogspot.com%2F&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg&bpli=1#id=I0_1498661227865&parent=http%3A%2F%2Fautismnaturalvariation.blogspot.com&pfname=&rpctoken=32897071"
+1498661229792	Marionette	DEBUG	Received DOM event "pageshow" for "https://www.blogger.com/followers.g?blogID=22861867&colors=Cgt0cmFuc3BhcmVudBILdHJhbnNwYXJlbnQaByNjY2VlZGQiByMwMDAwMDAqByM0NDY2NjYyByMwMDAwMDA6ByNjY2VlZGRCByMwMDAwMDBKByMwMDAwMDBSByNGRkZGRkZaC3RyYW5zcGFyZW50&pageSize=21&origin=http%3A%2F%2Fautismnaturalvariation.blogspot.com%2F&usegapi=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.en_US.wpCNxUYJ7bc.O%2Fm%3D__features__%2Fam%3DAQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAGLTcCP2kAF69smYVvU1nnoKCqrvBMsiwg&bpli=1#id=I0_1498661227865&parent=http%3A%2F%2Fautismnaturalvariation.blogspot.com&pfname=&rpctoken=32897071"
+1498661229797	Marionette	DEBUG	Received DOM event "pageshow" for "http://autismnaturalvariation.blogspot.com/"
+1498661230209	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661231466	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661232731	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661233989	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661235240	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661236512	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661237782	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661239036	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661240285	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661241551	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661242796	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661244053	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661245294	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661246544	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661247815	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661249072	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661250328	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661251575	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661252815	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661254078	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661255361	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661256613	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661257860	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661259107	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661260373	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661261624	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661262874	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661264121	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661265369	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661266643	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661267903	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661269162	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661270407	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661271672	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661272944	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661274197	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661275450	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1498661286648	Marionette	INFO	New connections will no longer be accepted
