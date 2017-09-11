@@ -177,6 +177,3 @@ See Peter's user account on Saiph for this information.
 - Apparently if you click too many times, it stops letting you click on nodes because of some variable called `tog` in `viz-d3.js` (around line 681, I think).
 - People changing their names on Facebook will cause everyone who was friends with them to fail. Maybe add a check/exception for people who don't exist anymore.
 - Sometimes the "direction" of interactions is backwards (i.e. "A liked B's photo" when it was A's photo).
-
-# TODO
-- Make accounts information file and put in user folder.
