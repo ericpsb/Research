@@ -1,0 +1,8 @@
+[submodule "fbprojectb/libffi"]
+	path = fbprojectb/unused_old_files/libffi
+	url = git://github.com/libffi/libffi
+	ignore = dirty
+[submodule "fbprojectb/blast"]
+	path = fbprojectb/unused_old_files/blast
+	url = https://github.com/julianshapiro/blast.git
+	ignore = dirty

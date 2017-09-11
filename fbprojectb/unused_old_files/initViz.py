@@ -43,7 +43,7 @@ def main():
   links =[]
   # get profile object
   user_name = graph.get('me')['name']
-  fb_feed = "https://graph.facebook.com/v2.4/me?fields=feed&access_token="+access_token
+  fb_feed = "https://graph.facebook.com/v2.9/me?fields=feed&access_token="+access_token
   data = requests.get(fb_feed).json()
   if 'feed' in data:
           first_interaction = data['feed']['data'][0]
@@ -65,7 +65,7 @@ def main():
                    story2 = last_interaction["message"]
                date2 = dateparser.parse(last_interaction['created_time']).strftime('%m/%d/%y')
             x = data
-          fb_events = "https://graph.facebook.com/v2.4/me?fields=events&access_token="+access_token
+          fb_events = "https://graph.facebook.com/v2.9/me?fields=events&access_token="+access_token
           events_data = requests.get(fb_events).json()
           no_of_events = len(events_data['events']['data'])
           while "next" in events_data:
@@ -73,7 +73,7 @@ def main():
                events_data = requests.get(url).json()
                if "data" in events_data:
                   no_of_events += len(events_data['events']["data"])
-          friends = "https://graph.facebook.com/v2.4/me?fields=friends&access_token="+access_token
+          friends = "https://graph.facebook.com/v2.9/me?fields=friends&access_token="+access_token
           friendsData = requests.get(friends).json()
           friends_count = friendsData["friends"]["summary"]["total_count"]  
           jsonTemp = {}

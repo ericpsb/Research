@@ -48,6 +48,7 @@ d. Default Styles
    z-index: 99999;
    height: 100%;
 }
+/*
 #status  {    
    position: absolute;
    left: 50%;
@@ -57,6 +58,7 @@ d. Default Styles
    margin: -32px 0 0 -32px;  
    padding: 0;    
 }
+*/
 
 /* ------------------------------------------------------------------
 /* c. Reset

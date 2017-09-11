@@ -33,7 +33,7 @@ echo " "
 echo "Running ltget.py ..."
 
 #running ltget.py
-python ltget.py
+python ltget.py &
 #python initViz.py
 
 

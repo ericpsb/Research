@@ -7,18 +7,6 @@ def get_interaction(small,large,user,events,friends,mutual,taggable_friends,like
 	pair['large_name'] = large['name']
 	pair['large_id'] = large['id']
 
-#	if user.find_one({"id":small['id']}) != None:
-#		pair['small_friends'] = user.find_one({"id":small['id']})['total_friends']
-#	else:
-#		pair['small_friends'] = 'NA'
-#	
-#	if user.find_one({"id":large['id']}) != None:
-#		pair['large_friends'] = user.find_one({"id":large['id']})['total_friends']
-#	else:
-#		pair['large_friends'] = 'NA'
-	# pair['id'] = {}
-	# pair['count'] = {}
-
 	# if two nodes are both users, we have data on events, mutual friends and mutual likes
 	if (user.find_one({"id":small['id']}) != None) and (user.find_one({"id":large['id']}) != None):
 		# co-like
@@ -26,9 +14,6 @@ def get_interaction(small,large,user,events,friends,mutual,taggable_friends,like
 		for m in likes.find({"$and":[{"liked_by.id":small['id']},{"liked_by.id":large['id']}]},{"id":1,"_id":0}):
 			co_like_id.append(m)
 		co_like_count = len(co_like_id)
-		# small_like = mutual.find_one({"$and":[{"id":small['id']},{"friend_of.id":large['id']}]})['mutual_likes']
-		# large_like = mutual.find_one({"$and":[{"id":large['id']},{"friend_of.id":small['id']}]})['mutual_likes']
-		# co_like_count = max(small_like,large_like)
 		
 		# co-friend
 		co_friend_id_app = []
@@ -47,8 +32,6 @@ def get_interaction(small,large,user,events,friends,mutual,taggable_friends,like
 			large_mutual = 0
 		else:
 			large_mutual = large_mutual['mutual_friends']
-#		small_mutual = mutual.find_one({"$and":[{"id":small['id']},{"friend_of.id":large['id']}]})['mutual_friends']
-#		large_mutual = mutual.find_one({"$and":[{"id":large['id']},{"friend_of.id":small['id']}]})['mutual_friends']
 		co_friend_count = max(small_mutual,large_mutual)
 
 		# friended
@@ -67,7 +50,6 @@ def get_interaction(small,large,user,events,friends,mutual,taggable_friends,like
 	else:
 		co_like_id = 'NA'
 		co_like_count = 'NA'
-		# co_like_count = 'NA'
 
 		co_friend_id_app = 'NA'
 		co_friend_count_app = 'NA'
@@ -78,7 +60,6 @@ def get_interaction(small,large,user,events,friends,mutual,taggable_friends,like
 	
 	pair['co_like_id'] = co_like_id
 	pair['co_like_count'] = co_like_count
-	# pair['co_like_count'] = co_like_count
 	
 	pair['co_friend_id_app'] = co_friend_id_app
 	pair['co_friend_count_app'] = co_friend_count_app

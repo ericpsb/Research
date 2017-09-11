@@ -1,0 +1,67 @@
+# Node:
+node = {
+    'name' : name
+}
+
+# Link:
+link = {
+    'source' : node_index,
+    'target' : node_index,
+    'value'  : value
+}
+
+# Pair:
+pair = {
+    'source' : name,
+    'target' : name,
+    'data'   : [interactions]
+}
+
+# Status interaction array
+[
+    type ('status'),
+    status_type ('mobile_status_update', etc.),
+    interaction_type ([co-]comment/like/tag),
+    story,
+    message,
+    description,
+    link,
+    id,
+    video,
+    created_date
+]
+
+# Photo interaction array
+[
+    type ('photo'),
+    interaction_type ([co-]comment/like/tag),
+    id,
+    created_date
+]
+
+# Event interaction array
+[
+    type ('event'),
+    event_name,
+    description,
+    cover,
+    start_date
+]
+
+# Book/Music like interaction array
+[
+    type ('book'/'music'),
+    about,
+    description,
+    name,
+    picture
+]
+
+# Rules for link strength based on interaction type
+like = 2
+comment = 3
+tag = 4
+co-like = 1
+co-comment = 2
+co-tag = 5
+posting to someone's timeline = 5
