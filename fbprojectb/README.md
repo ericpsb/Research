@@ -4,7 +4,7 @@ Led by Professor Eric Baumer
 https://das-lab.org/truefriend  
 https://github.com/ericpsb/Research/tree/master/fbprojectb
 
-Last updated: August 16, 2017 by Peter Schaedler (pwschaedler)
+Last updated: September 10, 2017 by Peter Schaedler (pwschaedler)
 
 # Overview
 TrueFriend is a website/Facebook app that infers the degrees of friendship between people based on the frequency of online interactions, and thus finds the "true friends" of a user. By using the Facebook Graph API, TrueFriend requests every item in a user's feed and stores it in a MongoDB database. From there, Python scripts process the information into two representations: 1) individual interactions, such as comments, which include the users involved and the posts from which they were gathered, and 2) JSON to represent the nodes and links that will be loaded into a D3.js force-directed graph. Each node represents a person on Facebook, and two nodes are connected if there is some interaction between them on the user's timeline. The more they interact, the closer the nodes will be.
@@ -52,16 +52,16 @@ When the user nagivates to https://das-lab.org/truefriend, they will arrive at `
 
 ### Back-End PHP
 `backendData.php`
-> 
+> PHP script to access the Mongo database and retrieve visualization data.
 
 `backendInit.php`
-> 
+> PHP script to check if user is in database at start of program.
 
 `IDsFromTaggableFriends.php`
-> 
+> Gets IDs of users from Top 5 Friends list for taggable friends tagging in Facebook post.
 
 `topFiveFriends.php`
-> 
+> Determines top 5 friends according to the visualization algorithm and returns their names and IDs.
 
 ### Back-End Python
 `config.py`
@@ -71,10 +71,10 @@ When the user nagivates to https://das-lab.org/truefriend, they will arrive at `
 > Empties both databases used by the program to attain a fresh start. Does __not__ conform to what databases/collections are specified in `config.ini`.
 
 `ltget.py`
-> 
+> Script that gets started by callback.php to begin back-end processing. Collects basic Facebook profile information about the user and puts into the database, then passes off to `update_db_v4.py` for the rest of the processing.
 
 `mongo_access.py`
-> 
+> Provides a few functions through the `MongoAccess` class for convenient access to Mongo DB from Python with a single open connection.
 
 `new_viz_db_delete.py`
 > Test file that deletes the information in the database that would be creatd by `newViz.py`. Does __not__ conform to what databases/collections are specified in `config.ini`.
@@ -89,10 +89,10 @@ When the user nagivates to https://das-lab.org/truefriend, they will arrive at `
 > An old file that took raw feed items and transformed them into monstrous documents that didn't make much sense. No longer used in the program, but some things in the new version (see `viz_generator.py`) don't work exactly as they used to, so this may be worth looking at.
 
 `update_db_v4.py`
-> 
+> Scrapes user data from Facebook and processes into two things: JSON to be used in the visualization, and individual "interactions" that show one discrete thing that two people have in common.
 
 `viz_generator.py`
-> 
+> Called by `update_db_v4.py`, this script takes care of the main processing into JSON and individual interactions.
 
 ### Other Files
 `classification/` (only in repo)
@@ -164,7 +164,19 @@ Required background processes on Eltanin:
 See Peter's user account on Saiph for this information.
 
 # Known Issues
+- MAIN ISSUE: Trying to get app approved by Facebook for taggable_friends use. Next thing to try is to make nodes on graph all be open by default (see node fill options in `viz-d3.js`) and only get filled in when confirmed that they are friends (via friends list). Continue with Top 5 Friends feature, but maybe try to get it to post as a "story"?
+- `viz_generator.py` currently doesn't do anything with your given `friends` list (the friends of yours who have authorized the app) and `mutual` or `likes`. These were left out during the transition from `newViz.py` and `query.py`. Information from `mutual` and `likes` could be used to create other interactions for books/music in common, though from testing of `newViz` and `query`, I'm not sure they were ever being taken into account. The `friends` list may be necessary for the main issue above.
+- "Go to Visualization" button in `initViz.php` will remain gray even after visualization is done unless you refresh. Maybe make it so it automatically changes?
+- Emails about visualizations sometimes go to spam. No idea why.
+- Every time you visit the site, it does the entire process all over. Maybe try to make it only process changes since last time.
+- Posts on FB that are only links with no other text will show up as just black boxes on the viz pop-up.
+- In pop-ups, pronouns are always masculine (he/him). Use Facebook's correct given gender or make them neutral.
+- Logging throughout should be added.
+- `vizDone` property in database for users is completely unnecessary.
+- Clicking a node on the DB changes its size/color. Doesn't always reset properly afterward when you click away.
+- Apparently if you click too many times, it stops letting you click on nodes because of some variable called `tog` in `viz-d3.js` (around line 681, I think).
+- People changing their names on Facebook will cause everyone who was friends with them to fail. Maybe add a check/exception for people who don't exist anymore.
+- Sometimes the "direction" of interactions is backwards (i.e. "A liked B's photo" when it was A's photo).
 
-
-
-###### TODO: Make sure to go back through notes and Temporary Files folder on Desktop to address all potential things I may have randomly written down.
+# TODO
+- Make accounts information file and put in user folder.

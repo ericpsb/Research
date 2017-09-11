@@ -84,14 +84,9 @@ def main():
     except Exception, e:
         print "EXCEPTION: " + str(e)
         print "User logged out."
-        # TODO[P]: Don't let the end user see the error message!!!!
-        os.system("""echo "Hi,\n\nWe're sorry, but something went wrong with your visualization. Please try logging in again at https://das-lab.org/truefriend or contact pwschaedler@gmail.com. Thank you.\n\nError Message:\n{}" | mail -a "From: TrueFriend <truefriend@das-lab.org>" -s "TrueFriend - Error" {}""".format(e, profile['email']))
+        os.system("""echo "Hi,\n\nWe're sorry, but something went wrong with your visualization. Please try logging in again at https://das-lab.org/truefriend. Thank you." | mail -a "From: TrueFriend <truefriend@das-lab.org>" -s "TrueFriend - Error" {}""".format(profile['email']))
         return
     
-    # TODO[P]: stop it from moving on if it failed at any point prior,
-    #          but otherwise...
-    
-    # Do next part of processing
     try:
         update_db_v4.run_update(acltat)
     except Exception as exc:
@@ -100,7 +95,7 @@ def main():
         print exc.args
         import traceback
         print traceback.format_exc()
-        os.system("""echo "Hi,\n\nWe're sorry, but something went wrong with your visualization. Please try logging in again at https://das-lab.org/truefriend or contact pwschaedler@gmail.com. Thank you.\n\nError Message:\n{}" | mail -a "From: TrueFriend <truefriend@das-lab.org>" -s "TrueFriend - Error" {}""".format(type(exc).__name__, profile['email']))
+        os.system("""echo "Hi,\n\nWe're sorry, but something went wrong with your visualization. Please try logging in again at https://das-lab.org/truefriend. Thank you." | mail -a "From: TrueFriend <truefriend@das-lab.org>" -s "TrueFriend - Error" {}""".format(profile['email']))
         return
     finally:
         # say they're no longer processing

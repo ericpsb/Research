@@ -65,7 +65,7 @@ function postToFB() {
             function(resp) {
                 $("#post-to-fb").prop("disabled", false);
                 if (!resp || resp.error) {
-                    console.log(resp); // TODO[P]: better error handling
+                    console.log(resp);
                 }
                 else {
                     closeTopFive();

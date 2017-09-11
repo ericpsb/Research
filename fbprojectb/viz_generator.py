@@ -26,7 +26,6 @@ class VisualizationGenerator(object):
         """Generate JSON and insert into database."""
         user = self.mongo.get_user_from_db(self.uid)
         if user is None:
-            # TODO[P]: throw error
             return
 
         self.name = user['name']
@@ -82,13 +81,6 @@ class VisualizationGenerator(object):
 
     def generate_links(self):
         """Generate links between all nodes and assign values."""
-
-        ########################################################################
-        # TODO[P]: Still need to add functionality for book/music links and    #
-        # a check for when someone posts to your timeline, because that's an   #
-        # automatic 5 for the value.                                           #
-        ########################################################################
-
         link_values = {
             'like': 2,
             'comment': 3,
@@ -117,16 +109,7 @@ class VisualizationGenerator(object):
 
     def explode_document(self, document):
         """Take individual feed document and turn into many pair interactions."""
-
-        ########################################################################
-        # TODO[P]: Try to only grab person once per feed item. So maybe have a #
-        # hierarchy of what's important... though have all interactions count  #
-        # towards visualization weights.                                       #
-        # NOTE: story_tags also tag the person who posted it (I think), so we  #
-        #       may have to account for that.                                  #
-        # NOTE: Also need to do something about page likes...                  #
-        ########################################################################
-
+        
         # Format: (key in feed, given type (kind of arbitrary), direction when
         #          user is the poster, direction when not poster, data source)
         options = [
