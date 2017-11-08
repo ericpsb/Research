@@ -14,11 +14,35 @@ $(document).ready(function() {
 	    });
         addSliderBars();
         changeRangeColor();
+        // make `Make a Prediction from Facebook` button disabled until login with facebook
+        $('#predict-facebook').prop('disabled', true);
+        $('#next-lightshow').prop('disabled', true);
+        //animateProgressBar();
     });
 			
-// embeded in submit button, load facebook and twitter login page
+// enable `Next` button after `Make Prediction from Facebook` clicked 
+function enableNext() {
+    $('#next-lightshow').prop('disabled', false);
+    $('#status').text('Your prediction is complete. Click "Next" to see the light show');
+}
+
+// embeded in `submit` button, load facebook and twitter login page
 function loadLoginPage() {
-        window.location='https://das-lab.org/datalight/login.html';
+        window.location='/login.html';
+}
+
+// when the light show starts, this brings up the legend
+function loadLegendPage() {
+        window.location='./legend.html';
+}
+
+function toggleLegend() {
+    var x = document.getElementById('legend');
+    if (x.style.display === 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
 }
 
 // fill up slider bars when moved 
@@ -36,19 +60,34 @@ function changeRangeColor() {
 
   // This is called with the results from from FB.getLoginStatus().
 function statusChangeCallback(response) {
-	console.log('statusChangeCallback');
+	//console.log('statusChangeCallback');
 	console.log(response);
     if (response.status === 'connected') {
       	getInfoAPI(getLikesPostsAPI);
+        $('#predict-facebook').prop('disabled', false);
     } else {
-      // The person is not logged into your app or we are unable to tell.
-      //	document.getElementById('status').innerHTML = 'Please log ' +
-       // 'into this app.';
+        $('#status').text('Please login using your social media account');
+/*
+        The person is not logged into your app or we are unable to tell.
+        document.getElementById('status').innerHTML = 'Please log ' +
+        'into this app.';
+        $('#status').text('Please log in using Facebook');
+*/
     }
 }
 
+function animateProgressBar(callback) {
+    $('.progress-bar').animate({
+        width: '100%'
+    }, 5000, function() {
+        callback();
+    }); 
+    var htmlString = "Fetching your information...";
+    $('#status').text(htmlString);
+}
 
 function collectValues() {
+    console.log('this is in collectvalues in script.js');
     var values = [];
     for (i = 0; i < 10; i++) {
         var s = '#range-slider-' + i;
@@ -80,8 +119,10 @@ function addSliderBars() {
     for (i = 0; i < keywords.length; i++) {
         const s = 
                 '<div class="range-slider">' +
+                    '<div class="range-slider-label">' + keywords[i] + '</div>' +
                     '<input id="range-slider-' + i + '"' + 'type="range" value="0" min="0" max="100"/>' +
-                    '<span class="range-slider-label">' + keywords[i] + '</span>' +
+                    '<div id="min">Strongly Disagree</div>' + 
+                    '<div id="max">Strongly Agree</div>' +
                 '</div>' 
         $('#quiz').append(s);
     }
@@ -94,19 +135,16 @@ function checkLoginState() {
 }
 
 function getInfoAPI(getLikesPostsAPI) {
-    console.log('Welcome!  Fetching your information.... ');
+    //console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', 'get', function(response) {
 	    const userId = response.id;
-        console.log('Successful login for: ' + response.name);
+        //console.log('Successful login for: ' + response.name);
+        var htmlString = 'Welcome! ' + response.name + ' You successfully login.';
+        $('#status').text(htmlString); 
         //document.getElementById('status').innerHTML =
         //'Thanks for logging in, ' + response.name + '!';
         getLikesPostsAPI(userId);
     });
-    
-}
-
-function print() {
-    console.log('get all likes successful');
 }
 
 var allLikes = []; 
@@ -172,7 +210,7 @@ function logout() {
 // send all likes and get back an array of like predictions
 function sendAllLikes() {
     $.ajax(
-        '/likes',
+        '/backend/likes',
         {
             type: 'POST',
             data: JSON.stringify({
@@ -191,7 +229,7 @@ function sendAllLikes() {
 // send all posts and get back an array of post predictions
 function sendAllPosts() {
     $.ajax(
-        '/posts',
+        '/backend/posts',
         {
             type: 'POST',
             data: JSON.stringify({
@@ -209,7 +247,7 @@ function sendAllPosts() {
 
 function msPredictions() {
     $.ajax(
-        '/mspredictions',
+        '/backend/mspredictions',
         {
             type: 'GET',
             processData: 'true',
@@ -223,7 +261,7 @@ function msPredictions() {
 
 function sendQuiz(quizzes) {
     $.ajax(
-        '/quizzes',
+        '/backend/quizzes',
         {
             type: 'POST',
             data: JSON.stringify({
@@ -240,7 +278,7 @@ function sendQuiz(quizzes) {
         
 function quizPrediction() {
     $.ajax(
-        '/quizzes',
+        '/backend/quizzes',
         {
             type: 'GET',
             processData: 'true',
@@ -248,6 +286,30 @@ function quizPrediction() {
             dataType: 'json',
             success: function(result) {
                 console.log('print quiz prediction');
+                console.log(result);
+            }
+        });
+}
+
+function print() {
+    console.log('next button clicked');
+}
+
+function sendMail() {
+    var email = $('#e-mail').val();
+    console.log('this email is' + email);
+    $.ajax(
+        '/backend/mail',
+            {
+                data: JSON.stringify({
+                email: email 
+            }),
+            processData: 'true', 
+            contentType: 'application/json',
+            dataType: 'json',
+            type: 'POST',
+            success: function(result) {
+                console.log('inside sendMail() on script.js');
                 console.log(result);
             }
         });
