@@ -1,13 +1,76 @@
-<!DOCTYPE html>
+<DOCTYPE html>
 <html>
 <head>
-<title>Facebook Login JavaScript Example</title>
+<title>Home Page</title>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="styles.css">
-<script src="script.js"></script>
-</head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="./script.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css"  href="./styles.css">
+/head>
 <body>
-    <h1>Welcome to DataLight</h1>
-    
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">    
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand">DataLight</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+ 
+<div class="jumbotron">
+    <div class="container">
+        <h1>Welcome to DataLight!</h1>
+        <p>DataLight is an interactive experience. It's a combination between your social media data and light sculpture</p>
+<!--
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+-->
+    </div>
+</div>
+
+<div class="container">
+    <div class="starter-template">
+        <p class="lead">Choose to present light show with your social media</p>
+        <div>
+            <a href="./quiz.html" class="btn btn-primary btn-lg center-block">yourself</a> 
+        </div>
+        <br></br>
+        <p class="lead">Choose to present light show with public twitter account</p>
+        <div>
+            <a href="./quiz.html" class="btn btn-primary btn-lg center-block">other</a> 
+        </div>
+<!--
+ <p class="lead">Test Our Lights</p>
+        <div>
+            <a class="btn btn-primary btn-lg center-block" onclick="lightShow()">Light Testing</a> 
+        </div>
+    </div>
+-->
+<div class="footer">
+    <div class="container">
+        <p class="footer-text">DataLight Mountiantop Project. Lehigh University</p>
+    </div>
+</div>
+<!-- <div class="fa fa-facebook">
+	<button type="button" onclick="logout()">Log out</button>
+</div> --> 
+<!-- <button type="button" id="logout" onclick="logout()">  logout</button> -->
+
 </body>
 </html>

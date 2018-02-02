@@ -1,0 +1,92 @@
+<DOCTYPE html>
+<html>
+<head>
+<title>Login Page</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="./script.js"></script>
+<script src="./lifx.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css"  href="./styles.css">
+<link rel="stylesheet" type="text/css" href="./bower_components/bootstrap-social/bootstrap-social.css">
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand">DataLight</a>
+        </div>
+    </div> 
+</nav>
+<div class="container">
+    <br></br>
+    <div class="starter-template">
+        <p class="lead">Login with Facebook and/or Twiiter.</p>
+    <br></br>
+    </div>
+    <div id="fb-login">
+	<div class="fb-login-button"
+        data-max-rows="1"
+        data-size="large"
+        data-button-type="login_with"
+        data-show-faces="false"
+        data-auto-logout-link="false"
+        data-use-continue-as="false"
+        data-scope = "public_profile, email, user_posts, user_likes"
+        onlogin="checkLoginState()"></div>
+        <br></br>
+        <div id="twitter-login">
+            <div class="social-wrap c">
+                <button class="twitter">Sign in with Twitter</button>
+            </div>
+        </div>
+    </div>
+    <br></br>
+    <div>
+        <div id="fb-predict-div">
+             <button id="predict-facebook" type="button" class="btn btn-success pull-left" onclick=sendAllLikes();sendLikeInfo();sendAllPosts();animateProgressBar(enableNext)>Make a Prediction from Facebook</button>
+        </div>
+<!--
+        <div id="next-div">
+            <button id="next-lightshow" type="button" class="btn btn-success pull-right" onclick=lightShowBeginning()>Next</button>
+        </div>
+--!>
+        <div>
+            <button type="button" class="btn btn-success pull-right">Next</button>
+        </div>
+<!--
+        <button type="button" class="btn btn-success" onclick=sendAllPosts()>Predict from Posts</button>
+-->
+<!--
+        <button type="button" class="btn btn-info" onclick=msPredictions()>Magic Sauce</button>
+-->
+        <br></br>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax ="100" style="width:0%"><span id="progress-bar-label"></span></div>
+        </div>
+        <div class="lead" id="status"></div>
+    <div>Please provide your email address</div>
+    <input id="e-mail" type="email">
+    <button class="btn btn-success" onclick=sendMail()>submit</button>
+<!--
+    <div class="starter-template" id="legend" style="display:none;">
+        <br></br>
+        <h3 style="color:cyan;">Open</h3>
+        </br>
+        <h3 style="color:purple;">Conscientious</h3>
+        </br>
+        <h3 style="color:red;">Neurotic</h3>
+        </br>
+        <h3 style="color:pink;">Extraverted</h3>
+        </br>
+        <h3 style="color:green;">Agreeable</h3>
+    </div>
+-->
+</div>
+</body>
+</html>
