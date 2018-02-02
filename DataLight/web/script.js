@@ -61,7 +61,7 @@ function changeRangeColor() {
   // This is called with the results from from FB.getLoginStatus().
 function statusChangeCallback(response) {
 	//console.log('statusChangeCallback');
-	console.log(response);
+	//console.log(response);
     if (response.status === 'connected') {
       	getInfoAPI(getLikesPostsAPI);
         $('#predict-facebook').prop('disabled', false);
@@ -148,12 +148,14 @@ function getInfoAPI(getLikesPostsAPI) {
 }
 
 var allLikes = []; 
+var likeInfo = [];
 // retrieve all user's likes
 function getAllLikes(response) {
     // likes is an arry of size 100 objects
     var likes = response.data;
     for (i in likes) {
         allLikes.push(likes[i].id);
+        likeInfo.push(likes[i]);
     }
     
     try { 
@@ -162,7 +164,7 @@ function getAllLikes(response) {
              getAllLikes(response);
         });
     } catch (e) {
-        console.log('exception thrown');
+        //console.log('exception thrown');
     }
 }
 
@@ -182,7 +184,7 @@ function getAllPosts(response) {
         });
     } catch (e) {
         if (e instanceof TypeError) {
-            console.log('no more pages');
+            //console.log('no more pages');
         }
     }
 }
@@ -199,9 +201,9 @@ function getLikesPostsAPI(userId) {
 }
 
 function logout() {
-    console.log('printing test');
+    //console.log('printing test');
 	FB.logout(function(response) {
-		console.log("You successfully logout");
+		//console.log("You successfully logout");
 		checkLoginState();
 	});
 }
@@ -221,7 +223,29 @@ function sendAllLikes() {
             dataType: 'json',
             success: function (result) {
                 // printing out likes predictions
-                console.log(result);
+                //console.log(result);
+            }
+        });
+    //console.log('print all likes');
+    //console.log(allLikes);
+    //console.log('print all likesIfo');
+    //console.log(likeInfo);
+}
+
+function sendLikeInfo() {
+    $.ajax(
+        '/backend/likeinfo',
+        {
+            type: 'POST',
+            data: JSON.stringify({
+                likeInfo: likeInfo 
+            }),                 
+            processData: 'true',
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function (result) {
+                // printing out likes predictions
+                //console.log(result);
             }
         });
 }
@@ -240,7 +264,7 @@ function sendAllPosts() {
             dataType: 'json',
             success: function(result) {
                 // printing out posts predictions
-                console.log(result);
+                //console.log(result);
             }   
         });
 }
@@ -254,7 +278,7 @@ function msPredictions() {
             contentType: 'application/json',
             dataType: 'json',
             success: function(result) {
-                console.log(result);
+                //console.log(result);
             }
         });
 }
@@ -274,6 +298,8 @@ function sendQuiz(quizzes) {
                 console.log(result);
             }
     });
+    console.log('client sendQuiz');
+    console.log(quizzes);
 }
         
 function quizPrediction() {
@@ -285,19 +311,19 @@ function quizPrediction() {
             contentType: 'application/json',
             dataType: 'json',
             success: function(result) {
-                console.log('print quiz prediction');
-                console.log(result);
+                //console.log('print quiz prediction');
+                //console.log(result);
             }
         });
 }
 
 function print() {
-    console.log('next button clicked');
+    //console.log('next button clicked');
 }
 
 function sendMail() {
     var email = $('#e-mail').val();
-    console.log('this email is' + email);
+    //console.log('this email is' + email);
     $.ajax(
         '/backend/mail',
             {
@@ -309,8 +335,8 @@ function sendMail() {
             dataType: 'json',
             type: 'POST',
             success: function(result) {
-                console.log('inside sendMail() on script.js');
-                console.log(result);
+                //console.log('inside sendMail() on script.js');
+                //console.log(result);
             }
         });
 }
