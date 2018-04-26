@@ -1,6 +1,7 @@
 README for folder "autism-blogs"
 
-   [![Topicalizer Summary](http://github.com/ericpsb/Research/raw/RachelTopicalizer/autism-blogs/readme_image.jpg)](https://vimeo.com/265639512)
+[![Topicalizer Summary Video](autism-blogs/readme_image.jpg)](https://vimeo.com/265639512)
+
 
 
 This folder contains code to scrape blogs, analyze
