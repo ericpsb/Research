@@ -1,0 +1,65 @@
+.box {
+    width: 10px;
+    height: 10px;
+}
+
+
+.f0 {
+    background:#2F21FF;
+}
+
+.f1 {
+    background:#FFFF00;
+}
+
+.f2 {
+    background:#FF1581;
+}
+
+.f3 {
+    background:#1E030F;
+}
+
+.f4 {
+    background:#F00000;
+}
+
+.f5 {
+    background:#00aeff;
+}
+
+.f6 {
+    background:#1eff1a;
+}
+
+.f7 {
+    background:#ff9999;
+}
+
+.f8 {
+    background:#0a8100;
+}
+
+.f9 {
+    background:#650905;
+}
+
+.f10 {
+    background:#656e85;
+}
+
+.f11 {
+    background:#ff43bb;
+}
+
+.f12 {
+    background:#00ffaa;
+}
+
+.f13 {
+    background:#857dff;
+}
+
+.f14 {
+    background:#433330;
+}

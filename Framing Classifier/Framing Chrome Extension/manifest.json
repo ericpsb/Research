@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+
+  "name": "Framing Checker for Chrome",
+  "description": "This extension provides the user with an analysis of framing in an article they're reading.",
+  "version": “1.0”,
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs",
+    "<all_urls>",
+    "http://127.0.0.1:5000"
+  ],
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["content_script.js"]
+  }]
+}
